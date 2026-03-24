@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-background: #121317;
+    --color-surface: #121317;
+    --color-surface-low: #1a1b1f;
+    --color-surface-high: #292a2e;
+    --color-surface-highest: #343539;
+    --color-primary: #ffffff;
+    --color-primary-container: #e2e2e2;
+    --color-on-primary: #121317;
+    --color-outline-variant: #444748;
+    --color-error: #ffb4ab;
+  }
+
+  body {
+    @apply bg-[var(--color-background)] text-[var(--color-primary)] font-body;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6, .font-display {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+}
+
+@layer components {
+  /* No-line rule implementations & depth layers */
+  .surface {
+    @apply bg-[var(--color-surface)];
+  }
+  .surface-low {
+    @apply bg-[var(--color-surface-low)];
+  }
+  .surface-high {
+    @apply bg-[var(--color-surface-high)];
+  }
+  .surface-highest {
+    @apply bg-[var(--color-surface-highest)];
+  }
+  
+  /* Buttons */
+  .btn-primary {
+    @apply bg-[var(--color-primary)] text-[var(--color-on-primary)] rounded-full px-6 py-3 font-semibold transition-all duration-300;
+  }
+  .btn-primary:hover {
+    @apply bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-primary-container)] scale-[1.02];
+  }
+  .btn-secondary {
+    @apply surface-high text-[var(--color-primary)] rounded-full px-6 py-3 font-semibold transition-all duration-300;
+  }
+  .btn-secondary:hover {
+    @apply scale-[1.02];
+  }
+  
+  /* Ghost border */
+  .ghost-border {
+    @apply border border-[var(--color-outline-variant)] border-opacity-10;
+  }
+  
+  /* Glassmorphism */
+  .glass {
+    @apply bg-[var(--color-surface-low)] bg-opacity-60 backdrop-blur-[20px];
+  }
+
+  /* Custom elevation with ambient shadows */
+  .ambient-shadow {
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.4);
+  }
+}
