@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>IP SERIES | NMEDIA INC.</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface": "#131313",
+              "secondary-fixed": "#e4e2e1",
+              "on-error": "#690005",
+              "on-surface": "#e5e2e1",
+              "outline-variant": "#564338",
+              "tertiary-fixed-dim": "#c6c6c7",
+              "surface-dim": "#131313",
+              "inverse-primary": "#9a4600",
+              "surface-variant": "#353534",
+              "primary-fixed-dim": "#ffb68d",
+              "tertiary": "#c6c6c7",
+              "outline": "#a58c7f",
+              "on-tertiary-fixed": "#1a1c1c",
+              "primary": "#ffb68d",
+              "on-surface-variant": "#ddc1b3",
+              "tertiary-container": "#a8a9a9",
+              "inverse-on-surface": "#313030",
+              "surface-container-lowest": "#0e0e0e",
+              "primary-fixed": "#ffdbc9",
+              "secondary-container": "#474747",
+              "tertiary-fixed": "#e2e2e2",
+              "surface-tint": "#ffb68d",
+              "on-background": "#e5e2e1",
+              "surface-container-highest": "#353534",
+              "secondary": "#c8c6c6",
+              "on-error-container": "#ffdad6",
+              "surface-bright": "#393939",
+              "on-primary-fixed-variant": "#763300",
+              "on-primary": "#532200",
+              "on-primary-container": "#682d00",
+              "on-secondary": "#303030",
+              "surface-container-low": "#1c1b1b",
+              "on-secondary-fixed": "#1b1c1c",
+              "on-secondary-container": "#b6b5b4",
+              "error": "#ffb4ab",
+              "surface-container-high": "#2a2a2a",
+              "surface-container": "#201f1f",
+              "on-tertiary-container": "#3c3e3e",
+              "secondary-fixed-dim": "#c8c6c6",
+              "on-secondary-fixed-variant": "#474747",
+              "inverse-surface": "#e5e2e1",
+              "on-tertiary": "#2f3131",
+              "primary-container": "#ff8a3d",
+              "on-primary-fixed": "#321200",
+              "error-container": "#93000a",
+              "on-tertiary-fixed-variant": "#454747",
+              "background": "#131313"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Inter"],
+              "label": ["Space Grotesk"]
+            },
+            borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-nav {
+            background: rgba(19, 19, 19, 0.7);
+            backdrop-filter: blur(20px);
+        }
+        .kinetic-gradient {
+            background: linear-gradient(135deg, #FFB68D 0%, #FF8A3D 100%);
+        }
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #131313; }
+        ::-webkit-scrollbar-thumb { background: #353534; }
+        .sharp-edge { border-radius: 0px !important; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary selection:text-on-primary">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#131313]/70 backdrop-blur-xl flex justify-between items-center px-8 py-6 max-w-full mx-auto">
+<div class="text-xl font-black tracking-tighter text-[#E5E2E1] font-headline">NMEDIA INC.</div>
+<div class="hidden md:flex items-center space-x-10">
+<a class="font-['Space_Grotesk'] tracking-tight uppercase text-sm font-bold text-[#E5E2E1]/60 hover:text-[#FFB68D] transition-colors duration-300" href="#">GALLERY</a>
+<a class="font-['Space_Grotesk'] tracking-tight uppercase text-sm font-bold text-[#E5E2E1]/60 hover:text-[#FFB68D] transition-colors duration-300" href="#">SERVICES</a>
+<a class="font-['Space_Grotesk'] tracking-tight uppercase text-sm font-bold text-[#FFB68D] border-b-2 border-[#FFB68D] pb-1" href="#">STUDIO</a>
+<a class="font-['Space_Grotesk'] tracking-tight uppercase text-sm font-bold text-[#E5E2E1]/60 hover:text-[#FFB68D] transition-colors duration-300" href="#">ABOUT</a>
+<a class="font-['Space_Grotesk'] tracking-tight uppercase text-sm font-bold text-[#E5E2E1]/60 hover:text-[#FFB68D] transition-colors duration-300" href="#">CONTACT</a>
+</div>
+<button class="bg-[#FFB68D] text-[#532200] px-6 py-2 font-['Space_Grotesk'] text-sm font-bold uppercase tracking-widest hover:scale-95 transition-transform duration-200 active:scale-90">
+            START PROJECT
+        </button>
+</nav>
+<main class="pt-32 pb-24">
+<!-- Hero Header -->
+<header class="px-8 mb-24 max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-8">
+<div class="space-y-4">
+<div class="flex items-center gap-4 text-primary font-label text-sm tracking-[0.3em]">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">terminal</span>
+                        [ SYSTEM_LOG_V3.0 | ACTIVE_IP_CORE ]
+                    </div>
+<h1 class="text-5xl md:text-8xl font-black font-headline leading-[0.9] tracking-tighter max-w-4xl">
+                        IP SERIES &amp; ORIGINAL CONTENT
+                    </h1>
+</div>
+<div class="text-on-surface-variant font-label text-xs tracking-widest border-l border-outline-variant/30 pl-6 pb-2 hidden lg:block">
+                    LATENCY: 12MS<br/>
+                    UPLINK: ACTIVE<br/>
+                    CORE: NM_ORIGINALS_V4
+                </div>
+</div>
+</header>
+<!-- Kinetic Marquee -->
+<section class="bg-surface-container-low py-4 overflow-hidden border-y border-outline-variant/10 mb-24">
+<div class="flex whitespace-nowrap animate-marquee gap-12 items-center">
+<span class="font-label text-[10px] tracking-[0.4em] text-primary">PROJECT STATUS: NOMINAL // CORE LOAD: 42% // NM_VERIFIED_IP // ORIGINALS UNIT //</span>
+<span class="font-label text-[10px] tracking-[0.4em] text-on-surface-variant/40">PROJECT STATUS: NOMINAL // CORE LOAD: 42% // NM_VERIFIED_IP // ORIGINALS UNIT //</span>
+<span class="font-label text-[10px] tracking-[0.4em] text-primary">PROJECT STATUS: NOMINAL // CORE LOAD: 42% // NM_VERIFIED_IP // ORIGINALS UNIT //</span>
+<span class="font-label text-[10px] tracking-[0.4em] text-on-surface-variant/40">PROJECT STATUS: NOMINAL // CORE LOAD: 42% // NM_VERIFIED_IP // ORIGINALS UNIT //</span>
+</div>
+</section>
+<!-- IP Showcase Grid -->
+<section class="px-8 max-w-7xl mx-auto mb-32">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1">
+<!-- IP Card 1: Safe Series -->
+<article class="group relative bg-surface-container overflow-hidden border border-outline-variant/10 aspect-[4/5] flex flex-col">
+<div class="p-6 border-b border-outline-variant/10 flex justify-between items-start">
+<div>
+<p class="font-label text-[10px] text-primary mb-1 tracking-widest uppercase">Entry ID: 0922-A</p>
+<h3 class="font-headline font-bold text-xl uppercase tracking-tight">Safe Series</h3>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">grid_view</span>
+</div>
+<div class="flex-grow overflow-hidden relative">
+<img alt="Safe Series Concept" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100 opacity-80" data-alt="cinematic wide shot of a futuristic neon city street in heavy rain with dramatic teal and orange lighting atmosphere" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgwvbOJ_WbL4e2VWeHynJWW-09ds62TmEaOIcl8qedrquhZ5cZ7H1dbXBCLoRZvF2ef9vti3oBCa3u69xqHxhRHWj_XD6quhlMMmygW2z_f0AdGlXOw_JSk1lBi80HFkwzMcypZv3fXRwXJXjgzj8gH0QNrNbIKMcl_AE3ULVOBGlq3AU6pvPqBP1EdnVDYWl6JhnUK0OeXlJQm-9nfn6FGrKhiG_ls2Ie_qa24a6N4rD_aDo0q7PruXKRxtSmM29B67VD7iwo6z4"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest to-transparent opacity-60"></div>
+<!-- Overlay Metadata -->
+<div class="absolute bottom-6 left-6 right-6 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+<div class="grid grid-cols-2 gap-2">
+<div class="bg-surface-container-lowest/80 backdrop-blur-md p-3">
+<p class="text-[9px] font-label text-on-surface-variant/60 uppercase">Codec</p>
+<p class="text-[11px] font-label text-on-surface">H.265 RAW</p>
+</div>
+<div class="bg-surface-container-lowest/80 backdrop-blur-md p-3">
+<p class="text-[9px] font-label text-on-surface-variant/60 uppercase">Bitrate</p>
+<p class="text-[11px] font-label text-on-surface">8.5GB/S</p>
+</div>
+</div>
+</div>
+</div>
+<div class="p-6 bg-surface-container-high">
+<div class="flex items-center justify-between mb-4">
+<span class="px-2 py-0.5 border border-primary/40 text-primary text-[9px] font-label tracking-widest uppercase">Status: Production</span>
+<span class="text-on-surface-variant/40 text-[9px] font-label">VOL. 01</span>
+</div>
+<p class="text-sm text-on-surface-variant line-clamp-2 font-light leading-relaxed mb-6">Exploring the architectural isolation of urban safe-havens through high-fidelity visual documentation.</p>
+<button class="w-full kinetic-gradient py-3 text-on-primary font-label font-bold text-xs tracking-widest uppercase hover:opacity-90 transition-opacity">ACCESS_DATA</button>
+</div>
+</article>
+<!-- IP Card 2: Kinetic Lab -->
+<article class="group relative bg-surface-container overflow-hidden border border-outline-variant/10 aspect-[4/5] flex flex-col md:translate-y-12">
+<div class="p-6 border-b border-outline-variant/10 flex justify-between items-start">
+<div>
+<p class="font-label text-[10px] text-primary mb-1 tracking-widest uppercase">Entry ID: 1104-B</p>
+<h3 class="font-headline font-bold text-xl uppercase tracking-tight">Kinetic Lab</h3>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">motion_sensor_active</span>
+</div>
+<div class="flex-grow overflow-hidden relative">
+<img alt="Kinetic Lab Concept" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100 opacity-80" data-alt="abstract close up of electronic circuit boards with glowing orange fiber optic lines and technical textures dark industrial mood" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzp6qo_1-tB09UGn137WDygsnou5dK33nWFDaHD4hEHVwsmWeYeIjxxLLcKvoWK5ruTa06nCAAqDU2jPnfyXCoBLB6I2MESR00npKLjwi_8U7zlj_OY_uDC974UpwplnNb873tH2KZlNa7NN_zdFypZUw49oWkOdz1T4DN_ugYE9mLhQMl9UKD7xN8Fn-VU9FQYcf3aNbv422RP6h55aoch9p_hGsdsv57aV_VbAksJ8W89d1riDjVGhhp4jeBeCAAwoaJ6O_BRpk"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest to-transparent opacity-60"></div>
+<div class="absolute bottom-6 left-6 right-6 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+<div class="grid grid-cols-2 gap-2">
+<div class="bg-surface-container-lowest/80 backdrop-blur-md p-3">
+<p class="text-[9px] font-label text-on-surface-variant/60 uppercase">Refresh</p>
+<p class="text-[11px] font-label text-on-surface">120FPS NATIVE</p>
+</div>
+<div class="bg-surface-container-lowest/80 backdrop-blur-md p-3">
+<p class="text-[9px] font-label text-on-surface-variant/60 uppercase">Sensor</p>
+<p class="text-[11px] font-label text-on-surface">V-RAPTOR XL</p>
+</div>
+</div>
+</div>
+</div>
+<div class="p-6 bg-surface-container-high">
+<div class="flex items-center justify-between mb-4">
+<span class="px-2 py-0.5 border border-primary/40 text-primary text-[9px] font-label tracking-widest uppercase">Status: Post-Process</span>
+<span class="text-on-surface-variant/40 text-[9px] font-label">EXP. 44</span>
+</div>
+<p class="text-sm text-on-surface-variant line-clamp-2 font-light leading-relaxed mb-6">A study in high-speed fluid dynamics and digital choreography, rendered in hyper-real detail.</p>
+<button class="w-full bg-surface-container border border-outline/20 text-on-surface font-label font-bold text-xs tracking-widest uppercase hover:bg-surface-bright transition-colors py-3">VIEW_LOGS</button>
+</div>
+</article>
+<!-- IP Card 3: Neural Net -->
+<article class="group relative bg-surface-container overflow-hidden border border-outline-variant/10 aspect-[4/5] flex flex-col">
+<div class="p-6 border-b border-outline-variant/10 flex justify-between items-start">
+<div>
+<p class="font-label text-[10px] text-primary mb-1 tracking-widest uppercase">Entry ID: 0588-X</p>
+<h3 class="font-headline font-bold text-xl uppercase tracking-tight">Neural Net</h3>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">neurology</span>
+</div>
+<div class="flex-grow overflow-hidden relative">
+<img alt="Neural Net Concept" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100 opacity-80" data-alt="abstract generative art featuring complex geometric structures and flowing digital particles in amber and charcoal tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjxUSTxVIuqB4W2acudiVkKCuRXGhsXLs6QheMDVx1pbdYQGA8yzMnnnFLUkzKjiVYGsEcSqrnT06oyZRLKwm0NpBauvUB5WcKF5bTZw54YXi9_mjiOuoX-T7EbGLPudZ4WbOf611SLw8IxkoRTAIfdWDWnjfJENDeay9vtPkla_DHCtB0OMrf2JBgoSeGdg5s_yFhs5zWoKL6AwYwpAvpuFWZ_O-YeNuXcaAwPv9l5q_J3_lFjWn9xUAs-qxMd77XhSq3Lza8JKk"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest to-transparent opacity-60"></div>
+<div class="absolute bottom-6 left-6 right-6 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+<div class="grid grid-cols-2 gap-2">
+<div class="bg-surface-container-lowest/80 backdrop-blur-md p-3">
+<p class="text-[9px] font-label text-on-surface-variant/60 uppercase">Engine</p>
+<p class="text-[11px] font-label text-on-surface">UNREAL 5.4</p>
+</div>
+<div class="bg-surface-container-lowest/80 backdrop-blur-md p-3">
+<p class="text-[9px] font-label text-on-surface-variant/60 uppercase">Volume</p>
+<p class="text-[11px] font-label text-on-surface">LED WALL S3</p>
+</div>
+</div>
+</div>
+</div>
+<div class="p-6 bg-surface-container-high">
+<div class="flex items-center justify-between mb-4">
+<span class="px-2 py-0.5 border border-primary/40 text-primary text-[9px] font-label tracking-widest uppercase">Status: Concept</span>
+<span class="text-on-surface-variant/40 text-[9px] font-label">GEN. 0.3</span>
+</div>
+<p class="text-sm text-on-surface-variant line-clamp-2 font-light leading-relaxed mb-6">Interfacing human cognition with digital environments through real-time generative landscapes.</p>
+<button class="w-full bg-surface-container border border-outline/20 text-on-surface font-label font-bold text-xs tracking-widest uppercase hover:bg-surface-bright transition-colors py-3">DECRYPT_CORE</button>
+</div>
+</article>
+</div>
+</section>
+<!-- Technical Specs / Production Standards -->
+<section class="bg-surface-container-lowest py-32 border-y border-outline-variant/10">
+<div class="max-w-7xl mx-auto px-8">
+<div class="grid lg:grid-cols-12 gap-16 items-center">
+<div class="lg:col-span-5 space-y-12">
+<div class="space-y-4">
+<h2 class="font-headline text-4xl font-bold uppercase tracking-tighter">Engineering Precision</h2>
+<p class="text-on-surface-variant font-light leading-relaxed max-w-md">Our original IP is built on a foundation of technical excellence. From capture to delivery, every frame is processed through the NM CORE proprietary pipeline.</p>
+</div>
+<div class="grid grid-cols-1 gap-8">
+<div class="flex gap-6 items-start">
+<span class="material-symbols-outlined text-primary text-3xl">verified</span>
+<div>
+<h4 class="font-headline font-bold text-sm uppercase tracking-widest mb-2">NM VERIFIED™</h4>
+<p class="text-xs text-on-surface-variant/70 leading-relaxed font-body">Rigorous quality control protocol ensuring color accuracy and technical consistency across all delivery platforms.</p>
+</div>
+</div>
+<div class="flex gap-6 items-start">
+<span class="material-symbols-outlined text-primary text-3xl">memory</span>
+<div>
+<h4 class="font-headline font-bold text-sm uppercase tracking-widest mb-2">HYPER-COMPUTE CORE</h4>
+<p class="text-xs text-on-surface-variant/70 leading-relaxed font-body">Proprietary rendering farm leveraging advanced AI upscaling and noise reduction for flawless 8K outputs.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-7">
+<div class="bg-surface-container p-8 border border-outline-variant/20 relative overflow-hidden group">
+<!-- Technical Grid Background -->
+<div class="absolute inset-0 opacity-10 pointer-events-none" style="background-size: 40px 40px; background-image: linear-gradient(to right, #564338 1px, transparent 1px), linear-gradient(to bottom, #564338 1px, transparent 1px);"></div>
+<div class="relative z-10 flex flex-col md:flex-row gap-12">
+<div class="flex-grow space-y-8">
+<div class="flex items-center justify-between border-b border-outline-variant/20 pb-4">
+<span class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant/50">PROTOCOL_TYPE</span>
+<span class="font-label text-[10px] uppercase tracking-widest text-primary">MASTER_STANDARDS_V2</span>
+</div>
+<div class="space-y-6">
+<div class="flex justify-between items-end">
+<span class="font-headline text-2xl font-black">CAPTURE_RES</span>
+<span class="font-label text-primary font-bold text-lg">[ 8.5K ]</span>
+</div>
+<div class="flex justify-between items-end">
+<span class="font-headline text-2xl font-black">DYNAMIC_RANGE</span>
+<span class="font-label text-primary font-bold text-lg">[ 17+ STOPS ]</span>
+</div>
+<div class="flex justify-between items-end">
+<span class="font-headline text-2xl font-black">COLOR_SPACE</span>
+<span class="font-label text-primary font-bold text-lg">[ REC.2020 ]</span>
+</div>
+<div class="flex justify-between items-end">
+<span class="font-headline text-2xl font-black">BIT_DEPTH</span>
+<span class="font-label text-primary font-bold text-lg">[ 16-BIT ]</span>
+</div>
+</div>
+</div>
+<div class="w-full md:w-32 flex flex-col items-center justify-center gap-4 bg-surface-container-high border border-outline-variant/30 p-4">
+<div class="w-16 h-16 rounded-full border-4 border-primary/20 flex items-center justify-center">
+<div class="w-8 h-8 rounded-full bg-primary animate-pulse"></div>
+</div>
+<span class="font-label text-[8px] text-center uppercase tracking-tighter text-on-surface-variant leading-none">REALTIME_SYNC_ENABLED<br/>100%_INTEGRITY</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-32 px-8 max-w-7xl mx-auto text-center">
+<div class="bg-surface-container p-16 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl"></div>
+<div class="relative z-10 space-y-8">
+<h2 class="font-headline text-4xl md:text-6xl font-bold uppercase tracking-tighter max-w-3xl mx-auto">
+                        Ready to incubate the next digital frontier?
+                    </h2>
+<p class="text-on-surface-variant font-light max-w-xl mx-auto text-lg leading-relaxed">
+                        Join our laboratory of creators and engineers to develop high-concept IP that pushes the boundaries of cinematic storytelling.
+                    </p>
+<div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+<button class="kinetic-gradient px-12 py-4 font-label font-bold text-sm tracking-widest uppercase text-on-primary hover:scale-105 transition-transform duration-300">
+                            START_COLLABORATION
+                        </button>
+<button class="bg-transparent border border-outline px-12 py-4 font-label font-bold text-sm tracking-widest uppercase text-primary hover:bg-primary/5 transition-colors">
+                            DOWNLOAD_DECK
+                        </button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#0E0E0E] w-full py-12 px-8 border-t border-[#FFB68D]/15">
+<div class="flex flex-col md:flex-row justify-between items-center w-full space-y-4 md:space-y-0">
+<div class="flex flex-col items-center md:items-start space-y-1">
+<div class="text-lg font-bold text-[#E5E2E1] font-headline uppercase tracking-tighter">nmedia inc.</div>
+<div class="font-['Space_Grotesk'] text-[10px] tracking-[0.2em] uppercase text-[#E5E2E1]/40">nmediaservices.com</div>
+</div>
+<div class="flex space-x-12">
+<a class="font-['Space_Grotesk'] text-[10px] tracking-[0.2em] uppercase text-[#E5E2E1]/40 hover:text-[#FFB68D] transition-all" href="#">INSTAGRAM</a>
+<a class="font-['Space_Grotesk'] text-[10px] tracking-[0.2em] uppercase text-[#E5E2E1]/40 hover:text-[#FFB68D] transition-all" href="#">VIMEO</a>
+<a class="font-['Space_Grotesk'] text-[10px] tracking-[0.2em] uppercase text-[#E5E2E1]/40 hover:text-[#FFB68D] transition-all" href="#">LINKEDIN</a>
+</div>
+<div class="font-['Space_Grotesk'] text-[10px] tracking-[0.2em] uppercase text-[#E5E2E1]/40">
+                © 2024 NMEDIA INC. // SYSTEM STATUS: NOMINAL
+            </div>
+</div>
+</footer>
+</body></html>

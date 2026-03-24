@@ -1,88 +1,72 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
 
 @import "tailwindcss";
 
 @theme {
-  --color-background: #121317;
-  --color-surface: #121317;
-  --color-surface-low: #1a1b1f;
-  --color-surface-high: #292a2e;
-  --color-surface-highest: #343539;
-  --color-primary: #ffffff;
-  --color-primary-container: #e2e2e2;
-  --color-on-primary: #121317;
-  --color-outline-variant: #444748;
+  --color-tertiary: #c6c6c7;
+  --color-on-surface-variant: #ddc1b3;
+  --color-primary-container: #ff6a00;
+  --color-on-secondary: #303030;
+  --color-surface-tint: #ff8a3d;
   --color-error: #ffb4ab;
-  
-  --font-body: 'Inter', sans-serif;
-  --font-display: 'Space Grotesk', sans-serif;
+  --color-outline: #a58c7f;
+  --color-secondary-container: #474747;
+  --color-secondary: #c8c6c6;
+  --color-outline-variant: #564338;
+  --color-error-container: #93000a;
+  --color-tertiary-container: #a8a9a9;
+  --color-on-surface: #ffffff;
+  --color-inverse-on-surface: #313030;
+  --color-on-tertiary-fixed-variant: #454747;
+  --color-on-error-container: #ffdad6;
+  --color-background: #0a0a0a;
+  --color-surface: #0a0a0a;
+  --color-on-secondary-fixed: #1b1c1c;
+  --color-on-primary-container: #ffffff;
+  --color-inverse-primary: #ff6a00;
+  --color-primary: #ff6a00;
+  --color-on-secondary-container: #b6b5b4;
+  --color-primary-fixed-dim: #ff8a3d;
+  --color-on-primary-fixed-variant: #763300;
+  --color-surface-container-low: #141414;
+  --color-on-background: #ffffff;
+  --color-tertiary-fixed: #e2e2e2;
+  --color-on-primary-fixed: #321200;
+  --color-on-tertiary-fixed: #1a1c1c;
+  --color-tertiary-fixed-dim: #c6c6c7;
+  --color-surface-dim: #0a0a0a;
+  --color-secondary-fixed: #e4e2e1;
+  --color-surface-variant: #2a2a2a;
+  --color-primary-fixed: #ffdbc9;
+  --color-on-secondary-fixed-variant: #474747;
+  --color-surface-bright: #333333;
+  --color-secondary-fixed-dim: #c8c6c6;
+  --color-on-error: #690005;
+  --color-on-tertiary-container: #3c3e3e;
+  --color-on-tertiary: #2f3131;
+  --color-surface-container-high: #1f1f1f;
+  --color-surface-container-highest: #2a2a2a;
+  --color-surface-container: #111111;
+  --color-inverse-surface: #ffffff;
+  --color-surface-container-lowest: #050505;
+  --color-on-primary: #ffffff;
+
+  --font-headline: "Space Grotesk", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-label: "Space Grotesk", sans-serif;
 }
 
 @layer base {
   body {
     background-color: var(--color-background);
-    color: var(--color-primary);
+    color: var(--color-on-surface);
     font-family: var(--font-body);
-  }
-
-  h1, h2, h3, h4, h5, h6, .font-display {
-    font-family: var(--font-display);
   }
 }
 
 @layer components {
-  /* No-line rule implementations & depth layers */
-  .surface {
-    background-color: var(--color-surface);
-  }
-  .surface-low {
-    background-color: var(--color-surface-low);
-  }
-  .surface-high {
-    background-color: var(--color-surface-high);
-  }
-  .surface-highest {
-    background-color: var(--color-surface-highest);
-  }
-  
-  /* Buttons */
-  .btn-primary {
-    background-color: var(--color-primary);
-    color: var(--color-on-primary);
-    border-radius: 9999px;
-    padding: 0.75rem 1.5rem;
-    font-weight: 600;
-    transition: all 300ms cubic-bezier(0.16, 1, 0.3, 1);
-  }
-  .btn-primary:hover {
-    background-image: linear-gradient(to right, var(--color-primary), var(--color-primary-container));
-    transform: scale(1.02);
-  }
-  .btn-secondary {
-    background-color: var(--color-surface-high);
-    color: var(--color-primary);
-    border-radius: 9999px;
-    padding: 0.75rem 1.5rem;
-    font-weight: 600;
-    transition: all 300ms cubic-bezier(0.16, 1, 0.3, 1);
-  }
-  .btn-secondary:hover {
-    transform: scale(1.02);
-  }
-  
-  /* Ghost border */
-  .ghost-border {
-    border: 1px solid color-mix(in srgb, var(--color-outline-variant) 10%, transparent);
-  }
-  
-  /* Glassmorphism */
-  .glass {
-    background-color: color-mix(in srgb, var(--color-surface-low) 60%, transparent);
-    backdrop-filter: blur(20px);
-  }
-
-  /* Custom elevation with ambient shadows */
-  .ambient-shadow {
-    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.4);
+  .editorial-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
   }
 }
