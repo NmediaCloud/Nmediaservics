@@ -151,8 +151,8 @@ export default function HomeDesktop() {
                 rel="noopener noreferrer"
                 className="block bg-surface-container p-8 group hover:bg-surface-bright transition-all duration-300 border border-white/5 hover:border-primary/30"
               >
-                <span className="material-symbols-outlined text-primary mb-6 scale-110" style={{ fontVariationSettings: "'FILL' 1" }}>
-                  animation
+                <span className="font-label tracking-widest text-primary mb-6 block text-sm uppercase font-bold">
+                  MOTION-GRAFIX-REEL
                 </span>
                 <h4 className="font-headline text-xl font-bold mb-2 text-white">
                   Motion-graphics Vfx Reels
