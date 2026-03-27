@@ -185,8 +185,8 @@ export default function HomeDesktop() {
                 rel="noopener noreferrer"
                 className="block bg-surface-container p-8 group hover:bg-surface-bright transition-all duration-300 border border-white/5 hover:border-primary/30"
               >
-                <span className="material-symbols-outlined text-primary mb-6 scale-110" style={{ fontVariationSettings: "'FILL' 1" }}>
-                  settings_input_component
+                <span className="font-label tracking-widest text-primary mb-6 block text-sm uppercase font-bold">
+                  Imdb credit listing
                 </span>
                 <h4 className="font-headline text-xl font-bold mb-2 text-white">
                   Animation and Visual FX
@@ -219,9 +219,9 @@ export default function HomeDesktop() {
                 rel="noopener noreferrer"
                 className="block bg-surface-container p-8 group hover:bg-surface-bright transition-all duration-300 border border-white/5 hover:border-primary/30"
               >
-                <span className="material-symbols-outlined text-primary mb-6 scale-110" style={{ fontVariationSettings: "'FILL' 1" }}>
-                  hub
-                </span>
+                <div className="w-10 h-10 bg-[#FF8000] rounded-xl flex items-center justify-center mb-6">
+                  <span className="text-white font-['Inter'] font-black text-xl tracking-tighter">SF</span>
+                </div>
                 <h4 className="font-headline text-xl font-bold mb-2 text-white">
                   Stockflow.Media
                 </h4>
