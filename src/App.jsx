@@ -6,7 +6,7 @@ import Commercials from "./pages/Commercials";
 
 export default function App() {
   return (
-    <Router basename="/Nmediaservics">
+    <Router>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/ip-series" element={<IPSeries />} />
