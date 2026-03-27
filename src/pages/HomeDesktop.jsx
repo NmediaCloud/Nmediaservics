@@ -51,11 +51,16 @@ export default function HomeDesktop() {
         {/* Recent Project Video Embed */}
         <section className="max-w-[1440px] mx-auto px-8 mb-24">
           <div className="mb-12">
-            <div className="inline-block border border-primary px-8 py-4 mb-8">
+            <a 
+              href="https://stockflow.media" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-block border border-primary px-8 py-4 mb-8 hover:bg-primary/10 transition-colors"
+            >
               <h2 className="font-['Space_Grotesk'] text-primary text-sm tracking-[0.3em] uppercase font-bold">
                 Recent : Project : Digital Asset Curation
               </h2>
-            </div>
+            </a>
             <div className="relative w-full aspect-video bg-surface-container-highest border border-white/5 overflow-hidden shadow-2xl group cursor-pointer">
               <div className="absolute inset-0 z-10 bg-black/40 flex items-center justify-center transition-all hover:bg-black/20 pointer-events-none">
                 <span className="material-symbols-outlined text-white text-8xl opacity-80 group-hover:scale-110 transition-transform">

@@ -74,14 +74,19 @@ export default function HomeMobile() {
 
         {/* Section 2: Recent Project */}
         <section className="bg-surface-container-low py-24 px-6">
-          <div className="mb-12">
+          <a 
+            href="https://stockflow.media"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block mb-12 hover:opacity-80 transition-opacity"
+          >
             <span className="font-label text-xs text-primary tracking-[0.2em] block mb-4">
               [ 01 ]
             </span>
             <h2 className="font-headline text-xl font-bold tracking-tight text-on-surface uppercase leading-snug">
               RECENT : PROJECT : DIGITAL ASSET CURATION
             </h2>
-          </div>
+          </a>
           <div className="relative aspect-video bg-surface-container-highest group">
             <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
               <button className="w-16 h-16 bg-primary/90 text-on-primary flex items-center justify-center active:scale-95 transition-transform pointer-events-auto">
