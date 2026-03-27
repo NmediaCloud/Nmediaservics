@@ -17,7 +17,7 @@ export default function HomeDesktop() {
         </div>
         <div className="hidden md:flex gap-12 items-center">
           <a
-            className="font-['Space_Grotesk'] tracking-tighter uppercase text-sm text-white/70 hover:text-primary transition-colors duration-300"
+            className="font-['Space_Grotesk'] tracking-tighter text-sm text-white/70 hover:text-primary transition-colors duration-300"
             href="mailto:Nanda@nmediaservices.com"
           >
             Nanda@nmediaservices.com
@@ -88,7 +88,12 @@ export default function HomeDesktop() {
               </p>
             </div>
             <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="bg-surface-container p-8 group hover:bg-surface-bright transition-all duration-300 border border-white/5 hover:border-primary/30">
+              <a 
+                href="https://nmediaservices.wixsite.com/nmedia/ad-commercials-nmedia"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block bg-surface-container p-8 group hover:bg-surface-bright transition-all duration-300 border border-white/5 hover:border-primary/30"
+              >
                 <span className="material-symbols-outlined text-primary mb-6 scale-110" style={{ fontVariationSettings: "'FILL' 1" }}>
                   movie_filter
                 </span>
@@ -100,8 +105,13 @@ export default function HomeDesktop() {
                   ads and trailers designed to engage, convert, and leave a
                   lasting impression.
                 </p>
-              </div>
-              <div className="bg-surface-container p-8 group hover:bg-surface-bright transition-all duration-300 border border-white/5 hover:border-primary/30">
+              </a>
+              <a 
+                href="https://nmediaservices.wixsite.com/nmedia"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block bg-surface-container p-8 group hover:bg-surface-bright transition-all duration-300 border border-white/5 hover:border-primary/30"
+              >
                 <span className="material-symbols-outlined text-primary mb-6 scale-110" style={{ fontVariationSettings: "'FILL' 1" }}>
                   auto_stories
                 </span>
@@ -112,8 +122,13 @@ export default function HomeDesktop() {
                   Original animated series development from concept to screen
                   bringing unique stories, characters, and worlds to life.
                 </p>
-              </div>
-              <div className="bg-surface-container p-8 group hover:bg-surface-bright transition-all duration-300 border border-white/5 hover:border-primary/30">
+              </a>
+              <a 
+                href="https://mnkmars.wixsite.com/demo"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block bg-surface-container p-8 group hover:bg-surface-bright transition-all duration-300 border border-white/5 hover:border-primary/30"
+              >
                 <span className="material-symbols-outlined text-primary mb-6 scale-110" style={{ fontVariationSettings: "'FILL' 1" }}>
                   3d_rotation
                 </span>
@@ -124,7 +139,7 @@ export default function HomeDesktop() {
                   Industrial-grade character and environment execution across
                   cinematic pipelines.
                 </p>
-              </div>
+              </a>
               <div className="bg-surface-container p-8 group hover:bg-surface-bright transition-all duration-300 border border-white/5 hover:border-primary/30">
                 <span className="material-symbols-outlined text-primary mb-6 scale-110" style={{ fontVariationSettings: "'FILL' 1" }}>
                   accessibility_new
@@ -137,7 +152,12 @@ export default function HomeDesktop() {
                   workflows.
                 </p>
               </div>
-              <div className="bg-surface-container p-8 group hover:bg-surface-bright transition-all duration-300 border border-white/5 hover:border-primary/30">
+              <a 
+                href="https://www.einpresswire.com/article/592919633/utherverse-hires-3d-animation-veteran-nandakumar-mohan-to-develop-full-motion-hd-animation-for-metaverse-platform"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block bg-surface-container p-8 group hover:bg-surface-bright transition-all duration-300 border border-white/5 hover:border-primary/30"
+              >
                 <span className="material-symbols-outlined text-primary mb-6 scale-110" style={{ fontVariationSettings: "'FILL' 1" }}>
                   videogame_asset
                 </span>
@@ -149,8 +169,13 @@ export default function HomeDesktop() {
                   real-time cinematic content. Motion Capture editing and Facial
                   capture implementation.
                 </p>
-              </div>
-              <div className="bg-surface-container p-8 group hover:bg-surface-bright transition-all duration-300 border border-white/5 hover:border-primary/30">
+              </a>
+              <a 
+                href="https://www.imdb.com/name/nm12576040/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block bg-surface-container p-8 group hover:bg-surface-bright transition-all duration-300 border border-white/5 hover:border-primary/30"
+              >
                 <span className="material-symbols-outlined text-primary mb-6 scale-110" style={{ fontVariationSettings: "'FILL' 1" }}>
                   settings_input_component
                 </span>
@@ -161,8 +186,13 @@ export default function HomeDesktop() {
                   Nandakumar Mohan - IMDb. Visual Effects: PAW Patrol. Known for
                   high-quality production across global animated series.
                 </p>
-              </div>
-              <div className="bg-surface-container p-8 group hover:bg-surface-bright transition-all duration-300 border border-white/5 hover:border-primary/30">
+              </a>
+              <a 
+                href="https://www.linkedin.com/in/mnkmars/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block bg-surface-container p-8 group hover:bg-surface-bright transition-all duration-300 border border-white/5 hover:border-primary/30"
+              >
                 <span className="material-symbols-outlined text-primary mb-6 scale-110" style={{ fontVariationSettings: "'FILL' 1" }}>
                   extension
                 </span>
@@ -173,8 +203,13 @@ export default function HomeDesktop() {
                   Full-Stack Media Tech | Content Pipeline Scripting |
                   E-commerce | Animation Distribution | Marketing Automation.
                 </p>
-              </div>
-              <div className="bg-surface-container p-8 group hover:bg-surface-bright transition-all duration-300 border border-white/5 hover:border-primary/30">
+              </a>
+              <a 
+                href="https://stockflow.media/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block bg-surface-container p-8 group hover:bg-surface-bright transition-all duration-300 border border-white/5 hover:border-primary/30"
+              >
                 <span className="material-symbols-outlined text-primary mb-6 scale-110" style={{ fontVariationSettings: "'FILL' 1" }}>
                   hub
                 </span>
@@ -186,7 +221,7 @@ export default function HomeDesktop() {
                   and automated pipelines for creators, marketers, and production
                   teams.
                 </p>
-              </div>
+              </a>
             </div>
           </div>
         </section>
@@ -257,10 +292,12 @@ export default function HomeDesktop() {
                   </p>
                 </div>
               </div>
-              <div className="h-14 w-14 border-2 border-primary flex items-center justify-center bg-primary/5 shrink-0 mt-2">
-                <span className="material-symbols-outlined text-primary scale-125">
-                  auto_awesome
-                </span>
+              <div className="h-14 w-14 border-2 border-primary flex items-center justify-center bg-primary/5 shrink-0 mt-2 p-2">
+                <img
+                  alt="Nmedia Services Logo"
+                  src="https://stockflow.media/assets/Nmedia_logo.png"
+                  className="w-full h-full object-contain"
+                />
               </div>
             </div>
           </div>
