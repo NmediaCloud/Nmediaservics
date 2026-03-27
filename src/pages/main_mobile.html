@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NMEDIA | Technical Curator</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "outline": "#a58c7f",
+              "surface-container-high": "#2a2a2a",
+              "surface-container": "#201f1f",
+              "secondary-container": "#474747",
+              "on-error": "#690005",
+              "background": "#131313",
+              "surface": "#131313",
+              "surface-dim": "#131313",
+              "error": "#ffb4ab",
+              "surface-tint": "#ffb68d",
+              "surface-container-low": "#1c1b1b",
+              "on-primary-container": "#682d00",
+              "outline-variant": "#564338",
+              "secondary-fixed-dim": "#c8c6c6",
+              "on-tertiary-fixed": "#1a1c1c",
+              "primary-container": "#ff8a3d",
+              "on-background": "#e5e2e1",
+              "error-container": "#93000a",
+              "on-secondary": "#303030",
+              "primary-fixed-dim": "#ffb68d",
+              "secondary-fixed": "#e4e2e1",
+              "surface-container-highest": "#353534",
+              "primary": "#ffb68d",
+              "inverse-surface": "#e5e2e1",
+              "tertiary-fixed": "#e2e2e2",
+              "tertiary-fixed-dim": "#c6c6c7",
+              "on-tertiary": "#2f3131",
+              "on-tertiary-container": "#3c3e3e",
+              "inverse-primary": "#9a4600",
+              "surface-variant": "#353534",
+              "on-tertiary-fixed-variant": "#454747",
+              "on-surface-variant": "#ddc1b3",
+              "tertiary-container": "#a8a9a9",
+              "tertiary": "#c6c6c7",
+              "secondary": "#c8c6c6",
+              "on-primary-fixed-variant": "#763300",
+              "primary-fixed": "#ffdbc9",
+              "surface-bright": "#393939",
+              "on-secondary-fixed": "#1b1c1c",
+              "inverse-on-surface": "#313030",
+              "on-surface": "#e5e2e1",
+              "on-primary": "#532200",
+              "on-primary-fixed": "#321200",
+              "surface-container-lowest": "#0e0e0e",
+              "on-secondary-container": "#b6b5b4",
+              "on-error-container": "#ffdad6",
+              "on-secondary-fixed-variant": "#474747"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Inter"],
+              "label": ["Space Grotesk"]
+            },
+            borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        body {
+            background-color: #131313;
+            color: #e5e2e1;
+            font-family: 'Inter', sans-serif;
+        }
+        .text-kinetic-gradient {
+            background: linear-gradient(135deg, #FFB68D 0%, #FF8A3D 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="selection:bg-primary selection:text-on-primary">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#131313]/70 backdrop-blur-md flex justify-between items-center px-6 h-16 w-full">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#FFB68D]" data-icon="terminal">terminal</span>
+<span class="font-['Space_Grotesk'] tracking-tighter uppercase text-xl font-bold tracking-tighter text-[#E5E2E1]">NMEDIA</span>
+</div>
+<button class="text-[#E5E2E1] active:scale-95 transition-transform">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</header>
+<main class="pt-16">
+<!-- Section 1: Hero -->
+<section class="relative min-h-[707px] flex flex-col justify-center px-6 py-20 overflow-hidden">
+<div class="absolute inset-0 z-0 opacity-20 pointer-events-none">
+<div class="w-full h-full bg-[radial-gradient(circle_at_50%_50%,#564338_0%,transparent_70%)]"></div>
+</div>
+<div class="relative z-10">
+<div class="inline-flex items-center gap-2 mb-6">
+<div class="w-2 h-2 bg-primary"></div>
+<span class="font-label text-xs tracking-[0.3em] text-outline uppercase">Established 2024</span>
+</div>
+<h1 class="font-headline text-5xl font-bold tracking-tighter leading-[0.9] mb-8">
+                    Creative + Technical <span class="text-kinetic-gradient">Direction Development</span>
+</h1>
+<p class="font-body text-on-surface-variant max-w-sm mb-12 text-lg leading-relaxed">
+                    Precision-engineered digital experiences for modern brands and technical infrastructures.
+                </p>
+<div class="flex flex-col gap-4">
+<button class="bg-primary text-on-primary px-8 py-4 font-label font-bold text-sm tracking-widest uppercase active:scale-[0.98] transition-all">
+                        EXPLORE SYSTEMS
+                    </button>
+</div>
+</div>
+<!-- Kinetic Marquee -->
+<div class="absolute bottom-0 left-0 w-full py-4 border-t border-outline-variant/15 overflow-hidden whitespace-nowrap bg-surface-container-lowest">
+<div class="inline-block animate-marquee font-label text-[10px] tracking-[0.2em] text-primary/60 px-4">
+                    LIVE UPDATES // SYSTEM STATUS: NOMINAL // CORE LOADED // ARCHITECTING FUTURE // 01010101 //
+                </div>
+<div class="inline-block animate-marquee font-label text-[10px] tracking-[0.2em] text-primary/60 px-4">
+                    LIVE UPDATES // SYSTEM STATUS: NOMINAL // CORE LOADED // ARCHITECTING FUTURE // 01010101 //
+                </div>
+</div>
+</section>
+<!-- Section 2: Recent Project -->
+<section class="bg-surface-container-low py-24 px-6">
+<div class="mb-12">
+<span class="font-label text-xs text-primary tracking-[0.2em] block mb-4">[ 01 ]</span>
+<h2 class="font-headline text-xl font-bold tracking-tight text-on-surface uppercase">
+                    RECENT : PROJECT : DIGITAL ASSET CURATION
+                </h2>
+</div>
+<div class="relative aspect-video bg-surface-container-highest group">
+<img class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity" data-alt="cinematic shot of abstract digital data flowing through a dark void with orange light streaks and technical overlays" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDD1wOhgTv3R49voUpvKZ78pxn2db6HirQkP2-JIxSWlNSN0tLBknF0OkUOeQkfJ7KVLBqajH3kKIJJugC9BGWFvWaDJKIQkXueUUp_xEPW3QY4g46RA0iwWISHT4Wq0gK87IsPS3sWAVEtGSe0AfUK5NYgPQpkv47agWznmo5m1VwE6ShHzQAVeV6hNfndArP7dRN_ZwDia2DBqXx08-EISqEbLaHuzHU58JRoqCKjGG2kI-Re0GQ3pSB9rhC4vPrCuDOs0r7IpsI"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<button class="w-16 h-16 bg-primary/90 text-on-primary flex items-center justify-center active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-3xl" data-icon="play_arrow" data-weight="fill">play_arrow</span>
+</button>
+</div>
+</div>
+<div class="mt-8 grid grid-cols-2 gap-8">
+<div>
+<span class="font-label text-[10px] text-outline block mb-1 uppercase tracking-widest">Client</span>
+<span class="font-body text-sm font-medium">Global Nexus Group</span>
+</div>
+<div>
+<span class="font-label text-[10px] text-outline block mb-1 uppercase tracking-widest">Year</span>
+<span class="font-body text-sm font-medium">2024</span>
+</div>
+</div>
+</section>
+<!-- Section 3: Capabilities Grid -->
+<section class="py-24 px-6 bg-surface">
+<div class="mb-16">
+<span class="font-label text-xs text-primary tracking-[0.2em] block mb-4">[ 02 ]</span>
+<h2 class="font-headline text-4xl font-bold tracking-tighter uppercase">Capabilities</h2>
+</div>
+<div class="grid grid-cols-1 gap-4">
+<!-- Card 1 -->
+<div class="bg-surface-container p-8 border-l-2 border-primary">
+<span class="material-symbols-outlined text-primary mb-6" data-icon="architecture">architecture</span>
+<h3 class="font-headline text-lg font-bold mb-3 uppercase">System Design</h3>
+<p class="font-body text-sm text-on-surface-variant leading-relaxed">Scaling architectures from conceptual blueprints to production-ready frameworks.</p>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-low p-8">
+<span class="material-symbols-outlined text-outline mb-6" data-icon="code_blocks">code_blocks</span>
+<h3 class="font-headline text-lg font-bold mb-3 uppercase">Engine Development</h3>
+<p class="font-body text-sm text-on-surface-variant leading-relaxed">High-performance custom codebases built for speed and long-term modularity.</p>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container p-8 border-l-2 border-primary">
+<span class="material-symbols-outlined text-primary mb-6" data-icon="auto_awesome_motion">auto_awesome_motion</span>
+<h3 class="font-headline text-lg font-bold mb-3 uppercase">Creative Direction</h3>
+<p class="font-body text-sm text-on-surface-variant leading-relaxed">Visual storytelling through technical precision and aesthetic rigor.</p>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface-container-low p-8">
+<span class="material-symbols-outlined text-outline mb-6" data-icon="database">database</span>
+<h3 class="font-headline text-lg font-bold mb-3 uppercase">Asset Curation</h3>
+<p class="font-body text-sm text-on-surface-variant leading-relaxed">Managing and optimizing high-volume digital libraries for rapid deployment.</p>
+</div>
+<!-- Card 5 -->
+<div class="bg-surface-container p-8 border-l-2 border-primary">
+<span class="material-symbols-outlined text-primary mb-6" data-icon="monitoring">monitoring</span>
+<h3 class="font-headline text-lg font-bold mb-3 uppercase">Technical Audit</h3>
+<p class="font-body text-sm text-on-surface-variant leading-relaxed">Deep-dive analysis of existing pipelines to identify and eliminate bottlenecks.</p>
+</div>
+<!-- Card 6 -->
+<div class="bg-surface-container-low p-8">
+<span class="material-symbols-outlined text-outline mb-6" data-icon="settings_input_component">settings_input_component</span>
+<h3 class="font-headline text-lg font-bold mb-3 uppercase">Core Pipeline</h3>
+<p class="font-body text-sm text-on-surface-variant leading-relaxed">End-to-end integration of technical workflows across disparate teams.</p>
+</div>
+</div>
+</section>
+<!-- Section 4: Call to Action -->
+<section class="py-24 px-6 bg-surface-container-highest flex flex-col items-center text-center">
+<h2 class="font-headline text-3xl font-bold tracking-tighter mb-8 max-w-xs uppercase leading-none">
+                Have a project or pipeline challenge? Let’s build it.
+            </h2>
+<button class="w-full bg-primary text-on-primary py-5 font-label font-bold tracking-[0.2em] active:opacity-80 transition-all">
+                CONNECT WITH US
+            </button>
+</section>
+<!-- Section 5: About Nmedia Services -->
+<section class="py-24 px-6 bg-surface">
+<div class="flex flex-col gap-12">
+<div class="w-full h-64 bg-surface-container-low overflow-hidden">
+<img class="w-full h-full object-cover opacity-80" data-alt="macro photograph of a high-tech computer circuit board with glowing orange amber lights and sharp geometric patterns" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKvxRhv3rTfE0jxEV3JWwcwCTRZNb4MvShosNu_ot8-XhRDXis-0__oMGdqIrgFCycYK3BG4LytQf1FJaisFRvc8xy2cyT9kraT5jDXGOd4x_IqZbathAHlObUp_PI49kOya-Ln1vP7GwfnRPYcZoS7iqIHJ3b5rHP1Nrg5CnlXa6buoyFLQhjIM7L3Cw3GSFmnRGglZ74SvqTuSTOPajTjQSfweckjzWDJIqudVkV1MlS-uV9-6AKYmqyPkrNSWX3ZhztrYPhCyk"/>
+</div>
+<div>
+<span class="font-label text-xs text-primary tracking-[0.2em] block mb-4">[ 03 ]</span>
+<h2 class="font-headline text-4xl font-bold tracking-tighter uppercase mb-6">About Nmedia Services</h2>
+<p class="font-body text-on-surface-variant text-lg leading-relaxed mb-6">
+                        We operate at the intersection of aesthetic curation and raw technical power. NMEDIA is a specialized agency focused on long-form digital durability.
+                    </p>
+<div class="space-y-4">
+<div class="flex items-start gap-4 p-4 bg-surface-container-low">
+<span class="font-label text-primary font-bold">A.</span>
+<p class="font-body text-sm">Decentralized thinking with centralized execution standards.</p>
+</div>
+<div class="flex items-start gap-4 p-4 bg-surface-container-low">
+<span class="font-label text-primary font-bold">B.</span>
+<p class="font-body text-sm">Focus on high-availability systems and premium visual assets.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full border-t border-[#564338]/15 bg-[#0E0E0E] flex flex-col items-center py-12 px-6 gap-8 w-full text-center">
+<div class="flex flex-col items-center gap-2">
+<span class="material-symbols-outlined text-[#FFB68D]" data-icon="terminal">terminal</span>
+<span class="text-[#E5E2E1] font-bold font-['Space_Grotesk'] tracking-tighter uppercase">NMEDIA</span>
+</div>
+<nav class="flex flex-col gap-4">
+<a class="text-[#A58C7F] font-['Space_Grotesk'] text-[10px] uppercase tracking-[0.2em] hover:text-[#FFB68D] transition-all" href="#">STATIONS</a>
+<a class="text-[#A58C7F] font-['Space_Grotesk'] text-[10px] uppercase tracking-[0.2em] hover:text-[#FFB68D] transition-all" href="#">PROJECTS</a>
+<a class="text-[#A58C7F] font-['Space_Grotesk'] text-[10px] uppercase tracking-[0.2em] hover:text-[#FFB68D] transition-all" href="#">CORE_SYSTEM</a>
+</nav>
+<div class="text-[#A58C7F] font-['Space_Grotesk'] text-[10px] uppercase tracking-[0.2em] pt-8">
+            © 2024 NMEDIA [ TECHNICAL_CURATOR ]
+        </div>
+</footer>
+<style>
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+        .animate-marquee {
+            display: inline-block;
+            animation: marquee 20s linear infinite;
+        }
+    </style>
+</body></html>
