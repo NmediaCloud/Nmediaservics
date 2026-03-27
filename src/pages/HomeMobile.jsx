@@ -93,8 +93,9 @@ export default function HomeMobile() {
                 allowFullScreen
                 className="absolute inset-0 w-full h-full z-0"
                 frameBorder="0"
-                src="https://www.youtube.com/embed/jZ7pI98Zf3w?autoplay=0&controls=0&rel=0"
-                title="Production Showcase"
+                referrerPolicy="strict-origin-when-cross-origin"
+                src="https://www.youtube.com/embed/KfV_Y7hudvM?si=Xity_VOLpKWsfswo"
+                title="YouTube video player"
             ></iframe>
           </div>
           <div className="mt-8 grid grid-cols-2 gap-8">
