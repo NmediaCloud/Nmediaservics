@@ -99,8 +99,8 @@ export default function HomeDesktop() {
                 rel="noopener noreferrer"
                 className="block bg-surface-container p-8 group hover:bg-surface-bright transition-all duration-300 border border-white/5 hover:border-primary/30"
               >
-                <span className="material-symbols-outlined text-primary mb-6 scale-110" style={{ fontVariationSettings: "'FILL' 1" }}>
-                  movie_filter
+                <span className="font-label tracking-widest text-primary mb-6 block text-sm uppercase font-bold">
+                  previs-storytelling
                 </span>
                 <h4 className="font-headline text-xl font-bold mb-2 text-white">
                   Ad Commercials Trailers
@@ -117,8 +117,8 @@ export default function HomeDesktop() {
                 rel="noopener noreferrer"
                 className="block bg-surface-container p-8 group hover:bg-surface-bright transition-all duration-300 border border-white/5 hover:border-primary/30"
               >
-                <span className="material-symbols-outlined text-primary mb-6 scale-110" style={{ fontVariationSettings: "'FILL' 1" }}>
-                  auto_stories
+                <span className="font-label tracking-widest text-primary mb-6 block text-sm uppercase font-bold">
+                  stories_short_long_form
                 </span>
                 <h4 className="font-headline text-xl font-bold mb-2 text-white">
                   IP Content : Animation Series
@@ -134,8 +134,8 @@ export default function HomeDesktop() {
                 rel="noopener noreferrer"
                 className="block bg-surface-container p-8 group hover:bg-surface-bright transition-all duration-300 border border-white/5 hover:border-primary/30"
               >
-                <span className="material-symbols-outlined text-primary mb-6 scale-110" style={{ fontVariationSettings: "'FILL' 1" }}>
-                  3d_rotation
+                <span className="font-label tracking-widest text-primary mb-6 block text-sm uppercase font-bold">
+                  3d Animation showreel
                 </span>
                 <h4 className="font-headline text-xl font-bold mb-2 text-white">
                   3D Animation &amp; VFX
@@ -145,26 +145,30 @@ export default function HomeDesktop() {
                   cinematic pipelines.
                 </p>
               </a>
-              <div className="bg-surface-container p-8 group hover:bg-surface-bright transition-all duration-300 border border-white/5 hover:border-primary/30">
+              <a 
+                href="https://mnkmars.wixsite.com/grafix/motion-graphics"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block bg-surface-container p-8 group hover:bg-surface-bright transition-all duration-300 border border-white/5 hover:border-primary/30"
+              >
                 <span className="material-symbols-outlined text-primary mb-6 scale-110" style={{ fontVariationSettings: "'FILL' 1" }}>
-                  accessibility_new
+                  animation
                 </span>
                 <h4 className="font-headline text-xl font-bold mb-2 text-white">
-                  Motion Capture &amp; Facial
+                  Motion-graphics Vfx Reels
                 </h4>
                 <p className="font-body text-sm text-white/50 group-hover:text-white/80 transition-colors">
-                  High-fidelity performance capture and automated data cleanup
-                  workflows.
+                  Editing, Compositing, Animation, Lighting and Rendering
                 </p>
-              </div>
+              </a>
               <a 
                 href="https://www.einpresswire.com/article/592919633/utherverse-hires-3d-animation-veteran-nandakumar-mohan-to-develop-full-motion-hd-animation-for-metaverse-platform"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block bg-surface-container p-8 group hover:bg-surface-bright transition-all duration-300 border border-white/5 hover:border-primary/30"
               >
-                <span className="material-symbols-outlined text-primary mb-6 scale-110" style={{ fontVariationSettings: "'FILL' 1" }}>
-                  videogame_asset
+                <span className="font-label tracking-widest text-primary mb-6 block text-sm uppercase font-bold">
+                  Utherverse_Press
                 </span>
                 <h4 className="font-headline text-xl font-bold mb-2 text-white">
                   Game Animation / AR / VR
@@ -198,9 +202,9 @@ export default function HomeDesktop() {
                 rel="noopener noreferrer"
                 className="block bg-surface-container p-8 group hover:bg-surface-bright transition-all duration-300 border border-white/5 hover:border-primary/30"
               >
-                <span className="material-symbols-outlined text-primary mb-6 scale-110" style={{ fontVariationSettings: "'FILL' 1" }}>
-                  extension
-                </span>
+                <svg className="w-8 h-8 text-primary mb-6 scale-110 fill-current" viewBox="0 0 24 24">
+                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                </svg>
                 <h4 className="font-headline text-xl font-bold mb-2 text-white">
                   Creative–Technical Director
                 </h4>
@@ -362,25 +366,17 @@ export default function HomeDesktop() {
         <div className="flex gap-8">
           <a
             className="font-['Space_Grotesk'] text-[10px] tracking-widest uppercase text-white/50 hover:text-primary underline underline-offset-4 decoration-1 hover:decoration-2 transition-all duration-300"
-            href="#"
-          >
-            Instagram
-          </a>
-          <a
-            className="font-['Space_Grotesk'] text-[10px] tracking-widest uppercase text-white/50 hover:text-primary underline underline-offset-4 decoration-1 hover:decoration-2 transition-all duration-300"
-            href="#"
+            href="https://www.linkedin.com/company/nmedia-inc/"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             LinkedIn
           </a>
           <a
             className="font-['Space_Grotesk'] text-[10px] tracking-widest uppercase text-white/50 hover:text-primary underline underline-offset-4 decoration-1 hover:decoration-2 transition-all duration-300"
-            href="#"
-          >
-            Twitter
-          </a>
-          <a
-            className="font-['Space_Grotesk'] text-[10px] tracking-widest uppercase text-white/50 hover:text-primary underline underline-offset-4 decoration-1 hover:decoration-2 transition-all duration-300"
-            href="#"
+            href="https://www.youtube.com/@nmediaservices2014"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             Youtube
           </a>
