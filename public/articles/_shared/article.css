@@ -1,0 +1,340 @@
+/* =========================================================
+   Nmedia Services — shared article stylesheet
+   Used by every per-module LinkedIn / web article.
+   Design tokens match nmediaservices.com.
+   ========================================================= */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --orange:    #ff6a00;
+  --orange-lt: #ff8a3d;
+  --black:     #0a0a0a;
+  --surface:   #111111;
+  --surface-2: #161616;
+  --warm:      #ddc1b3;
+  --muted:     #9ca3af;
+  --border:    #2a2018;
+  --text:      #1a1a1a;
+  --text-soft: #4a4a4a;
+}
+
+body {
+  background: #fff;
+  color: var(--text);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 17px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--orange); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ── HERO ─────────────────────────────────────────────── */
+.hero {
+  background: var(--black);
+  background-image:
+    radial-gradient(ellipse at 30% 60%, #2a0f00 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, #1a0500 0%, transparent 50%);
+  min-height: 520px;
+  display: flex; align-items: center;
+  padding: 80px 6%;
+  position: relative;
+  overflow: hidden;
+}
+.hero-content { max-width: 720px; position: relative; z-index: 2; }
+.hero-tag {
+  display: inline-block;
+  background: var(--orange);
+  color: #0a0a0a;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 2px;
+  padding: 5px 14px; border-radius: 3px;
+  margin-bottom: 24px; text-transform: uppercase;
+}
+.hero h1 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(30px, 4.4vw, 52px);
+  font-weight: 700; line-height: 1.15;
+  color: #fff; margin-bottom: 20px;
+  letter-spacing: -0.5px;
+}
+.hero h1 em { color: var(--orange); font-style: normal; }
+.hero-sub {
+  font-size: 17px; color: var(--warm);
+  line-height: 1.7; margin-bottom: 36px;
+  max-width: 560px;
+}
+.author-bar {
+  display: flex; align-items: center; gap: 14px;
+  padding-top: 24px; border-top: 1px solid #222;
+}
+.author-avatar {
+  width: 48px; height: 48px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--orange), var(--orange-lt));
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700; font-size: 18px;
+  color: #0a0a0a; flex-shrink: 0;
+}
+.author-name  { font-weight: 600; color: #fff; font-size: 14px; }
+.author-title { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+/* ── STATS BAR ────────────────────────────────────────── */
+.stats-bar {
+  background: var(--surface);
+  padding: 28px 6%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1px;
+  border-bottom: 1px solid #1f1f1f;
+}
+.stat-item { text-align: center; padding: 14px 8px; }
+.stat-n {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 34px; font-weight: 700;
+  color: var(--orange); display: block; line-height: 1;
+}
+.stat-l {
+  font-size: 11px; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 1.5px;
+  margin-top: 8px;
+}
+
+/* ── VIDEO EMBED SLOT ─────────────────────────────────── */
+/*
+  Sits between the hero and stats-bar. Renders a 16:9 frame.
+  Wire a YouTube video by changing the section's `data-yt-id`
+  attribute — the small inline script in each article swaps the
+  iframe src on load. Until that's done, the poster div shows
+  "Video walkthrough · coming soon".
+*/
+.video-embed {
+  background: var(--black);
+  padding: 32px 6% 48px;
+  display: flex; justify-content: center;
+}
+.video-frame {
+  position: relative;
+  width: 100%;
+  max-width: 960px;
+  aspect-ratio: 16 / 9;
+  background: #161616;
+  border: 1px solid #2a2018;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4),
+              0 0 0 1px rgba(255, 106, 0, 0.08);
+}
+.video-frame iframe {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%; border: 0;
+  display: block;
+}
+.video-poster {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center; padding: 24px;
+  background:
+    radial-gradient(ellipse at 30% 60%, #2a0f00 0%, transparent 55%),
+    radial-gradient(ellipse at 80% 20%, #1a0500 0%, transparent 50%),
+    #0a0a0a;
+}
+.video-poster .video-play {
+  width: 72px; height: 72px; border-radius: 50%;
+  background: var(--orange); color: #0a0a0a;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 16px;
+  box-shadow: 0 0 0 0 rgba(255, 106, 0, 0.6);
+  animation: pulseRing 2.4s ease-out infinite;
+}
+.video-poster .video-play svg { width: 28px; height: 28px; margin-left: 4px; }
+.video-poster .video-tag {
+  display: inline-block;
+  background: var(--orange); color: #0a0a0a;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase;
+  padding: 5px 12px; border-radius: 3px;
+  margin-bottom: 12px;
+}
+.video-poster .video-hint {
+  color: var(--warm); font-size: 14px;
+  font-weight: 500; max-width: 480px; margin: 0;
+}
+@keyframes pulseRing {
+  0%   { box-shadow: 0 0 0 0   rgba(255, 106, 0, 0.5); }
+  70%  { box-shadow: 0 0 0 22px rgba(255, 106, 0, 0); }
+  100% { box-shadow: 0 0 0 0   rgba(255, 106, 0, 0); }
+}
+
+/* ── BODY ─────────────────────────────────────────────── */
+.body { max-width: 760px; margin: 0 auto; padding: 64px 24px 96px; }
+
+.body h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 28px; font-weight: 700;
+  color: var(--text); margin: 48px 0 18px;
+  letter-spacing: -0.3px;
+}
+.body h2:first-child { margin-top: 0; }
+.body h2 .num {
+  display: inline-block; min-width: 36px;
+  color: var(--orange);
+  font-size: 22px; font-weight: 700;
+  margin-right: 6px;
+}
+
+.body h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 19px; font-weight: 600;
+  color: var(--text); margin: 28px 0 10px;
+}
+
+.body p { margin-bottom: 18px; color: var(--text-soft); }
+.body p strong { color: var(--text); font-weight: 600; }
+
+.body ul, .body ol { margin: 0 0 22px 22px; }
+.body li { margin-bottom: 8px; color: var(--text-soft); }
+
+.lede {
+  font-size: 19px; line-height: 1.65;
+  color: var(--text); font-weight: 500;
+  border-left: 3px solid var(--orange);
+  padding: 4px 0 4px 18px;
+  margin-bottom: 36px;
+}
+
+.callout {
+  background: #fff7f0;
+  border: 1px solid #ffd9b8;
+  border-left: 3px solid var(--orange);
+  padding: 18px 22px;
+  border-radius: 6px;
+  margin: 28px 0;
+  font-size: 16px;
+}
+.callout b { color: var(--orange); font-weight: 700; }
+
+blockquote {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 22px; font-weight: 500;
+  color: var(--text); line-height: 1.4;
+  border-left: 4px solid var(--orange);
+  padding: 12px 0 12px 22px;
+  margin: 32px 0;
+  font-style: italic;
+}
+
+code {
+  background: #f4f1ee; color: var(--text);
+  padding: 2px 6px; border-radius: 3px;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 14px;
+}
+
+pre {
+  background: #0a0a0a; color: #ddc1b3;
+  padding: 20px 24px; border-radius: 6px;
+  overflow-x: auto; margin: 22px 0;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 14px; line-height: 1.6;
+}
+pre code { background: transparent; color: inherit; padding: 0; }
+
+/* ── FIGURES ──────────────────────────────────────────── */
+figure {
+  margin: 32px 0;
+  background: var(--surface-2);
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #e5dfd7;
+}
+figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #1a1410;
+}
+figcaption {
+  padding: 12px 18px;
+  font-size: 13px; color: var(--muted);
+  background: #161616;
+  border-top: 1px solid #222;
+}
+
+/* ── TAG ROW (chips below stat bar) ───────────────────── */
+.tag-row {
+  max-width: 760px; margin: 32px auto 0; padding: 0 24px;
+  display: flex; flex-wrap: wrap; gap: 8px;
+}
+.tag {
+  display: inline-block;
+  background: #f4f1ee; color: var(--text-soft);
+  padding: 4px 12px; border-radius: 12px;
+  font-size: 12px; font-weight: 500;
+}
+
+/* ── FOOTER / CTA ─────────────────────────────────────── */
+.cta {
+  background: var(--black);
+  color: #fff;
+  text-align: center;
+  padding: 64px 6%;
+  margin-top: 64px;
+}
+.cta h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 28px; font-weight: 700;
+  margin-bottom: 14px;
+}
+.cta p { color: var(--warm); max-width: 520px; margin: 0 auto 28px; }
+.cta-btn {
+  display: inline-block;
+  background: var(--orange); color: #0a0a0a;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700; font-size: 14px;
+  letter-spacing: 1px; text-transform: uppercase;
+  padding: 14px 32px; border-radius: 4px;
+  text-decoration: none;
+}
+.cta-btn:hover { background: var(--orange-lt); text-decoration: none; }
+
+.footer {
+  background: #050505; color: var(--muted);
+  padding: 24px 6%; text-align: center;
+  font-size: 12px; letter-spacing: 0.5px;
+}
+.footer a { color: var(--warm); }
+
+/* ── BRAND CHIP (matches control panels) ──────────────── */
+.nm-brand {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 4px 10px 4px 4px;
+  text-decoration: none;
+  font: 500 11px/1 'Inter', system-ui, sans-serif;
+  color: #fff;
+  margin-bottom: 24px;
+}
+.nm-brand:hover { opacity: 0.8; text-decoration: none; }
+.nm-mark { width: 28px; height: 19px; color: var(--orange); }
+.nm-wordmark { font-weight: 500; letter-spacing: -0.1px; color: #fff; }
+.nm-wordmark b { font-weight: 700; }
+.nm-version {
+  font: 700 9px/1 system-ui;
+  background: var(--orange); color: #fff;
+  padding: 3px 6px; border-radius: 2px; letter-spacing: .4px;
+}
+
+/* ── RESPONSIVE ───────────────────────────────────────── */
+@media (max-width: 640px) {
+  .hero { padding: 56px 6%; min-height: auto; }
+  .body { padding: 48px 20px 72px; }
+  .body h2 { font-size: 24px; }
+  blockquote { font-size: 19px; }
+}
+</content>
+</invoke>

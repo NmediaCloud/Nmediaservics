@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Turning Client Chaos Into a Production Brief — Nmedia Services</title>
+<meta name="description" content="Module 00 ingests client emails, briefs and reference images, layers in a seven-axis taxonomy, and emits a structured production document the rest of the pipeline can actually read.">
+<meta property="og:title" content="Turning Client Chaos Into a Production Brief — Nmedia Services">
+<meta property="og:description" content="Module 00 ingests client emails, briefs and reference images, layers in a seven-axis taxonomy, and emits a structured production document the rest of the pipeline can actually read.">
+<meta property="og:image" content="./images/00a.jpg">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./_shared/article.css">
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-content">
+    <a class="nm-brand" href="https://nmediaservices.com" rel="noopener">
+      <svg class="nm-mark" viewBox="0 0 64 44" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round" aria-hidden="true">
+        <polygon points="32,4 60,40 4,40"/><polygon points="18,18 32,40 4,40"/><polygon points="46,18 60,40 32,40"/>
+      </svg>
+      <span class="nm-wordmark">Nmedia <b>Services</b></span>
+      <span class="nm-version">v1.1</span>
+    </a>
+    <span class="hero-tag">Module 00 · Content Input System</span>
+    <h1>Turning client chaos <em>into a production brief</em>.</h1>
+    <p class="hero-sub">A pitch arrives as a Word doc, three voice notes and a Pinterest board. The pipeline expects structured data. Module 00 is the translator — and the place where every project in the studio is born.</p>
+    <div class="author-bar">
+      <div class="author-avatar">N</div>
+      <div class="author-info">
+        <div class="author-name">Nmedia Services</div>
+        <div class="author-title">Animation Production Pipeline · v1.1</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── YOUTUBE EMBED SLOT ──────────────────────────────────────
+     Wire a video: change `data-yt-id` to the YouTube video ID
+     (e.g. data-yt-id="dQw4w9WgXcQ"). The inline script at the
+     bottom of this file will swap the iframe src on load.
+     Leave as REPLACE_ME to keep the "coming soon" poster.
+     ─────────────────────────────────────────────────────── -->
+<section class="video-embed" data-yt-id="REPLACE_ME">
+  <div class="video-frame">
+    <iframe
+      src="about:blank"
+      title="Turning Client Chaos Into a Production Brief · video walkthrough"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+      loading="lazy"></iframe>
+    <div class="video-poster">
+      <div class="video-play" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+      </div>
+      <span class="video-tag">Video walkthrough · coming soon</span>
+      <p class="video-hint">A short product video lands here. Drop your YouTube ID into <code>data-yt-id</code> on this section to enable.</p>
+    </div>
+  </div>
+</section>
+
+<section class="stats-bar">
+  <div class="stat-item"><span class="stat-n">7</span><span class="stat-l">Taxonomy axes</span></div>
+  <div class="stat-item"><span class="stat-n">5</span><span class="stat-l">Format buckets</span></div>
+  <div class="stat-item"><span class="stat-n">1</span><span class="stat-l">PROJECT.json</span></div>
+  <div class="stat-item"><span class="stat-n">0</span><span class="stat-l">Re-keying</span></div>
+</section>
+
+<div class="tag-row">
+  <span class="tag">Brief generation</span>
+  <span class="tag">Taxonomy</span>
+  <span class="tag">Project manifest</span>
+  <span class="tag">Intake automation</span>
+  <span class="tag">OpenRouter</span>
+</div>
+
+<article class="body">
+
+  <p class="lede">Every animation project starts the same way: a great idea, badly described. The job of Module 00 is to take that mess — the email chain, the reference deck, the half-written treatment — and turn it into a brief the rest of the pipeline can actually consume.</p>
+
+  <h2><span class="num">01</span>The problem</h2>
+  <p>Pre-production is where most studios bleed time. Not on creative choices — on <strong>translation</strong>. A producer reads a client email. A creative director writes a treatment from it. A coordinator restructures the treatment into a brief. A writer rebuilds the brief as a script. Every hand-off is a re-typing exercise, and every re-typing is a place where intent gets lost.</p>
+  <p>Worse: by the time the brief reaches the storyboard team, nobody can say with confidence whether the show is supposed to be a 3D Pixar piece, a webtoon, a cel-shaded anime, or a live-action commercial. The visual treatment was a vibe in someone's head three Slack messages ago. That's not a creative problem — it's a data-loss problem.</p>
+
+  <figure>
+    <img src="./images/00a.jpg" onerror="this.src='./_shared/placeholder.svg'" alt="Module 00 control panel showing client input list and the stepped brief builder.">
+    <figcaption>Client inputs on the left, taxonomy-driven brief builder on the right — every project starts here.</figcaption>
+  </figure>
+
+  <h2><span class="num">02</span>The approach</h2>
+  <p>Module 00 collapses intake into a single Flask control panel that does two things well. First, it accepts <strong>raw client material</strong> — text briefs, questionnaire answers, reference images — and stores them as a versioned workspace. Second, it walks an operator through a <strong>stepped brief builder</strong>: pick a content format (Series, Movie, Musical/Song, Documentary, Ad/Commercial), then layer in seven taxonomy axes — visual treatment, art style, motion language, genre, age group, tone, mood.</p>
+  <p>Each taxonomy choice is backed by a real document — an actual style guide that gets injected into the LLM prompt. "Anime" isn't a vibe; it's a 400-word treatment of cel-shaded technique, vibrant palette and dynamic action lines. The brief generator reads all of it as context, not as a label.</p>
+
+  <blockquote>"The intake step used to be a coordinator with a Word doc. Now it's a manifest the rest of the studio can read."</blockquote>
+
+  <h2><span class="num">03</span>Inside the control panel</h2>
+  <p>The panel is built around a single workflow: drop in client material, configure the build, generate, ship downstream. Everything else is a side road.</p>
+
+  <ul>
+    <li><strong>Stepped brief builder.</strong> Project name → client input → format → seven taxonomy layers → model → generate. Each step gates the next, so an operator can't accidentally ship a half-configured brief.</li>
+    <li><strong>Production buckets.</strong> Five format presets (Ad, Series, Movie, Documentary, Musical/Song) — each with its own brief template that the LLM fills in. The structure is the contract.</li>
+    <li><strong>PROJECT.json manifest.</strong> Every generated brief writes a canonical manifest into its project folder. Format, version, taxonomy, source files — the rest of the pipeline (M01–M07) reads this one file to know what kind of project it is.</li>
+    <li><strong>Workspace flush + load.</strong> Save-and-flush archives the current intake into a zip; load-archive restores it. Multiple projects, no cross-contamination, full auditability.</li>
+  </ul>
+
+  <figure>
+    <img src="./images/00b.jpg" onerror="this.src='./_shared/placeholder.svg'" alt="Stepped brief builder showing the seven taxonomy layers being configured.">
+    <figcaption>Seven taxonomy axes — each backed by a real style document the LLM reads as context.</figcaption>
+  </figure>
+
+  <div class="callout">
+    <b>Why it matters →</b> Garbage-in / garbage-out is the oldest rule in production. The studios shipping fastest aren't the ones with the best AI models — they're the ones whose intake is structured enough that the model has something coherent to work with. Module 00 is where that structure happens.
+  </div>
+
+  <h2><span class="num">04</span>What's next</h2>
+  <p>The next iteration adds a <strong>questionnaire-first intake</strong>: rather than starting from a client email, the studio sends the client a smart form whose questions are themselves taxonomy-aware. The output of the form lands as a pre-filled brief builder. After that: <strong>multi-language intake</strong> — clients write in their own language, the brief is generated in production English, no translator round-trip required. The pipeline keeps moving the bottleneck upstream until there isn't one.</p>
+
+</article>
+
+<section class="cta">
+  <h3>Want a pipeline like this for your studio?</h3>
+  <p>Nmedia Services is building the next generation of AI-native animation tools — modular, format-aware, and operator-friendly.</p>
+  <a class="cta-btn" href="https://nmediaservices.com" target="_blank" rel="noopener">Get in touch →</a>
+</section>
+
+<footer class="footer">© Nmedia Services · Animation Production Pipeline v1.1 · <a href="https://nmediaservices.com">nmediaservices.com</a></footer>
+
+<script>
+  // Hydrate YouTube embed if data-yt-id has been set to a real video ID.
+  (function () {
+    var s = document.querySelector('.video-embed');
+    if (!s) return;
+    var id = s.getAttribute('data-yt-id') || '';
+    if (!id || id === 'REPLACE_ME') return;
+    var iframe = s.querySelector('iframe');
+    var poster = s.querySelector('.video-poster');
+    if (!iframe) return;
+    iframe.src = 'https://www.youtube.com/embed/' + id +
+                 '?rel=0&modestbranding=1&playsinline=1';
+    if (poster) poster.style.display = 'none';
+  })();
+</script>
+</body>
+</html>

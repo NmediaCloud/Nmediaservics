@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Episodic Variants Without Breaking Continuity — Nmedia Services</title>
+<meta name="description" content="Module 03 keeps the cast canonical while letting each episode have its own outfits, props and locations — variants that point back to the source of truth.">
+<meta property="og:title" content="Episodic Variants Without Breaking Continuity — Nmedia Services">
+<meta property="og:description" content="Module 03 keeps the cast canonical while letting each episode have its own outfits, props and locations — variants that point back to the source of truth.">
+<meta property="og:image" content="./images/03_a.jpg">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./_shared/article.css">
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-content">
+    <a class="nm-brand" href="https://nmediaservices.com" rel="noopener">
+      <svg class="nm-mark" viewBox="0 0 64 44" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round" aria-hidden="true">
+        <polygon points="32,4 60,40 4,40"/><polygon points="18,18 32,40 4,40"/><polygon points="46,18 60,40 32,40"/>
+      </svg>
+      <span class="nm-wordmark">Nmedia <b>Services</b></span>
+      <span class="nm-version">v1.1</span>
+    </a>
+    <span class="hero-tag">Module 03 · Episodic Asset Development</span>
+    <h1>Episodic variants <em>without breaking continuity</em>.</h1>
+    <p class="hero-sub">Episode 03 has the hero in a wedding suit. Episode 07 puts her in winter gear. The face is the same. The pipeline knows the difference. Module 03 is the layer that makes that work.</p>
+    <div class="author-bar">
+      <div class="author-avatar">N</div>
+      <div class="author-info">
+        <div class="author-name">Nmedia Services</div>
+        <div class="author-title">Animation Production Pipeline · v1.1</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── YOUTUBE EMBED SLOT ──────────────────────────────────────
+     Wire a video: change `data-yt-id` to the YouTube video ID
+     (e.g. data-yt-id="dQw4w9WgXcQ"). The inline script at the
+     bottom of this file will swap the iframe src on load.
+     Leave as REPLACE_ME to keep the "coming soon" poster.
+     ─────────────────────────────────────────────────────── -->
+<section class="video-embed" data-yt-id="REPLACE_ME">
+  <div class="video-frame">
+    <iframe
+      src="about:blank"
+      title="Episodic Variants Without Breaking Continuity · video walkthrough"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+      loading="lazy"></iframe>
+    <div class="video-poster">
+      <div class="video-play" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+      </div>
+      <span class="video-tag">Video walkthrough · coming soon</span>
+      <p class="video-hint">A short product video lands here. Drop your YouTube ID into <code>data-yt-id</code> on this section to enable.</p>
+    </div>
+  </div>
+</section>
+
+<section class="stats-bar">
+  <div class="stat-item"><span class="stat-n">1</span><span class="stat-l">Canonical cast</span></div>
+  <div class="stat-item"><span class="stat-n">N</span><span class="stat-l">Episode variants</span></div>
+  <div class="stat-item"><span class="stat-n">∞</span><span class="stat-l">Outfit changes</span></div>
+  <div class="stat-item"><span class="stat-n">0</span><span class="stat-l">Drift</span></div>
+</section>
+
+<div class="tag-row">
+  <span class="tag">Variant control</span>
+  <span class="tag">Wardrobe pipeline</span>
+  <span class="tag">Episode bibles</span>
+  <span class="tag">Continuity</span>
+</div>
+
+<article class="body">
+
+  <p class="lede">A character bible says who someone <em>is</em>. An episode says what they're <em>wearing today</em>. Most pipelines collapse those two things into one folder. We keep them separate and let the data do the joining.</p>
+
+  <h2><span class="num">01</span>The problem</h2>
+  <p>Module 01 produces a canonical cast — the show's visual contract. But real episodic production needs <strong>variants</strong>: a wedding suit, a hospital gown, a winter coat, a prop that breaks, a kitchen that gets redecorated mid-season. If you re-roll the whole character every time you need a costume change, you've thrown the contract away.</p>
+  <p>The opposite mistake is just as bad: hand-painting variants disconnected from the canonical sheet. By episode six, nobody can remember which jacket is "real" and which was a one-off. The face starts to drift along with the wardrobe.</p>
+
+  <figure>
+    <img src="./images/03_a.jpg" onerror="this.src='./_shared/placeholder.svg'" alt="Module 03 control panel showing the canonical cast on the left and per-episode variants on the right.">
+    <figcaption>Canonical on the left, episode variants on the right — bound together by reference, not by copy.</figcaption>
+  </figure>
+
+  <h2><span class="num">02</span>The approach</h2>
+  <p>Variants in Module 03 are <strong>references plus deltas</strong>. Each variant points at its canonical asset (face, build, palette) and stores only what changes — outfit description, prop set, environmental modifiers. Generation conditions on the canonical sheet first, the delta second. The face stays. The clothes change.</p>
+  <p>Episodes themselves carry a small bible: which characters appear, which variants apply, which props are in play. That bible is just JSON the rest of the pipeline can read. Module 04 (Storyboard) auto-pulls the right outfits. Module 05 (Animatics) gets the right voice clones. Module 07 (Polish) doesn't have to think about it.</p>
+
+  <blockquote>"Variants are deltas, not duplicates. That single shift made every downstream tool simpler."</blockquote>
+
+  <h2><span class="num">03</span>Inside the control panel</h2>
+  <p>The panel splits left / right: canonical assets stay locked on the left, episode-specific work happens on the right. The operator never accidentally edits the bible while making a new outfit.</p>
+
+  <ul>
+    <li><strong>Variant inheritance.</strong> A variant cites its parent asset by ID. Edit the parent's face and every variant updates on the next render.</li>
+    <li><strong>Episode bibles.</strong> Per-episode JSON listing the cast, variants, props and environments in use — auto-generated from Module 02's script scan.</li>
+    <li><strong>Wardrobe diff.</strong> Side-by-side comparison of two variants on the same character — useful for art-direction sign-off.</li>
+    <li><strong>Bulk relink.</strong> Move a canonical sheet, every variant follows. No broken references.</li>
+  </ul>
+
+  <figure>
+    <img src="./images/03_b.jpg" onerror="this.src='./_shared/placeholder.svg'" alt="Wardrobe diff between two episode variants of the same character.">
+    <figcaption>Wardrobe diff — same face, different week, signed-off in one click.</figcaption>
+  </figure>
+
+  <div class="callout">
+    <b>Why it matters →</b> A 13-episode season can have hundreds of variant assets. The studios that ship on time are the ones whose tooling treats variants as data — searchable, diffable, regenerable — instead of as a folder of one-off PNGs nobody dares move.
+  </div>
+
+  <h2><span class="num">04</span>What's next</h2>
+  <p>The next layer is <strong>continuity scoring</strong>: an automatic check that flags when an episode bible references a variant that hasn't been rendered yet, or when two variants drift too far from their canonical parent. The supervisor's job becomes reviewing exceptions instead of hunting for them.</p>
+
+</article>
+
+<section class="cta">
+  <h3>Want a pipeline like this for your studio?</h3>
+  <p>Nmedia Services is building the next generation of AI-native animation tools — modular, format-aware, and operator-friendly.</p>
+  <a class="cta-btn" href="https://nmediaservices.com" target="_blank" rel="noopener">Get in touch →</a>
+</section>
+
+<footer class="footer">© Nmedia Services · Animation Production Pipeline v1.1 · <a href="https://nmediaservices.com">nmediaservices.com</a></footer>
+
+<script>
+  // Hydrate YouTube embed if data-yt-id has been set to a real video ID.
+  (function () {
+    var s = document.querySelector('.video-embed');
+    if (!s) return;
+    var id = s.getAttribute('data-yt-id') || '';
+    if (!id || id === 'REPLACE_ME') return;
+    var iframe = s.querySelector('iframe');
+    var poster = s.querySelector('.video-poster');
+    if (!iframe) return;
+    iframe.src = 'https://www.youtube.com/embed/' + id +
+                 '?rel=0&modestbranding=1&playsinline=1';
+    if (poster) poster.style.display = 'none';
+  })();
+</script>
+</body>
+</html>

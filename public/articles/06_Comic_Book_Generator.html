@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Same Pipeline, Now It Prints a Comic — Nmedia Services</title>
+<meta name="description" content="Module 06 (Comic) reuses the cast, scripts and storyboards to generate print-ready comic pages — same source of truth, different deliverable.">
+<meta property="og:title" content="The Same Pipeline, Now It Prints a Comic — Nmedia Services">
+<meta property="og:description" content="Module 06 (Comic) reuses the cast, scripts and storyboards to generate print-ready comic pages — same source of truth, different deliverable.">
+<meta property="og:image" content="./images/comic_a.jpg">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./_shared/article.css">
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-content">
+    <a class="nm-brand" href="https://nmediaservices.com" rel="noopener">
+      <svg class="nm-mark" viewBox="0 0 64 44" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round" aria-hidden="true">
+        <polygon points="32,4 60,40 4,40"/><polygon points="18,18 32,40 4,40"/><polygon points="46,18 60,40 32,40"/>
+      </svg>
+      <span class="nm-wordmark">Nmedia <b>Services</b></span>
+      <span class="nm-version">v1.1</span>
+    </a>
+    <span class="hero-tag">Module 06 · Comic Book Generator</span>
+    <h1>The same pipeline. <em>Now it prints a comic.</em></h1>
+    <p class="hero-sub">Cast designed once. Script written once. Boards approved once. Module 06 (Comic) reuses all of it to compose print-ready pages — gutter, balloons and all.</p>
+    <div class="author-bar">
+      <div class="author-avatar">N</div>
+      <div class="author-info">
+        <div class="author-name">Nmedia Services</div>
+        <div class="author-title">Animation Production Pipeline · v1.1</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── YOUTUBE EMBED SLOT ──────────────────────────────────────
+     Wire a video: change `data-yt-id` to the YouTube video ID
+     (e.g. data-yt-id="dQw4w9WgXcQ"). The inline script at the
+     bottom of this file will swap the iframe src on load.
+     Leave as REPLACE_ME to keep the "coming soon" poster.
+     ─────────────────────────────────────────────────────── -->
+<section class="video-embed" data-yt-id="REPLACE_ME">
+  <div class="video-frame">
+    <iframe
+      src="about:blank"
+      title="The Same Pipeline, Now It Prints a Comic · video walkthrough"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+      loading="lazy"></iframe>
+    <div class="video-poster">
+      <div class="video-play" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+      </div>
+      <span class="video-tag">Video walkthrough · coming soon</span>
+      <p class="video-hint">A short product video lands here. Drop your YouTube ID into <code>data-yt-id</code> on this section to enable.</p>
+    </div>
+  </div>
+</section>
+
+<section class="stats-bar">
+  <div class="stat-item"><span class="stat-n">CMYK</span><span class="stat-l">Print-ready</span></div>
+  <div class="stat-item"><span class="stat-n">Auto</span><span class="stat-l">Layout</span></div>
+  <div class="stat-item"><span class="stat-n">SFX</span><span class="stat-l">Onomatopoeia</span></div>
+  <div class="stat-item"><span class="stat-n">PDF</span><span class="stat-l">Export</span></div>
+</section>
+
+<div class="tag-row">
+  <span class="tag">Comic layout</span>
+  <span class="tag">Speech balloons</span>
+  <span class="tag">Print pipeline</span>
+  <span class="tag">Reuse</span>
+</div>
+
+<article class="body">
+
+  <p class="lede">A pitch deck wants a board. A streamer wants an animatic. A book signing wants a comic. Same story, three deliverables. The cheap way to make all three is to reuse the work that already exists.</p>
+
+  <h2><span class="num">01</span>The problem</h2>
+  <p>Comic creation, traditionally, is its own pipeline: a separate writer with a separate script format, a penciller working from references, a letterer placing balloons, a designer doing print prep. Studios that want both a comic <em>and</em> an animation usually build the comic from scratch — and end up with two visions of the same characters.</p>
+  <p>That's wasteful and it's a continuity hazard. The comic version of the hero shouldn't look like a different person.</p>
+
+  <figure>
+    <img src="./images/comic_a.jpg" onerror="this.src='./_shared/placeholder.svg'" alt="Comic page generator showing panel layout with auto-placed speech balloons.">
+    <figcaption>Storyboard panels become comic panels — same cast, same shots, repurposed for the page.</figcaption>
+  </figure>
+
+  <h2><span class="num">02</span>The approach</h2>
+  <p>Module 06 (Comic) hooks the same project files Module 06 (Animation) uses. Cast sheets, episode variants, script scenes, storyboard shots — they're already on disk. The comic generator's job is to <strong>compose pages</strong>: pick which shots become panels, lay out the gutter, place dialogue balloons from the script's speaker tags, drop in SFX onomatopoeia for action beats.</p>
+  <p>The page layouts come from a small library of grids — three-tier classic, splash-page hero, six-panel grid, european-style nine-panel — and the panel ordering follows the script's scene order by default. Operators rearrange visually; the underlying script reference stays intact.</p>
+
+  <blockquote>"It's not a separate product. It's the same show, printed on paper."</blockquote>
+
+  <h2><span class="num">03</span>Inside the control panel</h2>
+  <p>The panel reads like a comic editor's worktable. Pages on the left, panel grid in the middle, balloons and SFX as overlays.</p>
+
+  <ul>
+    <li><strong>Layout templates.</strong> Pick a grid, the panels auto-fill from the script's shot list. Reorder by drag.</li>
+    <li><strong>Auto-balloons.</strong> Speaker tags from Module 02 become correctly-tailed balloons placed near the speaking character. Manual nudge available.</li>
+    <li><strong>SFX library.</strong> Action beats from the script trigger onomatopoeia suggestions ("KRAK", "WHRRR") with editable typography.</li>
+    <li><strong>Print export.</strong> CMYK PDF with bleed, trim and safe-area marks. Ready for the printer without a separate prepress pass.</li>
+  </ul>
+
+  <figure>
+    <img src="./images/comic_b.jpg" onerror="this.src='./_shared/placeholder.svg'" alt="Layout template picker showing classic, splash and grid templates.">
+    <figcaption>Layout templates make the page editor's first cut a one-click operation.</figcaption>
+  </figure>
+
+  <div class="callout">
+    <b>Why it matters →</b> Multi-format storytelling stops being a parallel project and becomes a downstream output. The same cast, the same script, the same boards — three different deliverables, no duplicated effort.
+  </div>
+
+  <h2><span class="num">04</span>What's next</h2>
+  <p>We're prototyping <strong>motion-comic export</strong>: take the comic page, animate the panels with subtle parallax and sound, and ship it as a vertical-scroll asset for social. The boundary between "comic" and "animation" is already fuzzier than the industry pretends — we're leaning into it.</p>
+
+</article>
+
+<section class="cta">
+  <h3>Want a pipeline like this for your studio?</h3>
+  <p>Nmedia Services is building the next generation of AI-native animation tools — modular, format-aware, and operator-friendly.</p>
+  <a class="cta-btn" href="https://nmediaservices.com" target="_blank" rel="noopener">Get in touch →</a>
+</section>
+
+<footer class="footer">© Nmedia Services · Animation Production Pipeline v1.1 · <a href="https://nmediaservices.com">nmediaservices.com</a></footer>
+
+<script>
+  // Hydrate YouTube embed if data-yt-id has been set to a real video ID.
+  (function () {
+    var s = document.querySelector('.video-embed');
+    if (!s) return;
+    var id = s.getAttribute('data-yt-id') || '';
+    if (!id || id === 'REPLACE_ME') return;
+    var iframe = s.querySelector('iframe');
+    var poster = s.querySelector('.video-poster');
+    if (!iframe) return;
+    iframe.src = 'https://www.youtube.com/embed/' + id +
+                 '?rel=0&modestbranding=1&playsinline=1';
+    if (poster) poster.style.display = 'none';
+  })();
+</script>
+</body>
+</html>

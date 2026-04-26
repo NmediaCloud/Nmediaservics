@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Animatics That Actually Time the Show — Nmedia Services</title>
+<meta name="description" content="Module 05 wires storyboard panels to voiceover, music and SFX into a real timed animatic — the first place the show feels like a show.">
+<meta property="og:title" content="Animatics That Actually Time the Show — Nmedia Services">
+<meta property="og:description" content="Module 05 wires storyboard panels to voiceover, music and SFX into a real timed animatic — the first place the show feels like a show.">
+<meta property="og:image" content="./images/05b.jpg">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./_shared/article.css">
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-content">
+    <a class="nm-brand" href="https://nmediaservices.com" rel="noopener">
+      <svg class="nm-mark" viewBox="0 0 64 44" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round" aria-hidden="true">
+        <polygon points="32,4 60,40 4,40"/><polygon points="18,18 32,40 4,40"/><polygon points="46,18 60,40 32,40"/>
+      </svg>
+      <span class="nm-wordmark">Nmedia <b>Services</b></span>
+      <span class="nm-version">v1.1</span>
+    </a>
+    <span class="hero-tag">Module 05 · Animatics Workshop</span>
+    <h1>Animatics that <em>actually time the show</em>.</h1>
+    <p class="hero-sub">An animatic is the first honest read of a script. Module 05 builds it from boards plus voice plus music — and crucially, lets you re-cut it as fast as you can change your mind.</p>
+    <div class="author-bar">
+      <div class="author-avatar">N</div>
+      <div class="author-info">
+        <div class="author-name">Nmedia Services</div>
+        <div class="author-title">Animation Production Pipeline · v1.1</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── YOUTUBE EMBED SLOT ──────────────────────────────────────
+     Wire a video: change `data-yt-id` to the YouTube video ID
+     (e.g. data-yt-id="dQw4w9WgXcQ"). The inline script at the
+     bottom of this file will swap the iframe src on load.
+     Leave as REPLACE_ME to keep the "coming soon" poster.
+     ─────────────────────────────────────────────────────── -->
+<section class="video-embed" data-yt-id="REPLACE_ME">
+  <div class="video-frame">
+    <iframe
+      src="about:blank"
+      title="Animatics That Actually Time the Show · video walkthrough"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+      loading="lazy"></iframe>
+    <div class="video-poster">
+      <div class="video-play" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+      </div>
+      <span class="video-tag">Video walkthrough · coming soon</span>
+      <p class="video-hint">A short product video lands here. Drop your YouTube ID into <code>data-yt-id</code> on this section to enable.</p>
+    </div>
+  </div>
+</section>
+
+<section class="stats-bar">
+  <div class="stat-item"><span class="stat-n">TTS</span><span class="stat-l">Voice clones</span></div>
+  <div class="stat-item"><span class="stat-n">Auto</span><span class="stat-l">Lip-sync hints</span></div>
+  <div class="stat-item"><span class="stat-n">Drag</span><span class="stat-l">To re-time</span></div>
+  <div class="stat-item"><span class="stat-n">MP4</span><span class="stat-l">One-click export</span></div>
+</section>
+
+<div class="tag-row">
+  <span class="tag">IndexTTS-2</span>
+  <span class="tag">Timing</span>
+  <span class="tag">Voiceover</span>
+  <span class="tag">Pacing review</span>
+</div>
+
+<article class="body">
+
+  <p class="lede">A storyboard says <em>what</em> is in the show. An animatic says <em>how long</em> the show is. Skip this step and you find out only at the colour-grade — which is too late.</p>
+
+  <h2><span class="num">01</span>The problem</h2>
+  <p>Animatics are where pacing problems become visible. The trouble is they've historically been expensive: a sound editor cuts dialogue to picture, an assistant edits the panels to the dialogue, a director gives notes, the loop repeats. Three days minimum, and that's before the music demo arrives.</p>
+  <p>AI tools made the bottleneck worse, not better. Voice clones are now trivial; aligning them to a board still wasn't. Most teams ended up with a folder of WAV files and a Premiere project nobody but one person could open.</p>
+
+  <figure>
+    <img src="./images/05b.jpg" onerror="this.src='./_shared/placeholder.svg'" alt="Animatics workshop timeline with panels, dialogue tracks and music bed.">
+    <figcaption>One timeline, three layers — boards, voice, music — driven from the same project manifest.</figcaption>
+  </figure>
+
+  <h2><span class="num">02</span>The approach</h2>
+  <p>Module 05 ingests the boards from Module 04 plus the voiceover script extracted by Module 02. It synthesises voice with a self-hosted TTS (we use IndexTTS-2 for zero-shot voice cloning) and auto-aligns each line to its corresponding board panel. The first cut is generated, not edited.</p>
+  <p>From there the panel becomes a re-cut surface: drag a panel boundary to extend a beat, swap a voice take, scrub a music bed under it. The output is an MP4 plus a structured EDL that downstream tools can read — so when Module 06 (Animation Sandbox) takes over, it inherits the timing instead of guessing it.</p>
+
+  <blockquote>"The first cut is free. Every cut after that is faster than opening Premiere."</blockquote>
+
+  <h2><span class="num">03</span>Inside the control panel</h2>
+  <p>The workshop is a single timeline view with three lanes. Boards on top, voice in the middle, music underneath. Everything is editable in place.</p>
+
+  <ul>
+    <li><strong>Voice clone routing.</strong> Each character ID in the script maps to a voice profile. Re-roll a single line without disturbing the rest.</li>
+    <li><strong>Auto-alignment.</strong> First-cut panel timings are derived from the dialogue duration plus a configurable per-show pacing curve.</li>
+    <li><strong>Music bed slot.</strong> Drop in a placeholder music track now, replace with the licensed mix later — timing data survives the swap.</li>
+    <li><strong>Board edit round-trip.</strong> Spot a panel that's wrong? Edit it in Module 04 and the animatic re-imports without losing your timing edits.</li>
+  </ul>
+
+  <figure>
+    <img src="./images/05c.jpg" onerror="this.src='./_shared/placeholder.svg'" alt="Voice clone selection panel with per-character profiles assigned.">
+    <figcaption>Per-character voice profiles — assigned once, used across every line in the script.</figcaption>
+  </figure>
+
+  <div class="callout">
+    <b>Why it matters →</b> The animatic is the first place a director can <em>watch the show</em>. Compressing the first-cut time from days to an afternoon means notes happen earlier, when fixes are cheap. That's the difference between a show that ships on time and one that ships eventually.
+  </div>
+
+  <h2><span class="num">04</span>What's next</h2>
+  <p>The next iteration adds <strong>multi-take voiceover comparison</strong> — generate three reads of every line, audition them inside the timeline, lock the best one. After that: shot-level <strong>action timing</strong>, so the animatic can suggest motion durations the animation module then honours by default.</p>
+
+</article>
+
+<section class="cta">
+  <h3>Want a pipeline like this for your studio?</h3>
+  <p>Nmedia Services is building the next generation of AI-native animation tools — modular, format-aware, and operator-friendly.</p>
+  <a class="cta-btn" href="https://nmediaservices.com" target="_blank" rel="noopener">Get in touch →</a>
+</section>
+
+<footer class="footer">© Nmedia Services · Animation Production Pipeline v1.1 · <a href="https://nmediaservices.com">nmediaservices.com</a></footer>
+
+<script>
+  // Hydrate YouTube embed if data-yt-id has been set to a real video ID.
+  (function () {
+    var s = document.querySelector('.video-embed');
+    if (!s) return;
+    var id = s.getAttribute('data-yt-id') || '';
+    if (!id || id === 'REPLACE_ME') return;
+    var iframe = s.querySelector('iframe');
+    var poster = s.querySelector('.video-poster');
+    if (!iframe) return;
+    iframe.src = 'https://www.youtube.com/embed/' + id +
+                 '?rel=0&modestbranding=1&playsinline=1';
+    if (poster) poster.style.display = 'none';
+  })();
+</script>
+</body>
+</html>

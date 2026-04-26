@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Designing a Cast Before You Write a Word — Nmedia Services</title>
+<meta name="description" content="How Module 01 turns a one-line pitch into a fully-sheeted cast of characters, props and environments — ready for storyboard before the script lands.">
+<meta property="og:title" content="Designing a Cast Before You Write a Word — Nmedia Services">
+<meta property="og:description" content="How Module 01 turns a one-line pitch into a fully-sheeted cast of characters, props and environments — ready for storyboard before the script lands.">
+<meta property="og:image" content="./images/01a.jpg">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./_shared/article.css">
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-content">
+    <a class="nm-brand" href="https://nmediaservices.com" rel="noopener">
+      <svg class="nm-mark" viewBox="0 0 64 44" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round" aria-hidden="true">
+        <polygon points="32,4 60,40 4,40"/><polygon points="18,18 32,40 4,40"/><polygon points="46,18 60,40 32,40"/>
+      </svg>
+      <span class="nm-wordmark">Nmedia <b>Services</b></span>
+      <span class="nm-version">v1.1</span>
+    </a>
+    <span class="hero-tag">Module 01 · Asset Design</span>
+    <h1>Designing a cast <em>before you write a word</em>.</h1>
+    <p class="hero-sub">Traditional pre-production sketches characters after the script. We do it the other way around — sheet the cast first, then write into the world. Module 01 is the engine that makes that swap practical.</p>
+    <div class="author-bar">
+      <div class="author-avatar">N</div>
+      <div class="author-info">
+        <div class="author-name">Nmedia Services</div>
+        <div class="author-title">Animation Production Pipeline · v1.1</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── YOUTUBE EMBED SLOT ──────────────────────────────────────
+     Wire a video: change `data-yt-id` to the YouTube video ID
+     (e.g. data-yt-id="dQw4w9WgXcQ"). The inline script at the
+     bottom of this file will swap the iframe src on load.
+     Leave as REPLACE_ME to keep the "coming soon" poster.
+     ─────────────────────────────────────────────────────── -->
+<section class="video-embed" data-yt-id="REPLACE_ME">
+  <div class="video-frame">
+    <iframe
+      src="about:blank"
+      title="Designing a Cast Before You Write a Word · video walkthrough"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+      loading="lazy"></iframe>
+    <div class="video-poster">
+      <div class="video-play" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+      </div>
+      <span class="video-tag">Video walkthrough · coming soon</span>
+      <p class="video-hint">A short product video lands here. Drop your YouTube ID into <code>data-yt-id</code> on this section to enable.</p>
+    </div>
+  </div>
+</section>
+
+<section class="stats-bar">
+  <div class="stat-item"><span class="stat-n">3</span><span class="stat-l">Asset categories</span></div>
+  <div class="stat-item"><span class="stat-n">8</span><span class="stat-l">Turn ratios</span></div>
+  <div class="stat-item"><span class="stat-n">LLM</span><span class="stat-l">Driven sheets</span></div>
+  <div class="stat-item"><span class="stat-n">1</span><span class="stat-l">Source of truth</span></div>
+</section>
+
+<div class="tag-row">
+  <span class="tag">Character design</span>
+  <span class="tag">Prop libraries</span>
+  <span class="tag">Environment bibles</span>
+  <span class="tag">OpenRouter</span>
+</div>
+
+<article class="body">
+
+  <p class="lede">A reliable animation pipeline does not start with a script. It starts with a <em>cast</em> — characters, props and environments that already know who they are, so every downstream tool can reach for them by name.</p>
+
+  <h2><span class="num">01</span>The problem</h2>
+  <p>AI image models are happy to invent a hero on the fly. The trouble is they invent a slightly different hero every time. Hair colour drifts, jacket buttons multiply, the dog grows a tail it didn't have in the last shot. Continuity used to be a department. With generative tools it has become an emergency.</p>
+  <p>The fix is older than animation itself: a <strong>character sheet</strong>. A canonical front / side / three-quarter / back view, with palette swatches and a written description specific enough to be reproduced on demand. The same logic applies to props and environments. Module 01 builds those sheets — at scale, in a single panel, before the storyboard team even opens their tablets.</p>
+
+  <figure>
+    <img src="./images/01a.jpg" onerror="this.src='./_shared/placeholder.svg'" alt="Module 01 control panel showing character, prop and environment cards.">
+    <figcaption>One panel, three asset categories, every card sheeted and ready for the next module.</figcaption>
+  </figure>
+
+  <h2><span class="num">02</span>The approach</h2>
+  <p>The operator drops a one-line concept. An LLM (routed via OpenRouter so the team can swap models without code changes) expands it into a structured cast list — names, archetypes, palettes, silhouettes. The same prompt graph then generates each character's turnaround, each prop's three-view, each environment's establishing plate.</p>
+  <p>Crucially, the text descriptions are written <strong>first</strong> and the images are conditioned on them. That means when continuity drifts mid-production we can re-roll a single image without re-rolling the design — the canonical text is the source of truth, the image is just the latest render of it.</p>
+
+  <blockquote>"The cast becomes the contract. Every other module signs it before it makes a frame."</blockquote>
+
+  <h2><span class="num">03</span>Inside the control panel</h2>
+  <p>The interface is deliberately category-led. Three columns, three asset types, one shared review flow.</p>
+
+  <ul>
+    <li><strong>Turnaround switcher.</strong> Pick a ratio per character (1:1, 16:9, 9:16, custom) — the panel re-renders only that card without disturbing the rest of the cast.</li>
+    <li><strong>Locked descriptions.</strong> Every sheet stores its canonical text. Re-rolling an image is one click; re-rolling the design is intentional.</li>
+    <li><strong>Cross-module export.</strong> Output sheets land in a structured folder that Modules 02–07 read directly. No manual re-uploading.</li>
+    <li><strong>Versioned overwrites.</strong> Every regeneration moves the previous render into <code>versions/</code> — nothing is lost when an art director changes their mind at 11pm.</li>
+  </ul>
+
+  <figure>
+    <img src="./images/01b.jpg" onerror="this.src='./_shared/placeholder.svg'" alt="Character turnaround sheet with multiple ratios visible.">
+    <figcaption>Turnaround sheets are the contract every downstream module signs.</figcaption>
+  </figure>
+
+  <div class="callout">
+    <b>Why it matters →</b> When the storyboard tool, the animatic tool and the polish tool all reach into the <em>same</em> cast folder, continuity becomes a property of the pipeline rather than a job for a supervisor. That is how you ship at AI speed without losing the show's face.
+  </div>
+
+  <h2><span class="num">04</span>What's next</h2>
+  <p>Asset Design is upstream of everything else in the Nmedia Services pipeline. The next iteration adds <strong>asset relationships</strong> — "this prop belongs to this character", "this environment is night-only" — so downstream modules can auto-populate scenes with the right things without the operator having to remember which file lives where. The cast becomes a small graph, not just a folder.</p>
+
+</article>
+
+<section class="cta">
+  <h3>Want a pipeline like this for your studio?</h3>
+  <p>Nmedia Services is building the next generation of AI-native animation tools — modular, format-aware, and operator-friendly.</p>
+  <a class="cta-btn" href="https://nmediaservices.com" target="_blank" rel="noopener">Get in touch →</a>
+</section>
+
+<footer class="footer">© Nmedia Services · Animation Production Pipeline v1.1 · <a href="https://nmediaservices.com">nmediaservices.com</a></footer>
+
+<script>
+  // Hydrate YouTube embed if data-yt-id has been set to a real video ID.
+  (function () {
+    var s = document.querySelector('.video-embed');
+    if (!s) return;
+    var id = s.getAttribute('data-yt-id') || '';
+    if (!id || id === 'REPLACE_ME') return;
+    var iframe = s.querySelector('iframe');
+    var poster = s.querySelector('.video-poster');
+    if (!iframe) return;
+    iframe.src = 'https://www.youtube.com/embed/' + id +
+                 '?rel=0&modestbranding=1&playsinline=1';
+    if (poster) poster.style.display = 'none';
+  })();
+</script>
+</body>
+</html>

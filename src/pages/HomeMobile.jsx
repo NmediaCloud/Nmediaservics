@@ -1,4 +1,5 @@
 import React from "react";
+import PipelineArticles from "../components/PipelineArticles";
 
 export default function HomeMobile() {
   return (
@@ -204,6 +205,9 @@ export default function HomeMobile() {
             </div>
           </div>
         </section>
+
+        {/* Pipeline Field Notes — articles strip */}
+        <PipelineArticles />
 
         {/* Section 4: Call to Action */}
         <section className="py-24 px-6 bg-surface-container-highest flex flex-col items-center text-center">

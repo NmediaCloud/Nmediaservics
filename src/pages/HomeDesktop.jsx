@@ -1,4 +1,5 @@
 import React from "react";
+import PipelineArticles from "../components/PipelineArticles";
 
 export default function HomeDesktop() {
   return (
@@ -234,6 +235,9 @@ export default function HomeDesktop() {
             </div>
           </div>
         </section>
+
+        {/* Pipeline Field Notes — articles strip */}
+        <PipelineArticles />
 
         {/* Call to Action */}
         <section className="py-40 px-8 text-center bg-surface relative overflow-hidden">

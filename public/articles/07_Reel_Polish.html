@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polishing AI Animation Reels at Production Speed — Nmedia Services</title>
+<meta name="description" content="How we built Reel Polish — a single control panel that upscales, interpolates and reformats AI-generated shots in batches, with a kill switch and live progress.">
+<meta property="og:title" content="Polishing AI Animation Reels at Production Speed — Nmedia Services">
+<meta property="og:description" content="How we built Reel Polish — a single control panel that upscales, interpolates and reformats AI-generated shots in batches, with a kill switch and live progress.">
+<meta property="og:image" content="./images/07a.jpg">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./_shared/article.css">
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-content">
+    <a class="nm-brand" href="https://nmediaservices.com" rel="noopener">
+      <svg class="nm-mark" viewBox="0 0 64 44" fill="none" stroke="currentColor"
+           stroke-width="2.5" stroke-linejoin="round" aria-hidden="true">
+        <polygon points="32,4 60,40 4,40"/>
+        <polygon points="18,18 32,40 4,40"/>
+        <polygon points="46,18 60,40 32,40"/>
+      </svg>
+      <span class="nm-wordmark">Nmedia <b>Services</b></span>
+      <span class="nm-version">v1.1</span>
+    </a>
+    <span class="hero-tag">Module 07 · Reel Polish</span>
+    <h1>Polishing AI animation reels <em>at production speed</em>.</h1>
+    <p class="hero-sub">Most AI shots come out the door at 720p, 16fps, with the wrong aspect ratio. We built one panel that fixes all three — in a queue, with a kill switch, and without making the editor click forty times.</p>
+    <div class="author-bar">
+      <div class="author-avatar">N</div>
+      <div class="author-info">
+        <div class="author-name">Nmedia Services</div>
+        <div class="author-title">Animation Production Pipeline · v1.1</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── YOUTUBE EMBED SLOT ──────────────────────────────────────
+     Wire a video: change `data-yt-id` to the YouTube video ID
+     (e.g. data-yt-id="dQw4w9WgXcQ"). The inline script at the
+     bottom of this file will swap the iframe src on load.
+     Leave as REPLACE_ME to keep the "coming soon" poster.
+     ─────────────────────────────────────────────────────── -->
+<section class="video-embed" data-yt-id="REPLACE_ME">
+  <div class="video-frame">
+    <iframe
+      src="about:blank"
+      title="Polishing AI Animation Reels at Production Speed · video walkthrough"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+      loading="lazy"></iframe>
+    <div class="video-poster">
+      <div class="video-play" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+      </div>
+      <span class="video-tag">Video walkthrough · coming soon</span>
+      <p class="video-hint">A short product video lands here. Drop your YouTube ID into <code>data-yt-id</code> on this section to enable.</p>
+    </div>
+  </div>
+</section>
+
+<section class="stats-bar">
+  <div class="stat-item"><span class="stat-n">4×</span><span class="stat-l">Upscale</span></div>
+  <div class="stat-item"><span class="stat-n">60fps</span><span class="stat-l">Interpolated</span></div>
+  <div class="stat-item"><span class="stat-n">1-click</span><span class="stat-l">Kill switch</span></div>
+  <div class="stat-item"><span class="stat-n">∞</span><span class="stat-l">Queue depth</span></div>
+</section>
+
+<div class="tag-row">
+  <span class="tag">Real-ESRGAN</span>
+  <span class="tag">RIFE</span>
+  <span class="tag">ffmpeg</span>
+  <span class="tag">Flask</span>
+  <span class="tag">Operator UX</span>
+</div>
+
+<article class="body">
+
+  <p class="lede">AI generates shots faster than a human can finish them. The bottleneck has moved — from "can we make the frames?" to "can we get the frames into a deliverable shape, today, without a TD on standby?" Module 07 is our answer.</p>
+
+  <h2><span class="num">01</span>The problem</h2>
+  <p>Generative video models — Veo, Kling, Runway, Sora and the open-source pack — share a polite output preset: roughly 720p, 16 to 24 frames per second, often in whatever aspect ratio the model was trained on. That is fine for a pitch GIF. It is not a deliverable.</p>
+  <p>To turn a folder of those clips into a reel that survives a client review you need <strong>three</strong> separate operations: spatial upscale, frame interpolation, and a final repack to the target frame, fps and aspect. Each one historically meant a different binary, a different config file, and a different mental model of what a "good" command-line invocation looks like. Multiply that by twenty shots and a junior editor's afternoon is gone.</p>
+
+  <figure>
+    <img src="./images/07a.jpg" onerror="this.src='./_shared/placeholder.svg'" alt="The Reel Polish control panel showing the input file list and preset row.">
+    <figcaption>Reel Polish — single panel, queued jobs, live progress per shot.</figcaption>
+  </figure>
+
+  <h2><span class="num">02</span>The approach</h2>
+  <p>We collapsed the three operations behind a single Flask control panel and gave the operator three knobs that matter: <strong>upscale factor</strong>, <strong>target fps</strong>, and <strong>output frame</strong> (with fit mode — pad, cover or stretch). Everything else — model selection, ncnn-vulkan flags, ffmpeg map arguments, audio routing — is hidden behind presets the editor never has to read.</p>
+  <p>Under the hood it's Real-ESRGAN ncnn-vulkan for the upscale, RIFE ncnn-vulkan for the interpolation, and ffmpeg for the final fit-and-finish. A single FIFO worker queue serialises GPU access so two jobs never fight over VRAM. Every subprocess is registered against a job ID, which means there is one button on the panel that always works: <strong>Kill</strong>.</p>
+
+  <blockquote>"We stopped writing render scripts the day the kill switch shipped. That single button changed how the team uses the tool."</blockquote>
+
+  <h2><span class="num">03</span>Inside the control panel</h2>
+  <p>The panel is intentionally one screen. The editor picks files, picks a preset, hits go. The rest is observable.</p>
+
+  <ul>
+    <li><strong>Bulk select with presets.</strong> "1080p / 30fps / 16:9", "Vertical 9:16 social", "4K archival". The editor never types numbers.</li>
+    <li><strong>Chain-polish.</strong> Output of one stage feeds the input of the next, with input cards turning orange and polished cards green so progress is visible at a glance.</li>
+    <li><strong>Audio keep/drop toggle.</strong> Most generated clips have no audio track; we map <code>0:v + 1:a?</code> and let ffmpeg silently skip when missing, so the same recipe works for both.</li>
+    <li><strong>Reveal-in-folder + light-theme console.</strong> When something does break, the operator sees the actual stderr — not a spinner that turns red.</li>
+  </ul>
+
+  <figure>
+    <img src="./images/07a.jpg" onerror="this.src='./_shared/placeholder.svg'" alt="Live progress console with stderr streaming during a polish job.">
+    <figcaption>Live stderr is streamed back via Server-Sent Events — no log files, no SSH, no guessing.</figcaption>
+  </figure>
+
+  <div class="callout">
+    <b>Why it matters →</b> Reel Polish moves the artist's job back to <em>creative review</em>. They look at output cards instead of typing flags. Throughput on a 20-shot reel went from a half-day of supervised rendering to forty minutes of unattended queue.
+  </div>
+
+  <h2><span class="num">04</span>What's next</h2>
+  <p>Reel Polish is the last gate before delivery in the Nmedia Services pipeline — the modules upstream (Asset Design, Story / Script, Storyboard, Animatics, Animation Sandbox) all eventually feed into it. Next up is a presets registry that travels with the project file, so a "client A house style" preset is one click away on every new job, and an automatic spec-sheet exporter that writes the final fps / resolution / codec back into the project manifest. The pipeline keeps getting shorter.</p>
+
+</article>
+
+<section class="cta">
+  <h3>Want a pipeline like this for your studio?</h3>
+  <p>Nmedia Services is building the next generation of AI-native animation tools — modular, format-aware, and operator-friendly.</p>
+  <a class="cta-btn" href="https://nmediaservices.com" target="_blank" rel="noopener">Get in touch →</a>
+</section>
+
+<footer class="footer">
+  © Nmedia Services · Animation Production Pipeline v1.1 ·
+  <a href="https://nmediaservices.com">nmediaservices.com</a>
+</footer>
+
+<script>
+  // Hydrate YouTube embed if data-yt-id has been set to a real video ID.
+  (function () {
+    var s = document.querySelector('.video-embed');
+    if (!s) return;
+    var id = s.getAttribute('data-yt-id') || '';
+    if (!id || id === 'REPLACE_ME') return;
+    var iframe = s.querySelector('iframe');
+    var poster = s.querySelector('.video-poster');
+    if (!iframe) return;
+    iframe.src = 'https://www.youtube.com/embed/' + id +
+                 '?rel=0&modestbranding=1&playsinline=1';
+    if (poster) poster.style.display = 'none';
+  })();
+</script>
+</body>
+</html>
