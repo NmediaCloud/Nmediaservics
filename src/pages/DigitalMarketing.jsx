@@ -147,6 +147,58 @@ export default function DigitalMarketing() {
           </div>
         </section>
 
+        {/* ── RELATED PIPELINES ─────────────────────── */}
+        <section className="px-8 max-w-7xl mx-auto pb-24">
+          <div className="mb-10">
+            <p className="font-label text-[10px] tracking-[0.4em] text-primary uppercase mb-3">
+              [ RELATED // PIPELINES ]
+            </p>
+            <h2 className="font-headline text-3xl md:text-5xl font-bold tracking-tighter leading-none uppercase">
+              How the work gets made.
+            </h2>
+            <p className="mt-4 text-on-surface-variant font-light max-w-2xl">
+              The strategy frames the campaign — these pipelines deliver the
+              creative that runs through it.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-1">
+            <a
+              href="/articles/UGC_Pipeline.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block bg-surface-container border border-outline-variant/10 hover:border-primary/40 hover:bg-surface-container-high p-8 transition-all group"
+            >
+              <p className="font-label text-[10px] tracking-[0.4em] text-primary uppercase mb-3">
+                [ FIELD_NOTE // SOCIAL_MEDIA_CONTENT ]
+              </p>
+              <h3 className="font-headline font-bold text-2xl uppercase tracking-tight mb-3 group-hover:text-primary transition-colors">
+                UGC Pipeline →
+              </h3>
+              <p className="text-sm text-on-surface-variant font-light leading-relaxed">
+                One Google Sheet row in. One finished UGC, ad, or podcast video
+                out. Vision-graded QA. The factory behind owned + paid social
+                creative.
+              </p>
+            </a>
+            <Link
+              to="/commercials"
+              className="block bg-surface-container border border-outline-variant/10 hover:border-primary/40 hover:bg-surface-container-high p-8 transition-all group"
+            >
+              <p className="font-label text-[10px] tracking-[0.4em] text-primary uppercase mb-3">
+                [ PORTFOLIO // PAID_MEDIA ]
+              </p>
+              <h3 className="font-headline font-bold text-2xl uppercase tracking-tight mb-3 group-hover:text-primary transition-colors">
+                Ad Commercials & Trailers →
+              </h3>
+              <p className="text-sm text-on-surface-variant font-light leading-relaxed">
+                Ad commercials, brand promos, trailer visualisations and
+                biomedical explainers — the on-air work that paid campaigns
+                push.
+              </p>
+            </Link>
+          </div>
+        </section>
+
         {/* ── CAMPAIGN GALLERY TRIGGER ───────────────── */}
         <section className="px-8 max-w-7xl mx-auto pb-32">
           <div className="border border-outline-variant/10 bg-surface-container-low p-10 md:p-14 flex flex-col md:flex-row md:items-center justify-between gap-6">
