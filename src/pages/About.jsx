@@ -25,14 +25,19 @@ export default function About() {
         <header className="px-8 mb-24 max-w-7xl mx-auto">
           <div className="border-b border-outline-variant/20 pb-16 grid lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-5">
-              <div className="relative aspect-[3/2] bg-surface-container border border-outline-variant/10 overflow-hidden">
-                <img
-                  src="/images/about/nanda_profile.jpg"
-                  alt="Media Design — Nmedia Services studio"
-                  className="absolute inset-0 w-full h-full object-cover"
+              <div className="relative aspect-video bg-surface-container border border-outline-variant/10 overflow-hidden">
+                <iframe
+                  className="absolute inset-0 w-full h-full"
+                  src="https://player.vimeo.com/video/1078876514?h=615f148fb2"
+                  title="Nmedia Services · Studio Reel"
+                  frameBorder="0"
+                  allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                  loading="lazy"
                 />
-                <div className="absolute top-3 left-3 font-label text-[10px] text-primary bg-surface/80 px-2 py-1 backdrop-blur-md">
-                  [ STUDIO ]
+                <div className="absolute top-3 left-3 font-label text-[10px] text-primary bg-surface/80 px-2 py-1 backdrop-blur-md z-10 pointer-events-none">
+                  [ STUDIO REEL ]
                 </div>
               </div>
             </div>
