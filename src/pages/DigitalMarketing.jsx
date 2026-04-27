@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import SiteHeader from "../components/SiteHeader";
 import PicsModal from "../components/PicsModal";
 
-const DM_PICS = Array.from({ length: 43 }, (_, i) => `dm_${String(i + 1).padStart(2, "0")}.jpg`);
+const DM_PICS = Array.from({ length: 58 }, (_, i) => `dm_${String(i + 1).padStart(2, "0")}.jpg`);
 
 /**
  * DigitalMarketing — strategy + portfolio.
