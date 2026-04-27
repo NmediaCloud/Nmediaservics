@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { SiteNav, SiteFooter } from "./IPSeries";
+import SiteHeader from "../components/SiteHeader";
+import { SiteFooter } from "./IPSeries";
 
 /**
  * About — Founder + studio credentials.
@@ -16,7 +17,7 @@ export default function About() {
   return (
     <div className="bg-surface text-on-surface font-body selection:bg-primary selection:text-on-primary min-h-screen">
 
-      <SiteNav active="about" />
+      <SiteHeader />
 
       <main className="pt-32 pb-24">
 
@@ -27,7 +28,7 @@ export default function About() {
               <p className="font-label text-primary text-sm tracking-[0.3em] uppercase">
                 ABOUT // FOUNDER · STUDIO
               </p>
-              <h1 className="font-headline text-6xl md:text-8xl font-black tracking-tighter leading-[0.95] uppercase">
+              <h1 className="font-headline text-3xl md:text-5xl font-bold tracking-tight leading-tight uppercase">
                 Nanda <span className="text-primary">Mohan.</span>
               </h1>
               <p className="font-label text-sm tracking-[0.2em] text-on-surface-variant uppercase pt-2">
@@ -82,7 +83,7 @@ export default function About() {
               <p className="font-label text-[10px] tracking-[0.4em] text-primary uppercase mb-3">
                 [ DISCIPLINES ]
               </p>
-              <h2 className="font-headline text-4xl md:text-6xl font-bold tracking-tighter leading-none uppercase">
+              <h2 className="font-headline text-2xl md:text-4xl font-bold tracking-tight leading-none uppercase">
                 What we run.
               </h2>
             </div>
@@ -104,7 +105,7 @@ export default function About() {
             <p className="font-label text-[10px] tracking-[0.4em] text-primary uppercase mb-3">
               [ CREDENTIALS // ONGOING ]
             </p>
-            <h2 className="font-headline text-4xl md:text-6xl font-bold tracking-tighter leading-none uppercase">
+            <h2 className="font-headline text-2xl md:text-4xl font-bold tracking-tight leading-none uppercase">
               The Stack.
             </h2>
             <p className="mt-4 text-on-surface-variant font-light max-w-xl">
@@ -139,7 +140,7 @@ export default function About() {
               <p className="font-label text-[10px] tracking-[0.4em] text-primary uppercase mb-3">
                 [ EDUCATION ]
               </p>
-              <h2 className="font-headline text-3xl md:text-5xl font-bold tracking-tighter uppercase leading-none">
+              <h2 className="font-headline text-xl md:text-3xl font-bold tracking-tight uppercase leading-none">
                 Foundations.
               </h2>
             </div>
@@ -166,7 +167,7 @@ export default function About() {
             <p className="font-label text-[10px] tracking-[0.4em] text-primary uppercase mb-3">
               [ THE LONGER RECORD ]
             </p>
-            <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tighter mb-10 uppercase leading-none">
+            <h2 className="font-headline text-xl md:text-2xl font-bold tracking-tight mb-10 uppercase leading-none">
               Full credits, externally.
             </h2>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
