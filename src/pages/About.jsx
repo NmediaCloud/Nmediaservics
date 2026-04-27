@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import SiteHeader from "../components/SiteHeader";
+import PicsModal, { ABOUT_PICS } from "../components/PicsModal";
 import { SiteFooter } from "./IPSeries";
 
 /**
@@ -14,6 +15,7 @@ import { SiteFooter } from "./IPSeries";
  * from the footer or any nav link added later.
  */
 export default function About() {
+  const [picsOpen, setPicsOpen] = useState(false);
   return (
     <div className="bg-surface text-on-surface font-body selection:bg-primary selection:text-on-primary min-h-screen">
 
@@ -59,9 +61,21 @@ export default function About() {
                 <span className="text-primary"> Paw Patrol</span> — now running
                 an AI-native production studio out of one toolchain.
               </p>
+              <button
+                type="button"
+                onClick={() => setPicsOpen(true)}
+                className="inline-flex items-center gap-2 mt-2 font-label text-xs tracking-[0.2em] uppercase text-primary hover:gap-3 transition-all cursor-pointer"
+              >
+                <span className="material-symbols-outlined text-base">photo_library</span>
+                View Studio Stills · {ABOUT_PICS.length}
+                <span className="material-symbols-outlined text-base">arrow_forward</span>
+              </button>
             </div>
           </div>
         </header>
+
+        {/* Photo gallery modal — opens on demand */}
+        <PicsModal open={picsOpen} onClose={() => setPicsOpen(false)} pics={ABOUT_PICS} />
 
         {/* ── BIO ──────────────────────────────────────── */}
         <section className="px-8 mb-32 max-w-5xl mx-auto">
