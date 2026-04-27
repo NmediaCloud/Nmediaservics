@@ -191,7 +191,27 @@ export default function HomeDesktop() {
                   capture implementation.
                 </p>
               </a>
-              <a 
+            </div>
+          </div>
+        </section>
+
+        {/* Credentials & Platforms — split from capability services */}
+        <section className="py-24 px-8 max-w-[1440px] mx-auto border-t border-white/5">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            <div className="lg:col-span-4">
+              <p className="font-label text-[10px] tracking-[0.4em] text-primary uppercase mb-3">
+                [ THE_RECORD // EXTERNAL ]
+              </p>
+              <h2 className="font-headline text-4xl font-bold tracking-tighter mb-6 text-white">
+                Credentials &<br />Platforms
+              </h2>
+              <p className="font-body text-white/60 max-w-sm">
+                The longer record — public credits, the principal's profile,
+                and the platform we ship media assets through.
+              </p>
+            </div>
+            <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <a
                 href="https://www.imdb.com/name/nm12576040/"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -204,7 +224,7 @@ export default function HomeDesktop() {
                   Animation and Visual FX
                 </h4>
                 <p className="font-body text-sm text-white/50 group-hover:text-white/80 transition-colors">
-                  Nandakumar Mohan - IMDb. Visual Effects: PAW Patrol. Known for
+                  Nandakumar Mohan · IMDb. Visual Effects: PAW Patrol. Known for
                   high-quality production across global animated series.
                 </p>
               </a>
@@ -212,7 +232,7 @@ export default function HomeDesktop() {
                 to="/about"
                 className="block bg-surface-container p-8 group hover:bg-surface-bright transition-all duration-300 border border-white/5 hover:border-primary/30"
               >
-                <span className="material-symbols-outlined text-primary mb-6 block" style={{fontSize: '36px'}}>
+                <span className="material-symbols-outlined text-primary mb-6 block" style={{ fontSize: "36px" }}>
                   verified
                 </span>
                 <h4 className="font-headline text-xl font-bold mb-2 text-white">
@@ -223,7 +243,7 @@ export default function HomeDesktop() {
                   + data-science credentials. The pipeline architect's record.
                 </p>
               </Link>
-              <a 
+              <a
                 href="https://stockflow.media/"
                 target="_blank"
                 rel="noopener noreferrer"
