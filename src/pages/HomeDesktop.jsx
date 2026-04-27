@@ -59,7 +59,7 @@ export default function HomeDesktop() {
               className="inline-block border border-primary px-8 py-4 mb-8 hover:bg-primary/10 transition-colors"
             >
               <h2 className="font-['Space_Grotesk'] text-primary text-sm tracking-[0.3em] uppercase font-bold">
-                Recent : Project : Digital Asset Curation
+                Recent : Project : Pipeline Production Tech
               </h2>
             </a>
             <div className="relative w-full aspect-video bg-surface-container-highest border border-white/5 overflow-hidden shadow-2xl group cursor-pointer">
