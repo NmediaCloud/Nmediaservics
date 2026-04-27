@@ -100,8 +100,8 @@ export default function HomeMobile() {
                 className="absolute inset-0 w-full h-full z-0"
                 frameBorder="0"
                 referrerPolicy="strict-origin-when-cross-origin"
-                src="https://www.youtube.com/embed/KfV_Y7hudvM?si=Xity_VOLpKWsfswo"
-                title="YouTube video player"
+                src="https://www.youtube.com/embed/cGGxVzvTbds?si=SSRsGhcEXVbSoSQ0"
+                title="Animation, Accelerated · Inside an AI-Native Pipeline"
             ></iframe>
           </div>
           <div className="mt-8 grid grid-cols-2 gap-8">
@@ -119,6 +119,9 @@ export default function HomeMobile() {
             </div>
           </div>
         </section>
+
+        {/* Pipeline Field Notes — moved up to sit directly under the hero video */}
+        <PipelineArticles />
 
         {/* Section 3: Capabilities Grid */}
         <section className="py-24 px-6 bg-surface">
@@ -205,9 +208,6 @@ export default function HomeMobile() {
             </div>
           </div>
         </section>
-
-        {/* Pipeline Field Notes — articles strip */}
-        <PipelineArticles />
 
         {/* Section 4: Call to Action */}
         <section className="py-24 px-6 bg-surface-container-highest flex flex-col items-center text-center">

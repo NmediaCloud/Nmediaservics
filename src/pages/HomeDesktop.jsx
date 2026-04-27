@@ -74,12 +74,15 @@ export default function HomeDesktop() {
                 className="absolute inset-0 w-full h-full z-20"
                 frameBorder="0"
                 referrerPolicy="strict-origin-when-cross-origin"
-                src="https://www.youtube.com/embed/KfV_Y7hudvM?si=Xity_VOLpKWsfswo"
-                title="YouTube video player"
+                src="https://www.youtube.com/embed/cGGxVzvTbds?si=SSRsGhcEXVbSoSQ0"
+                title="Animation, Accelerated · Inside an AI-Native Pipeline"
               ></iframe>
             </div>
           </div>
         </section>
+
+        {/* Pipeline Field Notes — moved up to sit directly under the hero video */}
+        <PipelineArticles />
 
         {/* Capabilities */}
         <section className="py-32 px-8 max-w-[1440px] mx-auto">
@@ -235,9 +238,6 @@ export default function HomeDesktop() {
             </div>
           </div>
         </section>
-
-        {/* Pipeline Field Notes — articles strip */}
-        <PipelineArticles />
 
         {/* Call to Action */}
         <section className="py-40 px-8 text-center bg-surface relative overflow-hidden">
