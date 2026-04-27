@@ -60,7 +60,7 @@ export default function AnimationVFX() {
               <span className="material-symbols-outlined text-base">arrow_outward</span>
             </a>
           </div>
-          <VideoGrid videos={ANIM_VIDEOS} />
+          <VideoGrid videos={ANIM_VIDEOS} cols={3} />
         </section>
 
         {/* ── CAPABILITIES ─────────────────────────────── */}
@@ -178,13 +178,23 @@ export default function AnimationVFX() {
 
 // ── DATA ──────────────────────────────────────────────────────────
 
-// Video reel — extracted from mnkmars.wixsite.com/demo
+// Video reel — extracted from mnkmars.wixsite.com/demo/video (14 videos).
+// Ordered: brand-recognition first (Disney / Paw Patrol official trailers),
+// then series + studio work, then animator demos.
 const ANIM_VIDEOS = [
+  { id: "169jD2LiH1A", title: "Paw Patrol · Jet to the Rescue — Paramount Trailer" },
+  { id: "2HMbcoV25ss", title: "Tinker Bell (2008) · Disney Trailer" },
+  { id: "Evwn1oDgiRU", title: "Puppy Dog Pals · Disney Kids" },
   { id: "0c4cQUmFbCE", title: "Paw Patrol · Big Movie Special" },
-  { id: "21LEzxC2lac", title: "Paw Patrol · Series Highlights" },
+  { id: "21LEzxC2lac", title: "Paw Patrol · Series" },
+  { id: "CTneVWp_NNM", title: "Butterfly Tale · Trailer" },
+  { id: "5xitBfO2Ln8", title: "Lego Thor · Marvel" },
+  { id: "bnsQG2SzHsw", title: "Nickelodeon · Ready Set Dance" },
+  { id: "Cn1JWvVQK3c", title: "Weather Hunters" },
+  { id: "2B6NC1PTMkc", title: "Laidback Lama · NFT Animation" },
+  { id: "v-DrUY9hPRk", title: "Animation Demo Reel · v03" },
   { id: "CHC2yiJ520g", title: "Animation Demo Reel · v04" },
   { id: "sbk-vX8oRyI", title: "Animation Demo Reel · v04 (alt)" },
-  { id: "Cn1JWvVQK3c", title: "Weather Hunters" },
   { id: "JRHyRJgZVZ0", title: "Animator Playblast" },
 ];
 
