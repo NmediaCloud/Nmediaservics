@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import PipelineArticles from "../components/PipelineArticles";
 
 export default function HomeDesktop() {
@@ -97,10 +98,8 @@ export default function HomeDesktop() {
               </p>
             </div>
             <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <a 
-                href="https://nmediaservices.wixsite.com/nmedia/ad-commercials-nmedia"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                to="/commercials"
                 className="block bg-surface-container p-8 group hover:bg-surface-bright transition-all duration-300 border border-white/5 hover:border-primary/30"
               >
                 <span className="font-label tracking-widest text-primary mb-6 block text-sm uppercase font-bold">
@@ -114,8 +113,8 @@ export default function HomeDesktop() {
                   ads and trailers designed to engage, convert, and leave a
                   lasting impression.
                 </p>
-              </a>
-              <a 
+              </Link>
+              <a
                 href="https://nmediaservices.wixsite.com/nmedia"
                 target="_blank"
                 rel="noopener noreferrer"
