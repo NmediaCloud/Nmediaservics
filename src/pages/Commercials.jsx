@@ -85,24 +85,14 @@ export default function Commercials() {
         </section>
 
         {/* ── CTA ───────────────────────────────────────── */}
-        <section className="py-32 px-8 text-center bg-surface relative overflow-hidden border-t border-outline-variant/10">
-          <div className="absolute inset-0 opacity-40 pointer-events-none">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-primary/30 blur-[140px] rounded-full"></div>
+        <section className="py-20 px-8 text-center bg-surface relative overflow-hidden border-t border-outline-variant/10">
+          <div className="absolute inset-0 opacity-30 pointer-events-none">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-primary/20 blur-[120px] rounded-full"></div>
           </div>
-          <div className="relative z-10 max-w-4xl mx-auto">
-            <h2 className="font-headline text-4xl md:text-6xl font-bold tracking-tighter mb-8 leading-none text-white uppercase">
+          <div className="relative z-10 max-w-3xl mx-auto">
+            <h2 className="font-headline text-2xl md:text-3xl font-bold tracking-tight leading-tight text-white">
               Got a campaign? Let's visualise it.
             </h2>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <a href="mailto:nanda@nmediaservices.com"
-                 className="bg-primary text-on-primary font-label uppercase px-12 py-5 font-bold text-sm tracking-widest hover:bg-[#ff8a3d] transition-all inline-block">
-                Start a Project
-              </a>
-              <a href="mailto:nmedia.services@gmail.com"
-                 className="border border-primary text-primary font-label uppercase px-12 py-5 font-bold text-sm tracking-widest hover:bg-primary/10 transition-all inline-block">
-                Custom Animation Brief
-              </a>
-            </div>
           </div>
         </section>
 
