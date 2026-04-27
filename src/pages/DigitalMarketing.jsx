@@ -1,19 +1,36 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import SiteHeader from "../components/SiteHeader";
-import PicsModal from "../components/PicsModal";
-
-const DM_PICS = Array.from({ length: 58 }, (_, i) => `dm_${String(i + 1).padStart(2, "0")}.jpg`);
 
 /**
  * DigitalMarketing — strategy + portfolio.
  *
- * Recreates mnkmars.wixsite.com/certi/digitalmarketing in the site's
- * design system. Three-pillar Paid / Earned / Owned media framework
- * plus tooling stack and analytics approach.
+ * Mirrors mnkmars.wixsite.com/certi/digitalmarketing as an infographic
+ * narrative — Strategy → Paid / Owned / Earned channel boards →
+ * Analytics — with the source page's actual graphics embedded inline.
  */
+const IMG = "/images/digital-marketing";
+
+// Tile component for a channel screenshot with a caption.
+function Tile({ src, label }) {
+  return (
+    <div className="bg-surface-container border border-outline-variant/10 hover:border-primary/40 transition-colors group">
+      <div className="aspect-[16/10] overflow-hidden bg-surface-container-lowest">
+        <img
+          src={`${IMG}/${src}`}
+          alt={label}
+          loading="lazy"
+          className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-[1.02] transition-all duration-500"
+        />
+      </div>
+      <p className="font-label text-[10px] tracking-[0.2em] uppercase text-on-surface-variant text-center py-3 group-hover:text-primary transition-colors">
+        {label}
+      </p>
+    </div>
+  );
+}
+
 export default function DigitalMarketing() {
-  const [galleryOpen, setGalleryOpen] = useState(false);
   return (
     <div className="bg-surface text-on-surface font-body selection:bg-primary selection:text-on-primary min-h-screen">
 
@@ -27,7 +44,7 @@ export default function DigitalMarketing() {
             <span className="font-label text-primary text-sm tracking-[0.3em] uppercase block mb-4">
               MARKETING STRATEGY // PAID · OWNED · EARNED
             </span>
-            <h1 className="font-headline text-6xl md:text-8xl font-black tracking-tighter leading-none uppercase">
+            <h1 className="font-headline text-5xl md:text-7xl font-black tracking-tighter leading-none uppercase">
               Marketing the <span className="text-primary">Idea</span>.<br/>
               Not the Product.
             </h1>
@@ -39,61 +56,173 @@ export default function DigitalMarketing() {
           </div>
         </header>
 
+        {/* ── PORTFOLIO BANNER ──────────────────────────── */}
+        <section className="px-8 mb-24 max-w-7xl mx-auto">
+          <div className="bg-[#1a1a1a] border border-outline-variant/10 p-6 md:p-10">
+            <p className="font-label text-[10px] tracking-[0.4em] text-primary/70 uppercase mb-4 text-center">
+              [ PORTFOLIO // SOCIAL_MEDIA · DIGITAL_MARKETING ]
+            </p>
+            <img src={`${IMG}/dm_03.png`} alt="Social Media Digital Marketing" className="w-full max-w-3xl mx-auto opacity-90" />
+          </div>
+        </section>
+
         {/* ── CONTENT VS TRADITIONAL ────────────────────── */}
         <section className="bg-surface-container-lowest py-24 border-y border-outline-variant/10">
-          <div className="max-w-5xl mx-auto px-8 grid md:grid-cols-2 gap-1">
-            <div className="bg-surface-container border border-outline-variant/10 p-10">
-              <p className="font-label text-[10px] tracking-[0.4em] text-on-surface-variant uppercase mb-3">
-                TRADITIONAL
-              </p>
-              <p className="text-2xl font-headline font-bold tracking-tight leading-tight">
-                Aims to sell the <span className="text-on-surface-variant/70">product</span>.
-              </p>
+          <div className="max-w-6xl mx-auto px-8 grid md:grid-cols-2 gap-1 items-stretch">
+            <div className="bg-surface-container border border-primary/30 p-10 flex flex-col justify-between">
+              <div>
+                <p className="font-label text-[10px] tracking-[0.4em] text-primary uppercase mb-3">
+                  CONTENT MARKETING
+                </p>
+                <p className="text-2xl md:text-3xl font-headline font-bold tracking-tight leading-tight">
+                  Sells the <span className="text-primary">idea</span> of a product.
+                </p>
+              </div>
+              <img src={`${IMG}/dm_04.png`} alt="" className="mt-6 w-40 opacity-80 self-start" />
             </div>
-            <div className="bg-surface-container border border-primary/30 p-10">
-              <p className="font-label text-[10px] tracking-[0.4em] text-primary uppercase mb-3">
-                CONTENT MARKETING
-              </p>
-              <p className="text-2xl font-headline font-bold tracking-tight leading-tight">
-                Sells the <span className="text-primary">idea</span> of a product.
-              </p>
+            <div className="bg-surface-container border border-outline-variant/10 p-10 flex flex-col justify-between">
+              <div>
+                <p className="font-label text-[10px] tracking-[0.4em] text-on-surface-variant uppercase mb-3">
+                  TRADITIONAL
+                </p>
+                <p className="text-2xl md:text-3xl font-headline font-bold tracking-tight leading-tight">
+                  Aims to sell the <span className="text-on-surface-variant/70">product</span>.
+                </p>
+              </div>
+              <img src={`${IMG}/dm_07.png`} alt="" className="mt-6 w-40 opacity-80 self-end" />
             </div>
           </div>
         </section>
 
-        {/* ── THREE PILLARS ──────────────────────────── */}
+        {/* ── STRATEGY INFOGRAPHIC ──────────────────────── */}
         <section className="py-32 px-8 max-w-7xl mx-auto">
-          <div className="mb-12">
+          <div className="mb-12 text-center">
             <p className="font-label text-[10px] tracking-[0.4em] text-primary uppercase mb-3">
-              [ THREE-PILLAR FRAMEWORK ]
+              [ FRAMEWORK // STRATEGY ]
             </p>
             <h2 className="font-headline text-4xl md:text-6xl font-bold tracking-tighter leading-none uppercase">
-              Paid. Owned. Earned.
+              The <span className="text-primary">strategy</span> map.
             </h2>
+            <p className="mt-6 text-on-surface-variant font-light max-w-2xl mx-auto">
+              Goals, audience, competitors, channels, content — the eight-piece
+              loop every campaign runs through.
+            </p>
+          </div>
+          <div className="bg-[#0f0f0f] border border-outline-variant/10 p-8 md:p-16">
+            <img src={`${IMG}/dm_06.png`} alt="Digital marketing strategy framework" className="w-full max-w-4xl mx-auto" />
+          </div>
+        </section>
+
+        {/* ── PILLAR 1 · PAID MEDIA ───────────────────── */}
+        <section className="bg-surface-container-lowest py-24 border-y border-outline-variant/10">
+          <div className="max-w-7xl mx-auto px-8">
+            <div className="mb-12">
+              <p className="font-label text-[10px] tracking-[0.4em] text-primary uppercase mb-3">
+                [ PILLAR 01 // PAID_MEDIA ]
+              </p>
+              <h2 className="font-headline text-3xl md:text-5xl font-bold tracking-tighter leading-none uppercase">
+                Paid <span className="text-primary">Media</span>.
+              </h2>
+              <p className="mt-6 text-on-surface-variant font-light max-w-2xl">
+                Native and traditional advertising — display, banner, print,
+                radio, TV, sponsored social, out-of-home and in-store.
+              </p>
+            </div>
+
+            <p className="font-label text-[10px] tracking-[0.4em] text-primary/60 uppercase mb-4">// Social Ads</p>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-10">
+              <Tile src="dm_14.png" label="LinkedIn Ads" />
+              <Tile src="dm_15.png" label="Facebook Ads" />
+              <Tile src="dm_16.png" label="Facebook Ad Types" />
+              <Tile src="dm_17.png" label="Twitter Ads" />
+            </div>
+
+            <p className="font-label text-[10px] tracking-[0.4em] text-primary/60 uppercase mb-4">// Video & Display</p>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-10">
+              <Tile src="dm_20.png" label="YouTube Ads" />
+              <Tile src="dm_21.png" label="YouTube Display" />
+              <Tile src="dm_22.png" label="Yahoo Ads" />
+              <Tile src="dm_23.png" label="Yahoo Mail Ads" />
+            </div>
+
+            <p className="font-label text-[10px] tracking-[0.4em] text-primary/60 uppercase mb-4">// Influencers & Content</p>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-10">
+              <Tile src="dm_26.png" label="Who Are Influencers" />
+              <Tile src="dm_27.png" label="Social Media Influencers" />
+              <Tile src="dm_28.png" label="Content Copywriting" />
+              <Tile src="dm_29.png" label="Content Strategy" />
+            </div>
+
+            <p className="font-label text-[10px] tracking-[0.4em] text-primary/60 uppercase mb-4">// Search & Retargeting</p>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+              <Tile src="dm_34.jpg" label="AdWords" />
+              <Tile src="dm_35.png" label="Paid Search Ads" />
+              <Tile src="dm_36.jpg" label="Pay-per-Click" />
+              <Tile src="dm_37.jpg" label="Redirect Ads" />
+            </div>
+          </div>
+        </section>
+
+        {/* ── PILLAR 2 · OWNED MEDIA ──────────────────── */}
+        <section className="py-24 px-8 max-w-7xl mx-auto">
+          <div className="mb-12">
+            <p className="font-label text-[10px] tracking-[0.4em] text-primary uppercase mb-3">
+              [ PILLAR 02 // OWNED_MEDIA ]
+            </p>
+            <h2 className="font-headline text-3xl md:text-5xl font-bold tracking-tighter leading-none uppercase">
+              Owned <span className="text-primary">Media</span>.
+            </h2>
+            <p className="mt-6 text-on-surface-variant font-light max-w-2xl">
+              Branded communication that makes a direct connection between
+              brand and consumer — sites, blogs, CRM, email, social pages.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-1">
-            {PILLARS.map((p) => (
-              <article key={p.title} className="bg-surface-container border border-outline-variant/10 p-8 flex flex-col">
-                <span className="material-symbols-outlined text-primary text-4xl mb-4">{p.icon}</span>
-                <h3 className="font-headline font-bold text-2xl uppercase tracking-tight mb-3">{p.title}</h3>
-                <p className="text-sm text-on-surface-variant font-light leading-relaxed mb-6">{p.body}</p>
-                <p className="font-label text-[10px] tracking-[0.3em] text-primary uppercase mb-3">Channels</p>
-                <ul className="space-y-1.5 flex-1">
-                  {p.channels.map((c) => (
-                    <li key={c} className="text-sm text-on-surface-variant font-light flex gap-2">
-                      <span className="text-primary/40">·</span>{c}
-                    </li>
-                  ))}
-                </ul>
-              </article>
-            ))}
+          <p className="font-label text-[10px] tracking-[0.4em] text-primary/60 uppercase mb-4">// Web · Blog · CRM · Email</p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-10">
+            <Tile src="dm_44.png" label="Responsive Web" />
+            <Tile src="dm_45.png" label="Blogs · Articles" />
+            <Tile src="dm_46.png" label="Social CRM Process" />
+            <Tile src="dm_47.png" label="Email Campaigns" />
+          </div>
+
+          <p className="font-label text-[10px] tracking-[0.4em] text-primary/60 uppercase mb-4">// Social Pages</p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            <Tile src="dm_50.png" label="Google+ Profile" />
+            <Tile src="dm_49.png" label="LinkedIn Page" />
+            <Tile src="dm_51.png" label="Facebook Page" />
+            <Tile src="dm_52.png" label="Twitter Site" />
+          </div>
+        </section>
+
+        {/* ── PILLAR 3 · EARNED MEDIA ─────────────────── */}
+        <section className="bg-surface-container-lowest py-24 border-y border-outline-variant/10">
+          <div className="max-w-7xl mx-auto px-8">
+            <div className="mb-12">
+              <p className="font-label text-[10px] tracking-[0.4em] text-primary uppercase mb-3">
+                [ PILLAR 03 // EARNED_MEDIA ]
+              </p>
+              <h2 className="font-headline text-3xl md:text-5xl font-bold tracking-tighter leading-none uppercase">
+                Earned <span className="text-primary">Media</span>.
+              </h2>
+              <p className="mt-6 text-on-surface-variant font-light max-w-2xl">
+                Communication about the brand that isn't managed — exposure
+                that comes through word of mouth, organic shares, reviews and
+                viral spread.
+              </p>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+              <Tile src="dm_56.png" label="Blog & Article Mentions" />
+              <Tile src="dm_57.png" label="Reviews & Ratings" />
+              <Tile src="dm_58.png" label="Likes & Reposts" />
+              <Tile src="dm_59.png" label="Viral Shares" />
+            </div>
           </div>
         </section>
 
         {/* ── ANALYTICS ─────────────────────────────── */}
-        <section className="bg-surface-container-lowest py-32 border-y border-outline-variant/10">
-          <div className="max-w-7xl mx-auto px-8 grid lg:grid-cols-12 gap-12 items-center">
+        <section className="py-32 px-8 max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-12 gap-12 items-center mb-12">
             <div className="lg:col-span-5">
               <p className="font-label text-[10px] tracking-[0.4em] text-primary uppercase mb-3">
                 [ ANALYTICS // CLOSED LOOP ]
@@ -101,15 +230,13 @@ export default function DigitalMarketing() {
               <h2 className="font-headline text-4xl md:text-5xl font-bold tracking-tighter uppercase leading-none">
                 What gets<br />measured.
               </h2>
-            </div>
-            <div className="lg:col-span-7 space-y-6">
-              <p className="text-on-surface-variant font-light leading-relaxed">
+              <p className="mt-6 text-on-surface-variant font-light leading-relaxed">
                 Every campaign is wired through one analytics layer — Google
                 Analytics, Hootsuite Core, and Power BI sentiment dashboards
                 — so the same spend can be evaluated across paid, owned and
                 earned channels in one report.
               </p>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-8">
                 {["Clicks", "Traffic", "Comments", "Shares"].map((m) => (
                   <div key={m} className="bg-surface-container border border-outline-variant/10 p-4 text-center">
                     <p className="font-headline text-2xl text-primary font-bold mb-1">·</p>
@@ -118,123 +245,77 @@ export default function DigitalMarketing() {
                 ))}
               </div>
             </div>
-          </div>
-        </section>
-
-        {/* ── TOOLS ──────────────────────────────────── */}
-        <section className="py-32 px-8 max-w-7xl mx-auto">
-          <div className="mb-12">
-            <p className="font-label text-[10px] tracking-[0.4em] text-primary uppercase mb-3">
-              [ TOOLCHAIN ]
-            </p>
-            <h2 className="font-headline text-4xl md:text-6xl font-bold tracking-tighter leading-none uppercase">
-              The Stack.
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {TOOLS.map((t) => (
-              <div key={t.label}>
-                <p className="font-label text-[10px] tracking-[0.3em] text-primary uppercase mb-3">{t.label}</p>
-                <ul className="space-y-2">
-                  {t.items.map((it) => (
-                    <li key={it} className="text-sm text-on-surface-variant font-light flex gap-2">
-                      <span className="text-primary/50">·</span>{it}
-                    </li>
-                  ))}
-                </ul>
+            <div className="lg:col-span-7">
+              <div className="bg-[#0f0f0f] border border-outline-variant/10 p-6">
+                <img src={`${IMG}/dm_62.jpg`} alt="Analysis Strategy" className="w-full" />
               </div>
-            ))}
+            </div>
+          </div>
+
+          <p className="font-label text-[10px] tracking-[0.4em] text-primary/60 uppercase mb-4">// Analytics Stack</p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+            <Tile src="dm_66.jpg" label="Google Analytics" />
+            <Tile src="dm_65.png" label="Hootsuite Core" />
+            <Tile src="dm_64.png" label="Power BI · Sentiment" />
           </div>
         </section>
 
         {/* ── RELATED PIPELINES ─────────────────────── */}
-        <section className="px-8 max-w-7xl mx-auto pb-24">
-          <div className="mb-10">
-            <p className="font-label text-[10px] tracking-[0.4em] text-primary uppercase mb-3">
-              [ RELATED // PIPELINES ]
-            </p>
-            <h2 className="font-headline text-3xl md:text-5xl font-bold tracking-tighter leading-none uppercase">
-              How the work gets made.
-            </h2>
-            <p className="mt-4 text-on-surface-variant font-light max-w-2xl">
-              The strategy frames the campaign — these pipelines deliver the
-              creative that runs through it.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-1">
-            <a
-              href="/articles/UGC_Pipeline.html"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block bg-surface-container border border-outline-variant/10 hover:border-primary/40 hover:bg-surface-container-high p-8 transition-all group"
-            >
+        <section className="bg-surface-container-lowest py-24 px-8 border-y border-outline-variant/10">
+          <div className="max-w-7xl mx-auto">
+            <div className="mb-10">
               <p className="font-label text-[10px] tracking-[0.4em] text-primary uppercase mb-3">
-                [ FIELD_NOTE // SOCIAL_MEDIA_CONTENT ]
+                [ RELATED // PIPELINES ]
               </p>
-              <h3 className="font-headline font-bold text-2xl uppercase tracking-tight mb-3 group-hover:text-primary transition-colors">
-                UGC Pipeline →
-              </h3>
-              <p className="text-sm text-on-surface-variant font-light leading-relaxed">
-                One Google Sheet row in. One finished UGC, ad, or podcast video
-                out. Vision-graded QA. The factory behind owned + paid social
-                creative.
-              </p>
-            </a>
-            <Link
-              to="/commercials"
-              className="block bg-surface-container border border-outline-variant/10 hover:border-primary/40 hover:bg-surface-container-high p-8 transition-all group"
-            >
-              <p className="font-label text-[10px] tracking-[0.4em] text-primary uppercase mb-3">
-                [ PORTFOLIO // PAID_MEDIA ]
-              </p>
-              <h3 className="font-headline font-bold text-2xl uppercase tracking-tight mb-3 group-hover:text-primary transition-colors">
-                Ad Commercials & Trailers →
-              </h3>
-              <p className="text-sm text-on-surface-variant font-light leading-relaxed">
-                Ad commercials, brand promos, trailer visualisations and
-                biomedical explainers — the on-air work that paid campaigns
-                push.
-              </p>
-            </Link>
-          </div>
-        </section>
-
-        {/* ── CAMPAIGN GALLERY TRIGGER ───────────────── */}
-        <section className="px-8 max-w-7xl mx-auto pb-32">
-          <div className="border border-outline-variant/10 bg-surface-container-low p-10 md:p-14 flex flex-col md:flex-row md:items-center justify-between gap-6">
-            <div>
-              <p className="font-label text-[10px] tracking-[0.4em] text-primary uppercase mb-2">
-                [ CAMPAIGN STILLS · {DM_PICS.length} ]
-              </p>
-              <h2 className="font-headline text-2xl md:text-4xl font-bold tracking-tight uppercase leading-none">
-                Strategy Boards & Campaign Visuals
+              <h2 className="font-headline text-3xl md:text-5xl font-bold tracking-tighter leading-none uppercase">
+                How the work gets made.
               </h2>
-              <p className="mt-4 text-on-surface-variant font-light max-w-xl">
-                Frameworks, channel maps, content boards and campaign creatives —
-                the working visuals behind the paid · owned · earned strategy.
+              <p className="mt-4 text-on-surface-variant font-light max-w-2xl">
+                The strategy frames the campaign — these pipelines deliver the
+                creative that runs through it.
               </p>
             </div>
-            <button
-              type="button"
-              onClick={() => setGalleryOpen(true)}
-              className="inline-flex items-center gap-3 bg-primary text-on-primary px-8 py-4 font-label font-bold text-sm tracking-widest uppercase hover:bg-[#ff8a3d] transition-colors cursor-pointer self-start md:self-auto"
-            >
-              View Gallery · {DM_PICS.length}
-              <span className="material-symbols-outlined text-base">photo_library</span>
-            </button>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-1">
+              <a
+                href="/articles/UGC_Pipeline.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block bg-surface-container border border-outline-variant/10 hover:border-primary/40 hover:bg-surface-container-high p-8 transition-all group"
+              >
+                <p className="font-label text-[10px] tracking-[0.4em] text-primary uppercase mb-3">
+                  [ FIELD_NOTE // SOCIAL_MEDIA_CONTENT ]
+                </p>
+                <h3 className="font-headline font-bold text-2xl uppercase tracking-tight mb-3 group-hover:text-primary transition-colors">
+                  UGC Pipeline →
+                </h3>
+                <p className="text-sm text-on-surface-variant font-light leading-relaxed">
+                  One Google Sheet row in. One finished UGC, ad, or podcast video
+                  out. Vision-graded QA. The factory behind owned + paid social
+                  creative.
+                </p>
+              </a>
+              <Link
+                to="/commercials"
+                className="block bg-surface-container border border-outline-variant/10 hover:border-primary/40 hover:bg-surface-container-high p-8 transition-all group"
+              >
+                <p className="font-label text-[10px] tracking-[0.4em] text-primary uppercase mb-3">
+                  [ PORTFOLIO // PAID_MEDIA ]
+                </p>
+                <h3 className="font-headline font-bold text-2xl uppercase tracking-tight mb-3 group-hover:text-primary transition-colors">
+                  Ad Commercials & Trailers →
+                </h3>
+                <p className="text-sm text-on-surface-variant font-light leading-relaxed">
+                  Ad commercials, brand promos, trailer visualisations and
+                  biomedical explainers — the on-air work that paid campaigns
+                  push.
+                </p>
+              </Link>
+            </div>
           </div>
         </section>
 
-        <PicsModal
-          open={galleryOpen}
-          onClose={() => setGalleryOpen(false)}
-          pics={DM_PICS}
-          basePath="/images/digital-marketing"
-          title="Digital Marketing"
-        />
-
         {/* ── CTA ──────────────────────────────────────── */}
-        <section className="py-32 px-8 text-center bg-surface-container-lowest border-t border-outline-variant/10 relative overflow-hidden">
+        <section className="py-32 px-8 text-center bg-surface relative overflow-hidden">
           <div className="absolute inset-0 opacity-30 pointer-events-none">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-primary/30 blur-[140px] rounded-full"></div>
           </div>
@@ -253,27 +334,6 @@ export default function DigitalMarketing() {
     </div>
   );
 }
-
-const PILLARS = [
-  {
-    title: "Paid Media",
-    icon:  "paid",
-    body:  "Native + traditional advertising, display, banner, print, radio, TV, promotions, press releases, sponsored social events, out-of-home and in-store placement.",
-    channels: ["Content & Articles", "Influencers", "LinkedIn Ads", "Yahoo Ads", "Twitter Ads", "YouTube Ads", "Facebook Ads", "AdWords · Paid Search · PPC", "Redirect Ads"],
-  },
-  {
-    title: "Owned Media",
-    icon:  "domain",
-    body:  "Branded communication that makes a direct connection between brand and consumer — sites, signs, uniforms, fixtures, kiosks, packaging, fleet vehicles, CRM.",
-    channels: ["Responsive Website", "Blogs · Articles", "Social CRM Process", "Email Campaigns", "LinkedIn Page", "Facebook Page", "Twitter Site", "Google+ Profile"],
-  },
-  {
-    title: "Earned Media",
-    icon:  "campaign",
-    body:  "Communication about the brand that isn't managed — exposure that comes through word of mouth, digital sharing, organic reposts, reviews and viral spread.",
-    channels: ["Blog & Article Mentions", "Reviews & Ratings", "Likes & Reposts", "Viral Shares", "Influencer Endorsements"],
-  },
-];
 
 function SiteFooter() {
   const CHANNEL = "https://www.youtube.com/@nmediaservices2014";
@@ -300,10 +360,3 @@ function SiteFooter() {
     </footer>
   );
 }
-
-const TOOLS = [
-  { label: "Paid Advertising", items: ["LinkedIn Ads", "Facebook Ads", "Twitter Ads", "YouTube Ads · Display", "Yahoo Ads · Mail Ads", "AdWords", "Pay-per-click", "Redirect Ads"] },
-  { label: "Content & Influencer", items: ["Content Copywriting", "Content Strategy", "Influencer Discovery", "Influencer Engagement"] },
-  { label: "Owned Channels", items: ["Responsive Web", "Blogs · Articles", "Email Campaigns", "Social CRM Process", "Google+ Profile", "LinkedIn / Facebook / Twitter"] },
-  { label: "Analytics", items: ["Google Analytics", "Hootsuite Core Analytics", "Power BI Sentiment Analysis", "Facebook Insights"] },
-];

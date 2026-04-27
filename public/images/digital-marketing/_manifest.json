@@ -1,0 +1,428 @@
+[
+  {
+    "idx": 1,
+    "alt": "",
+    "top": 186,
+    "left": 0
+  },
+  {
+    "idx": 2,
+    "alt": "",
+    "top": 205,
+    "left": 396
+  },
+  {
+    "idx": 3,
+    "alt": "",
+    "top": 290,
+    "left": 224
+  },
+  {
+    "idx": 4,
+    "alt": "",
+    "top": 615,
+    "left": 335
+  },
+  {
+    "idx": 5,
+    "alt": "",
+    "top": 768,
+    "left": 117
+  },
+  {
+    "idx": 6,
+    "alt": "",
+    "top": 821,
+    "left": 101
+  },
+  {
+    "idx": 7,
+    "alt": "",
+    "top": 1403,
+    "left": 515
+  },
+  {
+    "idx": 8,
+    "alt": "",
+    "top": 1511,
+    "left": 283
+  },
+  {
+    "idx": 9,
+    "alt": "",
+    "top": 1515,
+    "left": 108
+  },
+  {
+    "idx": 10,
+    "alt": "",
+    "top": 1515,
+    "left": 193
+  },
+  {
+    "idx": 11,
+    "alt": "",
+    "top": 2002,
+    "left": 153
+  },
+  {
+    "idx": 12,
+    "alt": "",
+    "top": 2002,
+    "left": 461
+  },
+  {
+    "idx": 13,
+    "alt": "",
+    "top": 2002,
+    "left": 770
+  },
+  {
+    "idx": 14,
+    "alt": "Linkedln-Ads",
+    "top": 2076,
+    "left": 82
+  },
+  {
+    "idx": 15,
+    "alt": "Facebookads-1",
+    "top": 2076,
+    "left": 290
+  },
+  {
+    "idx": 16,
+    "alt": "FacebookAds_",
+    "top": 2076,
+    "left": 497
+  },
+  {
+    "idx": 17,
+    "alt": "Twitter_Ads_",
+    "top": 2076,
+    "left": 705
+  },
+  {
+    "idx": 18,
+    "alt": "",
+    "top": 2218,
+    "left": 254
+  },
+  {
+    "idx": 19,
+    "alt": "",
+    "top": 2221,
+    "left": 671
+  },
+  {
+    "idx": 20,
+    "alt": "youtube-ads",
+    "top": 2291,
+    "left": 87
+  },
+  {
+    "idx": 21,
+    "alt": "Youtube-Display-2",
+    "top": 2292,
+    "left": 294
+  },
+  {
+    "idx": 22,
+    "alt": "Yahoo-ADS",
+    "top": 2292,
+    "left": 501
+  },
+  {
+    "idx": 23,
+    "alt": "Yahoo-Mail-Ads",
+    "top": 2292,
+    "left": 709
+  },
+  {
+    "idx": 24,
+    "alt": "",
+    "top": 2414,
+    "left": 667
+  },
+  {
+    "idx": 25,
+    "alt": "",
+    "top": 2417,
+    "left": 255
+  },
+  {
+    "idx": 26,
+    "alt": "who-are-influncers",
+    "top": 2488,
+    "left": 82
+  },
+  {
+    "idx": 27,
+    "alt": "Influncers",
+    "top": 2488,
+    "left": 290
+  },
+  {
+    "idx": 28,
+    "alt": "Content-Copy-Writing",
+    "top": 2488,
+    "left": 497
+  },
+  {
+    "idx": 29,
+    "alt": "Content-Stratagy",
+    "top": 2488,
+    "left": 705
+  },
+  {
+    "idx": 30,
+    "alt": "",
+    "top": 2628,
+    "left": 365
+  },
+  {
+    "idx": 31,
+    "alt": "",
+    "top": 2637,
+    "left": 174
+  },
+  {
+    "idx": 32,
+    "alt": "",
+    "top": 2637,
+    "left": 764
+  },
+  {
+    "idx": 33,
+    "alt": "",
+    "top": 2640,
+    "left": 566
+  },
+  {
+    "idx": 34,
+    "alt": "Adwords",
+    "top": 2705,
+    "left": 82
+  },
+  {
+    "idx": 35,
+    "alt": "Paid_Search_Ads_",
+    "top": 2705,
+    "left": 292
+  },
+  {
+    "idx": 36,
+    "alt": "pay-per-click-advertising",
+    "top": 2705,
+    "left": 501
+  },
+  {
+    "idx": 37,
+    "alt": "Redirect Ads",
+    "top": 2705,
+    "left": 711
+  },
+  {
+    "idx": 38,
+    "alt": "",
+    "top": 3147,
+    "left": 154
+  },
+  {
+    "idx": 39,
+    "alt": "",
+    "top": 3147,
+    "left": 361
+  },
+  {
+    "idx": 40,
+    "alt": "",
+    "top": 3147,
+    "left": 560
+  },
+  {
+    "idx": 41,
+    "alt": "",
+    "top": 3147,
+    "left": 773
+  },
+  {
+    "idx": 42,
+    "alt": "",
+    "top": 3160,
+    "left": 214
+  },
+  {
+    "idx": 43,
+    "alt": "",
+    "top": 3166,
+    "left": 137
+  },
+  {
+    "idx": 44,
+    "alt": "Responsive-Web",
+    "top": 3223,
+    "left": 90
+  },
+  {
+    "idx": 45,
+    "alt": "Blogs_Articles",
+    "top": 3223,
+    "left": 299
+  },
+  {
+    "idx": 46,
+    "alt": "social-crm-process",
+    "top": 3223,
+    "left": 508
+  },
+  {
+    "idx": 47,
+    "alt": "Email-Campaigns",
+    "top": 3223,
+    "left": 717
+  },
+  {
+    "idx": 48,
+    "alt": "",
+    "top": 3366,
+    "left": 158
+  },
+  {
+    "idx": 49,
+    "alt": "Linkedin_ ",
+    "top": 3439,
+    "left": 309
+  },
+  {
+    "idx": 50,
+    "alt": "Google_+Profile",
+    "top": 3440,
+    "left": 87
+  },
+  {
+    "idx": 51,
+    "alt": "Facebook-Page",
+    "top": 3440,
+    "left": 501
+  },
+  {
+    "idx": 52,
+    "alt": "Twitter_site",
+    "top": 3440,
+    "left": 707
+  },
+  {
+    "idx": 53,
+    "alt": "",
+    "top": 3884,
+    "left": 186
+  },
+  {
+    "idx": 54,
+    "alt": "",
+    "top": 3900,
+    "left": 556
+  },
+  {
+    "idx": 55,
+    "alt": "",
+    "top": 3904,
+    "left": 337
+  },
+  {
+    "idx": 56,
+    "alt": "Blog-Mentions",
+    "top": 3970,
+    "left": 89
+  },
+  {
+    "idx": 57,
+    "alt": "review",
+    "top": 3970,
+    "left": 294
+  },
+  {
+    "idx": 58,
+    "alt": "Likes-and-Repost2",
+    "top": 3970,
+    "left": 500
+  },
+  {
+    "idx": 59,
+    "alt": "viral",
+    "top": 3970,
+    "left": 705
+  },
+  {
+    "idx": 60,
+    "alt": "",
+    "top": 4564,
+    "left": 250
+  },
+  {
+    "idx": 61,
+    "alt": "",
+    "top": 4568,
+    "left": 706
+  },
+  {
+    "idx": 62,
+    "alt": "Analysis Strategy",
+    "top": 4959,
+    "left": 117
+  },
+  {
+    "idx": 63,
+    "alt": "",
+    "top": 5427,
+    "left": 60
+  },
+  {
+    "idx": 64,
+    "alt": "Power BI Facbook Sentiment Analysis ",
+    "top": 5438,
+    "left": 656
+  },
+  {
+    "idx": 65,
+    "alt": "hootsuite-core-analytics-",
+    "top": 5444,
+    "left": 368
+  },
+  {
+    "idx": 66,
+    "alt": "Google-Analytics-",
+    "top": 5447,
+    "left": 73
+  },
+  {
+    "idx": 67,
+    "alt": "",
+    "top": 5755,
+    "left": 319
+  },
+  {
+    "idx": 68,
+    "alt": "",
+    "top": 5786,
+    "left": 424
+  },
+  {
+    "idx": 69,
+    "alt": "",
+    "top": 5786,
+    "left": 467
+  },
+  {
+    "idx": 70,
+    "alt": "",
+    "top": 5786,
+    "left": 511
+  },
+  {
+    "idx": 71,
+    "alt": "Social Media in your Digital Marketing Strategy03",
+    "top": 6030,
+    "left": 291
+  }
+]
