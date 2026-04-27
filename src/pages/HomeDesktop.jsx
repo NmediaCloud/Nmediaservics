@@ -114,10 +114,8 @@ export default function HomeDesktop() {
                   lasting impression.
                 </p>
               </Link>
-              <a
-                href="https://nmediaservices.wixsite.com/nmedia"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                to="/ip-series"
                 className="block bg-surface-container p-8 group hover:bg-surface-bright transition-all duration-300 border border-white/5 hover:border-primary/30"
               >
                 <span className="font-label tracking-widest text-primary mb-6 block text-sm uppercase font-bold">
@@ -130,11 +128,9 @@ export default function HomeDesktop() {
                   Original animated series development from concept to screen
                   bringing unique stories, characters, and worlds to life.
                 </p>
-              </a>
-              <a 
-                href="https://mnkmars.wixsite.com/demo"
-                target="_blank"
-                rel="noopener noreferrer"
+              </Link>
+              <Link
+                to="/animation-vfx"
                 className="block bg-surface-container p-8 group hover:bg-surface-bright transition-all duration-300 border border-white/5 hover:border-primary/30"
               >
                 <span className="font-label tracking-widest text-primary mb-6 block text-sm uppercase font-bold">
@@ -147,11 +143,9 @@ export default function HomeDesktop() {
                   Industrial-grade character and environment execution across
                   cinematic pipelines.
                 </p>
-              </a>
-              <a 
-                href="https://mnkmars.wixsite.com/grafix/motion-graphics"
-                target="_blank"
-                rel="noopener noreferrer"
+              </Link>
+              <Link
+                to="/motion-graphics"
                 className="block bg-surface-container p-8 group hover:bg-surface-bright transition-all duration-300 border border-white/5 hover:border-primary/30"
               >
                 <span className="font-label tracking-widest text-primary mb-6 block text-sm uppercase font-bold">
@@ -163,8 +157,8 @@ export default function HomeDesktop() {
                 <p className="font-body text-sm text-white/50 group-hover:text-white/80 transition-colors">
                   Editing, Compositing, Animation, Lighting and Rendering
                 </p>
-              </a>
-              <a 
+              </Link>
+              <a
                 href="https://www.einpresswire.com/article/592919633/utherverse-hires-3d-animation-veteran-nandakumar-mohan-to-develop-full-motion-hd-animation-for-metaverse-platform"
                 target="_blank"
                 rel="noopener noreferrer"
