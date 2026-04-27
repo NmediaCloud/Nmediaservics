@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>NmediaServices</title>
+    <!--
+      Single-page-app redirect for GitHub Pages.
+      Source: https://github.com/rafgraph/spa-github-pages
+
+      When a visitor hits a deep URL like /commercials directly, GitHub
+      Pages serves THIS file (404). We then rewrite the URL to / with
+      the original path encoded as a ?/ query, and the small decoder
+      script in index.html restores it before React Router boots.
+
+      Net effect: visitors land on the right page after a single
+      transparent redirect — no visible 404, no broken links.
+    -->
+    <script type="text/javascript">
+      var pathSegmentsToKeep = 0;
+      var l = window.location;
+      l.replace(
+        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+        l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
+        l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
+        (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+        l.hash
+      );
+    </script>
+  </head>
+  <body></body>
+</html>
