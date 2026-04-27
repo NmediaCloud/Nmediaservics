@@ -22,7 +22,7 @@ export default function AnimationVFX() {
         <section className="px-8 mb-16 max-w-7xl mx-auto">
           <div className="border-b border-outline-variant/20 pb-12">
             <h1 className="font-headline text-3xl md:text-5xl font-bold tracking-tight leading-tight uppercase">
-              Industrial <span className="text-primary">Animation</span>
+              3D Char <span className="text-primary">Animation</span>
             </h1>
             <p className="mt-8 text-on-surface-variant font-light leading-relaxed max-w-2xl text-lg">
               Character and environment execution across cinematic pipelines —
