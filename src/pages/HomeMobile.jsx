@@ -85,7 +85,7 @@ export default function HomeMobile() {
               [ 01 ]
             </span>
             <h2 className="font-headline text-xl font-bold tracking-tight text-on-surface uppercase leading-snug">
-              RECENT : PROJECT : PIPELINE PRODUCTION TECH
+              PIPELINE PRODUCTION TECH
             </h2>
           </a>
           <div className="relative aspect-video bg-surface-container-highest group">
