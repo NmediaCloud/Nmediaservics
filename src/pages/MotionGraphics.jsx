@@ -12,18 +12,17 @@ export default function MotionGraphics() {
   return (
     <div className="bg-surface text-on-surface font-body selection:bg-primary selection:text-on-primary min-h-screen">
 
-      {/* ── NAV ───────────────────────────────────────────── */}
+      {/* ── NAV (logo only — mountain SVG + wordmark) ──────────── */}
       <nav className="fixed top-0 w-full z-50 bg-[#131313]/70 backdrop-blur-xl">
-        <div className="flex justify-between items-center w-full px-8 py-6 max-w-full">
-          <Link to="/" className="text-2xl font-black tracking-tighter text-[#E5E2E1] font-headline">NMEDIA INC.</Link>
-          <div className="hidden md:flex items-center gap-8">
-            <Link to="/animation-vfx" className="font-['Space_Grotesk'] tracking-tight uppercase text-sm font-bold text-[#E5E2E1]/60 hover:text-primary transition-colors duration-300">ANIMATION VFX</Link>
-            <Link to="/commercials" className="font-['Space_Grotesk'] tracking-tight uppercase text-sm font-bold text-[#E5E2E1]/60 hover:text-primary transition-colors duration-300">GALLERY</Link>
-            <Link to="/ip-series" className="font-['Space_Grotesk'] tracking-tight uppercase text-sm font-bold text-[#E5E2E1]/60 hover:text-primary transition-colors duration-300">STUDIO</Link>
-            <Link to="/motion-graphics" className="font-['Space_Grotesk'] tracking-tight uppercase text-sm font-bold text-primary border-b-2 border-primary pb-1">MOTION FX</Link>
-            <a className="font-['Space_Grotesk'] tracking-tight uppercase text-sm font-bold text-[#E5E2E1]/60 hover:text-primary transition-colors duration-300" href="mailto:nanda@nmediaservices.com">CONTACT</a>
-          </div>
-          <a href="mailto:nanda@nmediaservices.com" className="bg-primary text-on-primary px-6 py-2 font-label font-bold tracking-tight active:scale-95 transition-transform">START PROJECT</a>
+        <div className="flex items-center w-full px-8 py-6 max-w-full">
+          <Link to="/" className="flex items-center gap-3 text-[#E5E2E1] hover:text-primary transition-colors">
+            <svg viewBox="0 0 64 44" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round" aria-hidden="true" className="w-8 h-6">
+              <polygon points="32,4 60,40 4,40" />
+              <polygon points="18,18 32,40 4,40" />
+              <polygon points="46,18 60,40 32,40" />
+            </svg>
+            <span className="text-2xl font-black tracking-tighter font-headline">NMEDIA INC.</span>
+          </Link>
         </div>
       </nav>
 
@@ -32,10 +31,7 @@ export default function MotionGraphics() {
         {/* ── HERO ──────────────────────────────────────── */}
         <section className="px-8 mb-16 max-w-7xl mx-auto">
           <div className="border-b border-outline-variant/20 pb-12">
-            <span className="font-label text-primary text-sm tracking-[0.3em] uppercase block mb-4">
-              MOTION FX // EDIT · COMP · LIGHT · RENDER
-            </span>
-            <h1 className="font-headline text-6xl md:text-8xl font-black tracking-tighter leading-none uppercase">
+            <h1 className="font-headline text-3xl md:text-5xl font-bold tracking-tight leading-tight uppercase">
               Motion <span className="text-primary">Graphics</span> VFX
             </h1>
             <p className="mt-8 text-on-surface-variant font-light leading-relaxed max-w-2xl text-lg">
@@ -63,7 +59,7 @@ export default function MotionGraphics() {
               <p className="font-label text-[10px] tracking-[0.4em] text-primary uppercase mb-3">
                 [ DISCIPLINES // FULL_STACK ]
               </p>
-              <h2 className="font-headline text-4xl md:text-6xl font-bold tracking-tighter text-white leading-none uppercase">
+              <h2 className="font-headline text-2xl md:text-4xl font-bold tracking-tight text-white leading-none uppercase">
                 What we craft.
               </h2>
             </div>
@@ -90,7 +86,7 @@ export default function MotionGraphics() {
               <p className="font-label text-[10px] tracking-[0.4em] text-primary uppercase mb-3">
                 [ TOOLCHAIN // PRODUCTION_GRADE ]
               </p>
-              <h2 className="font-headline text-4xl md:text-6xl font-bold tracking-tighter text-white leading-none uppercase mb-6">
+              <h2 className="font-headline text-2xl md:text-4xl font-bold tracking-tight text-white leading-none uppercase mb-6">
                 The Stack.
               </h2>
               <p className="text-on-surface-variant font-light max-w-xl">
@@ -123,7 +119,7 @@ export default function MotionGraphics() {
                 <p className="font-label text-[10px] tracking-[0.4em] text-primary uppercase mb-3">
                   [ SHOWCASES // SELECTED ]
                 </p>
-                <h2 className="font-headline text-4xl md:text-6xl font-bold tracking-tighter text-white leading-none uppercase">
+                <h2 className="font-headline text-2xl md:text-4xl font-bold tracking-tight text-white leading-none uppercase">
                   Projects.
                 </h2>
               </div>
@@ -181,25 +177,15 @@ export default function MotionGraphics() {
           </div>
         </section>
 
-        {/* ── CTA ──────────────────────────────────────── */}
-        <section className="py-32 px-8 text-center bg-surface relative overflow-hidden">
-          <div className="absolute inset-0 opacity-40 pointer-events-none">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-primary/30 blur-[140px] rounded-full"></div>
+        {/* ── CTA (minimal pull-quote) ──────────────────────── */}
+        <section className="py-20 px-8 text-center bg-surface relative overflow-hidden border-t border-outline-variant/10">
+          <div className="absolute inset-0 opacity-30 pointer-events-none">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-primary/20 blur-[120px] rounded-full"></div>
           </div>
-          <div className="relative z-10 max-w-4xl mx-auto">
-            <h2 className="font-headline text-3xl md:text-5xl font-bold tracking-tighter mb-8 leading-none text-white uppercase">
+          <div className="relative z-10 max-w-3xl mx-auto">
+            <h2 className="font-headline text-2xl md:text-3xl font-bold tracking-tight leading-tight text-white">
               Need a render that survives every channel?
             </h2>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <a href="mailto:nanda@nmediaservices.com"
-                 className="bg-primary text-on-primary font-label uppercase px-12 py-5 font-bold text-sm tracking-widest hover:bg-[#ff8a3d] transition-all inline-block">
-                Brief the Studio
-              </a>
-              <a href="https://www.youtube.com/@nmediaservices2014" target="_blank" rel="noopener noreferrer"
-                 className="border border-primary text-primary font-label uppercase px-12 py-5 font-bold text-sm tracking-widest hover:bg-primary/10 transition-all inline-block">
-                Watch Reel
-              </a>
-            </div>
           </div>
         </section>
 
