@@ -133,6 +133,55 @@ export default function About() {
           </div>
         </section>
 
+        {/* ── CREDENTIALS WALL (cert thumbnails) ─────────── */}
+        <section className="bg-surface-container-lowest py-24 border-y border-outline-variant/10">
+          <div className="max-w-7xl mx-auto px-8">
+            <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+              <div>
+                <p className="font-label text-[10px] tracking-[0.4em] text-primary uppercase mb-3">
+                  [ CREDENTIALS WALL // {CERT_WALL.reduce((n, g) => n + g.items.length, 0)} CERTIFICATES ]
+                </p>
+                <h2 className="font-headline text-2xl md:text-4xl font-bold tracking-tight leading-none uppercase">
+                  Receipts.
+                </h2>
+              </div>
+              <span className="font-label text-[10px] tracking-[0.3em] text-on-surface-variant uppercase">
+                Click any tile to view full
+              </span>
+            </div>
+
+            {CERT_WALL.map((group) => (
+              <div key={group.label} className="mb-12 last:mb-0">
+                <p className="font-label text-[10px] tracking-[0.3em] text-primary uppercase mb-4">
+                  {group.label}
+                </p>
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
+                  {group.items.map((it) => (
+                    <a
+                      key={it.file}
+                      href={`/images/certificates/${it.file}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title={it.label}
+                      className="group block bg-surface-container border border-outline-variant/10 hover:border-primary/40 overflow-hidden aspect-[4/3] relative transition-all"
+                    >
+                      <img
+                        src={`/images/certificates/${it.file}`}
+                        alt={it.label}
+                        loading="lazy"
+                        className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-surface/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+                        <p className="text-xs text-white font-medium leading-tight line-clamp-2">{it.label}</p>
+                      </div>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
         {/* ── EDUCATION ───────────────────────────────── */}
         <section className="bg-surface-container-lowest py-24 border-y border-outline-variant/10">
           <div className="max-w-7xl mx-auto px-8 grid lg:grid-cols-12 gap-12 items-center">
@@ -203,6 +252,66 @@ const DISCIPLINES = [
   { icon: "wb_incandescent", title: "Lighting & Render",   body: "V-Ray, Cycles, Eevee. Look-development through final-frame, broadcast-grade output." },
   { icon: "videogame_asset", title: "Motion Capture",      body: "Mocap pipeline ownership — solving, retargeting, cleanup, blending into animator finishes." },
   { icon: "engineering",    title: "Technical Direction",  body: "The role between 'animator' and 'pipeline TD' that keeps shows shipping. End-to-end ownership." },
+];
+
+// Credentials wall — actual scans/screenshots from the legacy Wix /certi page.
+// Files live in public/images/certificates/.
+const CERT_WALL = [
+  {
+    label: "Generative AI",
+    items: [
+      { file: "genai_01_firefly.jpg",      label: "Adobe Firefly · First Look" },
+      { file: "genai_02_imaging.jpg",      label: "Generative AI Imaging — What Creative Pros Need" },
+      { file: "genai_03_enhancing.jpg",    label: "Enhancing Images with AI" },
+      { file: "genai_04_dalle.jpg",        label: "DALL-E · Creative Process & Art of Prompting" },
+      { file: "genai_05_midjourney.jpg",   label: "Midjourney · Tips & Techniques" },
+      { file: "genai_06_prompt_eng.jpg",   label: "Prompt Engineering · How to Talk to AIs" },
+    ],
+  },
+  {
+    label: "Data Science & Analytics · MCT Diploma",
+    items: [
+      { file: "data_01_powerbi_desktop.jpg", label: "Power BI · Desktop" },
+      { file: "data_02_powerbi_pro.jpg",     label: "Power BI · Professional" },
+      { file: "data_03_blockchain.jpg",      label: "Blockchain Basics" },
+      { file: "data_04_hadoop.jpg",          label: "Hadoop 101" },
+      { file: "data_05_certi_a.jpg",         label: "Data Science Project · Certificate" },
+      { file: "data_06_certi_b.jpg",         label: "Data Science Project · Certificate" },
+      { file: "data_07_certi_c.jpg",         label: "Data Science Project · Certificate" },
+      { file: "data_08_certi_d.jpg",         label: "Data Science Project · Certificate" },
+    ],
+  },
+  {
+    label: "MBA · PGDCA · Diploma scans",
+    items: [
+      { file: "diploma_page_1.jpg", label: "Diploma · Page 1" },
+      { file: "diploma_page_2.jpg", label: "Diploma · Page 2" },
+      { file: "diploma_page_3.jpg", label: "Diploma · Page 3" },
+      { file: "diploma_page_4.jpg", label: "Diploma · Page 4" },
+      { file: "diploma_page_5.jpg", label: "Diploma · Page 5" },
+      { file: "diploma_page_6.jpg", label: "Diploma · Page 6" },
+      { file: "diploma_page_7.jpg", label: "Diploma · Page 7" },
+      { file: "diploma_page_8.jpg", label: "Diploma · Page 8" },
+      { file: "diploma_page_9.jpg", label: "Diploma · Page 9" },
+    ],
+  },
+  {
+    label: "Digital Marketing",
+    items: [
+      { file: "dmkt_01_facebook.png",    label: "Facebook Marketing" },
+      { file: "dmkt_02_linkedin.png",    label: "LinkedIn Advertising" },
+      { file: "dmkt_03_adwords.png",     label: "AdWords Essentials" },
+      { file: "dmkt_04_instagram.png",   label: "Instagram for Business" },
+      { file: "dmkt_05_twitter.png",     label: "Twitter Marketing" },
+      { file: "dmkt_06_youtube.png",     label: "YouTube Marketing" },
+      { file: "dmkt_07_mobile.png",      label: "Mobile Marketing" },
+      { file: "dmkt_08_millennials.png", label: "Marketing to Millennials" },
+      { file: "dmkt_09_tools.png",       label: "Tools for Social Media" },
+      { file: "dmkt_10_b2b.png",         label: "B2B Social Media Marketing" },
+      { file: "dmkt_11_smb.png",         label: "Marketing for Small Business" },
+      { file: "dmkt_12_content.png",     label: "Content Marketing" },
+    ],
+  },
 ];
 
 const CERT_GROUPS = [
