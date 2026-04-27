@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import SiteHeader from "../components/SiteHeader";
 import VideoGrid from "../components/VideoGrid";
+import PicsModal, { RENDER_LIGHT_PICS } from "../components/PicsModal";
 
 /**
  * AnimationVFX — 3D Animation & VFX showcase.
@@ -11,6 +12,7 @@ import VideoGrid from "../components/VideoGrid";
  * pipeline expertise (Disney, Nickelodeon, Lego, Paw Patrol, etc.).
  */
 export default function AnimationVFX() {
+  const [renderModalOpen, setRenderModalOpen] = useState(false);
   return (
     <div className="bg-surface text-on-surface font-body selection:bg-primary selection:text-on-primary min-h-screen">
 
@@ -62,6 +64,40 @@ export default function AnimationVFX() {
           </div>
           <VideoGrid videos={ANIM_VIDEOS} cols={3} />
         </section>
+
+        {/* ── LIGHTING & RENDER GALLERY TRIGGER ─────────── */}
+        <section className="px-8 max-w-7xl mx-auto mb-32">
+          <div className="border border-outline-variant/10 bg-surface-container-low p-10 md:p-14 flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div>
+              <p className="font-label text-[10px] tracking-[0.4em] text-primary uppercase mb-2">
+                [ STILLS · {RENDER_LIGHT_PICS.length} ]
+              </p>
+              <h2 className="font-headline text-2xl md:text-4xl font-bold tracking-tight uppercase leading-none">
+                Lighting & Render Gallery
+              </h2>
+              <p className="mt-4 text-on-surface-variant font-light max-w-xl">
+                Look-development frames — V-Ray, Blender Cycles & Eevee — across
+                character, environment and product pipelines.
+              </p>
+            </div>
+            <button
+              type="button"
+              onClick={() => setRenderModalOpen(true)}
+              className="inline-flex items-center gap-3 bg-primary text-on-primary px-8 py-4 font-label font-bold text-sm tracking-widest uppercase hover:bg-[#ff8a3d] transition-colors cursor-pointer self-start md:self-auto"
+            >
+              View Gallery · {RENDER_LIGHT_PICS.length}
+              <span className="material-symbols-outlined text-base">photo_library</span>
+            </button>
+          </div>
+        </section>
+
+        <PicsModal
+          open={renderModalOpen}
+          onClose={() => setRenderModalOpen(false)}
+          pics={RENDER_LIGHT_PICS}
+          basePath="/images/render-light"
+          title="Lighting & Render"
+        />
 
         {/* ── CAPABILITIES ─────────────────────────────── */}
         <section className="px-8 max-w-7xl mx-auto mb-32">

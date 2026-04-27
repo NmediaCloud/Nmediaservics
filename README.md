@@ -64,11 +64,54 @@ npm run preview
 
 ## 📂 Project Structure
 
-- `src/` - The main source code.
-  - `pages/` - React components acting as individual pages (e.g., `HomeMobile.jsx`, `HomeDesktop.jsx`, `IPSeries.jsx`).
-  - `App.jsx` - The main React application entry point containing routing logic.
-- `Assets/` - Static images, fonts, and global design assets.
-- `index.html` - The HTML template used by Vite.
+- `src/` — main source code
+  - `App.jsx` — React Router root
+  - `pages/` — page components (`Home.jsx`, `HomeDesktop.jsx`, `HomeMobile.jsx`, `IPSeries.jsx`, `Commercials.jsx`)
+  - `components/` — shared components
+    - `PipelineArticles.jsx` — homepage article-strip component (added 2026-04-26)
+  - `assets/` — bundled static images
+- `public/` — files served verbatim by Vite
+  - `CNAME` — custom-domain config (`www.nmediaservices.com`)
+  - `articles/` — pipeline articles staged from `Story_Board_Generator/Articles to Publish/`
+    - 11 article HTMLs · `articles.json` manifest · `_shared/` CSS · `images/`
+- `Assets/` — brand logos
+- `Pages/` — content placeholders for upcoming service pages
+- `index.html` — Vite HTML template
+
+## 📰 Pipeline articles
+
+The homepage features a "How we built it." strip showing 11 articles about the Animation Production Pipeline modules. Each card opens a static HTML article from `/articles/<slug>.html` in a new tab.
+
+**Article authoring source-of-truth** lives outside this repo:
+
+```
+D:/Projects/2026/Story_Board_Generator/Articles to Publish/
+```
+
+To re-stage articles into this repo's `public/articles/`, run from the source repo:
+
+```bash
+cd D:/Projects/2026/Story_Board_Generator/Marketing
+python publish_to_website.py
+```
+
+This regenerates `public/articles/articles.json`, copies images + shared CSS, and injects a YouTube embed slot into every article HTML. The script is idempotent — re-runs are safe.
+
+**To wire a YouTube video** into an article, change `data-yt-id="REPLACE_ME"` to the video ID in the source HTML, update the matching `youtube_id` field in `articles.json`, re-stage, commit, push.
+
+See [`AI_MEMORY.md`](./AI_MEMORY.md) for the full articles workflow + invariants.
+
+## 🚀 Deploy
+
+GitHub Actions auto-deploys on push to `main`. Workflow at `.github/workflows/deploy.yml`:
+
+```
+checkout → npm install → npm run build → upload dist/ → deploy-pages
+```
+
+Live at:
+- **https://www.nmediaservices.com** (canonical)
+- **https://nmediaservices.com** (apex 301-forwards to www via GoDaddy)
 
 ## 📜 License
 

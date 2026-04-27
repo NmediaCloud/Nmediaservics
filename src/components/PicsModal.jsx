@@ -11,7 +11,7 @@ import React, { useEffect, useState } from "react";
  * `pics` is an array of file names (e.g. ["pic_01.jpg", …]) — all
  * served from /images/pics/.
  */
-export default function PicsModal({ open, onClose, pics }) {
+export default function PicsModal({ open, onClose, pics, basePath = "/images/pics", title = "Studio Gallery" }) {
   const [zoomed, setZoomed] = useState(null);
 
   // Lock body scroll while open + close on Escape
@@ -48,7 +48,7 @@ export default function PicsModal({ open, onClose, pics }) {
             [ STILLS · {pics.length} ]
           </span>
           <span className="font-headline text-lg font-bold text-white tracking-tight uppercase">
-            Studio Gallery
+            {title}
           </span>
         </div>
         <button
@@ -69,7 +69,7 @@ export default function PicsModal({ open, onClose, pics }) {
           onClick={() => setZoomed(null)}
         >
           <img
-            src={`/images/pics/${zoomed}`}
+            src={`${basePath}/${zoomed}`}
             alt="Studio still"
             className="max-w-full max-h-full object-contain"
           />
@@ -88,7 +88,7 @@ export default function PicsModal({ open, onClose, pics }) {
                 className="group relative aspect-[4/3] bg-surface-container border border-outline-variant/10 hover:border-primary/40 overflow-hidden cursor-zoom-in transition-all"
               >
                 <img
-                  src={`/images/pics/${file}`}
+                  src={`${basePath}/${file}`}
                   alt="Studio still"
                   loading="lazy"
                   className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
@@ -117,4 +117,24 @@ export const ABOUT_PICS = [
   "pic_11.jpg", "pic_12.jpg", "pic_13.jpg", "pic_14.jpg", "pic_15.jpg",
   "pic_16.jpg", "pic_17.jpg", "pic_18.jpg", "pic_19.jpg", "pic_20.jpg",
   "pic_21.jpg", "pic_22.jpg", "pic_23.jpg", "pic_24.jpg",
+];
+
+// File names for /animation-vfx — 78 lighting/render stills under public/images/render-light/
+export const RENDER_LIGHT_PICS = [
+  "rl_01.png", "rl_02.png", "rl_03.png", "rl_04.png", "rl_05.png",
+  "rl_06.png", "rl_07.png", "rl_08.png", "rl_09.png", "rl_10.png",
+  "rl_11.png", "rl_12.png", "rl_13.png", "rl_14.png", "rl_15.png",
+  "rl_16.png", "rl_17.png", "rl_18.png", "rl_19.png", "rl_20.png",
+  "rl_21.png", "rl_22.png", "rl_23.png", "rl_24.png", "rl_25.png",
+  "rl_26.png", "rl_27.png", "rl_28.png", "rl_29.png", "rl_30.png",
+  "rl_31.png", "rl_32.png", "rl_33.png", "rl_34.png", "rl_35.png",
+  "rl_36.jpg", "rl_37.jpg", "rl_38.png", "rl_39.png", "rl_40.png",
+  "rl_41.png", "rl_42.png", "rl_43.png", "rl_44.png", "rl_45.png",
+  "rl_46.png", "rl_47.png", "rl_48.png", "rl_49.png", "rl_50.png",
+  "rl_51.png", "rl_52.png", "rl_53.png", "rl_54.png", "rl_55.png",
+  "rl_56.png", "rl_57.png", "rl_58.png", "rl_59.png", "rl_60.png",
+  "rl_61.png", "rl_62.png", "rl_63.png", "rl_64.png", "rl_65.png",
+  "rl_66.png", "rl_67.jpg", "rl_68.jpg", "rl_69.jpg", "rl_70.jpg",
+  "rl_71.jpg", "rl_72.jpg", "rl_73.jpg", "rl_74.jpg", "rl_75.jpg",
+  "rl_76.jpg", "rl_77.jpg", "rl_78.jpg",
 ];
