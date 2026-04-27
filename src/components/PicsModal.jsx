@@ -138,3 +138,8 @@ export const RENDER_LIGHT_PICS = [
   "rl_71.jpg", "rl_72.jpg", "rl_73.jpg", "rl_74.jpg", "rl_75.jpg",
   "rl_76.jpg", "rl_77.jpg", "rl_78.jpg",
 ];
+
+// File names for /motion-graphics — 136 architectural render stills under public/images/archi-renders/
+export const ARCHI_RENDER_PICS = Array.from({ length: 136 }, (_, i) =>
+  `ar_${String(i + 1).padStart(3, "0")}.jpg`
+);
