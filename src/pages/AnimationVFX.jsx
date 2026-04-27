@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import SiteHeader from "../components/SiteHeader";
 import VideoGrid from "../components/VideoGrid";
 
 /**
@@ -13,19 +14,7 @@ export default function AnimationVFX() {
   return (
     <div className="bg-surface text-on-surface font-body selection:bg-primary selection:text-on-primary min-h-screen">
 
-      {/* ── NAV (logo only — mountain SVG + wordmark) ──────────── */}
-      <nav className="fixed top-0 w-full z-50 bg-[#131313]/70 backdrop-blur-xl">
-        <div className="flex items-center w-full px-8 py-6 max-w-full">
-          <Link to="/" className="flex items-center gap-3 text-[#E5E2E1] hover:text-primary transition-colors">
-            <svg viewBox="0 0 64 44" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round" aria-hidden="true" className="w-8 h-6">
-              <polygon points="32,4 60,40 4,40" />
-              <polygon points="18,18 32,40 4,40" />
-              <polygon points="46,18 60,40 32,40" />
-            </svg>
-            <span className="text-2xl font-black tracking-tighter font-headline">NMEDIA INC.</span>
-          </Link>
-        </div>
-      </nav>
+      <SiteHeader />
 
       <main className="pt-32">
 
@@ -33,7 +22,7 @@ export default function AnimationVFX() {
         <section className="px-8 mb-16 max-w-7xl mx-auto">
           <div className="border-b border-outline-variant/20 pb-12">
             <h1 className="font-headline text-3xl md:text-5xl font-bold tracking-tight leading-tight uppercase">
-              Industrial-Grade <span className="text-primary">Animation</span>
+              Industrial <span className="text-primary">Animation</span>
             </h1>
             <p className="mt-8 text-on-surface-variant font-light leading-relaxed max-w-2xl text-lg">
               Character and environment execution across cinematic pipelines —

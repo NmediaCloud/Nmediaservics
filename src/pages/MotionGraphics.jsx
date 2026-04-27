@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import SiteHeader from "../components/SiteHeader";
 import VideoGrid from "../components/VideoGrid";
 
 /**
@@ -13,19 +14,7 @@ export default function MotionGraphics() {
   return (
     <div className="bg-surface text-on-surface font-body selection:bg-primary selection:text-on-primary min-h-screen">
 
-      {/* ── NAV (logo only — mountain SVG + wordmark) ──────────── */}
-      <nav className="fixed top-0 w-full z-50 bg-[#131313]/70 backdrop-blur-xl">
-        <div className="flex items-center w-full px-8 py-6 max-w-full">
-          <Link to="/" className="flex items-center gap-3 text-[#E5E2E1] hover:text-primary transition-colors">
-            <svg viewBox="0 0 64 44" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round" aria-hidden="true" className="w-8 h-6">
-              <polygon points="32,4 60,40 4,40" />
-              <polygon points="18,18 32,40 4,40" />
-              <polygon points="46,18 60,40 32,40" />
-            </svg>
-            <span className="text-2xl font-black tracking-tighter font-headline">NMEDIA INC.</span>
-          </Link>
-        </div>
-      </nav>
+      <SiteHeader />
 
       <main className="pt-32">
 
