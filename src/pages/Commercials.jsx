@@ -14,15 +14,12 @@ export default function Commercials() {
   return (
     <div className="bg-surface text-on-surface font-body selection:bg-primary selection:text-on-primary min-h-screen">
 
-      {/* ── NAV (minimal — logo + CTA only) ──────────────────── */}
+      {/* ── NAV (logo only) ──────────────────────────────────── */}
       <nav className="fixed top-0 w-full z-50 bg-[#131313]/70 backdrop-blur-xl">
-        <div className="flex justify-between items-center w-full px-8 py-6 max-w-full">
+        <div className="flex items-center w-full px-8 py-6 max-w-full">
           <Link to="/" className="text-2xl font-black tracking-tighter text-[#E5E2E1] font-headline hover:text-primary transition-colors">
             NMEDIA INC.
           </Link>
-          <a href="mailto:nanda@nmediaservices.com" className="bg-primary text-on-primary px-6 py-2 font-label font-bold tracking-tight active:scale-95 transition-transform">
-            START PROJECT
-          </a>
         </div>
       </nav>
 
