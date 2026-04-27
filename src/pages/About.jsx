@@ -21,22 +21,32 @@ export default function About() {
 
       <main className="pt-32 pb-24">
 
-        {/* ── HERO ──────────────────────────────────────── */}
+        {/* ── HERO (photo + intro) ───────────────────────── */}
         <header className="px-8 mb-24 max-w-7xl mx-auto">
-          <div className="border-b border-outline-variant/20 pb-16 grid lg:grid-cols-12 gap-12 items-end">
-            <div className="lg:col-span-7 space-y-4">
+          <div className="border-b border-outline-variant/20 pb-16 grid lg:grid-cols-12 gap-12 items-center">
+            <div className="lg:col-span-5">
+              <div className="relative aspect-[3/2] bg-surface-container border border-outline-variant/10 overflow-hidden">
+                <img
+                  src="/images/about/nanda_profile.jpg"
+                  alt="Media Design — Nmedia Services studio"
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+                <div className="absolute top-3 left-3 font-label text-[10px] text-primary bg-surface/80 px-2 py-1 backdrop-blur-md">
+                  [ STUDIO ]
+                </div>
+              </div>
+            </div>
+            <div className="lg:col-span-7 space-y-5">
               <p className="font-label text-primary text-sm tracking-[0.3em] uppercase">
                 ABOUT // FOUNDER · STUDIO
               </p>
               <h1 className="font-headline text-3xl md:text-5xl font-bold tracking-tight leading-tight uppercase">
                 Nanda <span className="text-primary">Mohan.</span>
               </h1>
-              <p className="font-label text-sm tracking-[0.2em] text-on-surface-variant uppercase pt-2">
+              <p className="font-label text-sm tracking-[0.2em] text-on-surface-variant uppercase">
                 Animation Pipeline Architect · Toronto
               </p>
-            </div>
-            <div className="lg:col-span-5 text-on-surface-variant font-light leading-relaxed">
-              <p className="text-lg">
+              <p className="text-on-surface-variant font-light leading-relaxed text-lg pt-3">
                 Twenty-plus years in animation, lighting and VFX —
                 <span className="text-primary"> Disney</span>,
                 <span className="text-primary"> Nickelodeon</span>,
@@ -266,6 +276,7 @@ const CERT_WALL = [
       { file: "genai_04_dalle.jpg",        label: "DALL-E · Creative Process & Art of Prompting" },
       { file: "genai_05_midjourney.jpg",   label: "Midjourney · Tips & Techniques" },
       { file: "genai_06_prompt_eng.jpg",   label: "Prompt Engineering · How to Talk to AIs" },
+      { file: "genai_07_gans.jpg",         label: "Introduction to Generative Adversarial Networks (GANs)" },
     ],
   },
   {
