@@ -227,7 +227,6 @@ const FB_VIDEOS = [
   { id: "X0iTBt7sExA", title: "3D Game Trailer Previsuals" },
   { id: "RFV0U1Usv10", title: "Pervis Promo · Culinary Title Concept" },
   { id: "jGnZJu6tAlc", title: "Restaurant Promo · Short — 3D Animated, Cinematic 3D" },
-  { id: "5ZQZpGP5-mM", title: "Restaurant Promo · Cinematic 3D Animation" },
   { id: "6oIGo579VAI", title: "Restaurant Promo · Bringing Ideas to Life — Cinematic 3D" },
   { id: "_TBdjQUnw28", title: "Motion Graphics · Visual Storytelling" },
   { id: "g2U088jnNZk", title: "Epic Trailer V3 · Pervis Visualization — 3D Game / Animation / Movies" },
