@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import VideoGrid from "../components/VideoGrid";
 
 /**
  * AnimationVFX — 3D Animation & VFX showcase.
@@ -52,6 +53,26 @@ export default function AnimationVFX() {
             </span>
           </div>
         </div>
+
+        {/* ── VIDEO REEL ─────────────────────────────── */}
+        <section className="px-8 max-w-7xl mx-auto mb-32">
+          <div className="flex items-end justify-between mb-8 flex-wrap gap-3">
+            <div>
+              <p className="font-label text-[10px] tracking-[0.4em] text-primary uppercase mb-2">
+                [ REEL · {ANIM_VIDEOS.length} ]
+              </p>
+              <h2 className="font-headline text-2xl md:text-4xl font-bold tracking-tight uppercase leading-none">
+                Animation Reels
+              </h2>
+            </div>
+            <a href="https://www.youtube.com/@nmediaservices2014" target="_blank" rel="noopener noreferrer"
+               className="inline-flex items-center gap-2 font-label text-[10px] tracking-[0.2em] uppercase text-on-surface-variant hover:text-primary transition-colors">
+              Open on YouTube
+              <span className="material-symbols-outlined text-base">arrow_outward</span>
+            </a>
+          </div>
+          <VideoGrid videos={ANIM_VIDEOS} />
+        </section>
 
         {/* ── CAPABILITIES ─────────────────────────────── */}
         <section className="px-8 max-w-7xl mx-auto mb-32">
@@ -167,6 +188,16 @@ export default function AnimationVFX() {
 
 
 // ── DATA ──────────────────────────────────────────────────────────
+
+// Video reel — extracted from mnkmars.wixsite.com/demo
+const ANIM_VIDEOS = [
+  { id: "0c4cQUmFbCE", title: "Paw Patrol · Big Movie Special" },
+  { id: "21LEzxC2lac", title: "Paw Patrol · Series Highlights" },
+  { id: "CHC2yiJ520g", title: "Animation Demo Reel · v04" },
+  { id: "sbk-vX8oRyI", title: "Animation Demo Reel · v04 (alt)" },
+  { id: "Cn1JWvVQK3c", title: "Weather Hunters" },
+  { id: "JRHyRJgZVZ0", title: "Animator Playblast" },
+];
 
 const DISCIPLINES = [
   { id: "DIS-01", title: "Character Animation", body: "Body mechanics, performance acting, blocking through final polish — across stylised and realistic registers." },

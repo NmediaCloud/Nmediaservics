@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import VideoGrid from "../components/VideoGrid";
 
 /**
  * MotionGraphics — Motion Graphics VFX showcase.
@@ -51,6 +52,26 @@ export default function MotionGraphics() {
             </span>
           </div>
         </div>
+
+        {/* ── VIDEO REEL ─────────────────────────────── */}
+        <section className="px-8 max-w-7xl mx-auto mb-32">
+          <div className="flex items-end justify-between mb-8 flex-wrap gap-3">
+            <div>
+              <p className="font-label text-[10px] tracking-[0.4em] text-primary uppercase mb-2">
+                [ REEL · {MFX_VIDEOS.length} ]
+              </p>
+              <h2 className="font-headline text-2xl md:text-4xl font-bold tracking-tight uppercase leading-none">
+                Motion Graphics & VFX Reels
+              </h2>
+            </div>
+            <a href="https://www.youtube.com/@nmediaservices2014" target="_blank" rel="noopener noreferrer"
+               className="inline-flex items-center gap-2 font-label text-[10px] tracking-[0.2em] uppercase text-on-surface-variant hover:text-primary transition-colors">
+              Open on YouTube
+              <span className="material-symbols-outlined text-base">arrow_outward</span>
+            </a>
+          </div>
+          <VideoGrid videos={MFX_VIDEOS} cols={3} />
+        </section>
 
         {/* ── SERVICES GRID ─────────────────────────────── */}
         <section className="px-8 max-w-7xl mx-auto mb-32">
@@ -106,46 +127,6 @@ export default function MotionGraphics() {
                     ))}
                   </ul>
                 </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ── SHOWCASES ─────────────────────────────────── */}
-        <section className="py-32">
-          <div className="max-w-7xl mx-auto px-8">
-            <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
-              <div>
-                <p className="font-label text-[10px] tracking-[0.4em] text-primary uppercase mb-3">
-                  [ SHOWCASES // SELECTED ]
-                </p>
-                <h2 className="font-headline text-2xl md:text-4xl font-bold tracking-tight text-white leading-none uppercase">
-                  Projects.
-                </h2>
-              </div>
-              <span className="font-label text-[10px] tracking-[0.3em] text-on-surface-variant uppercase">
-                Brand work · explainer · medical · automotive
-              </span>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px">
-              {SHOWCASES.map((s, i) => (
-                <article key={s.title} className="group bg-surface-container p-7 border border-outline-variant/5 hover:bg-surface-container-high hover:border-primary/20 transition-all">
-                  <p className="font-label text-[10px] text-primary mb-3 tracking-widest uppercase">
-                    Entry {String(i + 1).padStart(3, "0")}
-                  </p>
-                  <h3 className="font-headline font-bold text-lg uppercase tracking-tight mb-3 leading-tight">
-                    {s.title}
-                  </h3>
-                  {s.note && (
-                    <p className="text-xs text-on-surface-variant font-light mb-4 leading-relaxed">{s.note}</p>
-                  )}
-                  <div className="flex items-center justify-between border-t border-outline-variant/10 pt-3">
-                    <span className="font-label text-[9px] tracking-widest uppercase text-on-surface-variant group-hover:text-primary transition-colors">
-                      {s.tag}
-                    </span>
-                  </div>
-                </article>
               ))}
             </div>
           </div>
@@ -228,19 +209,34 @@ const TOOL_GROUPS = [
   ] },
 ];
 
-const SHOWCASES = [
-  { title: "Journey Inside the Cell",       tag: "Medical Explainer",            note: "Microscopic walkthrough — narration-paired explainer for life-sciences brief." },
-  { title: "Architectural Perspective",     tag: "Lighting · Rendering",         note: "Multi-pass lighting study + animated camera — interior + exterior coverage." },
-  { title: "Movie Shallows",                tag: "3D Animation · VFX",           note: "Feature-film VFX contribution as animator." },
-  { title: "Barn Storm VFX",                tag: "Blender · Artist Reel",        note: "Standalone Blender build-out — comp, lighting, render." },
-  { title: "Medical Explainer Reel",        tag: "Pharma · Patient-Ed",          note: "Mechanism-of-action animation tuned for in-clinic playback." },
-  { title: "Gaia Demo Reel",                tag: "Brand Showcase",               note: "350-hour Blender render across 2× 1080Ti GPUs · 20 min output." },
-  { title: "Godfather · Public Mobile",     tag: "Brand Spot",                   note: "Editorial cut + motion-graphics overlay for telecom brand." },
-  { title: "Ugly Duckling",                 tag: "Brand Spot",                   note: "Stylised animated cut for retail-brand campaign." },
-  { title: "Remax",                         tag: "Real-Estate Broadcast",        note: "Property-focused motion graphics + rendered camera passes." },
-  { title: "Audi Car (MFI)",                tag: "Automotive Render",            note: "Hero car animation + lighting build-out for marketing reel." },
-  { title: "Microsoft · Azure · PC",        tag: "Tech Brand",                   note: "Product-focused motion design across multiple PC reels." },
-  { title: "Nick Jr · Ready Set Dance",     tag: "Children's Series",            note: "Lighting + render in Blender Eevee for DarkSlope Studios." },
+// Video reel — extracted from mnkmars.wixsite.com/grafix/motion-graphics
+const MFX_VIDEOS = [
+  { id: "b8UPY9rjlrs", title: "VFX Demo Reel · 2021 HD" },
+  { id: "nxTnRqdpPHk", title: "Motion Graphics Demo" },
+  { id: "LuiYYaAt25U", title: "Motion Graphics · Demo Reel 1" },
+  { id: "kHQ1pkRylh4", title: "VFX Animation · Shallows (movie)" },
+  { id: "AI2mrdHQw38", title: "Blender Eevee Lighting" },
+  { id: "OhxO1qIRPS0", title: "V-Ray vs Chaos Vantage · Render Compare" },
+  { id: "Zv0MH0oaYCw", title: "Maya · Animation" },
+  { id: "EOqZrNMbTPo", title: "Gaia 01 · Demo Reel" },
+  { id: "6LQcNk8D8oE", title: "Gaia 02 · Demo Reel" },
+  { id: "DwM-MNxhrBk", title: "Product Render Reel" },
+  { id: "ImaQ5uUw8w0", title: "Architectural Renders" },
+  { id: "D1J9dFpbEFo", title: "Interior Lighting Render" },
+  { id: "GQYPvs7hxUo", title: "House · Projection Animation" },
+  { id: "62-rFxpMgZE", title: "Audi MFI · Automotive Render" },
+  { id: "OmVuDU-EzAY", title: "Film Colorization" },
+  { id: "9XiSwH_g4fU", title: "Paper Mill · Overview" },
+  { id: "74vyNfIkBT0", title: "RajTV · Motion Graphics 2004" },
+  { id: "607iGob7JOU", title: "Montage · Motion Gfx + AfterEffects" },
+  { id: "u4xIs7M3jrA", title: "Medical Animation" },
+  { id: "W99UN6bWrbo", title: "Medical Animation · Explainer" },
+  { id: "jd-3X9jSLSY", title: "Medical Explainer" },
+  { id: "4H2TgCJNq40", title: "Cell · Microscopic 01" },
+  { id: "SbDR4Zco4Ks", title: "Cell · Microscopic 02" },
+  { id: "n8ZvCtbwlzI", title: "Virus on Membrane" },
+  { id: "t3m1w21hMvQ", title: "Reel 03" },
+  { id: "A8TujFQAFOw", title: "Vertical Reel" },
 ];
 
 
