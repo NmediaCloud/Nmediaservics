@@ -1,303 +1,96 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 /**
- * Commercials — Ad / Promo / Trailer Visualisation showcase.
+ * Commercials — Ad / Promo / Trailer Visualisation portfolio.
  *
- * Recreates the legacy Wix page (`nmediaservices.wixsite.com/nmedia/
- * ad-commercials-nmedia`) inside the site's design system. The Wix
- * page surfaced two YouTube playlists (Food & Beverage, BioMedical)
- * and listed the visualisation verticals (animation / game / movie
- * / VFX). Both are restated here in the dark/orange editorial style.
+ * Mirrors the legacy Wix layout (nmediaservices.wixsite.com/nmedia/
+ * ad-commercials-nmedia): a hero block + two video grids (F&B + Ad
+ * Trailers, then BioMedical Visualizations). Each tile is a click-
+ * to-play YouTube embed — thumbnail loads first, iframe swaps in
+ * when the user clicks. Keeps the page light despite 27+ videos.
  */
 export default function Commercials() {
-  // YouTube channel + the two playlist IDs we serve in this page.
-  // Pulled from the legacy Wix source HTML — see HANDOVER.md if you
-  // ever need to swap them.
-  const CHANNEL = "https://www.youtube.com/@nmediaservices2014";
-  const PLAYLIST_FB    = "PLee8tHW01hSOeY10Pe4P3rr9o1Xgnoq18";   // Food & Beverage
-  const PLAYLIST_BIOMED = "PLee8tHW01hSNpJUqfVfYrkWIPe85ksY4v";  // BioMedical Viz
-
   return (
     <div className="bg-surface text-on-surface font-body selection:bg-primary selection:text-on-primary min-h-screen">
+
       {/* ── NAV ───────────────────────────────────────────── */}
       <nav className="fixed top-0 w-full z-50 bg-[#131313]/70 backdrop-blur-xl">
         <div className="flex justify-between items-center w-full px-8 py-6 max-w-full">
-          <Link
-            to="/"
-            className="text-2xl font-black tracking-tighter text-[#E5E2E1] font-headline"
-          >
-            NMEDIA INC.
-          </Link>
+          <Link to="/" className="text-2xl font-black tracking-tighter text-[#E5E2E1] font-headline">NMEDIA INC.</Link>
           <div className="hidden md:flex items-center gap-8">
-            <Link
-              to="/commercials"
-              className="font-['Space_Grotesk'] tracking-tight uppercase text-sm font-bold text-primary border-b-2 border-primary pb-1"
-            >
-              GALLERY
-            </Link>
-            <a className="font-['Space_Grotesk'] tracking-tight uppercase text-sm font-bold text-[#E5E2E1]/60 hover:text-primary transition-colors duration-300" href="#">
-              SERVICES
-            </a>
-            <Link
-              to="/ip-series"
-              className="font-['Space_Grotesk'] tracking-tight uppercase text-sm font-bold text-[#E5E2E1]/60 hover:text-primary transition-colors duration-300"
-            >
-              STUDIO
-            </Link>
-            <a className="font-['Space_Grotesk'] tracking-tight uppercase text-sm font-bold text-[#E5E2E1]/60 hover:text-primary transition-colors duration-300" href="#">
-              ABOUT
-            </a>
-            <a
-              className="font-['Space_Grotesk'] tracking-tight uppercase text-sm font-bold text-[#E5E2E1]/60 hover:text-primary transition-colors duration-300"
-              href="mailto:nanda@nmediaservices.com"
-            >
-              CONTACT
-            </a>
+            <Link to="/" className="font-['Space_Grotesk'] tracking-tight uppercase text-sm font-bold text-[#E5E2E1]/60 hover:text-primary transition-colors duration-300">HOME</Link>
+            <Link to="/commercials" className="font-['Space_Grotesk'] tracking-tight uppercase text-sm font-bold text-primary border-b-2 border-primary pb-1">COMMERCIALS</Link>
+            <Link to="/ip-series" className="font-['Space_Grotesk'] tracking-tight uppercase text-sm font-bold text-[#E5E2E1]/60 hover:text-primary transition-colors duration-300">STUDIO</Link>
+            <a className="font-['Space_Grotesk'] tracking-tight uppercase text-sm font-bold text-[#E5E2E1]/60 hover:text-primary transition-colors duration-300" href="mailto:nanda@nmediaservices.com">CONTACT</a>
           </div>
-          <a
-            href="mailto:nanda@nmediaservices.com"
-            className="bg-primary text-on-primary px-6 py-2 font-label font-bold tracking-tight active:scale-95 transition-transform"
-          >
-            START PROJECT
-          </a>
+          <a href="mailto:nanda@nmediaservices.com" className="bg-primary text-on-primary px-6 py-2 font-label font-bold tracking-tight active:scale-95 transition-transform">START PROJECT</a>
         </div>
       </nav>
 
       <main className="pt-32">
 
         {/* ── HERO ──────────────────────────────────────── */}
-        <section className="px-8 mb-16">
-          <div className="flex flex-col md:flex-row items-end justify-between border-b border-outline-variant/20 pb-12 max-w-7xl mx-auto">
-            <div className="max-w-4xl">
-              <span className="font-label text-primary text-sm tracking-[0.3em] uppercase block mb-4">
-                COMMERCIAL DIVISION // AD · PROMO · TRAILER
-              </span>
-              <h1 className="font-headline text-6xl md:text-8xl font-black tracking-tighter leading-none uppercase">
-                Visual Trust <span className="text-primary">&amp;</span> Clarity
-              </h1>
-              <p className="mt-8 text-on-surface-variant font-light leading-relaxed max-w-2xl text-lg">
-                Ad commercials. Promo cuts. Trailer visualisation. Showcase reels for
-                <em className="text-primary not-italic"> animation</em>,
-                <em className="text-primary not-italic"> game</em>,
-                <em className="text-primary not-italic"> movie</em> and
-                <em className="text-primary not-italic"> VFX</em> productions —
-                across industries from food &amp; beverage to biomedical.
-              </p>
-            </div>
-            <div className="text-on-surface-variant font-label text-xs tracking-widest border-l border-outline-variant/30 pl-6 pb-2 hidden lg:block mt-12 md:mt-0">
-              SECTOR: AD_VIZ<br />
-              FORMAT: 16:9 / 9:16 / 1:1<br />
-              CORE: NM_AD_PIPELINE_V2
-            </div>
+        <section className="px-8 mb-16 max-w-7xl mx-auto">
+          <div className="border-b border-outline-variant/20 pb-12 text-center">
+            <span className="font-label text-primary text-sm tracking-[0.3em] uppercase block mb-4">
+              Nmediaservices · Commercials
+            </span>
+            <h1 className="font-headline text-5xl md:text-7xl font-black tracking-tighter leading-none uppercase mb-6">
+              Ads · Commercial Promos · Trailer Visualization
+            </h1>
+            <p className="text-on-surface-variant font-light leading-relaxed max-w-3xl mx-auto text-lg">
+              Show-case for Ad Commercials, Promos and Various-Industries Trailer
+              Visualisation across <span className="text-primary">Animation</span>,
+              <span className="text-primary"> Game</span>,
+              <span className="text-primary"> Movie</span> and
+              <span className="text-primary"> VFX</span>.
+            </p>
           </div>
         </section>
 
-        {/* ── STATUS TICKER ─────────────────────────────── */}
-        <div className="w-full overflow-hidden bg-surface-container-low py-3 mb-24 whitespace-nowrap border-y border-outline-variant/10">
-          <div className="flex gap-12 font-label text-[10px] tracking-[0.4em] text-primary/50 uppercase">
-            <span className="block">
-              SYSTEM_STATUS: NOMINAL // 4K RENDER PIPELINE // CROSS-INDUSTRY READY //
-              FOOD_BEVERAGE · BIOMEDICAL · TRAILER_VIZ // SYSTEM_STATUS: NOMINAL
-            </span>
-          </div>
-        </div>
-
-        {/* ── CAPABILITIES GRID (6 verticals) ──────────── */}
-        <section className="px-8 max-w-7xl mx-auto mb-32">
-          <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+        {/* ── PORTFOLIO GRID — F&B + AD TRAILERS ───────── */}
+        <section className="px-8 max-w-7xl mx-auto mb-24">
+          <div className="flex items-end justify-between mb-8 flex-wrap gap-3">
             <div>
-              <p className="font-label text-[10px] tracking-[0.4em] text-primary uppercase mb-3">
-                [ VERTICALS // 06 ACTIVE ]
+              <p className="font-label text-[10px] tracking-[0.4em] text-primary uppercase mb-2">
+                [ PLAYLIST · 01 ]
               </p>
-              <h2 className="font-headline text-4xl md:text-6xl font-bold tracking-tighter text-white leading-none uppercase">
-                What we visualise.
+              <h2 className="font-headline text-2xl md:text-4xl font-bold tracking-tight uppercase leading-none">
+                Food &amp; Beverage · Ad Trailers
               </h2>
             </div>
-            <span className="font-label text-[10px] tracking-[0.3em] text-on-surface-variant uppercase">
-              Six categories · one production pipeline
-            </span>
+            <a href={`https://www.youtube.com/playlist?list=${PLAYLIST_FB}`} target="_blank" rel="noopener noreferrer"
+               className="inline-flex items-center gap-2 font-label text-[10px] tracking-[0.2em] uppercase text-on-surface-variant hover:text-primary transition-colors">
+              Open on YouTube
+              <span className="material-symbols-outlined text-base">arrow_outward</span>
+            </a>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1">
-            {VERTICALS.map((v) => (
-              <article
-                key={v.id}
-                className="group bg-surface-container border border-outline-variant/10 p-8 hover:bg-surface-container-high hover:border-primary/30 transition-all duration-300"
-              >
-                <p className="font-label text-[10px] text-primary mb-2 tracking-widest uppercase">
-                  Entry ID: {v.id}
-                </p>
-                <h3 className="font-headline font-bold text-2xl uppercase tracking-tight mb-4">
-                  {v.title}
-                </h3>
-                <p className="text-sm text-on-surface-variant leading-relaxed font-light mb-6 line-clamp-3">
-                  {v.body}
-                </p>
-                <div className="flex items-center justify-between border-t border-outline-variant/10 pt-4">
-                  <span className="font-label text-[10px] tracking-widest uppercase text-on-surface-variant group-hover:text-primary transition-colors">
-                    {v.format}
-                  </span>
-                  <span className="material-symbols-outlined text-on-surface-variant/40 group-hover:text-primary group-hover:translate-x-1 transition-all">
-                    arrow_forward
-                  </span>
-                </div>
-              </article>
-            ))}
-          </div>
+          <VideoGrid videos={FB_VIDEOS} />
         </section>
 
-        {/* ── PLAYLIST SHOWCASE — Food & Beverage ─────── */}
-        <section className="bg-surface-container-lowest py-32 border-y border-outline-variant/10">
-          <div className="max-w-7xl mx-auto px-8 grid lg:grid-cols-12 gap-12 items-start">
-            <div className="lg:col-span-5">
-              <p className="font-label text-[10px] tracking-[0.4em] text-primary uppercase mb-3">
-                [ SHOWCASE // PLAYLIST_01 ]
+        {/* ── PORTFOLIO GRID — BIOMEDICAL ──────────────── */}
+        <section className="px-8 max-w-7xl mx-auto mb-32">
+          <div className="flex items-end justify-between mb-8 flex-wrap gap-3">
+            <div>
+              <p className="font-label text-[10px] tracking-[0.4em] text-primary uppercase mb-2">
+                [ PLAYLIST · 02 ]
               </p>
-              <h2 className="font-headline text-4xl md:text-5xl font-bold uppercase tracking-tighter mb-6 leading-none">
-                Food &amp; Beverage
-              </h2>
-              <p className="text-on-surface-variant font-light leading-relaxed mb-8 max-w-md">
-                Catering, events, hospitality — visualisation reels that put the
-                product on a plate before the menu prints. Hero shots, ambient
-                pours, slow-motion textures, and brand stings tuned for social
-                drop-in.
-              </p>
-              <ul className="space-y-2 mb-10 text-sm text-on-surface-variant font-light">
-                <li className="flex gap-3">
-                  <span className="text-primary">·</span> Hero product reels (15s · 30s · 60s)
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-primary">·</span> Event walkthroughs &amp; venue showcases
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-primary">·</span> Recipe build-ups + slow-motion close-ups
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-primary">·</span> Multi-format crops (16:9 · 9:16 · 1:1)
-                </li>
-              </ul>
-              <a
-                href={`https://www.youtube.com/playlist?list=${PLAYLIST_FB}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 bg-primary text-on-primary px-8 py-4 font-label font-bold text-sm tracking-widest uppercase hover:bg-[#ff8a3d] transition-colors"
-              >
-                <span className="material-symbols-outlined text-base">open_in_new</span>
-                Open Full Playlist on YouTube
-              </a>
-            </div>
-            <div className="lg:col-span-7 relative aspect-video bg-surface-container-low border border-outline-variant/10 overflow-hidden shadow-2xl">
-              <iframe
-                className="absolute inset-0 w-full h-full"
-                src={`https://www.youtube.com/embed/videoseries?list=${PLAYLIST_FB}&rel=0&modestbranding=1`}
-                title="Food & Beverage — Catering and Events Visuals · Playlist"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerPolicy="strict-origin-when-cross-origin"
-                allowFullScreen
-                loading="lazy"
-              ></iframe>
-              <div className="absolute top-4 left-4 font-label text-[10px] text-primary bg-surface/80 px-2 py-1 backdrop-blur-md z-10 pointer-events-none">
-                [ PLAYLIST_01 // F&amp;B ]
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ── PLAYLIST SHOWCASE — BioMedical ──────────── */}
-        <section className="py-32">
-          <div className="max-w-7xl mx-auto px-8 grid lg:grid-cols-12 gap-12 items-start">
-            <div className="lg:col-span-7 lg:order-1 order-2 relative aspect-video bg-surface-container-low border border-outline-variant/10 overflow-hidden shadow-2xl">
-              <iframe
-                className="absolute inset-0 w-full h-full"
-                src={`https://www.youtube.com/embed/videoseries?list=${PLAYLIST_BIOMED}&rel=0&modestbranding=1`}
-                title="BioMedical Visualizations · Playlist"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerPolicy="strict-origin-when-cross-origin"
-                allowFullScreen
-                loading="lazy"
-              ></iframe>
-              <div className="absolute top-4 left-4 font-label text-[10px] text-primary bg-surface/80 px-2 py-1 backdrop-blur-md z-10 pointer-events-none">
-                [ PLAYLIST_02 // BIOMED ]
-              </div>
-            </div>
-            <div className="lg:col-span-5 lg:order-2 order-1">
-              <p className="font-label text-[10px] tracking-[0.4em] text-primary uppercase mb-3">
-                [ SHOWCASE // PLAYLIST_02 ]
-              </p>
-              <h2 className="font-headline text-4xl md:text-5xl font-bold uppercase tracking-tighter mb-6 leading-none">
-                BioMedical Viz
-              </h2>
-              <p className="text-on-surface-variant font-light leading-relaxed mb-8 max-w-md">
-                Procedure walk-throughs, mechanism-of-action reels, device demos,
-                surgical animations — accurate, peer-review-ready visualisations
-                for medical, pharmaceutical and life-sciences communication.
-              </p>
-              <ul className="space-y-2 mb-10 text-sm text-on-surface-variant font-light">
-                <li className="flex gap-3">
-                  <span className="text-primary">·</span> Mechanism-of-action animations
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-primary">·</span> Device &amp; instrument demonstrations
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-primary">·</span> Surgical procedure walk-throughs
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-primary">·</span> Patient-education explainer reels
-                </li>
-              </ul>
-              <a
-                href={`https://www.youtube.com/playlist?list=${PLAYLIST_BIOMED}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 bg-primary text-on-primary px-8 py-4 font-label font-bold text-sm tracking-widest uppercase hover:bg-[#ff8a3d] transition-colors"
-              >
-                <span className="material-symbols-outlined text-base">open_in_new</span>
-                Open Full Playlist on YouTube
-              </a>
-            </div>
-          </div>
-        </section>
-
-        {/* ── PROCESS / PIPELINE NOTE ───────────────────── */}
-        <section className="bg-surface-container-lowest py-24 border-y border-outline-variant/10">
-          <div className="max-w-7xl mx-auto px-8 grid lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-5">
-              <p className="font-label text-[10px] tracking-[0.4em] text-primary uppercase mb-3">
-                [ DELIVERY // NM_AD_PIPELINE_V2 ]
-              </p>
-              <h2 className="font-headline text-3xl md:text-5xl font-bold tracking-tighter uppercase leading-none">
-                One Pipeline. Every Format.
+              <h2 className="font-headline text-2xl md:text-4xl font-bold tracking-tight uppercase leading-none">
+                BioMedical Visualizations
               </h2>
             </div>
-            <div className="lg:col-span-7 text-on-surface-variant font-light leading-relaxed space-y-4">
-              <p>
-                Every commercial out of this division runs through the same
-                production pipeline as our IP series — eleven control panels,
-                one project manifest, format-aware from the brief.
-              </p>
-              <p>
-                The result: campaign-ready 16:9 hero cuts, 9:16 vertical reels
-                and 1:1 social squares from the same source render. No
-                re-grading. No re-mastering. Same brand stings, same lower-thirds,
-                landing on every channel.
-              </p>
-              <Link
-                to="/"
-                className="inline-flex items-center gap-2 text-primary font-label uppercase text-xs tracking-widest mt-4 hover:gap-3 transition-all"
-              >
-                See the pipeline behind it
-                <span className="material-symbols-outlined text-sm">arrow_forward</span>
-              </Link>
-            </div>
+            <a href={`https://www.youtube.com/playlist?list=${PLAYLIST_BIOMED}`} target="_blank" rel="noopener noreferrer"
+               className="inline-flex items-center gap-2 font-label text-[10px] tracking-[0.2em] uppercase text-on-surface-variant hover:text-primary transition-colors">
+              Open on YouTube
+              <span className="material-symbols-outlined text-base">arrow_outward</span>
+            </a>
           </div>
+          <VideoGrid videos={BIOMED_VIDEOS} />
         </section>
 
         {/* ── CTA ───────────────────────────────────────── */}
-        <section className="py-32 px-8 text-center bg-surface relative overflow-hidden">
+        <section className="py-32 px-8 text-center bg-surface relative overflow-hidden border-t border-outline-variant/10">
           <div className="absolute inset-0 opacity-40 pointer-events-none">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-primary/30 blur-[140px] rounded-full"></div>
           </div>
@@ -305,21 +98,13 @@ export default function Commercials() {
             <h2 className="font-headline text-4xl md:text-6xl font-bold tracking-tighter mb-8 leading-none text-white uppercase">
               Got a campaign? Let's visualise it.
             </h2>
-            <p className="text-on-surface-variant max-w-xl mx-auto mb-10 font-light">
-              Ad spots, trailer cuts, social verticals, biomed explainers — same
-              pipeline, same precision, every brief.
-            </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <a
-                href="mailto:nanda@nmediaservices.com"
-                className="bg-primary text-on-primary font-label uppercase px-12 py-5 font-bold text-sm tracking-widest hover:bg-[#ff8a3d] transition-all inline-block"
-              >
+              <a href="mailto:nanda@nmediaservices.com"
+                 className="bg-primary text-on-primary font-label uppercase px-12 py-5 font-bold text-sm tracking-widest hover:bg-[#ff8a3d] transition-all inline-block">
                 Start a Project
               </a>
-              <a
-                href="mailto:nmedia.services@gmail.com"
-                className="border border-primary text-primary font-label uppercase px-12 py-5 font-bold text-sm tracking-widest hover:bg-primary/10 transition-all inline-block"
-              >
+              <a href="mailto:nmedia.services@gmail.com"
+                 className="border border-primary text-primary font-label uppercase px-12 py-5 font-bold text-sm tracking-widest hover:bg-primary/10 transition-all inline-block">
                 Custom Animation Brief
               </a>
             </div>
@@ -330,93 +115,140 @@ export default function Commercials() {
         <footer className="bg-surface-container-lowest py-16 px-8 border-t border-outline-variant/10">
           <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-12">
             <div>
-              <p className="font-label text-[10px] tracking-[0.3em] text-primary uppercase mb-4">
-                Contact
-              </p>
-              <a
-                href="mailto:nanda@nmediaservices.com"
-                className="block text-sm text-on-surface hover:text-primary transition-colors mb-1"
-              >
-                nanda@nmediaservices.com
-              </a>
-              <a
-                href="mailto:nmedia.services@gmail.com"
-                className="block text-sm text-on-surface-variant hover:text-primary transition-colors"
-              >
-                nmedia.services@gmail.com
-              </a>
+              <p className="font-label text-[10px] tracking-[0.3em] text-primary uppercase mb-4">Contact</p>
+              <a href="mailto:nanda@nmediaservices.com" className="block text-sm text-on-surface hover:text-primary transition-colors mb-1">nanda@nmediaservices.com</a>
+              <a href="mailto:nmedia.services@gmail.com" className="block text-sm text-on-surface-variant hover:text-primary transition-colors">nmedia.services@gmail.com</a>
             </div>
             <div>
-              <p className="font-label text-[10px] tracking-[0.3em] text-primary uppercase mb-4">
-                Studio
-              </p>
+              <p className="font-label text-[10px] tracking-[0.3em] text-primary uppercase mb-4">Studio</p>
               <p className="text-sm text-on-surface-variant">Toronto · M6N 4K7 · CA</p>
             </div>
             <div>
-              <p className="font-label text-[10px] tracking-[0.3em] text-primary uppercase mb-4">
-                Channels
-              </p>
-              <a
-                href={CHANNEL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block text-sm text-on-surface-variant hover:text-primary transition-colors"
-              >
+              <p className="font-label text-[10px] tracking-[0.3em] text-primary uppercase mb-4">Channels</p>
+              <a href="https://www.youtube.com/@nmediaservices2014" target="_blank" rel="noopener noreferrer"
+                 className="block text-sm text-on-surface-variant hover:text-primary transition-colors">
                 YouTube · @nmediaservices2014
               </a>
             </div>
           </div>
-          <div className="max-w-7xl mx-auto mt-12 pt-8 border-t border-outline-variant/10 flex flex-col md:flex-row justify-between gap-4">
-            <p className="text-xs text-on-surface-variant/50 font-label">
-              © Nmedia Inc. · Animation Production Pipeline v1.1
-            </p>
-            <p className="text-xs text-on-surface-variant/50 font-label">
-              Custom animation? <a href="mailto:nmedia.services@gmail.com" className="hover:text-primary">nmedia.services@gmail.com</a>
-            </p>
+          <div className="max-w-7xl mx-auto mt-12 pt-8 border-t border-outline-variant/10">
+            <p className="text-xs text-on-surface-variant/50 font-label">© Nmedia Inc. · Animation Production Pipeline v1.1</p>
           </div>
         </footer>
+
       </main>
     </div>
   );
 }
 
 
-// ── Verticals data ────────────────────────────────────────────────
-const VERTICALS = [
-  {
-    id: "VIZ-01",
-    title: "Animation Trailers",
-    body: "Cinematic ad spots and trailer cuts for animated IP — character-led storytelling, beat-tight pacing, broadcast-ready masters.",
-    format: "16:9 · 9:16 · 1:1",
-  },
-  {
-    id: "VIZ-02",
-    title: "Game Trailers",
-    body: "Pre-launch reveals, gameplay sizzles and post-launch promo cuts — engine-captured, cinematically composited, platform-spec delivery.",
-    format: "All platforms",
-  },
-  {
-    id: "VIZ-03",
-    title: "Movie Trailer Viz",
-    body: "Pre-vis, animatics and final-cut trailer visualisation for live-action and hybrid productions. Storyboard to screen, fast.",
-    format: "Pre-vis → final",
-  },
-  {
-    id: "VIZ-04",
-    title: "VFX Reels",
-    body: "Industrial-grade character and environment execution. Reels that survive every channel — from in-cinema to phone-screen.",
-    format: "Up to 4K",
-  },
-  {
-    id: "VIZ-05",
-    title: "Food & Beverage",
-    body: "Catering, events, hospitality — hero product reels and venue showcases. Slow-motion textures, ambient pours, social-ready stings.",
-    format: "Multi-cut",
-  },
-  {
-    id: "VIZ-06",
-    title: "BioMedical Viz",
-    body: "Mechanism-of-action animations, surgical walk-throughs and device demos. Peer-review-ready accuracy, broadcast-grade polish.",
-    format: "Medical-grade",
-  },
+// ─────────────────────────────────────────────────────────────────
+// VideoGrid — responsive 2-up grid of click-to-play tiles
+// ─────────────────────────────────────────────────────────────────
+function VideoGrid({ videos }) {
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      {videos.map((v) => <VideoTile key={v.id} video={v} />)}
+    </div>
+  );
+}
+
+
+// ─────────────────────────────────────────────────────────────────
+// VideoTile — thumbnail until click, then YouTube iframe
+// (the "lite-youtube" pattern — keeps initial page weight low even
+//  with 25+ embeds on a single page)
+// ─────────────────────────────────────────────────────────────────
+function VideoTile({ video }) {
+  const [active, setActive] = useState(false);
+
+  if (active) {
+    return (
+      <div className="relative aspect-video bg-surface-container border border-outline-variant/10 overflow-hidden shadow-2xl">
+        <iframe
+          className="absolute inset-0 w-full h-full"
+          src={`https://www.youtube.com/embed/${video.id}?autoplay=1&rel=0&modestbranding=1`}
+          title={video.title}
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerPolicy="strict-origin-when-cross-origin"
+          allowFullScreen
+        />
+      </div>
+    );
+  }
+
+  return (
+    <button
+      type="button"
+      onClick={() => setActive(true)}
+      className="group relative aspect-video bg-surface-container border border-outline-variant/10 hover:border-primary/40 overflow-hidden text-left transition-all"
+    >
+      {/* Thumbnail — YouTube's hqdefault is 480×360, sharp enough for the grid */}
+      <img
+        src={`https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`}
+        alt={video.title}
+        loading="lazy"
+        className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-surface/80 via-transparent to-transparent"></div>
+
+      {/* Play button overlay */}
+      <div className="absolute inset-0 flex items-center justify-center">
+        <span className="w-16 h-16 rounded-full bg-primary/90 flex items-center justify-center group-hover:scale-110 transition-transform">
+          <span className="material-symbols-outlined text-on-primary text-3xl ml-1">play_arrow</span>
+        </span>
+      </div>
+
+      {/* Caption */}
+      <div className="absolute bottom-0 left-0 right-0 p-4">
+        <p className="font-headline text-sm md:text-base text-white font-bold leading-tight line-clamp-2">
+          {video.title}
+        </p>
+      </div>
+    </button>
+  );
+}
+
+
+// ─────────────────────────────────────────────────────────────────
+// Video data — auto-extracted from the two YouTube playlists
+// referenced on the legacy Wix Commercials page.
+// (regenerable: see docs in HANDOVER.md if/when videos change)
+// ─────────────────────────────────────────────────────────────────
+const PLAYLIST_FB     = "PLee8tHW01hSOeY10Pe4P3rr9o1Xgnoq18";
+const PLAYLIST_BIOMED = "PLee8tHW01hSNpJUqfVfYrkWIPe85ksY4v";
+
+const FB_VIDEOS = [
+  { id: "lCslscd4DMM", title: "Ad commercials · Visual Trust & Clarity" },
+  { id: "iPRsQSYeMuM", title: "Ad commercials · Visual Trust & Clarity (alt cut)" },
+  { id: "OVmfQTDJUUI", title: "Powering Financial Institutions with Visual Trust & Clarity" },
+  { id: "iF7iSkC9RSo", title: "The Martian Robot · Depreciative Savings Scheme — Animated VFX Ad" },
+  { id: "jWHqDxd_T7c", title: "3D Animated Commercial Production — Banking" },
+  { id: "eusKt9p1nJU", title: "Cooking Trailer Previsuals" },
+  { id: "X0iTBt7sExA", title: "3D Game Trailer Previsuals" },
+  { id: "RFV0U1Usv10", title: "Pervis Promo · Culinary Title Concept" },
+  { id: "jGnZJu6tAlc", title: "Restaurant Promo · Short — 3D Animated, Cinematic 3D" },
+  { id: "5ZQZpGP5-mM", title: "Restaurant Promo · Cinematic 3D Animation" },
+  { id: "6oIGo579VAI", title: "Restaurant Promo · Bringing Ideas to Life — Cinematic 3D" },
+  { id: "_TBdjQUnw28", title: "Motion Graphics · Visual Storytelling" },
+  { id: "g2U088jnNZk", title: "Epic Trailer V3 · Pervis Visualization — 3D Game / Animation / Movies" },
+];
+
+const BIOMED_VIDEOS = [
+  { id: "bp_OY_HU7tI", title: "01 · 3D Medical Animation Explainer Media" },
+  { id: "D5Qu7auYzTw", title: "02 · Microscopic Biological Science · Underwater Visualization" },
+  { id: "dD8pYOd1WoU", title: "03 · Microscopic Biological Science Visualization" },
+  { id: "soY--V7Z1mQ", title: "04 · Journey Into the Microscopic World — 3D Biology Animation" },
+  { id: "mpVdxyxRtHM", title: "05 · Microscopic Biological Science Visualization" },
+  { id: "WPmF9wP1ORg", title: "06 · Microscopic Biological Science Visualization" },
+  { id: "b_lw8r6ykkk", title: "07 · Visualization & Explainer Media" },
+  { id: "0NCcFMX9z0I", title: "08 · Microscopic Biological Science Visualization" },
+  { id: "YLTT6H2sPsw", title: "09 · Microscopic Biological Science Visualization" },
+  { id: "EdHxp6LnQyw", title: "10 · Microscopic Biological Science Visualization" },
+  { id: "9KCEFECvkTA", title: "11 · Microscopic Biological Science Visualization" },
+  { id: "wRAa9Qx586w", title: "12 · Microscopic Biological Science Visualization" },
+  { id: "KPvdSZJC9c4", title: "13 · Microscopic Biological Science Visualization" },
+  { id: "rOwt0Q7HwRY", title: "14 · Microscopic Biological Science Visualization" },
+  { id: "FtRUkCvWiHA", title: "15 · Microscopic Biological Science Visualization" },
 ];
