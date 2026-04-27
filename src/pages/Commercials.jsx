@@ -11,9 +11,12 @@ import { Link } from "react-router-dom";
  * / VFX). Both are restated here in the dark/orange editorial style.
  */
 export default function Commercials() {
-  // YouTube channel root — link out to the actual playlists once IDs
-  // are confirmed. Placeholder for now.
+  // YouTube channel + the two playlist IDs we serve in this page.
+  // Pulled from the legacy Wix source HTML — see HANDOVER.md if you
+  // ever need to swap them.
   const CHANNEL = "https://www.youtube.com/@nmediaservices2014";
+  const PLAYLIST_FB    = "PLee8tHW01hSOeY10Pe4P3rr9o1Xgnoq18";   // Food & Beverage
+  const PLAYLIST_BIOMED = "PLee8tHW01hSNpJUqfVfYrkWIPe85ksY4v";  // BioMedical Viz
 
   return (
     <div className="bg-surface text-on-surface font-body selection:bg-primary selection:text-on-primary min-h-screen">
@@ -175,32 +178,27 @@ export default function Commercials() {
                 </li>
               </ul>
               <a
-                href={CHANNEL}
+                href={`https://www.youtube.com/playlist?list=${PLAYLIST_FB}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 bg-primary text-on-primary px-8 py-4 font-label font-bold text-sm tracking-widest uppercase hover:bg-[#ff8a3d] transition-colors"
               >
-                <span className="material-symbols-outlined text-base">play_arrow</span>
-                Watch Playlist on YouTube
+                <span className="material-symbols-outlined text-base">open_in_new</span>
+                Open Full Playlist on YouTube
               </a>
             </div>
-            <div className="lg:col-span-7 relative aspect-video bg-surface-container-low border border-outline-variant/10 overflow-hidden">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <a
-                  href={CHANNEL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex flex-col items-center gap-4"
-                >
-                  <span className="w-20 h-20 rounded-full bg-primary/90 flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <span className="material-symbols-outlined text-on-primary text-4xl">play_arrow</span>
-                  </span>
-                  <span className="font-label text-xs tracking-widest text-on-surface-variant uppercase">
-                    Open YouTube Playlist
-                  </span>
-                </a>
-              </div>
-              <div className="absolute top-4 left-4 font-label text-[10px] text-primary bg-surface/80 px-2 py-1 backdrop-blur-md">
+            <div className="lg:col-span-7 relative aspect-video bg-surface-container-low border border-outline-variant/10 overflow-hidden shadow-2xl">
+              <iframe
+                className="absolute inset-0 w-full h-full"
+                src={`https://www.youtube.com/embed/videoseries?list=${PLAYLIST_FB}&rel=0&modestbranding=1`}
+                title="Food & Beverage — Catering and Events Visuals · Playlist"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+                loading="lazy"
+              ></iframe>
+              <div className="absolute top-4 left-4 font-label text-[10px] text-primary bg-surface/80 px-2 py-1 backdrop-blur-md z-10 pointer-events-none">
                 [ PLAYLIST_01 // F&amp;B ]
               </div>
             </div>
@@ -210,23 +208,18 @@ export default function Commercials() {
         {/* ── PLAYLIST SHOWCASE — BioMedical ──────────── */}
         <section className="py-32">
           <div className="max-w-7xl mx-auto px-8 grid lg:grid-cols-12 gap-12 items-start">
-            <div className="lg:col-span-7 lg:order-1 order-2 relative aspect-video bg-surface-container-low border border-outline-variant/10 overflow-hidden">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <a
-                  href={CHANNEL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex flex-col items-center gap-4"
-                >
-                  <span className="w-20 h-20 rounded-full bg-primary/90 flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <span className="material-symbols-outlined text-on-primary text-4xl">play_arrow</span>
-                  </span>
-                  <span className="font-label text-xs tracking-widest text-on-surface-variant uppercase">
-                    Open YouTube Playlist
-                  </span>
-                </a>
-              </div>
-              <div className="absolute top-4 left-4 font-label text-[10px] text-primary bg-surface/80 px-2 py-1 backdrop-blur-md">
+            <div className="lg:col-span-7 lg:order-1 order-2 relative aspect-video bg-surface-container-low border border-outline-variant/10 overflow-hidden shadow-2xl">
+              <iframe
+                className="absolute inset-0 w-full h-full"
+                src={`https://www.youtube.com/embed/videoseries?list=${PLAYLIST_BIOMED}&rel=0&modestbranding=1`}
+                title="BioMedical Visualizations · Playlist"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+                loading="lazy"
+              ></iframe>
+              <div className="absolute top-4 left-4 font-label text-[10px] text-primary bg-surface/80 px-2 py-1 backdrop-blur-md z-10 pointer-events-none">
                 [ PLAYLIST_02 // BIOMED ]
               </div>
             </div>
@@ -257,13 +250,13 @@ export default function Commercials() {
                 </li>
               </ul>
               <a
-                href={CHANNEL}
+                href={`https://www.youtube.com/playlist?list=${PLAYLIST_BIOMED}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 bg-primary text-on-primary px-8 py-4 font-label font-bold text-sm tracking-widest uppercase hover:bg-[#ff8a3d] transition-colors"
               >
-                <span className="material-symbols-outlined text-base">play_arrow</span>
-                Watch Playlist on YouTube
+                <span className="material-symbols-outlined text-base">open_in_new</span>
+                Open Full Playlist on YouTube
               </a>
             </div>
           </div>
