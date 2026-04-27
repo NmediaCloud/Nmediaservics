@@ -31,13 +31,10 @@ export default function Commercials() {
         {/* ── HERO ──────────────────────────────────────── */}
         <section className="px-8 mb-16 max-w-7xl mx-auto">
           <div className="border-b border-outline-variant/20 pb-12 text-center">
-            <span className="font-label text-primary text-sm tracking-[0.3em] uppercase block mb-4">
-              Nmediaservices · Commercials
-            </span>
-            <h1 className="font-headline text-5xl md:text-7xl font-black tracking-tighter leading-none uppercase mb-6">
+            <h1 className="font-headline text-3xl md:text-5xl font-bold tracking-tight leading-tight uppercase mb-6">
               Ads · Commercial Promos · Trailer Visualization
             </h1>
-            <p className="text-on-surface-variant font-light leading-relaxed max-w-3xl mx-auto text-lg">
+            <p className="text-on-surface-variant font-light leading-relaxed max-w-3xl mx-auto text-base md:text-lg">
               Show-case for Ad Commercials, Promos and Various-Industries Trailer
               Visualisation across <span className="text-primary">Animation</span>,
               <span className="text-primary"> Game</span>,
