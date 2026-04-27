@@ -158,6 +158,21 @@ export default function HomeDesktop() {
                   Editing, Compositing, Animation, Lighting and Rendering
                 </p>
               </Link>
+              <Link
+                to="/digital-marketing"
+                className="block bg-surface-container p-8 group hover:bg-surface-bright transition-all duration-300 border border-white/5 hover:border-primary/30"
+              >
+                <span className="font-label tracking-widest text-primary mb-6 block text-sm uppercase font-bold">
+                  paid · owned · earned
+                </span>
+                <h4 className="font-headline text-xl font-bold mb-2 text-white">
+                  Digital Marketing
+                </h4>
+                <p className="font-body text-sm text-white/50 group-hover:text-white/80 transition-colors">
+                  Three-pillar content marketing strategy — selling the idea,
+                  not the product. Wired through a single analytics layer.
+                </p>
+              </Link>
               <a
                 href="https://www.einpresswire.com/article/592919633/utherverse-hires-3d-animation-veteran-nandakumar-mohan-to-develop-full-motion-hd-animation-for-metaverse-platform"
                 target="_blank"

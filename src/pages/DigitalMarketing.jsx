@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { SiteNav, SiteFooter } from "./IPSeries";
+import SiteHeader from "../components/SiteHeader";
+import PicsModal from "../components/PicsModal";
+
+const DM_PICS = Array.from({ length: 43 }, (_, i) => `dm_${String(i + 1).padStart(2, "0")}.jpg`);
 
 /**
  * DigitalMarketing — strategy + portfolio.
@@ -10,10 +13,11 @@ import { SiteNav, SiteFooter } from "./IPSeries";
  * plus tooling stack and analytics approach.
  */
 export default function DigitalMarketing() {
+  const [galleryOpen, setGalleryOpen] = useState(false);
   return (
     <div className="bg-surface text-on-surface font-body selection:bg-primary selection:text-on-primary min-h-screen">
 
-      <SiteNav active="marketing" />
+      <SiteHeader />
 
       <main className="pt-32 pb-24">
 
@@ -143,6 +147,40 @@ export default function DigitalMarketing() {
           </div>
         </section>
 
+        {/* ── CAMPAIGN GALLERY TRIGGER ───────────────── */}
+        <section className="px-8 max-w-7xl mx-auto pb-32">
+          <div className="border border-outline-variant/10 bg-surface-container-low p-10 md:p-14 flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div>
+              <p className="font-label text-[10px] tracking-[0.4em] text-primary uppercase mb-2">
+                [ CAMPAIGN STILLS · {DM_PICS.length} ]
+              </p>
+              <h2 className="font-headline text-2xl md:text-4xl font-bold tracking-tight uppercase leading-none">
+                Strategy Boards & Campaign Visuals
+              </h2>
+              <p className="mt-4 text-on-surface-variant font-light max-w-xl">
+                Frameworks, channel maps, content boards and campaign creatives —
+                the working visuals behind the paid · owned · earned strategy.
+              </p>
+            </div>
+            <button
+              type="button"
+              onClick={() => setGalleryOpen(true)}
+              className="inline-flex items-center gap-3 bg-primary text-on-primary px-8 py-4 font-label font-bold text-sm tracking-widest uppercase hover:bg-[#ff8a3d] transition-colors cursor-pointer self-start md:self-auto"
+            >
+              View Gallery · {DM_PICS.length}
+              <span className="material-symbols-outlined text-base">photo_library</span>
+            </button>
+          </div>
+        </section>
+
+        <PicsModal
+          open={galleryOpen}
+          onClose={() => setGalleryOpen(false)}
+          pics={DM_PICS}
+          basePath="/images/digital-marketing"
+          title="Digital Marketing"
+        />
+
         {/* ── CTA ──────────────────────────────────────── */}
         <section className="py-32 px-8 text-center bg-surface-container-lowest border-t border-outline-variant/10 relative overflow-hidden">
           <div className="absolute inset-0 opacity-30 pointer-events-none">
@@ -184,6 +222,32 @@ const PILLARS = [
     channels: ["Blog & Article Mentions", "Reviews & Ratings", "Likes & Reposts", "Viral Shares", "Influencer Endorsements"],
   },
 ];
+
+function SiteFooter() {
+  const CHANNEL = "https://www.youtube.com/@nmediaservices2014";
+  return (
+    <footer className="bg-surface-container-lowest py-16 px-8 border-t border-outline-variant/10">
+      <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-12">
+        <div>
+          <p className="font-label text-[10px] tracking-[0.3em] text-primary uppercase mb-4">Contact</p>
+          <a href="mailto:nanda@nmediaservices.com" className="block text-sm text-on-surface hover:text-primary transition-colors mb-1">nanda@nmediaservices.com</a>
+          <a href="mailto:nmedia.services@gmail.com" className="block text-sm text-on-surface-variant hover:text-primary transition-colors">nmedia.services@gmail.com</a>
+        </div>
+        <div>
+          <p className="font-label text-[10px] tracking-[0.3em] text-primary uppercase mb-4">Studio</p>
+          <p className="text-sm text-on-surface-variant">Toronto · M6N 4K7 · CA</p>
+        </div>
+        <div>
+          <p className="font-label text-[10px] tracking-[0.3em] text-primary uppercase mb-4">Channels</p>
+          <a href={CHANNEL} target="_blank" rel="noopener noreferrer" className="block text-sm text-on-surface-variant hover:text-primary transition-colors">YouTube · @nmediaservices2014</a>
+        </div>
+      </div>
+      <div className="max-w-7xl mx-auto mt-12 pt-8 border-t border-outline-variant/10">
+        <p className="text-xs text-on-surface-variant/50 font-label">© Nmedia Inc. · Digital Marketing Strategy</p>
+      </div>
+    </footer>
+  );
+}
 
 const TOOLS = [
   { label: "Paid Advertising", items: ["LinkedIn Ads", "Facebook Ads", "Twitter Ads", "YouTube Ads · Display", "Yahoo Ads · Mail Ads", "AdWords", "Pay-per-click", "Redirect Ads"] },
