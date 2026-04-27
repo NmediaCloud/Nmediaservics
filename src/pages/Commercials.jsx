@@ -14,17 +14,15 @@ export default function Commercials() {
   return (
     <div className="bg-surface text-on-surface font-body selection:bg-primary selection:text-on-primary min-h-screen">
 
-      {/* ── NAV ───────────────────────────────────────────── */}
+      {/* ── NAV (minimal — logo + CTA only) ──────────────────── */}
       <nav className="fixed top-0 w-full z-50 bg-[#131313]/70 backdrop-blur-xl">
         <div className="flex justify-between items-center w-full px-8 py-6 max-w-full">
-          <Link to="/" className="text-2xl font-black tracking-tighter text-[#E5E2E1] font-headline">NMEDIA INC.</Link>
-          <div className="hidden md:flex items-center gap-8">
-            <Link to="/" className="font-['Space_Grotesk'] tracking-tight uppercase text-sm font-bold text-[#E5E2E1]/60 hover:text-primary transition-colors duration-300">HOME</Link>
-            <Link to="/commercials" className="font-['Space_Grotesk'] tracking-tight uppercase text-sm font-bold text-primary border-b-2 border-primary pb-1">COMMERCIALS</Link>
-            <Link to="/ip-series" className="font-['Space_Grotesk'] tracking-tight uppercase text-sm font-bold text-[#E5E2E1]/60 hover:text-primary transition-colors duration-300">STUDIO</Link>
-            <a className="font-['Space_Grotesk'] tracking-tight uppercase text-sm font-bold text-[#E5E2E1]/60 hover:text-primary transition-colors duration-300" href="mailto:nanda@nmediaservices.com">CONTACT</a>
-          </div>
-          <a href="mailto:nanda@nmediaservices.com" className="bg-primary text-on-primary px-6 py-2 font-label font-bold tracking-tight active:scale-95 transition-transform">START PROJECT</a>
+          <Link to="/" className="text-2xl font-black tracking-tighter text-[#E5E2E1] font-headline hover:text-primary transition-colors">
+            NMEDIA INC.
+          </Link>
+          <a href="mailto:nanda@nmediaservices.com" className="bg-primary text-on-primary px-6 py-2 font-label font-bold tracking-tight active:scale-95 transition-transform">
+            START PROJECT
+          </a>
         </div>
       </nav>
 
@@ -57,7 +55,7 @@ export default function Commercials() {
                 [ PLAYLIST · 01 ]
               </p>
               <h2 className="font-headline text-2xl md:text-4xl font-bold tracking-tight uppercase leading-none">
-                Food &amp; Beverage · Ad Trailers
+                Ad Commercials
               </h2>
             </div>
             <a href={`https://www.youtube.com/playlist?list=${PLAYLIST_FB}`} target="_blank" rel="noopener noreferrer"
