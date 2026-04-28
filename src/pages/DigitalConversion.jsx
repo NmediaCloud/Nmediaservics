@@ -14,7 +14,7 @@ import PicsModal from "../components/PicsModal";
  */
 
 // ── Re-usable section block ──────────────────────────────────────
-function ServiceSection({ id, kicker, title, subtitle, intro, images, basePath, points, flashcard, alt = false, onZoom }) {
+function ServiceSection({ id, kicker, title, subtitle, intro, images, basePath, points, flashcard, alt = false, onZoom, noVideo = false }) {
   return (
     <section
       id={id}
@@ -86,24 +86,10 @@ function ServiceSection({ id, kicker, title, subtitle, intro, images, basePath, 
         )}
 
         {/* Video placeholder + key points */}
-        <div className="grid lg:grid-cols-12 gap-8">
-          <div className="lg:col-span-7">
-            <div className="aspect-video bg-[#0a0a0a] border border-outline-variant/10 flex flex-col items-center justify-center text-center p-8 relative overflow-hidden">
-              <div className="absolute inset-0 opacity-20 pointer-events-none">
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[200px] bg-primary/30 blur-[120px] rounded-full"></div>
-              </div>
-              <span className="material-symbols-outlined text-primary/50 text-[64px] mb-4 relative">play_circle</span>
-              <p className="font-label text-[10px] tracking-[0.4em] text-primary/70 uppercase relative">
-                [ VIDEO_WALKTHROUGH // COMING_SOON ]
-              </p>
-              <p className="font-body text-xs text-on-surface-variant/60 mt-2 relative">
-                Process reel for {title.toLowerCase().replace(/\.$/, "")} drops here.
-              </p>
-            </div>
-          </div>
-          <div className="lg:col-span-5">
+        {noVideo ? (
+          <div>
             <p className="font-label text-[10px] tracking-[0.4em] text-primary uppercase mb-4">// Key points</p>
-            <ul className="space-y-3">
+            <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3">
               {points.map((pt) => (
                 <li key={pt} className="text-sm text-on-surface-variant font-light leading-relaxed flex gap-2">
                   <span className="text-primary/60">·</span>{pt}
@@ -111,7 +97,34 @@ function ServiceSection({ id, kicker, title, subtitle, intro, images, basePath, 
               ))}
             </ul>
           </div>
-        </div>
+        ) : (
+          <div className="grid lg:grid-cols-12 gap-8">
+            <div className="lg:col-span-7">
+              <div className="aspect-video bg-[#0a0a0a] border border-outline-variant/10 flex flex-col items-center justify-center text-center p-8 relative overflow-hidden">
+                <div className="absolute inset-0 opacity-20 pointer-events-none">
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[200px] bg-primary/30 blur-[120px] rounded-full"></div>
+                </div>
+                <span className="material-symbols-outlined text-primary/50 text-[64px] mb-4 relative">play_circle</span>
+                <p className="font-label text-[10px] tracking-[0.4em] text-primary/70 uppercase relative">
+                  [ VIDEO_WALKTHROUGH // COMING_SOON ]
+                </p>
+                <p className="font-body text-xs text-on-surface-variant/60 mt-2 relative">
+                  Process reel for {title.toLowerCase().replace(/\.$/, "")} drops here.
+                </p>
+              </div>
+            </div>
+            <div className="lg:col-span-5">
+              <p className="font-label text-[10px] tracking-[0.4em] text-primary uppercase mb-4">// Key points</p>
+              <ul className="space-y-3">
+                {points.map((pt) => (
+                  <li key={pt} className="text-sm text-on-surface-variant font-light leading-relaxed flex gap-2">
+                    <span className="text-primary/60">·</span>{pt}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );
@@ -120,7 +133,7 @@ function ServiceSection({ id, kicker, title, subtitle, intro, images, basePath, 
 // All zoomable images across sections (paths relative to /).
 const ALL_PICS = [
   "images/digital-conversion/dc_07.jpg",
-  ...Array.from({ length: 5 }, (_, i) => `images/digital-conversion/omr/omr_${String(i+1).padStart(2,"0")}.${i===3?"png":"jpg"}`),
+  ...["omr_01.jpg","omr_02.jpg","omr_03.jpg"].map(f => `images/digital-conversion/omr/${f}`),
   "images/digital-conversion/dc_03.jpg",
   ...Array.from({ length: 8 }, (_, i) => `images/digital-conversion/med/med_${String(i+1).padStart(2,"0")}.jpg`),
   "images/digital-conversion/dc_04.jpg",
@@ -217,8 +230,9 @@ export default function DigitalConversion() {
           subtitle="OMR · Form Reading · High-Throughput"
           flashcard="/images/digital-conversion/dc_07.jpg"
           onZoom={onZoom}
+          noVideo
           basePath="/images/digital-conversion/omr"
-          images={["omr_01.jpg","omr_02.jpg","omr_03.jpg","omr_04.png","omr_05.jpg"]}
+          images={["omr_01.jpg","omr_02.jpg","omr_03.jpg"]}
           intro={[
             "OMR — the high-volume, fixed-template capture of marks (bubbles, ticks, multi-choice) into structured data. Exam sheets, surveys, ballots, registration forms — anywhere a mark on paper needs to become a row in a database, fast and audited.",
             "Captured on calibrated readers with edge-detection thresholds tuned to the form layout. Output: validated CSV / database rows — ready for grading, analysis, or downstream pipelines.",
