@@ -168,7 +168,7 @@ export default function DigitalConversion() {
           <p className="font-label text-[10px] tracking-[0.4em] text-primary uppercase mb-4">
             [ ON THIS PAGE ]
           </p>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
             {INDEX.map((i, idx) => (
               <a
                 key={i.id}
@@ -411,7 +411,6 @@ const INDEX = [
   { id: "books", title: "Library Books",       flashcard: "/images/digital-conversion/dc_04.jpg" },
   { id: "palm",  title: "Palm Scripts",        flashcard: "/images/digital-conversion/dc_05.jpg" },
   { id: "photo", title: "Photos & Negatives",  flashcard: "/images/digital-conversion/dc_06.png" },
-  { id: "misc",  title: "Capability",          flashcard: "/images/digital-conversion/dc_02.jpg" },
 ];
 
 const PROMISE = [
