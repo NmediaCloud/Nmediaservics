@@ -143,10 +143,24 @@ function IPCard({ ip }) {
         </span>
       </div>
       <div className="flex-grow overflow-hidden relative bg-gradient-to-br from-surface-container-low to-surface-container-lowest">
-        <div className="absolute inset-0 flex items-center justify-center opacity-20 group-hover:opacity-40 transition-opacity">
-          <span className="material-symbols-outlined text-[140px] text-primary">{ip.icon}</span>
-        </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-surface-container-lowest to-transparent opacity-60"></div>
+        {ip.poster ? (
+          <>
+            <img
+              src={ip.poster}
+              alt={ip.title}
+              loading="lazy"
+              className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/80 via-transparent to-transparent"></div>
+          </>
+        ) : (
+          <>
+            <div className="absolute inset-0 flex items-center justify-center opacity-20 group-hover:opacity-40 transition-opacity">
+              <span className="material-symbols-outlined text-[140px] text-primary">{ip.icon}</span>
+            </div>
+            <div className="absolute inset-0 bg-gradient-to-t from-surface-container-lowest to-transparent opacity-60"></div>
+          </>
+        )}
       </div>
       <div className="p-6 bg-surface-container-high z-10 relative">
         <div className="flex items-center justify-between mb-4">
@@ -191,6 +205,7 @@ const IP_SLATE = [
     version:   "VOL. 01",
     body:      "Buzz finds her purpose — daily-routine SEL series for toddlers 2-5 with sensory rhythm, rhyme, and big feelings made small.",
     detail_url:"/ip/tiny-wings-buzz",
+    poster:    "/images/ip/tiny-wings.jpg",
   },
   {
     id:        "Entry ID: 02-B",
@@ -202,6 +217,7 @@ const IP_SLATE = [
     translateY: true,
     body:      "Underwater pre-school series — friendship, curiosity, and gentle science wrapped in a coral-reef classroom.",
     detail_url: null,
+    poster:     "/images/ip/cici.jpg",
   },
   {
     id:        "Entry ID: 03-C",
@@ -212,6 +228,7 @@ const IP_SLATE = [
     version:   "VOL. 03",
     body:      "Bouncy pre-K slapstick — exaggerated cause-and-effect comedy with character-led mischief and zero dialogue dependency.",
     detail_url: null,
+    poster:     "/images/ip/chimpu.jpg",
   },
   {
     id:        "Entry ID: 04-D",
@@ -223,6 +240,7 @@ const IP_SLATE = [
     version:   "VOL. 04",
     body:      "Lumi, Patch and Whisp turn night-time worry into morning calm — bedtime SEL for toddlers 2-6.",
     detail_url:"/ip/world-under-my-bed",
+    poster:    "/images/ip/world-under-bed.png",
   },
   {
     id:        "Entry ID: 05-E",

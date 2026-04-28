@@ -112,36 +112,44 @@ export default function HomeDesktop() {
               {IP_SLATE_HOME.map((ip) => {
                 const Inner = (
                   <>
-                    <div className="flex items-start justify-between mb-4">
-                      <span className="font-label text-[9px] tracking-[0.3em] text-primary uppercase">
+                    <div className="aspect-[3/4] overflow-hidden bg-surface-container-lowest relative">
+                      {ip.poster ? (
+                        <img
+                          src={ip.poster}
+                          alt={ip.title}
+                          loading="lazy"
+                          className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+                        />
+                      ) : (
+                        <div className="absolute inset-0 flex items-center justify-center opacity-30">
+                          <span className="material-symbols-outlined text-[120px] text-primary">{ip.icon}</span>
+                        </div>
+                      )}
+                      <div className="absolute top-3 left-3 font-label text-[9px] tracking-[0.3em] text-white/90 uppercase bg-black/40 backdrop-blur-sm px-2 py-1">
                         {ip.version}
-                      </span>
-                      <span className="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors text-base">
-                        {ip.icon}
+                      </div>
+                    </div>
+                    <div className="p-5">
+                      <h4 className="font-headline text-base font-bold uppercase tracking-tight leading-tight text-white mb-1">
+                        {ip.title}
+                      </h4>
+                      <p className="font-label text-[10px] tracking-[0.2em] uppercase text-on-surface-variant/70 mb-3">
+                        {ip.subtitle}
+                      </p>
+                      <span
+                        className={`inline-block px-2 py-0.5 border text-[9px] font-label tracking-widest uppercase ${
+                          ip.status_active
+                            ? "border-primary/40 text-primary"
+                            : "border-outline-variant/30 text-on-surface-variant/60"
+                        }`}
+                      >
+                        {ip.status}
                       </span>
                     </div>
-                    <h4 className="font-headline text-base font-bold uppercase tracking-tight leading-tight text-white mb-1">
-                      {ip.title}
-                    </h4>
-                    <p className="font-label text-[10px] tracking-[0.2em] uppercase text-on-surface-variant/70 mb-4">
-                      {ip.subtitle}
-                    </p>
-                    <p className="font-body text-xs text-white/50 group-hover:text-white/80 transition-colors leading-relaxed line-clamp-3 mb-5">
-                      {ip.body}
-                    </p>
-                    <span
-                      className={`inline-block px-2 py-0.5 border text-[9px] font-label tracking-widest uppercase ${
-                        ip.status_active
-                          ? "border-primary/40 text-primary"
-                          : "border-outline-variant/30 text-on-surface-variant/60"
-                      }`}
-                    >
-                      {ip.status}
-                    </span>
                   </>
                 );
                 const className =
-                  "block bg-surface-container p-6 group hover:bg-surface-bright transition-all duration-300 border border-white/5 hover:border-primary/30";
+                  "block bg-surface-container group hover:bg-surface-bright transition-all duration-300 border border-white/5 hover:border-primary/30 overflow-hidden";
                 return ip.detail_url ? (
                   <Link key={ip.title} to={ip.detail_url} className={className}>
                     {Inner}
@@ -485,6 +493,7 @@ const IP_SLATE_HOME = [
     status_active: true,
     body: "Buzz finds her purpose — daily-routine SEL series for toddlers 2-5 with sensory rhythm, rhyme, and big feelings made small.",
     detail_url: "/ip/tiny-wings-buzz",
+    poster: "/images/ip/tiny-wings.jpg",
   },
   {
     title: "The World Under My Bed",
@@ -495,6 +504,7 @@ const IP_SLATE_HOME = [
     status_active: true,
     body: "Lumi, Patch and Whisp turn night-time worry into morning calm — bedtime SEL for toddlers 2-6.",
     detail_url: "/ip/world-under-my-bed",
+    poster: "/images/ip/world-under-bed.png",
   },
   {
     title: "Cici · School of Fish",
@@ -504,6 +514,7 @@ const IP_SLATE_HOME = [
     status: "Development",
     body: "Underwater pre-school series — friendship, curiosity, and gentle science wrapped in a coral-reef classroom.",
     detail_url: null,
+    poster: "/images/ip/cici.jpg",
   },
   {
     title: "Chimpu · Chase Comedy",
@@ -513,6 +524,7 @@ const IP_SLATE_HOME = [
     status: "Development",
     body: "Bouncy pre-K slapstick — exaggerated cause-and-effect comedy with character-led mischief and zero dialogue dependency.",
     detail_url: null,
+    poster: "/images/ip/chimpu.jpg",
   },
   {
     title: "Micro Series · Woh Shaadi",
