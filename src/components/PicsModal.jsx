@@ -11,8 +11,14 @@ import React, { useEffect, useState } from "react";
  * `pics` is an array of file names (e.g. ["pic_01.jpg", …]) — all
  * served from /images/pics/.
  */
-export default function PicsModal({ open, onClose, pics, basePath = "/images/pics", title = "Studio Gallery" }) {
+export default function PicsModal({ open, onClose, pics, basePath = "/images/pics", title = "Studio Gallery", initialZoom = null }) {
   const [zoomed, setZoomed] = useState(null);
+
+  // When the modal opens with an initialZoom, jump straight to that image.
+  useEffect(() => {
+    if (open && initialZoom) setZoomed(initialZoom);
+    if (!open) setZoomed(null);
+  }, [open, initialZoom]);
 
   // Lock body scroll while open + close on Escape
   useEffect(() => {

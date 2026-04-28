@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { SiteFooter } from "./IPSeries";
 import SiteHeader from "../components/SiteHeader";
+import PicsModal from "../components/PicsModal";
 
 /**
  * Tiny Wings, Big Job — IP detail page.
@@ -16,6 +17,9 @@ import SiteHeader from "../components/SiteHeader";
 const IMG = "/images/ip/tiny-wings";
 
 export default function TinyWingsBuzz() {
+  const [castOpen, setCastOpen] = useState(false);
+  const [castInitial, setCastInitial] = useState(null);
+  const openCast = (file) => { setCastInitial(file); setCastOpen(true); };
   return (
     <div className="bg-surface text-on-surface font-body selection:bg-primary selection:text-on-primary min-h-screen">
 
@@ -78,14 +82,20 @@ export default function TinyWingsBuzz() {
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5">
             {CAST.map((c) => (
               <figure key={c.file} className="group">
-                <div className="bg-surface-container border border-outline-variant/10 group-hover:border-primary/40 overflow-hidden transition-colors" style={{ aspectRatio: "3 / 4" }}>
+                <button
+                  type="button"
+                  onClick={() => openCast(c.file)}
+                  className="block w-full bg-surface-container border border-outline-variant/10 group-hover:border-primary/40 overflow-hidden transition-all duration-500 cursor-zoom-in transform-gpu group-hover:scale-[1.06] group-hover:shadow-2xl group-hover:shadow-primary/20 group-hover:z-10 relative"
+                  style={{ aspectRatio: "3 / 4" }}
+                  aria-label={`View ${c.name}`}
+                >
                   <img
                     src={`${IMG}/${c.file}`}
                     alt={c.name}
                     loading="lazy"
-                    className="w-full h-full object-cover opacity-95 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+                    className="w-full h-full object-cover opacity-95 group-hover:opacity-100 transition-opacity duration-500"
                   />
-                </div>
+                </button>
                 <figcaption className="font-label text-xs tracking-[0.2em] uppercase text-on-surface-variant text-center mt-3 group-hover:text-primary transition-colors">
                   {c.name}
                 </figcaption>
@@ -93,6 +103,15 @@ export default function TinyWingsBuzz() {
             ))}
           </div>
         </section>
+
+        <PicsModal
+          open={castOpen}
+          onClose={() => setCastOpen(false)}
+          pics={CAST.map((c) => c.file)}
+          basePath={IMG}
+          title="The Hive · Cast"
+          initialZoom={castInitial}
+        />
 
         {/* ── PURPOSE POSTER ────────────────────────────── */}
         <section className="px-8 mb-32 max-w-6xl mx-auto">
