@@ -65,13 +65,13 @@ function ServiceSection({ id, kicker, title, subtitle, intro, images, basePath, 
         {/* Image strip — clickable to zoom */}
         {images && images.length > 0 && (
           verticalImages ? (
-            <div className="max-w-3xl mx-auto space-y-6 mb-10">
+            <div className="columns-1 md:columns-2 gap-6 mb-10 max-w-6xl mx-auto [column-fill:balance]">
               {images.map((img) => (
                 <button
                   key={img}
                   type="button"
                   onClick={() => onZoom(`${basePath}/${img}`)}
-                  className="block w-full bg-surface-container border border-outline-variant/10 hover:border-primary/40 overflow-hidden cursor-zoom-in transition-all duration-500 group transform-gpu hover:scale-[1.01]"
+                  className="block w-full mb-6 bg-surface-container border border-outline-variant/10 hover:border-primary/40 overflow-hidden cursor-zoom-in transition-all duration-500 group transform-gpu hover:scale-[1.01] break-inside-avoid"
                   aria-label="Zoom image"
                 >
                   <img
