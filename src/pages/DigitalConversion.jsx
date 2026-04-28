@@ -135,7 +135,7 @@ const ALL_PICS = [
   "images/digital-conversion/dc_07.jpg",
   ...["omr_01.jpg","omr_02.jpg","omr_03.jpg"].map(f => `images/digital-conversion/omr/${f}`),
   "images/digital-conversion/dc_03.jpg",
-  ...Array.from({ length: 8 }, (_, i) => `images/digital-conversion/med/med_${String(i+1).padStart(2,"0")}.jpg`),
+  ...["med_04.jpg","med_05.jpg","med_07.jpg","med_08.jpg"].map(f => `images/digital-conversion/med/${f}`),
   "images/digital-conversion/dc_04.jpg",
   ...Array.from({ length: 5 }, (_, i) => `images/digital-conversion/books/books_${String(i+1).padStart(2,"0")}.${i===3?"png":"jpg"}`),
   "images/digital-conversion/dc_05.jpg",
@@ -255,8 +255,9 @@ export default function DigitalConversion() {
           alt
           flashcard="/images/digital-conversion/dc_03.jpg"
           onZoom={onZoom}
+          noVideo
           basePath="/images/digital-conversion/med"
-          images={["med_01.jpg","med_02.jpg","med_03.jpg","med_04.jpg","med_05.jpg","med_06.jpg","med_07.jpg","med_08.jpg"]}
+          images={["med_04.jpg","med_05.jpg","med_07.jpg","med_08.jpg"]}
           intro={[
             "Patient charts, lab reports, imaging summaries and historical paper files digitised with privacy-first handling. Secure facility, signed handlers, chain-of-custody from pickup to archive.",
             "Output is indexed against your patient ID schema and retention policy — searchable on demand, with redaction support for shared copies.",
