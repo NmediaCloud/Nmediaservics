@@ -14,7 +14,7 @@ import PicsModal from "../components/PicsModal";
  */
 
 // ── Re-usable section block ──────────────────────────────────────
-function ServiceSection({ id, kicker, title, subtitle, intro, images, basePath, points, flashcard, alt = false, onZoom, noVideo = false }) {
+function ServiceSection({ id, kicker, title, subtitle, intro, images, basePath, points, flashcard, alt = false, onZoom, noVideo = false, videoId, verticalImages = false }) {
   return (
     <section
       id={id}
@@ -64,25 +64,46 @@ function ServiceSection({ id, kicker, title, subtitle, intro, images, basePath, 
 
         {/* Image strip — clickable to zoom */}
         {images && images.length > 0 && (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-10">
-            {images.map((img) => (
-              <button
-                key={img}
-                type="button"
-                onClick={() => onZoom(`${basePath}/${img}`)}
-                className="block bg-surface-container border border-outline-variant/10 hover:border-primary/40 overflow-hidden cursor-zoom-in transition-all duration-500 group transform-gpu hover:scale-[1.02]"
-                style={{ aspectRatio: "4 / 3" }}
-                aria-label="Zoom image"
-              >
-                <img
-                  src={`${basePath}/${img}`}
-                  alt=""
-                  loading="lazy"
-                  className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-500"
-                />
-              </button>
-            ))}
-          </div>
+          verticalImages ? (
+            <div className="max-w-3xl mx-auto space-y-6 mb-10">
+              {images.map((img) => (
+                <button
+                  key={img}
+                  type="button"
+                  onClick={() => onZoom(`${basePath}/${img}`)}
+                  className="block w-full bg-surface-container border border-outline-variant/10 hover:border-primary/40 overflow-hidden cursor-zoom-in transition-all duration-500 group transform-gpu hover:scale-[1.01]"
+                  aria-label="Zoom image"
+                >
+                  <img
+                    src={`${basePath}/${img}`}
+                    alt=""
+                    loading="lazy"
+                    className="w-full h-auto object-contain opacity-95 group-hover:opacity-100 transition-opacity duration-500 bg-white"
+                  />
+                </button>
+              ))}
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-10">
+              {images.map((img) => (
+                <button
+                  key={img}
+                  type="button"
+                  onClick={() => onZoom(`${basePath}/${img}`)}
+                  className="block bg-surface-container border border-outline-variant/10 hover:border-primary/40 overflow-hidden cursor-zoom-in transition-all duration-500 group transform-gpu hover:scale-[1.02]"
+                  style={{ aspectRatio: "4 / 3" }}
+                  aria-label="Zoom image"
+                >
+                  <img
+                    src={`${basePath}/${img}`}
+                    alt=""
+                    loading="lazy"
+                    className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-500"
+                  />
+                </button>
+              ))}
+            </div>
+          )
         )}
 
         {/* Video placeholder + key points */}
@@ -100,18 +121,31 @@ function ServiceSection({ id, kicker, title, subtitle, intro, images, basePath, 
         ) : (
           <div className="grid lg:grid-cols-12 gap-8">
             <div className="lg:col-span-7">
-              <div className="aspect-video bg-[#0a0a0a] border border-outline-variant/10 flex flex-col items-center justify-center text-center p-8 relative overflow-hidden">
-                <div className="absolute inset-0 opacity-20 pointer-events-none">
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[200px] bg-primary/30 blur-[120px] rounded-full"></div>
+              {videoId ? (
+                <div className="aspect-video bg-black border border-outline-variant/10 overflow-hidden">
+                  <iframe
+                    className="w-full h-full"
+                    src={`https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1`}
+                    title={title}
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
                 </div>
-                <span className="material-symbols-outlined text-primary/50 text-[64px] mb-4 relative">play_circle</span>
-                <p className="font-label text-[10px] tracking-[0.4em] text-primary/70 uppercase relative">
-                  [ VIDEO_WALKTHROUGH // COMING_SOON ]
-                </p>
-                <p className="font-body text-xs text-on-surface-variant/60 mt-2 relative">
-                  Process reel for {title.toLowerCase().replace(/\.$/, "")} drops here.
-                </p>
-              </div>
+              ) : (
+                <div className="aspect-video bg-[#0a0a0a] border border-outline-variant/10 flex flex-col items-center justify-center text-center p-8 relative overflow-hidden">
+                  <div className="absolute inset-0 opacity-20 pointer-events-none">
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[200px] bg-primary/30 blur-[120px] rounded-full"></div>
+                  </div>
+                  <span className="material-symbols-outlined text-primary/50 text-[64px] mb-4 relative">play_circle</span>
+                  <p className="font-label text-[10px] tracking-[0.4em] text-primary/70 uppercase relative">
+                    [ VIDEO_WALKTHROUGH // COMING_SOON ]
+                  </p>
+                  <p className="font-body text-xs text-on-surface-variant/60 mt-2 relative">
+                    Process reel for {title.toLowerCase().replace(/\.$/, "")} drops here.
+                  </p>
+                </div>
+              )}
             </div>
             <div className="lg:col-span-5">
               <p className="font-label text-[10px] tracking-[0.4em] text-primary uppercase mb-4">// Key points</p>
@@ -228,6 +262,8 @@ export default function DigitalConversion() {
           subtitle="Conservation · Heritage · Non-Destructive"
           flashcard="/images/digital-conversion/dc_05.jpg"
           onZoom={onZoom}
+          videoId="sY_PCsHZ5iU"
+          verticalImages
           basePath="/images/digital-conversion/palm"
           images={["palm_01.jpg","palm_02.jpg","palm_03.jpg","palm_04.jpg","palm_05.jpg","palm_06.jpg","palm_07.jpg","palm_08.jpg"]}
           intro={[
