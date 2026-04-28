@@ -65,21 +65,43 @@ export default function HomeDesktop() {
                 Pipeline Production Tech
               </h2>
             </a>
-            <div className="relative w-full aspect-video bg-surface-container-highest border border-white/5 overflow-hidden shadow-2xl group cursor-pointer">
-              <div className="absolute inset-0 z-10 bg-black/40 flex items-center justify-center transition-all hover:bg-black/20 pointer-events-none">
-                <span className="material-symbols-outlined text-white text-8xl opacity-80 group-hover:scale-110 transition-transform">
-                  play_circle
-                </span>
+            <div className="grid lg:grid-cols-2 gap-4">
+              {/* Pipeline reel */}
+              <div>
+                <p className="font-label text-[10px] tracking-[0.4em] text-primary/70 uppercase mb-3">
+                  // Pipeline Reel
+                </p>
+                <div className="relative w-full aspect-video bg-surface-container-highest border border-white/5 overflow-hidden shadow-2xl group">
+                  <iframe
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                    className="absolute inset-0 w-full h-full"
+                    frameBorder="0"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    src="https://www.youtube.com/embed/cGGxVzvTbds?rel=0&modestbranding=1"
+                    title="Animation, Accelerated · Inside an AI-Native Pipeline"
+                  ></iframe>
+                </div>
               </div>
-              <iframe
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-                className="absolute inset-0 w-full h-full z-20"
-                frameBorder="0"
-                referrerPolicy="strict-origin-when-cross-origin"
-                src="https://www.youtube.com/embed/cGGxVzvTbds?si=SSRsGhcEXVbSoSQ0"
-                title="Animation, Accelerated · Inside an AI-Native Pipeline"
-              ></iframe>
+
+              {/* Podcast placeholder */}
+              <div>
+                <p className="font-label text-[10px] tracking-[0.4em] text-primary/70 uppercase mb-3">
+                  // Podcast · Coming Soon
+                </p>
+                <div className="relative w-full aspect-video bg-[#0a0a0a] border border-white/5 overflow-hidden shadow-2xl flex flex-col items-center justify-center text-center px-8">
+                  <div className="absolute inset-0 opacity-30 pointer-events-none">
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[200px] bg-primary/30 blur-[120px] rounded-full"></div>
+                  </div>
+                  <span className="material-symbols-outlined text-primary/60 relative" style={{ fontSize: "72px" }}>podcasts</span>
+                  <p className="font-label text-[11px] tracking-[0.4em] text-primary/80 uppercase mt-4 relative">
+                    [ PODCAST · COMING SOON ]
+                  </p>
+                  <p className="font-body text-xs text-white/40 mt-2 max-w-xs relative">
+                    Long-form conversations on building AI-native production pipelines. Episode 01 lands here.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </section>
