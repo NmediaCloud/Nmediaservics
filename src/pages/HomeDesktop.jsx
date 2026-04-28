@@ -179,7 +179,55 @@ export default function HomeDesktop() {
                 precision engineering.
               </p>
             </div>
-            <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="lg:col-span-8 space-y-4">
+              {/* Software modules — treated distinctly: subtle orange tint, "MODULE" tag */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <a
+                  href="/articles/UGC_Pipeline.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block bg-gradient-to-br from-primary/10 via-surface-container to-surface-container p-8 group hover:from-primary/15 transition-all duration-300 border border-primary/20 hover:border-primary/50 relative overflow-hidden"
+                >
+                  <span className="absolute top-3 right-3 font-label text-[9px] tracking-[0.3em] uppercase text-primary/70 bg-primary/10 border border-primary/20 px-2 py-1">
+                    Module
+                  </span>
+                  <div className="w-10 h-10 bg-primary/15 border border-primary/30 rounded-xl flex items-center justify-center mb-6">
+                    <span className="material-symbols-outlined text-primary" style={{ fontSize: "22px" }}>autoplay</span>
+                  </div>
+                  <h4 className="font-headline text-xl font-bold mb-2 text-white">
+                    UGC Pipeline
+                  </h4>
+                  <p className="font-body text-sm text-white/50 group-hover:text-white/80 transition-colors">
+                    One Google Sheet row in. One finished UGC, ad, or podcast
+                    video out. Vision-graded QA — the factory behind owned +
+                    paid social creative.
+                  </p>
+                </a>
+                <a
+                  href="https://stockflow.media/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block bg-gradient-to-br from-primary/10 via-surface-container to-surface-container p-8 group hover:from-primary/15 transition-all duration-300 border border-primary/20 hover:border-primary/50 relative overflow-hidden"
+                >
+                  <span className="absolute top-3 right-3 font-label text-[9px] tracking-[0.3em] uppercase text-primary/70 bg-primary/10 border border-primary/20 px-2 py-1">
+                    Module
+                  </span>
+                  <div className="w-10 h-10 bg-[#FF8000] rounded-xl flex items-center justify-center mb-6">
+                    <span className="text-white font-['Inter'] font-black text-xl tracking-tighter">SF</span>
+                  </div>
+                  <h4 className="font-headline text-xl font-bold mb-2 text-white">
+                    Stockflow.Media
+                  </h4>
+                  <p className="font-body text-sm text-white/50 group-hover:text-white/80 transition-colors">
+                    A scalable content platform offering ready-to-use media
+                    assets and automated pipelines for creators, marketers,
+                    and production teams.
+                  </p>
+                </a>
+              </div>
+
+              {/* Studio capabilities */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <Link
                 to="/commercials"
                 className="block bg-surface-container p-8 group hover:bg-surface-bright transition-all duration-300 border border-white/5 hover:border-primary/30"
@@ -240,24 +288,7 @@ export default function HomeDesktop() {
                   not the product. Wired through a single analytics layer.
                 </p>
               </Link>
-              <a
-                href="https://stockflow.media/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block bg-surface-container p-8 group hover:bg-surface-bright transition-all duration-300 border border-white/5 hover:border-primary/30"
-              >
-                <div className="w-10 h-10 bg-[#FF8000] rounded-xl flex items-center justify-center mb-6">
-                  <span className="text-white font-['Inter'] font-black text-xl tracking-tighter">SF</span>
-                </div>
-                <h4 className="font-headline text-xl font-bold mb-2 text-white">
-                  Stockflow.Media
-                </h4>
-                <p className="font-body text-sm text-white/50 group-hover:text-white/80 transition-colors">
-                  A scalable content platform offering ready-to-use media assets
-                  and automated pipelines for creators, marketers, and production
-                  teams.
-                </p>
-              </a>
+              </div>
             </div>
           </div>
         </section>
