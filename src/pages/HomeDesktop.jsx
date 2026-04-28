@@ -514,12 +514,12 @@ const IP_SLATE_HOME = [
   },
   {
     title: "Cici · School of Fish",
-    subtitle: "Pre-school Series",
+    subtitle: "Ages 4–8 · 3D Series",
     icon: "set_meal",
     version: "VOL. 02",
     status: "Development",
-    body: "Underwater pre-school series — friendship, curiosity, and gentle science wrapped in a coral-reef classroom.",
-    detail_url: null,
+    body: "Cici reports live from the coral reef — ages 4-8 underwater adventure. Friendship, growth, planet. 26 EP × 7 min.",
+    detail_url: "/ip/cici",
     poster: "/images/ip/cici.jpg",
   },
   {

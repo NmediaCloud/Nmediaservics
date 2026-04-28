@@ -11,6 +11,7 @@ import TinyWingsBuzz from "./pages/TinyWingsBuzz";
 import WorldUnderMyBed from "./pages/WorldUnderMyBed";
 import WohShaadi from "./pages/WohShaadi";
 import Chimpu from "./pages/Chimpu";
+import Cici from "./pages/Cici";
 
 export default function App() {
   return (
@@ -27,6 +28,7 @@ export default function App() {
         <Route path="/ip/world-under-my-bed"  element={<WorldUnderMyBed />} />
         <Route path="/ip/woh-shaadi"          element={<WohShaadi />} />
         <Route path="/ip/chimpu"              element={<Chimpu />} />
+        <Route path="/ip/cici"                element={<Cici />} />
       </Routes>
     </Router>
   );
