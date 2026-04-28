@@ -6,7 +6,15 @@ import SiteHeader from "../components/SiteHeader";
 /**
  * Tiny Wings, Big Job — IP detail page.
  * Pre-school animated series (toddlers 2-5). Pilot complete.
+ *
+ * Mirrors the legacy Wix page at
+ *   nmediaservices.wixsite.com/nmedia/tiny-wings-buzz-ip-content-age-5-to-1
+ * but in the dark editorial design system. Embeds the pilot + pitch
+ * videos, the Tiny-Hero-Purpose poster, the 8-character cast strip,
+ * and the toddler-engagement framework.
  */
+const IMG = "/images/ip/tiny-wings";
+
 export default function TinyWingsBuzz() {
   return (
     <div className="bg-surface text-on-surface font-body selection:bg-primary selection:text-on-primary min-h-screen">
@@ -38,40 +46,80 @@ export default function TinyWingsBuzz() {
               <p className="font-label text-sm tracking-[0.2em] text-on-surface-variant uppercase pt-2">
                 Animation Series · Toddlers 2–5
               </p>
-            </div>
-            <div className="lg:col-span-5 text-on-surface-variant font-light leading-relaxed">
-              <p className="text-lg">
+              <p className="text-on-surface-variant font-light leading-relaxed max-w-xl pt-4 text-lg">
                 Buzz is a hummingbird with a too-big heart and a too-small job
                 description. Every episode finds her in a daily-routine
                 challenge — bedtime, sharing, tantrums, transitions — and
                 every episode lands on a small, complete win.
               </p>
             </div>
+            <div className="lg:col-span-5">
+              <div className="bg-surface-container-low border border-outline-variant/10 overflow-hidden" style={{ aspectRatio: "3 / 4" }}>
+                <img src={`${IMG}/tw_02.jpg`} alt="Buzz · Tiny Wings, Big Job" className="w-full h-full object-cover" />
+              </div>
+            </div>
           </div>
         </header>
 
-        {/* ── PILOT STILL / PLACEHOLDER ─────────────────── */}
-        <section className="px-8 mb-32 max-w-7xl mx-auto">
-          <div className="relative aspect-video bg-surface-container-low border border-outline-variant/10 overflow-hidden">
-            <div className="absolute inset-0 flex flex-col items-center justify-center gap-6 bg-gradient-to-br from-surface-container to-surface-container-lowest">
-              <span className="material-symbols-outlined text-primary text-[120px] opacity-30">flutter_dash</span>
-              <a href="mailto:nanda@nmediaservices.com" className="inline-flex items-center gap-3 bg-primary text-on-primary px-8 py-4 font-label font-bold text-sm tracking-widest uppercase hover:bg-[#ff8a3d] transition-colors">
-                <span className="material-symbols-outlined">play_arrow</span>
-                Request Pilot Screener
-              </a>
-              <p className="font-label text-[10px] text-on-surface-variant/50 tracking-widest uppercase">
-                Pitch deck · pilot link · series bible available on request
+        {/* ── PURPOSE POSTER ────────────────────────────── */}
+        <section className="px-8 mb-32 max-w-6xl mx-auto">
+          <div className="bg-[#0f0f0f] border border-outline-variant/10 p-6 md:p-10">
+            <p className="font-label text-[10px] tracking-[0.4em] text-primary uppercase mb-6 text-center">
+              [ KEY ART // A TINY HERO'S PURPOSE ]
+            </p>
+            <img src={`${IMG}/tw_09.jpg`} alt="A Tiny Hero's Purpose — Tiny Wings Big Job" className="w-full max-w-2xl mx-auto" />
+          </div>
+        </section>
+
+        {/* ── PILOT + PITCH VIDEO ───────────────────────── */}
+        <section className="bg-surface-container-lowest py-32 border-y border-outline-variant/10">
+          <div className="max-w-7xl mx-auto px-8">
+            <div className="mb-12">
+              <p className="font-label text-[10px] tracking-[0.4em] text-primary uppercase mb-3">
+                [ SCREENERS // PILOT_AND_PITCH ]
               </p>
+              <h2 className="font-headline text-3xl md:text-5xl font-bold tracking-tighter leading-none uppercase">
+                Watch the work.
+              </h2>
             </div>
-            <div className="absolute top-4 left-4 font-label text-[10px] text-primary bg-surface/80 px-2 py-1 backdrop-blur-md">
-              [ PILOT // BUZZ'S BIG PURPOSE ]
+            <div className="grid md:grid-cols-2 gap-8">
+              <div>
+                <p className="font-label text-[10px] tracking-[0.3em] text-primary/70 uppercase mb-3">
+                  Pilot · Buzz's Big Purpose
+                </p>
+                <div className="aspect-video bg-black border border-outline-variant/10 overflow-hidden">
+                  <iframe
+                    className="w-full h-full"
+                    src="https://www.youtube.com/embed/tNR547OKgaA?rel=0&modestbranding=1"
+                    title="Pilot · Buzz's Big Purpose"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
+              </div>
+              <div>
+                <p className="font-label text-[10px] tracking-[0.3em] text-primary/70 uppercase mb-3">
+                  Pitch Video · Tiny Wings, Big Job
+                </p>
+                <div className="aspect-video bg-black border border-outline-variant/10 overflow-hidden">
+                  <iframe
+                    className="w-full h-full"
+                    src="https://www.youtube.com/embed/Gg8gb52E5O0?rel=0&modestbranding=1"
+                    title="Pitch Video · Tiny Wings, Big Job"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </section>
 
         {/* ── LOGLINE ──────────────────────────────────── */}
-        <section className="bg-surface-container-lowest py-32 border-y border-outline-variant/10 mb-0">
-          <div className="max-w-5xl mx-auto px-8">
+        <section className="py-32 px-8">
+          <div className="max-w-5xl mx-auto">
             <p className="font-label text-[10px] tracking-[0.4em] text-primary uppercase mb-6">
               [ LOGLINE ]
             </p>
@@ -83,7 +131,42 @@ export default function TinyWingsBuzz() {
           </div>
         </section>
 
-        {/* ── WHAT EVERY EPISODE DOES ─────────────────── */}
+        {/* ── CAST STRIP ─────────────────────────────── */}
+        <section className="bg-surface-container-lowest py-32 border-y border-outline-variant/10">
+          <div className="max-w-7xl mx-auto px-8">
+            <div className="mb-12">
+              <p className="font-label text-[10px] tracking-[0.4em] text-primary uppercase mb-3">
+                [ CAST // VISUAL_SHEET ]
+              </p>
+              <h2 className="font-headline text-3xl md:text-5xl font-bold tracking-tighter leading-none uppercase">
+                The hive.
+              </h2>
+              <p className="mt-6 text-on-surface-variant font-light max-w-2xl">
+                Buzz at the centre — the daily-life ensemble that anchors every
+                routine moment, every recurring beat.
+              </p>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3">
+              {CAST.map((c) => (
+                <figure key={c.file} className="group">
+                  <div className="bg-surface-container border border-outline-variant/10 group-hover:border-primary/40 overflow-hidden transition-colors" style={{ aspectRatio: "3 / 4" }}>
+                    <img
+                      src={`${IMG}/${c.file}`}
+                      alt={c.name}
+                      loading="lazy"
+                      className="w-full h-full object-cover opacity-95 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+                    />
+                  </div>
+                  <figcaption className="font-label text-[10px] tracking-[0.2em] uppercase text-on-surface-variant text-center mt-2 group-hover:text-primary transition-colors">
+                    {c.name}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── EPISODE DNA ─────────────────────────────── */}
         <section className="py-32 px-8 max-w-7xl mx-auto">
           <div className="mb-12">
             <p className="font-label text-[10px] tracking-[0.4em] text-primary uppercase mb-3">
@@ -104,34 +187,51 @@ export default function TinyWingsBuzz() {
           </div>
         </section>
 
-        {/* ── CHARACTERS ─────────────────────────────── */}
+        {/* ── TODDLER ENGAGEMENT FRAMEWORK ───────────── */}
         <section className="bg-surface-container-lowest py-32 border-y border-outline-variant/10">
-          <div className="max-w-7xl mx-auto px-8 grid lg:grid-cols-12 gap-12 items-start">
-            <div className="lg:col-span-5">
-              <p className="font-label text-[10px] tracking-[0.4em] text-primary uppercase mb-3">
-                [ CAST // CORE ]
-              </p>
-              <h2 className="font-headline text-4xl md:text-5xl font-bold tracking-tighter uppercase leading-none mb-6">
-                Buzz.
-              </h2>
-              <p className="text-on-surface-variant font-light leading-relaxed">
-                A small hummingbird with a determined heart. Every Buzz episode
-                centres on her trying a job that's just slightly too big for
-                her wings — and finding out that "small" is exactly the
-                right size for the job that matters.
-              </p>
+          <div className="max-w-7xl mx-auto px-8">
+            <div className="mb-16 grid lg:grid-cols-12 gap-12">
+              <div className="lg:col-span-5">
+                <p className="font-label text-[10px] tracking-[0.4em] text-primary uppercase mb-3">
+                  [ DEVELOPMENT_FRAMEWORK ]
+                </p>
+                <h2 className="font-headline text-3xl md:text-5xl font-bold tracking-tighter uppercase leading-none">
+                  How toddlers<br />engage.
+                </h2>
+              </div>
+              <div className="lg:col-span-7 text-on-surface-variant font-light leading-relaxed">
+                <p>
+                  To capture a toddler's interest, content should align with
+                  their current developmental stage — relatable daily
+                  experiences, social-emotional skills, sensory-rich
+                  interactions. Every "Tiny Wings" beat is built from the five
+                  pillars below.
+                </p>
+              </div>
             </div>
-            <div className="lg:col-span-7 space-y-4">
-              {SUPPORTING.map((c) => (
-                <div key={c.name} className="bg-surface-container border border-outline-variant/10 p-6 flex gap-4 items-start hover:bg-surface-container-high hover:border-primary/30 transition-all">
-                  <span className="material-symbols-outlined text-primary text-2xl">{c.icon}</span>
-                  <div>
-                    <h4 className="font-headline font-bold text-base uppercase tracking-tight mb-1">{c.name}</h4>
-                    <p className="text-sm text-on-surface-variant font-light">{c.body}</p>
-                  </div>
-                </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1">
+              {PILLARS.map((p) => (
+                <article key={p.title} className="bg-surface-container border border-outline-variant/10 p-7 hover:bg-surface-container-high hover:border-primary/30 transition-all">
+                  <span className="material-symbols-outlined text-primary text-3xl mb-3 block">{p.icon}</span>
+                  <h3 className="font-headline font-bold text-base uppercase tracking-tight mb-4">{p.title}</h3>
+                  <ul className="space-y-2">
+                    {p.points.map((pt) => (
+                      <li key={pt} className="text-sm text-on-surface-variant font-light leading-relaxed flex gap-2">
+                        <span className="text-primary/60">·</span>
+                        <span>{pt}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </article>
               ))}
             </div>
+            <p className="mt-12 text-on-surface-variant font-light leading-relaxed max-w-3xl">
+              Think of a toddler's interest as a mirror and a window — they're
+              most captivated by the mirror of their own daily life, and the
+              window into worlds just slightly bigger than the one they
+              already know. <span className="text-primary">Tiny Wings</span> is
+              built to be both.
+            </p>
           </div>
         </section>
 
@@ -159,6 +259,18 @@ export default function TinyWingsBuzz() {
   );
 }
 
+// 8-character cast row from the legacy page (tw_01-08)
+const CAST = [
+  { file: "tw_01.png", name: "Buzz · In Flight" },
+  { file: "tw_02.jpg", name: "Buzz · Hero" },
+  { file: "tw_03.png", name: "Inside the Hive" },
+  { file: "tw_04.png", name: "Hive Crew · 01" },
+  { file: "tw_05.png", name: "Hive Crew · 02" },
+  { file: "tw_06.png", name: "Hive Crew · 03" },
+  { file: "tw_07.png", name: "Hive Crew · 04" },
+  { file: "tw_08.png", name: "Hive Crew · 05" },
+];
+
 const EPISODE_DNA = [
   { icon: "psychology", label: "SEL Through Story", body: "Every episode lands one small social-emotional skill — sharing, patience, sleep, tantrum recovery — without ever being a lesson." },
   { icon: "schedule",   label: "Daily-Routine Beats", body: "Stories anchored in toddler-real moments: getting dressed, eating dinner, bedtime, the playground." },
@@ -168,8 +280,53 @@ const EPISODE_DNA = [
   { icon: "celebration", label: "Earned Wins", body: "Buzz never solves it for free. Every episode resolves on a small, real triumph she had to work toward." },
 ];
 
-const SUPPORTING = [
-  { name: "The Daily Crew",    icon: "groups",            body: "Repeating ensemble — friends, family, neighbours — each anchoring a recurring routine moment." },
-  { name: "The Sky World",     icon: "filter_drama",      body: "Buzz's home — a layered backyard universe seen at hummingbird scale." },
-  { name: "The Big Job Board", icon: "assignment",        body: "Visual recurring device — every episode opens with Buzz pulling a new 'job card' that frames the SEL beat." },
+// Five toddler-engagement pillars condensed from the legacy page bullets.
+const PILLARS = [
+  {
+    icon: "home",
+    title: "Daily Life & Routines",
+    points: [
+      "Realistic, recognisable activities — grocery store, breakfast, getting dressed.",
+      "The 'story of their day' — what they ate, where they went.",
+      "Transport, vehicles, tools — high-interest familiar objects.",
+      "Playtime mirrored — blocks, parks, sandbox moments.",
+    ],
+  },
+  {
+    icon: "favorite",
+    title: "Social & Emotional Learning",
+    points: [
+      "Managing big feelings — modelled, named, resolved.",
+      "Taking turns, sharing, cause and effect.",
+      "Kindness, compassion, empathy as character defaults.",
+    ],
+  },
+  {
+    icon: "pets",
+    title: "Natural World & Animals",
+    points: [
+      "Animal characters and the sounds they make.",
+      "Gentle STEM — zoology, ecology, counting, shapes.",
+      "Environmental care woven in, never preached.",
+    ],
+  },
+  {
+    icon: "auto_awesome",
+    title: "Fantasy, Bravery & Humor",
+    points: [
+      "Superhero play — feeling powerful at toddler scale.",
+      "Friendly imaginary characters — fairies, gentle monsters.",
+      "Physical humour — age-appropriate, laugh-out-loud reliable.",
+      "Safe mystery and discovery beats.",
+    ],
+  },
+  {
+    icon: "music_note",
+    title: "Sensory & Rhythmic",
+    points: [
+      "Repetition — 'again, again' is a feature, not a bug.",
+      "Rhyme, rhythm, song — language scaffolding.",
+      "Bold colour, high contrast, clear silhouette design.",
+    ],
+  },
 ];
