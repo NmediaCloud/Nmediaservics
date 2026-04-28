@@ -228,7 +228,7 @@ const IP_SLATE = [
     status:    "Development",
     version:   "VOL. 03",
     body:      "Bouncy pre-K slapstick — exaggerated cause-and-effect comedy with character-led mischief and zero dialogue dependency.",
-    detail_url: null,
+    detail_url: "/ip/chimpu",
     poster:     "/images/ip/chimpu.jpg",
   },
   {

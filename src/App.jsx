@@ -10,6 +10,7 @@ import DigitalMarketing from "./pages/DigitalMarketing";
 import TinyWingsBuzz from "./pages/TinyWingsBuzz";
 import WorldUnderMyBed from "./pages/WorldUnderMyBed";
 import WohShaadi from "./pages/WohShaadi";
+import Chimpu from "./pages/Chimpu";
 
 export default function App() {
   return (
@@ -25,6 +26,7 @@ export default function App() {
         <Route path="/ip/tiny-wings-buzz"     element={<TinyWingsBuzz />} />
         <Route path="/ip/world-under-my-bed"  element={<WorldUnderMyBed />} />
         <Route path="/ip/woh-shaadi"          element={<WohShaadi />} />
+        <Route path="/ip/chimpu"              element={<Chimpu />} />
       </Routes>
     </Router>
   );
