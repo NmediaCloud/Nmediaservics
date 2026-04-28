@@ -65,22 +65,32 @@ function ServiceSection({ id, kicker, title, subtitle, intro, images, basePath, 
         {/* Image strip — clickable to zoom */}
         {images && images.length > 0 && (
           verticalImages ? (
-            <div className="columns-1 md:columns-2 gap-6 mb-10 max-w-6xl mx-auto [column-fill:balance]">
-              {images.map((img) => (
-                <button
-                  key={img}
-                  type="button"
-                  onClick={() => onZoom(`${basePath}/${img}`)}
-                  className="block w-full mb-6 bg-surface-container border border-outline-variant/10 hover:border-primary/40 overflow-hidden cursor-zoom-in transition-all duration-500 group transform-gpu hover:scale-[1.01] break-inside-avoid"
-                  aria-label="Zoom image"
-                >
-                  <img
-                    src={`${basePath}/${img}`}
-                    alt=""
-                    loading="lazy"
-                    className="w-full h-auto object-contain opacity-95 group-hover:opacity-100 transition-opacity duration-500 bg-white"
-                  />
-                </button>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10 max-w-6xl mx-auto items-start">
+              {[
+                // Column A: even-index slides + last (to push the closing slide left).
+                images.filter((_, i) => i % 2 === 0 || i === images.length - 1)
+                       .filter((v, i, a) => a.indexOf(v) === i),
+                // Column B: odd-index slides except the last.
+                images.filter((_, i) => i % 2 === 1 && i !== images.length - 1),
+              ].map((col, ci) => (
+                <div key={ci} className="space-y-6">
+                  {col.map((img) => (
+                    <button
+                      key={img}
+                      type="button"
+                      onClick={() => onZoom(`${basePath}/${img}`)}
+                      className="block w-full bg-surface-container border border-outline-variant/10 hover:border-primary/40 overflow-hidden cursor-zoom-in transition-all duration-500 group transform-gpu hover:scale-[1.01]"
+                      aria-label="Zoom image"
+                    >
+                      <img
+                        src={`${basePath}/${img}`}
+                        alt=""
+                        loading="lazy"
+                        className="w-full h-auto object-contain opacity-95 group-hover:opacity-100 transition-opacity duration-500 bg-white"
+                      />
+                    </button>
+                  ))}
+                </div>
               ))}
             </div>
           ) : (
