@@ -492,12 +492,12 @@ export default function HomeDesktop() {
 const IP_SLATE_HOME = [
   {
     title: "Tiny Wings, Big Job",
-    subtitle: "Toddler SEL · Series",
+    subtitle: "Preschool 3–6 · Nature Series",
     icon: "flutter_dash",
     version: "VOL. 01",
     status: "Pilot Complete",
     status_active: true,
-    body: "Buzz finds her purpose — daily-routine SEL series for toddlers 2-5 with sensory rhythm, rhyme, and big feelings made small.",
+    body: "Buzz, a small bee, learns his place in the wide world — every tiny flutter helps the Earth bloom. 54 EP · 4 seasons.",
     detail_url: "/ip/tiny-wings-buzz",
     poster: "/images/ip/tiny-wings.jpg",
   },
