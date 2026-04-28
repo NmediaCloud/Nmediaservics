@@ -96,41 +96,69 @@ export default function PipelineArticles() {
                 bg-surface-container hover:bg-surface-container-high
                 border border-outline-variant/10 hover:border-primary/40
                 relative
-                transition-all duration-300 flex flex-col p-5
+                transition-all duration-300 flex flex-col overflow-hidden
               "
             >
               {/* Thin orange accent that draws on hover */}
               <span className="
-                absolute top-0 left-0 h-[2px] w-0
+                absolute top-0 left-0 h-[2px] w-0 z-10
                 bg-primary transition-all duration-500
                 group-hover:w-full
               " />
 
-              {/* Tag pill */}
-              <p className="font-label text-[10px] tracking-widest uppercase text-primary mb-3 leading-none">
-                {a.tag}
-              </p>
-
-              {/* Headline */}
-              <h3 className="font-headline font-bold text-base text-white leading-tight tracking-tight mb-3 line-clamp-3">
-                {a.title}
-              </h3>
-
-              {/* Intro */}
-              <p className="text-xs text-on-surface-variant leading-relaxed flex-1 line-clamp-4">
-                {INTROS[a.slug] || ""}
-              </p>
-
-              {/* Footer row */}
-              <div className="mt-4 pt-3 border-t border-white/5 flex items-center justify-between">
-                <span className="font-label text-[9px] tracking-[0.2em] uppercase text-on-surface-variant group-hover:text-primary transition-colors">
-                  Read field note →
-                </span>
-                {a.youtube_id && (
-                  <span className="font-label text-[9px] text-primary uppercase tracking-wider">
-                    ▶ video
-                  </span>
+              {/* Video thumbnail / placeholder — visual cue, click still goes to article */}
+              <div className="relative aspect-video bg-black overflow-hidden border-b border-white/5">
+                {a.youtube_id ? (
+                  <>
+                    <img
+                      src={`https://i.ytimg.com/vi/${a.youtube_id}/hqdefault.jpg`}
+                      alt={`${a.title} — video walkthrough`}
+                      loading="lazy"
+                      className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity"
+                    />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="w-10 h-10 rounded-full bg-primary/90 group-hover:bg-primary flex items-center justify-center shadow-lg shadow-primary/40 transition-all group-hover:scale-110">
+                        <span className="material-symbols-outlined text-on-primary" style={{ fontSize: "22px" }}>play_arrow</span>
+                      </div>
+                    </div>
+                  </>
+                ) : (
+                  <div className="absolute inset-0 flex flex-col items-center justify-center bg-[#0a0a0a] text-center px-3">
+                    <span className="material-symbols-outlined text-primary/40" style={{ fontSize: "32px" }}>play_circle</span>
+                    <p className="font-label text-[8px] tracking-[0.3em] text-primary/60 uppercase mt-1.5">
+                      Video · Coming Soon
+                    </p>
+                  </div>
                 )}
+              </div>
+
+              <div className="flex flex-col p-5 flex-1">
+                {/* Tag pill */}
+                <p className="font-label text-[10px] tracking-widest uppercase text-primary mb-3 leading-none">
+                  {a.tag}
+                </p>
+
+                {/* Headline */}
+                <h3 className="font-headline font-bold text-base text-white leading-tight tracking-tight mb-3 line-clamp-3">
+                  {a.title}
+                </h3>
+
+                {/* Intro */}
+                <p className="text-xs text-on-surface-variant leading-relaxed flex-1 line-clamp-4">
+                  {INTROS[a.slug] || ""}
+                </p>
+
+                {/* Footer row */}
+                <div className="mt-4 pt-3 border-t border-white/5 flex items-center justify-between">
+                  <span className="font-label text-[9px] tracking-[0.2em] uppercase text-on-surface-variant group-hover:text-primary transition-colors">
+                    Read field note →
+                  </span>
+                  {a.youtube_id && (
+                    <span className="font-label text-[9px] text-primary uppercase tracking-wider">
+                      ▶ video
+                    </span>
+                  )}
+                </div>
               </div>
             </a>
           ))}
