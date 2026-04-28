@@ -174,21 +174,21 @@ export default function HomeDesktop() {
                 </p>
               </Link>
               <a
-                href="https://www.einpresswire.com/article/592919633/utherverse-hires-3d-animation-veteran-nandakumar-mohan-to-develop-full-motion-hd-animation-for-metaverse-platform"
+                href="https://stockflow.media/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block bg-surface-container p-8 group hover:bg-surface-bright transition-all duration-300 border border-white/5 hover:border-primary/30"
               >
-                <span className="font-label tracking-widest text-primary mb-6 block text-sm uppercase font-bold">
-                  Utherverse_Press
-                </span>
+                <div className="w-10 h-10 bg-[#FF8000] rounded-xl flex items-center justify-center mb-6">
+                  <span className="text-white font-['Inter'] font-black text-xl tracking-tighter">SF</span>
+                </div>
                 <h4 className="font-headline text-xl font-bold mb-2 text-white">
-                  Game Animation / AR / VR
+                  Stockflow.Media
                 </h4>
                 <p className="font-body text-sm text-white/50 group-hover:text-white/80 transition-colors">
-                  Animation Assets development for Unity deployment for immersive,
-                  real-time cinematic content. Motion Capture editing and Facial
-                  capture implementation.
+                  A scalable content platform offering ready-to-use media assets
+                  and automated pipelines for creators, marketers, and production
+                  teams.
                 </p>
               </a>
             </div>
@@ -244,21 +244,21 @@ export default function HomeDesktop() {
                 </p>
               </Link>
               <a
-                href="https://stockflow.media/"
+                href="https://www.einpresswire.com/article/592919633/utherverse-hires-3d-animation-veteran-nandakumar-mohan-to-develop-full-motion-hd-animation-for-metaverse-platform"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block bg-surface-container p-8 group hover:bg-surface-bright transition-all duration-300 border border-white/5 hover:border-primary/30"
               >
-                <div className="w-10 h-10 bg-[#FF8000] rounded-xl flex items-center justify-center mb-6">
-                  <span className="text-white font-['Inter'] font-black text-xl tracking-tighter">SF</span>
-                </div>
+                <span className="font-label tracking-widest text-primary mb-6 block text-sm uppercase font-bold">
+                  Utherverse_Press
+                </span>
                 <h4 className="font-headline text-xl font-bold mb-2 text-white">
-                  Stockflow.Media
+                  Game Animation / AR / VR
                 </h4>
                 <p className="font-body text-sm text-white/50 group-hover:text-white/80 transition-colors">
-                  A scalable content platform offering ready-to-use media assets
-                  and automated pipelines for creators, marketers, and production
-                  teams.
+                  Animation Assets development for Unity deployment for immersive,
+                  real-time cinematic content. Motion Capture editing and Facial
+                  capture implementation.
                 </p>
               </a>
             </div>
