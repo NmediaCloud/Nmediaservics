@@ -314,6 +314,22 @@ export default function HomeDesktop() {
                   not the product. Wired through a single analytics layer.
                 </p>
               </Link>
+              <Link
+                to="/digital-conversion"
+                className="block bg-surface-container p-8 group hover:bg-surface-bright transition-all duration-300 border border-white/5 hover:border-primary/30"
+              >
+                <span className="font-label tracking-widest text-primary mb-6 block text-sm uppercase font-bold">
+                  physical → digital
+                </span>
+                <h4 className="font-headline text-xl font-bold mb-2 text-white">
+                  Digital Conversion
+                </h4>
+                <p className="font-body text-sm text-white/50 group-hover:text-white/80 transition-colors">
+                  Books, documents, microfilm, palm scripts, photos and 3D
+                  objects — converted to searchable, archivable digital
+                  formats. Asset-safe handling.
+                </p>
+              </Link>
               </div>
             </div>
           </div>

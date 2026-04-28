@@ -12,6 +12,7 @@ import WorldUnderMyBed from "./pages/WorldUnderMyBed";
 import WohShaadi from "./pages/WohShaadi";
 import Chimpu from "./pages/Chimpu";
 import Cici from "./pages/Cici";
+import DigitalConversion from "./pages/DigitalConversion";
 
 export default function App() {
   return (
@@ -24,6 +25,7 @@ export default function App() {
         <Route path="/motion-graphics"        element={<MotionGraphics />} />
         <Route path="/about"                  element={<About />} />
         <Route path="/digital-marketing"      element={<DigitalMarketing />} />
+        <Route path="/digital-conversion"     element={<DigitalConversion />} />
         <Route path="/ip/tiny-wings-buzz"     element={<TinyWingsBuzz />} />
         <Route path="/ip/world-under-my-bed"  element={<WorldUnderMyBed />} />
         <Route path="/ip/woh-shaadi"          element={<WohShaadi />} />
