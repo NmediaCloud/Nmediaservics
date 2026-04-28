@@ -1,5 +1,5 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React, { useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import Home from "./pages/Home";
 import IPSeries from "./pages/IPSeries";
 import Commercials from "./pages/Commercials";
@@ -14,9 +14,19 @@ import Chimpu from "./pages/Chimpu";
 import Cici from "./pages/Cici";
 import DigitalConversion from "./pages/DigitalConversion";
 
+// Reset scroll to top whenever the route changes (unless URL has #anchor).
+function ScrollToTop() {
+  const { pathname, hash } = useLocation();
+  useEffect(() => {
+    if (!hash) window.scrollTo(0, 0);
+  }, [pathname, hash]);
+  return null;
+}
+
 export default function App() {
   return (
     <Router>
+      <ScrollToTop />
       <Routes>
         <Route path="/"                       element={<Home />} />
         <Route path="/ip-series"              element={<IPSeries />} />
