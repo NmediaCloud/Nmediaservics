@@ -211,6 +211,21 @@ export default function HomeDesktop() {
               </p>
             </div>
             <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <Link
+                to="/about"
+                className="block bg-surface-container p-8 group hover:bg-surface-bright transition-all duration-300 border border-white/5 hover:border-primary/30"
+              >
+                <span className="material-symbols-outlined text-primary mb-6 block" style={{ fontSize: "36px" }}>
+                  verified
+                </span>
+                <h4 className="font-headline text-xl font-bold mb-2 text-white">
+                  Creative–Technical Director
+                </h4>
+                <p className="font-body text-sm text-white/50 group-hover:text-white/80 transition-colors">
+                  Full-stack media tech, AI-native pipelines, motion-graphics
+                  + data-science credentials. The pipeline architect's record.
+                </p>
+              </Link>
               <a
                 href="https://www.imdb.com/name/nm12576040/"
                 target="_blank"
@@ -228,21 +243,6 @@ export default function HomeDesktop() {
                   high-quality production across global animated series.
                 </p>
               </a>
-              <Link
-                to="/about"
-                className="block bg-surface-container p-8 group hover:bg-surface-bright transition-all duration-300 border border-white/5 hover:border-primary/30"
-              >
-                <span className="material-symbols-outlined text-primary mb-6 block" style={{ fontSize: "36px" }}>
-                  verified
-                </span>
-                <h4 className="font-headline text-xl font-bold mb-2 text-white">
-                  Creative–Technical Director
-                </h4>
-                <p className="font-body text-sm text-white/50 group-hover:text-white/80 transition-colors">
-                  Full-stack media tech, AI-native pipelines, motion-graphics
-                  + data-science credentials. The pipeline architect's record.
-                </p>
-              </Link>
               <a
                 href="https://www.einpresswire.com/article/592919633/utherverse-hires-3d-animation-veteran-nandakumar-mohan-to-develop-full-motion-hd-animation-for-metaverse-platform"
                 target="_blank"
