@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import SiteHeader from "../components/SiteHeader";
+import PicsModal from "../components/PicsModal";
 
 /**
  * DigitalConversion — single-page presentation of the digital
@@ -13,7 +14,7 @@ import SiteHeader from "../components/SiteHeader";
  */
 
 // ── Re-usable section block ──────────────────────────────────────
-function ServiceSection({ id, kicker, title, subtitle, intro, images, basePath, points, alt = false }) {
+function ServiceSection({ id, kicker, title, subtitle, intro, images, basePath, points, flashcard, alt = false, onZoom }) {
   return (
     <section
       id={id}
@@ -21,9 +22,27 @@ function ServiceSection({ id, kicker, title, subtitle, intro, images, basePath, 
     >
       <div className="max-w-7xl mx-auto">
 
-        {/* Heading */}
-        <div className="grid lg:grid-cols-12 gap-12 mb-12">
-          <div className="lg:col-span-5">
+        {/* Heading + flashcard */}
+        <div className="grid lg:grid-cols-12 gap-12 mb-12 items-start">
+          <div className="lg:col-span-3">
+            {flashcard && (
+              <button
+                type="button"
+                onClick={() => onZoom(flashcard)}
+                className="block w-full bg-surface-container border border-outline-variant/10 hover:border-primary/40 overflow-hidden cursor-zoom-in transition-all group"
+                style={{ aspectRatio: "3 / 4" }}
+                aria-label={`Zoom ${title} flashcard`}
+              >
+                <img
+                  src={flashcard}
+                  alt={`${title} flashcard`}
+                  loading="lazy"
+                  className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-[1.03] transition-all duration-500"
+                />
+              </button>
+            )}
+          </div>
+          <div className="lg:col-span-4">
             <p className="font-label text-[10px] tracking-[0.4em] text-primary uppercase mb-3">
               {kicker}
             </p>
@@ -36,29 +55,32 @@ function ServiceSection({ id, kicker, title, subtitle, intro, images, basePath, 
               </p>
             )}
           </div>
-          <div className="lg:col-span-7 text-on-surface-variant font-light leading-relaxed space-y-4">
+          <div className="lg:col-span-5 text-on-surface-variant font-light leading-relaxed space-y-4">
             {intro.map((para, i) => (
               <p key={i}>{para}</p>
             ))}
           </div>
         </div>
 
-        {/* Image strip */}
+        {/* Image strip — clickable to zoom */}
         {images && images.length > 0 && (
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 mb-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-10">
             {images.map((img) => (
-              <div
+              <button
                 key={img}
-                className="bg-surface-container border border-outline-variant/10 overflow-hidden group"
+                type="button"
+                onClick={() => onZoom(`${basePath}/${img}`)}
+                className="block bg-surface-container border border-outline-variant/10 hover:border-primary/40 overflow-hidden cursor-zoom-in transition-all duration-500 group transform-gpu hover:scale-[1.02]"
                 style={{ aspectRatio: "4 / 3" }}
+                aria-label="Zoom image"
               >
                 <img
                   src={`${basePath}/${img}`}
                   alt=""
                   loading="lazy"
-                  className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+                  className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-500"
                 />
-              </div>
+              </button>
             ))}
           </div>
         )}
@@ -95,7 +117,27 @@ function ServiceSection({ id, kicker, title, subtitle, intro, images, basePath, 
   );
 }
 
+// All zoomable images across sections (paths relative to /).
+const ALL_PICS = [
+  "images/digital-conversion/dc_07.jpg",
+  ...Array.from({ length: 5 }, (_, i) => `images/digital-conversion/omr/omr_${String(i+1).padStart(2,"0")}.${i===3?"png":"jpg"}`),
+  "images/digital-conversion/dc_03.jpg",
+  ...Array.from({ length: 8 }, (_, i) => `images/digital-conversion/med/med_${String(i+1).padStart(2,"0")}.jpg`),
+  "images/digital-conversion/dc_04.jpg",
+  ...Array.from({ length: 5 }, (_, i) => `images/digital-conversion/books/books_${String(i+1).padStart(2,"0")}.${i===3?"png":"jpg"}`),
+  "images/digital-conversion/dc_05.jpg",
+  ...["palm_01.jpg","palm_02.jpg","palm_03.jpg","palm_04.jpg","palm_05.jpg","palm_06.jpg","palm_07.jpg","palm_08.jpg"].map(f => `images/digital-conversion/palm/${f}`),
+  "images/digital-conversion/dc_06.png",
+  ...["photo_01.jpg","photo_02.png","photo_03.jpg"].map(f => `images/digital-conversion/photo/${f}`),
+  "images/digital-conversion/dc_02.jpg",
+  ...["misc_01.png","misc_02.jpg"].map(f => `images/digital-conversion/misc/${f}`),
+  "images/digital-conversion/dc_09.jpg",
+];
+
 export default function DigitalConversion() {
+  const [zoomOpen, setZoomOpen] = useState(false);
+  const [zoomInitial, setZoomInitial] = useState(null);
+  const onZoom = (src) => { setZoomInitial(src.replace(/^\//, "")); setZoomOpen(true); };
   return (
     <div className="bg-surface text-on-surface font-body selection:bg-primary selection:text-on-primary min-h-screen">
 
@@ -163,6 +205,8 @@ export default function DigitalConversion() {
           kicker="[ 01 // OPTICAL_MARK_READING ]"
           title="Optical Mark Reading."
           subtitle="OMR · Form Reading · High-Throughput"
+          flashcard="/images/digital-conversion/dc_07.jpg"
+          onZoom={onZoom}
           basePath="/images/digital-conversion/omr"
           images={["omr_01.jpg","omr_02.jpg","omr_03.jpg","omr_04.png","omr_05.jpg"]}
           intro={[
@@ -185,6 +229,8 @@ export default function DigitalConversion() {
           title="Medical Records."
           subtitle="HIPAA-aware · Indexed · Secure"
           alt
+          flashcard="/images/digital-conversion/dc_03.jpg"
+          onZoom={onZoom}
           basePath="/images/digital-conversion/med"
           images={["med_01.jpg","med_02.jpg","med_03.jpg","med_04.jpg","med_05.jpg","med_06.jpg","med_07.jpg","med_08.jpg"]}
           intro={[
@@ -206,6 +252,8 @@ export default function DigitalConversion() {
           kicker="[ 03 // LIBRARY_BOOKS ]"
           title="Library Books."
           subtitle="Bound · Fragile · Full-Catalog"
+          flashcard="/images/digital-conversion/dc_04.jpg"
+          onZoom={onZoom}
           basePath="/images/digital-conversion/books"
           images={["books_01.jpg","books_02.jpg","books_03.jpg","books_04.png","books_05.jpg"]}
           intro={[
@@ -229,6 +277,8 @@ export default function DigitalConversion() {
           title="Palm-Leaf Manuscripts."
           subtitle="Conservation · Heritage · Non-Destructive"
           alt
+          flashcard="/images/digital-conversion/dc_05.jpg"
+          onZoom={onZoom}
           basePath="/images/digital-conversion/palm"
           images={["palm_01.jpg","palm_02.jpg","palm_03.jpg","palm_04.jpg","palm_05.jpg","palm_06.jpg","palm_07.jpg","palm_08.jpg"]}
           intro={[
@@ -250,6 +300,8 @@ export default function DigitalConversion() {
           kicker="[ 05 // PHOTOS_AND_NEGATIVES ]"
           title="Photos · Negatives · Films."
           subtitle="Image Processing · Restoration"
+          flashcard="/images/digital-conversion/dc_06.png"
+          onZoom={onZoom}
           basePath="/images/digital-conversion/photo"
           images={["photo_01.jpg","photo_02.png","photo_03.jpg"]}
           intro={[
@@ -272,6 +324,8 @@ export default function DigitalConversion() {
           title="Facility, Volume, Trust."
           subtitle="Toronto · 1200+ sq ft · 40,000+ images / day"
           alt
+          flashcard="/images/digital-conversion/dc_02.jpg"
+          onZoom={onZoom}
           basePath="/images/digital-conversion/misc"
           images={["misc_01.png","misc_02.jpg"]}
           intro={[
@@ -328,6 +382,15 @@ export default function DigitalConversion() {
 
         <SiteFooter />
       </main>
+
+      <PicsModal
+        open={zoomOpen}
+        onClose={() => setZoomOpen(false)}
+        pics={ALL_PICS}
+        basePath=""
+        title="Digital Conversion · Gallery"
+        initialZoom={zoomInitial}
+      />
     </div>
   );
 }
