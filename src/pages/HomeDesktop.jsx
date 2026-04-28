@@ -112,22 +112,25 @@ export default function HomeDesktop() {
               {IP_SLATE_HOME.map((ip) => {
                 const Inner = (
                   <>
-                    <div className="aspect-[3/4] overflow-hidden bg-surface-container-lowest relative">
+                    <div
+                      className="relative w-full overflow-hidden bg-surface-container-lowest"
+                      style={{ aspectRatio: "3 / 4" }}
+                    >
                       {ip.poster ? (
                         <img
                           src={ip.poster}
                           alt={ip.title}
                           loading="lazy"
-                          className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+                          className="absolute inset-0 w-full h-full object-cover opacity-95 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
                         />
                       ) : (
                         <div className="absolute inset-0 flex items-center justify-center opacity-30">
                           <span className="material-symbols-outlined text-[120px] text-primary">{ip.icon}</span>
                         </div>
                       )}
-                      <div className="absolute top-3 left-3 font-label text-[9px] tracking-[0.3em] text-white/90 uppercase bg-black/40 backdrop-blur-sm px-2 py-1">
+                      <span className="absolute top-3 left-3 font-label text-[9px] tracking-[0.3em] text-white uppercase bg-black/50 backdrop-blur-sm px-2 py-1">
                         {ip.version}
-                      </div>
+                      </span>
                     </div>
                     <div className="p-5">
                       <h4 className="font-headline text-base font-bold uppercase tracking-tight leading-tight text-white mb-1">
@@ -135,6 +138,9 @@ export default function HomeDesktop() {
                       </h4>
                       <p className="font-label text-[10px] tracking-[0.2em] uppercase text-on-surface-variant/70 mb-3">
                         {ip.subtitle}
+                      </p>
+                      <p className="font-body text-xs text-white/50 group-hover:text-white/80 transition-colors leading-relaxed line-clamp-3 mb-4">
+                        {ip.body}
                       </p>
                       <span
                         className={`inline-block px-2 py-0.5 border text-[9px] font-label tracking-widest uppercase ${
