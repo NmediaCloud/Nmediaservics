@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { SiteNav, SiteFooter } from "./IPSeries";
+import { SiteFooter } from "./IPSeries";
+import SiteHeader from "../components/SiteHeader";
 
 /**
  * Tiny Wings, Big Job — IP detail page.
@@ -10,7 +11,7 @@ export default function TinyWingsBuzz() {
   return (
     <div className="bg-surface text-on-surface font-body selection:bg-primary selection:text-on-primary min-h-screen">
 
-      <SiteNav active="studio" />
+      <SiteHeader />
 
       <main className="pt-32 pb-24">
 

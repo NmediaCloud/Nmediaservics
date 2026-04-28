@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import SiteHeader from "../components/SiteHeader";
 
 /**
  * IPSeries — Original IP / Animation Series hub.
@@ -19,7 +20,7 @@ export default function IPSeries() {
   return (
     <div className="bg-surface text-on-surface font-body selection:bg-primary selection:text-on-primary min-h-screen">
 
-      <SiteNav active="studio" />
+      <SiteHeader />
 
       <main className="pt-32 pb-24">
 
