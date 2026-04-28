@@ -137,7 +137,7 @@ const ALL_PICS = [
   "images/digital-conversion/dc_03.jpg",
   ...["med_04.jpg","med_05.jpg","med_07.jpg","med_08.jpg"].map(f => `images/digital-conversion/med/${f}`),
   "images/digital-conversion/dc_04.jpg",
-  ...Array.from({ length: 5 }, (_, i) => `images/digital-conversion/books/books_${String(i+1).padStart(2,"0")}.${i===3?"png":"jpg"}`),
+  ...["books_01.jpg","books_02.jpg"].map(f => `images/digital-conversion/books/${f}`),
   "images/digital-conversion/dc_05.jpg",
   ...["palm_01.jpg","palm_02.jpg","palm_03.jpg","palm_04.jpg","palm_05.jpg","palm_06.jpg","palm_07.jpg","palm_08.jpg","palm_09.png","palm_10.jpg"].map(f => `images/digital-conversion/palm/${f}`),
   "images/digital-conversion/dc_06.png",
@@ -279,8 +279,9 @@ export default function DigitalConversion() {
           subtitle="Bound · Fragile · Full-Catalog"
           flashcard="/images/digital-conversion/dc_04.jpg"
           onZoom={onZoom}
+          noVideo
           basePath="/images/digital-conversion/books"
-          images={["books_01.jpg","books_02.jpg","books_03.jpg","books_04.png","books_05.jpg"]}
+          images={["books_01.jpg","books_02.jpg"]}
           intro={[
             "Whole-collection library digitisation. Bound book scanners with edge capture preserve the spine without splitting; fragile or rare titles run on overhead readers that capture without flexing the binding.",
             "Workflow: cleaning → naming-convention rollout → digitisation → page enhancement (crop, rotate, contrast) → PDF assembly with metadata, bookmarks and OCR. Delivered on hard drive or DVD with a folder structure mirrored to the library catalog.",
