@@ -220,61 +220,36 @@ export default function DigitalConversion() {
           </div>
         </section>
 
-        {/* ── 01 · OMR ─────────────────────────────── */}
+        {/* ── 01 · PALM SCRIPTS ────────────────────── */}
         <ServiceSection
-          id="omr"
-          kicker="[ 01 // OPTICAL_MARK_READING ]"
-          title="Optical Mark Reading."
-          subtitle="OMR · Form Reading · High-Throughput"
-          flashcard="/images/digital-conversion/dc_07.jpg"
+          id="palm"
+          kicker="[ 01 // PALM_SCRIPTS ]"
+          title="Palm-Leaf Manuscripts."
+          subtitle="Conservation · Heritage · Non-Destructive"
+          flashcard="/images/digital-conversion/dc_05.jpg"
           onZoom={onZoom}
-          noVideo
-          basePath="/images/digital-conversion/omr"
-          images={["omr_01.jpg","omr_02.jpg","omr_03.jpg"]}
+          basePath="/images/digital-conversion/palm"
+          images={["palm_01.jpg","palm_02.jpg","palm_03.jpg","palm_04.jpg","palm_05.jpg","palm_06.jpg","palm_07.jpg","palm_08.jpg"]}
           intro={[
-            "OMR — the high-volume, fixed-template capture of marks (bubbles, ticks, multi-choice) into structured data. Exam sheets, surveys, ballots, registration forms — anywhere a mark on paper needs to become a row in a database, fast and audited.",
-            "Captured on calibrated readers with edge-detection thresholds tuned to the form layout. Output: validated CSV / database rows — ready for grading, analysis, or downstream pipelines.",
+            "Palm-leaf manuscripts (palm scripts) are among the most fragile artefacts a library can hold. We capture them with conservation-grade overhead equipment — no contact, no flex, no tape — preserving the physical object while delivering high-resolution digital records.",
+            "Where the script is legible enough, we add an OCR pass tuned to the language and shape; where it isn't, we deliver the high-fidelity master image so a human scholar can transcribe later. Either way, the manuscript leaves the way it came in.",
           ]}
           points={[
-            "Bubble-sheet exam capture · multi-choice, true/false, gradeable.",
-            "Survey and questionnaire processing at thousands of pages a day.",
-            "Form intake — registration, applications, voting.",
-            "Per-form QA pass · misread flagging · re-scan on demand.",
-            "Output: CSV, Excel, JSON, or direct database import.",
+            "Conservation-grade overhead capture · zero contact pressure.",
+            "Climate-controlled handling area · gloved personnel.",
+            "Per-leaf metadata · script-direction aware processing.",
+            "OCR pass where legible · master-image preservation always.",
+            "Multi-language tuning · regional script profiles supported.",
           ]}
         />
 
-        {/* ── 02 · MEDICAL ─────────────────────────── */}
-        <ServiceSection
-          id="med"
-          kicker="[ 02 // MEDICAL_RECORDS ]"
-          title="Medical Records."
-          subtitle="HIPAA-aware · Indexed · Secure"
-          alt
-          flashcard="/images/digital-conversion/dc_03.jpg"
-          onZoom={onZoom}
-          noVideo
-          basePath="/images/digital-conversion/med"
-          images={["med_04.jpg","med_05.jpg","med_07.jpg","med_08.jpg"]}
-          intro={[
-            "Patient charts, lab reports, imaging summaries and historical paper files digitised with privacy-first handling. Secure facility, signed handlers, chain-of-custody from pickup to archive.",
-            "Output is indexed against your patient ID schema and retention policy — searchable on demand, with redaction support for shared copies.",
-          ]}
-          points={[
-            "Patient ID indexing · per-record metadata captured at scan time.",
-            "Retention-policy aware · time-stamped digital chain of custody.",
-            "HIPAA-aware handling · signed personnel · access logs.",
-            "Optional OCR for searchable charts — clinical-typography tuned.",
-            "Redaction utilities for sharing or research extracts.",
-          ]}
-        />
-
-        {/* ── 03 · BOOKS / LIBRARY ─────────────────── */}
+        {/* ── 02 · BOOKS / LIBRARY ─────────────────── */}
         <ServiceSection
           id="books"
-          kicker="[ 03 // LIBRARY_BOOKS ]"
+          kicker="[ 02 // LIBRARY_BOOKS ]"
           title="Library Books."
           subtitle="Bound · Fragile · Full-Catalog"
+          alt
           flashcard="/images/digital-conversion/dc_04.jpg"
           onZoom={onZoom}
           noVideo
@@ -294,38 +269,40 @@ export default function DigitalConversion() {
           ]}
         />
 
-        {/* ── 04 · PALM SCRIPTS ────────────────────── */}
+        {/* ── 03 · HOSPITAL RECORDS ────────────────── */}
         <ServiceSection
-          id="palm"
-          kicker="[ 04 // PALM_SCRIPTS ]"
-          title="Palm-Leaf Manuscripts."
-          subtitle="Conservation · Heritage · Non-Destructive"
-          alt
-          flashcard="/images/digital-conversion/dc_05.jpg"
+          id="med"
+          kicker="[ 03 // HOSPITAL_RECORDS ]"
+          title="Hospital Records."
+          subtitle="HIPAA-aware · Indexed · Secure"
+          flashcard="/images/digital-conversion/dc_03.jpg"
           onZoom={onZoom}
-          basePath="/images/digital-conversion/palm"
-          images={["palm_01.jpg","palm_02.jpg","palm_03.jpg","palm_04.jpg","palm_05.jpg","palm_06.jpg","palm_07.jpg","palm_08.jpg"]}
+          noVideo
+          basePath="/images/digital-conversion/med"
+          images={["med_04.jpg","med_05.jpg","med_07.jpg","med_08.jpg"]}
           intro={[
-            "Palm-leaf manuscripts (palm scripts) are among the most fragile artefacts a library can hold. We capture them with conservation-grade overhead equipment — no contact, no flex, no tape — preserving the physical object while delivering high-resolution digital records.",
-            "Where the script is legible enough, we add an OCR pass tuned to the language and shape; where it isn't, we deliver the high-fidelity master image so a human scholar can transcribe later. Either way, the manuscript leaves the way it came in.",
+            "Patient charts, lab reports, imaging summaries and historical paper files digitised with privacy-first handling. Secure facility, signed handlers, chain-of-custody from pickup to archive.",
+            "Output is indexed against your patient ID schema and retention policy — searchable on demand, with redaction support for shared copies.",
           ]}
           points={[
-            "Conservation-grade overhead capture · zero contact pressure.",
-            "Climate-controlled handling area · gloved personnel.",
-            "Per-leaf metadata · script-direction aware processing.",
-            "OCR pass where legible · master-image preservation always.",
-            "Multi-language tuning · regional script profiles supported.",
+            "Patient ID indexing · per-record metadata captured at scan time.",
+            "Retention-policy aware · time-stamped digital chain of custody.",
+            "HIPAA-aware handling · signed personnel · access logs.",
+            "Optional OCR for searchable charts — clinical-typography tuned.",
+            "Redaction utilities for sharing or research extracts.",
           ]}
         />
 
-        {/* ── 05 · PHOTOS / NEGATIVES ──────────────── */}
+        {/* ── 04 · PHOTOS / NEGATIVES ──────────────── */}
         <ServiceSection
           id="photo"
-          kicker="[ 05 // PHOTOS_AND_NEGATIVES ]"
+          kicker="[ 04 // PHOTOS_AND_NEGATIVES ]"
           title="Photos · Negatives · Films."
           subtitle="Image Processing · Restoration"
+          alt
           flashcard="/images/digital-conversion/dc_06.png"
           onZoom={onZoom}
+          noVideo
           basePath="/images/digital-conversion/photo"
           images={[]}
           intro={[
@@ -338,6 +315,30 @@ export default function DigitalConversion() {
             "Archive-resolution master + access-resolution derivative.",
             "Restoration on request — fade recovery, tear repair, stain reduction.",
             "EXIF and per-image metadata preserved or applied.",
+          ]}
+        />
+
+        {/* ── 05 · OMR ─────────────────────────────── */}
+        <ServiceSection
+          id="omr"
+          kicker="[ 05 // OPTICAL_MARK_READING ]"
+          title="Optical Mark Reading."
+          subtitle="OMR · Form Reading · High-Throughput"
+          flashcard="/images/digital-conversion/dc_07.jpg"
+          onZoom={onZoom}
+          noVideo
+          basePath="/images/digital-conversion/omr"
+          images={["omr_01.jpg","omr_02.jpg","omr_03.jpg"]}
+          intro={[
+            "OMR — the high-volume, fixed-template capture of marks (bubbles, ticks, multi-choice) into structured data. Exam sheets, surveys, ballots, registration forms — anywhere a mark on paper needs to become a row in a database, fast and audited.",
+            "Captured on calibrated readers with edge-detection thresholds tuned to the form layout. Output: validated CSV / database rows — ready for grading, analysis, or downstream pipelines.",
+          ]}
+          points={[
+            "Bubble-sheet exam capture · multi-choice, true/false, gradeable.",
+            "Survey and questionnaire processing at thousands of pages a day.",
+            "Form intake — registration, applications, voting.",
+            "Per-form QA pass · misread flagging · re-scan on demand.",
+            "Output: CSV, Excel, JSON, or direct database import.",
           ]}
         />
 
@@ -421,11 +422,11 @@ export default function DigitalConversion() {
 }
 
 const INDEX = [
-  { id: "omr",   title: "OMR",                 flashcard: "/images/digital-conversion/dc_07.jpg" },
-  { id: "med",   title: "Medical Records",     flashcard: "/images/digital-conversion/dc_03.jpg" },
-  { id: "books", title: "Library Books",       flashcard: "/images/digital-conversion/dc_04.jpg" },
   { id: "palm",  title: "Palm Scripts",        flashcard: "/images/digital-conversion/dc_05.jpg" },
+  { id: "books", title: "Library Books",       flashcard: "/images/digital-conversion/dc_04.jpg" },
+  { id: "med",   title: "Hospital Records",    flashcard: "/images/digital-conversion/dc_03.jpg" },
   { id: "photo", title: "Photos & Negatives",  flashcard: "/images/digital-conversion/dc_06.png" },
+  { id: "omr",   title: "OMR",                 flashcard: "/images/digital-conversion/dc_07.jpg" },
 ];
 
 const PROMISE = [
