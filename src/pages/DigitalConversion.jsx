@@ -3,19 +3,105 @@ import { Link } from "react-router-dom";
 import SiteHeader from "../components/SiteHeader";
 
 /**
- * DigitalConversion — books, documents, microfilm, palm scripts and
- * physical artefacts converted into searchable, archivable digital
- * formats. Single-page landing — sub-sections will land here later.
+ * DigitalConversion — single-page presentation of the digital
+ * conversion service line. One scroll, six service sections, each
+ * with intro · image strip · video placeholder · key points.
  *
- * Source: nmediaservices.wixsite.com/site
+ * Source: nmediaservices.wixsite.com/site (+ /optical-mark-reading,
+ * /medical-records-management-1, /library-books-conversion,
+ * /palm-script-conversion, /photos-negatives-scanning, /miscellaneous)
  */
+
+// ── Re-usable section block ──────────────────────────────────────
+function ServiceSection({ id, kicker, title, subtitle, intro, images, basePath, points, alt = false }) {
+  return (
+    <section
+      id={id}
+      className={`scroll-mt-32 py-32 px-8 ${alt ? "bg-surface-container-lowest border-y border-outline-variant/10" : ""}`}
+    >
+      <div className="max-w-7xl mx-auto">
+
+        {/* Heading */}
+        <div className="grid lg:grid-cols-12 gap-12 mb-12">
+          <div className="lg:col-span-5">
+            <p className="font-label text-[10px] tracking-[0.4em] text-primary uppercase mb-3">
+              {kicker}
+            </p>
+            <h2 className="font-headline text-3xl md:text-5xl font-bold tracking-tighter uppercase leading-none">
+              {title}
+            </h2>
+            {subtitle && (
+              <p className="font-label text-sm tracking-[0.2em] text-on-surface-variant uppercase mt-3">
+                {subtitle}
+              </p>
+            )}
+          </div>
+          <div className="lg:col-span-7 text-on-surface-variant font-light leading-relaxed space-y-4">
+            {intro.map((para, i) => (
+              <p key={i}>{para}</p>
+            ))}
+          </div>
+        </div>
+
+        {/* Image strip */}
+        {images && images.length > 0 && (
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 mb-10">
+            {images.map((img) => (
+              <div
+                key={img}
+                className="bg-surface-container border border-outline-variant/10 overflow-hidden group"
+                style={{ aspectRatio: "4 / 3" }}
+              >
+                <img
+                  src={`${basePath}/${img}`}
+                  alt=""
+                  loading="lazy"
+                  className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+                />
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* Video placeholder + key points */}
+        <div className="grid lg:grid-cols-12 gap-8">
+          <div className="lg:col-span-7">
+            <div className="aspect-video bg-[#0a0a0a] border border-outline-variant/10 flex flex-col items-center justify-center text-center p-8 relative overflow-hidden">
+              <div className="absolute inset-0 opacity-20 pointer-events-none">
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[200px] bg-primary/30 blur-[120px] rounded-full"></div>
+              </div>
+              <span className="material-symbols-outlined text-primary/50 text-[64px] mb-4 relative">play_circle</span>
+              <p className="font-label text-[10px] tracking-[0.4em] text-primary/70 uppercase relative">
+                [ VIDEO_WALKTHROUGH // COMING_SOON ]
+              </p>
+              <p className="font-body text-xs text-on-surface-variant/60 mt-2 relative">
+                Process reel for {title.toLowerCase().replace(/\.$/, "")} drops here.
+              </p>
+            </div>
+          </div>
+          <div className="lg:col-span-5">
+            <p className="font-label text-[10px] tracking-[0.4em] text-primary uppercase mb-4">// Key points</p>
+            <ul className="space-y-3">
+              {points.map((pt) => (
+                <li key={pt} className="text-sm text-on-surface-variant font-light leading-relaxed flex gap-2">
+                  <span className="text-primary/60">·</span>{pt}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function DigitalConversion() {
   return (
     <div className="bg-surface text-on-surface font-body selection:bg-primary selection:text-on-primary min-h-screen">
 
       <SiteHeader />
 
-      <main className="pt-32 pb-24">
+      <main className="pt-32">
 
         {/* ── HERO ──────────────────────────────────────── */}
         <header className="px-8 mb-16 max-w-7xl mx-auto">
@@ -35,7 +121,30 @@ export default function DigitalConversion() {
           </div>
         </header>
 
-        {/* ── PROMISE ──────────────────────────────────── */}
+        {/* ── SECTION INDEX ─────────────────────────── */}
+        <section className="px-8 mb-20 max-w-7xl mx-auto">
+          <p className="font-label text-[10px] tracking-[0.4em] text-primary uppercase mb-4">
+            [ ON THIS PAGE ]
+          </p>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-1">
+            {INDEX.map((i, idx) => (
+              <a
+                key={i.id}
+                href={`#${i.id}`}
+                className="block bg-surface-container border border-outline-variant/10 hover:border-primary/40 hover:bg-surface-container-high p-4 transition-all group"
+              >
+                <p className="font-label text-[9px] tracking-[0.3em] text-primary/60 uppercase mb-1">
+                  0{idx + 1}
+                </p>
+                <p className="font-headline text-sm font-bold uppercase tracking-tight text-white group-hover:text-primary transition-colors leading-tight">
+                  {i.title}
+                </p>
+              </a>
+            ))}
+          </div>
+        </section>
+
+        {/* ── PROMISE STRIP ────────────────────────────── */}
         <section className="bg-surface-container-lowest py-20 border-y border-outline-variant/10">
           <div className="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-1">
             {PROMISE.map((p) => (
@@ -48,68 +157,158 @@ export default function DigitalConversion() {
           </div>
         </section>
 
-        {/* ── SOURCE → OUTPUT ─────────────────────────── */}
+        {/* ── 01 · OMR ─────────────────────────────── */}
+        <ServiceSection
+          id="omr"
+          kicker="[ 01 // OPTICAL_MARK_READING ]"
+          title="Optical Mark Reading."
+          subtitle="OMR · Form Reading · High-Throughput"
+          basePath="/images/digital-conversion/omr"
+          images={["omr_01.jpg","omr_02.jpg","omr_03.jpg","omr_04.png","omr_05.jpg"]}
+          intro={[
+            "OMR — the high-volume, fixed-template capture of marks (bubbles, ticks, multi-choice) into structured data. Exam sheets, surveys, ballots, registration forms — anywhere a mark on paper needs to become a row in a database, fast and audited.",
+            "Captured on calibrated readers with edge-detection thresholds tuned to the form layout. Output: validated CSV / database rows — ready for grading, analysis, or downstream pipelines.",
+          ]}
+          points={[
+            "Bubble-sheet exam capture · multi-choice, true/false, gradeable.",
+            "Survey and questionnaire processing at thousands of pages a day.",
+            "Form intake — registration, applications, voting.",
+            "Per-form QA pass · misread flagging · re-scan on demand.",
+            "Output: CSV, Excel, JSON, or direct database import.",
+          ]}
+        />
+
+        {/* ── 02 · MEDICAL ─────────────────────────── */}
+        <ServiceSection
+          id="med"
+          kicker="[ 02 // MEDICAL_RECORDS ]"
+          title="Medical Records."
+          subtitle="HIPAA-aware · Indexed · Secure"
+          alt
+          basePath="/images/digital-conversion/med"
+          images={["med_01.jpg","med_02.jpg","med_03.jpg","med_04.jpg","med_05.jpg","med_06.jpg","med_07.jpg","med_08.jpg"]}
+          intro={[
+            "Patient charts, lab reports, imaging summaries and historical paper files digitised with privacy-first handling. Secure facility, signed handlers, chain-of-custody from pickup to archive.",
+            "Output is indexed against your patient ID schema and retention policy — searchable on demand, with redaction support for shared copies.",
+          ]}
+          points={[
+            "Patient ID indexing · per-record metadata captured at scan time.",
+            "Retention-policy aware · time-stamped digital chain of custody.",
+            "HIPAA-aware handling · signed personnel · access logs.",
+            "Optional OCR for searchable charts — clinical-typography tuned.",
+            "Redaction utilities for sharing or research extracts.",
+          ]}
+        />
+
+        {/* ── 03 · BOOKS / LIBRARY ─────────────────── */}
+        <ServiceSection
+          id="books"
+          kicker="[ 03 // LIBRARY_BOOKS ]"
+          title="Library Books."
+          subtitle="Bound · Fragile · Full-Catalog"
+          basePath="/images/digital-conversion/books"
+          images={["books_01.jpg","books_02.jpg","books_03.jpg","books_04.png","books_05.jpg"]}
+          intro={[
+            "Whole-collection library digitisation. Bound book scanners with edge capture preserve the spine without splitting; fragile or rare titles run on overhead readers that capture without flexing the binding.",
+            "Workflow: cleaning → naming-convention rollout → digitisation → page enhancement (crop, rotate, contrast) → PDF assembly with metadata, bookmarks and OCR. Delivered on hard drive or DVD with a folder structure mirrored to the library catalog.",
+          ]}
+          points={[
+            "Edge-scanner for healthy bound books · flat orthography capture.",
+            "Overhead capture for fragile / rare books · minimal handling.",
+            "Per-book naming convention agreed with the library upfront.",
+            "OCR pass · searchable PDF · bookmarks · catalog metadata.",
+            "Low-res web-portable derivatives alongside archive masters.",
+            "Capacity to process more than 40,000 images daily.",
+          ]}
+        />
+
+        {/* ── 04 · PALM SCRIPTS ────────────────────── */}
+        <ServiceSection
+          id="palm"
+          kicker="[ 04 // PALM_SCRIPTS ]"
+          title="Palm-Leaf Manuscripts."
+          subtitle="Conservation · Heritage · Non-Destructive"
+          alt
+          basePath="/images/digital-conversion/palm"
+          images={["palm_01.jpg","palm_02.jpg","palm_03.jpg","palm_04.jpg","palm_05.jpg","palm_06.jpg","palm_07.jpg","palm_08.jpg"]}
+          intro={[
+            "Palm-leaf manuscripts (palm scripts) are among the most fragile artefacts a library can hold. We capture them with conservation-grade overhead equipment — no contact, no flex, no tape — preserving the physical object while delivering high-resolution digital records.",
+            "Where the script is legible enough, we add an OCR pass tuned to the language and shape; where it isn't, we deliver the high-fidelity master image so a human scholar can transcribe later. Either way, the manuscript leaves the way it came in.",
+          ]}
+          points={[
+            "Conservation-grade overhead capture · zero contact pressure.",
+            "Climate-controlled handling area · gloved personnel.",
+            "Per-leaf metadata · script-direction aware processing.",
+            "OCR pass where legible · master-image preservation always.",
+            "Multi-language tuning · regional script profiles supported.",
+          ]}
+        />
+
+        {/* ── 05 · PHOTOS / NEGATIVES ──────────────── */}
+        <ServiceSection
+          id="photo"
+          kicker="[ 05 // PHOTOS_AND_NEGATIVES ]"
+          title="Photos · Negatives · Films."
+          subtitle="Image Processing · Restoration"
+          basePath="/images/digital-conversion/photo"
+          images={["photo_01.jpg","photo_02.png","photo_03.jpg"]}
+          intro={[
+            "Photo prints, photographic negatives and positive films scanned at archive resolution. Each image is colour-corrected, dust-cleaned and optimised to international standards — a clean master plus a derivative ready for sharing or print.",
+            "Image-processing support from experienced operators using current capture and restoration tooling — useful when the original carries decades of fade, scratch or staining.",
+          ]}
+          points={[
+            "Photo prints · negatives · positive film capture.",
+            "Colour correction · dust + scratch cleanup · density balance.",
+            "Archive-resolution master + access-resolution derivative.",
+            "Restoration on request — fade recovery, tear repair, stain reduction.",
+            "EXIF and per-image metadata preserved or applied.",
+          ]}
+        />
+
+        {/* ── 06 · MISC / CAPABILITY ────────────────── */}
+        <ServiceSection
+          id="misc"
+          kicker="[ 06 // CAPABILITY_AND_FACILITY ]"
+          title="Facility, Volume, Trust."
+          subtitle="Toronto · 1200+ sq ft · 40,000+ images / day"
+          alt
+          basePath="/images/digital-conversion/misc"
+          images={["misc_01.png","misc_02.jpg"]}
+          intro={[
+            "Strategically located in Toronto, with skilled and qualified personnel, dedicated lease-line internet, structured cabling, secure 24-hour facility and ergonomically designed workstations. Digitisation solutions delivered to clients in the US, Canada, Europe, Middle East and Asia.",
+            "Pricing is custom-quoted against quantity, complexity and turnaround. We assess each project, give you an honest scope, and only initiate work against a clear PO and an agreed advance. We prioritise client satisfaction over throughput.",
+          ]}
+          points={[
+            "Toronto facility · 1200+ sq ft · 24-hour security · fire-alarmed.",
+            "Capacity: 40,000+ images per day in active production.",
+            "Ergonomic workstations · structured cabling · leased internet.",
+            "Stringent privacy policy · international-standard compliance.",
+            "Custom quotes per project · advance-payment initiation.",
+            "Reference clients across BHEL Engineering, ICAI, Knowledge Works Global, and others.",
+          ]}
+        />
+
+        {/* ── DELIVERY FORMATS ──────────────────────── */}
         <section className="py-32 px-8 max-w-7xl mx-auto">
           <div className="mb-12">
             <p className="font-label text-[10px] tracking-[0.4em] text-primary uppercase mb-3">
-              [ WHAT GOES IN // WHAT COMES OUT ]
+              [ DELIVERY // FORMATS ]
             </p>
             <h2 className="font-headline text-3xl md:text-5xl font-bold tracking-tighter leading-none uppercase">
-              The conversion map.
+              How it ships.
             </h2>
           </div>
-          <div className="grid lg:grid-cols-2 gap-1">
-            <div className="bg-surface-container border border-outline-variant/10 p-8">
-              <p className="font-label text-[10px] tracking-[0.4em] text-primary uppercase mb-4">// Source materials</p>
-              <ul className="space-y-2">
-                {SOURCES.map((s) => (
-                  <li key={s} className="text-sm text-on-surface-variant font-light flex gap-2">
-                    <span className="text-primary/60">·</span>{s}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="bg-surface-container border border-outline-variant/10 p-8">
-              <p className="font-label text-[10px] tracking-[0.4em] text-primary uppercase mb-4">// Delivery formats</p>
-              <ul className="space-y-2">
-                {OUTPUTS.map((o) => (
-                  <li key={o} className="text-sm text-on-surface-variant font-light flex gap-2">
-                    <span className="text-primary/60">·</span>{o}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        {/* ── SERVICES GRID ─────────────────────────── */}
-        <section className="bg-surface-container-lowest py-32 border-y border-outline-variant/10">
-          <div className="max-w-7xl mx-auto px-8">
-            <div className="mb-12">
-              <p className="font-label text-[10px] tracking-[0.4em] text-primary uppercase mb-3">
-                [ SERVICES // {SERVICES.length}_LINES ]
-              </p>
-              <h2 className="font-headline text-3xl md:text-5xl font-bold tracking-tighter leading-none uppercase">
-                What we convert.
-              </h2>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1">
-              {SERVICES.map((s) => (
-                <article key={s.title} id={s.id} className="bg-surface-container border border-outline-variant/10 p-7 hover:bg-surface-container-high hover:border-primary/30 transition-all scroll-mt-32">
-                  <span className="material-symbols-outlined text-primary text-3xl mb-3 block">{s.icon}</span>
-                  <h3 className="font-headline font-bold text-lg uppercase tracking-tight mb-3">{s.title}</h3>
-                  <p className="text-sm text-on-surface-variant font-light leading-relaxed">{s.body}</p>
-                </article>
-              ))}
-            </div>
-            <p className="mt-10 font-label text-[10px] tracking-[0.3em] uppercase text-on-surface-variant/60">
-              Section content per service to be expanded inline · single-page format.
-            </p>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1">
+            {OUTPUTS.map((o) => (
+              <div key={o} className="bg-surface-container border border-outline-variant/10 p-4 text-sm text-on-surface-variant font-light flex gap-2">
+                <span className="text-primary/60">·</span>{o}
+              </div>
+            ))}
           </div>
         </section>
 
         {/* ── CTA ──────────────────────────────────────── */}
-        <section className="py-32 px-8 text-center bg-surface relative overflow-hidden">
+        <section className="py-32 px-8 text-center bg-surface relative overflow-hidden border-t border-outline-variant/10">
           <div className="absolute inset-0 opacity-30 pointer-events-none">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-primary/30 blur-[140px] rounded-full"></div>
           </div>
@@ -133,49 +332,39 @@ export default function DigitalConversion() {
   );
 }
 
-const PROMISE = [
-  { icon: "verified",      title: "Experienced Personnel",  body: "Time-tested procedures handle each format correctly — fragile, oversized, photo-sensitive or rare." },
-  { icon: "tune",          title: "Built To Your Spec",      body: "Tasks scoped to your needs, budget and schedule — not a one-size-fits-all conveyor belt." },
-  { icon: "shield",        title: "Asset-Safe Process",      body: "Production process designed for the utmost safety in handling your originals — never destructive unless you ask." },
-  { icon: "workspace_premium", title: "Quality + Accuracy", body: "Reasonable budget, audited output. Re-scans on demand. QA is part of the price, not an upsell." },
+const INDEX = [
+  { id: "omr",   title: "OMR" },
+  { id: "med",   title: "Medical Records" },
+  { id: "books", title: "Library Books" },
+  { id: "palm",  title: "Palm Scripts" },
+  { id: "photo", title: "Photos & Negatives" },
+  { id: "misc",  title: "Capability" },
 ];
 
-const SOURCES = [
-  "Books — bound, hardcover, paperback",
-  "Documents — letters, contracts, archives",
-  "Forms — OMR / OCR-ready",
-  "Library collections — full archive scope",
-  "Palm-leaf manuscripts (palm scripts)",
-  "Medical records — secure handling",
-  "Photographs and photo negatives",
-  "Microfilm and microfiche reels",
-  "Maps and large-format originals",
-  "3D objects — for scan + print",
+const PROMISE = [
+  { icon: "verified",          title: "Experienced Personnel",  body: "Time-tested procedures handle each format correctly — fragile, oversized, photo-sensitive or rare." },
+  { icon: "tune",              title: "Built To Your Spec",      body: "Tasks scoped to your needs, budget and schedule — not a one-size-fits-all conveyor belt." },
+  { icon: "shield",            title: "Asset-Safe Process",      body: "Production process designed for the utmost safety in handling your originals — never destructive unless you ask." },
+  { icon: "workspace_premium", title: "Quality + Accuracy",      body: "Reasonable budget, audited output. Re-scans on demand. QA is part of the price, not an upsell." },
 ];
 
 const OUTPUTS = [
   "Searchable PDF (image + text)",
-  "Image-only PDF · Vector PDF · Normal PDF",
-  "Hyperlinks · bookmarks · catalog search",
-  "Document info fields and metadata",
-  "TIFF / JPEG / GIF / PNG export",
-  "EPUB and e-book formats",
+  "Image-only PDF",
+  "Vector PDF",
+  "Normal PDF",
+  "Hyperlinks · bookmarks",
+  "Document info fields",
+  "Catalog searching",
+  "Books → PDF",
+  "Paper → PDF",
   "Microfilm → PDF",
-  "Hand-edited text (when accuracy matters)",
-  "3D-printable mesh and slicer-ready files",
-  "Color, greyscale, B&W — your call",
-];
-
-const SERVICES = [
-  { id: "omr",    icon: "checklist",     title: "Optical Mark Reading", body: "OMR / form reading at scale — exam sheets, surveys, ballots — high-throughput, audited." },
-  { id: "med",    icon: "medical_services", title: "Medical Records",  body: "Patient files digitised with privacy-first handling. Searchable, indexed, retention-policy aware." },
-  { id: "books",  icon: "menu_book",     title: "Library Books",        body: "Full library digitisation — bound book scanning, OCR, catalog metadata, EPUB / PDF delivery." },
-  { id: "palm",   icon: "history_edu",   title: "Palm Script Conversion", body: "Palm-leaf manuscripts handled with conservation-grade equipment — captured, OCR-where-possible, archived." },
-  { id: "photo",  icon: "photo_library", title: "Photos & Negatives",   body: "Photo and negative scanning — colour-corrected, dust-cleaned, archive-ready master + access derivative." },
-  { id: "large",  icon: "crop_landscape", title: "Large-Format Scanning", body: "Maps, blueprints, posters, oversize originals — flat-bed and overhead capture with stitched output." },
-  { id: "3d",     icon: "deployed_code", title: "3D Scanning & Printing", body: "Object-to-mesh capture and print delivery — for archives, parts replication, infomural and model production." },
-  { id: "graphics", icon: "draw",        title: "Info Graphics & Murals", body: "Charts, info-murals, motion-graphics and 3D modelling for educational and exhibition contexts." },
-  { id: "misc",   icon: "more_horiz",    title: "Miscellaneous",         body: "Off-spec asks — odd formats, restoration jobs, multi-source compilations. If it's physical, ask." },
+  "TIFF · JPEG · GIF · PNG",
+  "EPUB / e-book",
+  "OCR text export",
+  "MS Word (with notice)",
+  "3D mesh · slicer-ready",
+  "Custom on request",
 ];
 
 function SiteFooter() {
