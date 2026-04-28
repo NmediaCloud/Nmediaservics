@@ -143,7 +143,6 @@ const ALL_PICS = [
   "images/digital-conversion/dc_06.png",
   ...["photo_01.jpg","photo_02.png","photo_03.jpg"].map(f => `images/digital-conversion/photo/${f}`),
   "images/digital-conversion/dc_02.jpg",
-  ...["misc_01.png","misc_02.jpg"].map(f => `images/digital-conversion/misc/${f}`),
   "images/digital-conversion/dc_09.jpg",
 ];
 
@@ -352,8 +351,9 @@ export default function DigitalConversion() {
           alt
           flashcard="/images/digital-conversion/dc_02.jpg"
           onZoom={onZoom}
+          noVideo
           basePath="/images/digital-conversion/misc"
-          images={["misc_01.png","misc_02.jpg"]}
+          images={[]}
           intro={[
             "Strategically located in Toronto, with skilled and qualified personnel, dedicated lease-line internet, structured cabling, secure 24-hour facility and ergonomically designed workstations. Digitisation solutions delivered to clients in the US, Canada, Europe, Middle East and Asia.",
             "Pricing is custom-quoted against quantity, complexity and turnaround. We assess each project, give you an honest scope, and only initiate work against a clear PO and an agreed advance. We prioritise client satisfaction over throughput.",
