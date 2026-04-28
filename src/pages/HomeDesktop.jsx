@@ -36,10 +36,11 @@ export default function HomeDesktop() {
               <span className="font-label text-primary text-xs tracking-[0.3em] uppercase mb-6 block font-bold">
                 [Animation <span style={{ letterSpacing: "3.6px" }}>Creative +</span> Production + Tech]
               </span>
-              <h1 className="font-headline text-5xl md:text-7xl font-bold tracking-tighter leading-[0.95] text-white mb-8 max-w-5xl">
-                Creative + Technical Direction <br />
-                Animation Series, Movie, VFX and Game Assets
-                <div>Fullstack Implementation</div>
+              <h1 className="font-headline text-4xl md:text-6xl font-bold tracking-tighter leading-[0.95] text-white mb-8 max-w-5xl">
+                Creative and Technical Director,<br />
+                Pipeline Implementation,<br />
+                Animation Series, Movies, VFX and Game Assets<br />
+                and Full-stack Development.
               </h1>
               <p className="font-body text-xl md:text-2xl text-white/60 max-w-3xl leading-relaxed">
                 From Story to Final Render. From Idea to Scalable Production
