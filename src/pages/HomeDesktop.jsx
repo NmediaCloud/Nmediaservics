@@ -281,7 +281,7 @@ export default function HomeDesktop() {
                   3D Animation &amp; VFX
                 </h4>
                 <p className="font-body text-sm text-white/50 group-hover:text-white/80 transition-colors">
-                  Industrial-grade character and environment execution across
+                  High-quality character and environment execution across
                   cinematic pipelines.
                 </p>
               </Link>
