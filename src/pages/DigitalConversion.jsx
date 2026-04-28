@@ -126,7 +126,7 @@ const ALL_PICS = [
   "images/digital-conversion/dc_04.jpg",
   ...Array.from({ length: 5 }, (_, i) => `images/digital-conversion/books/books_${String(i+1).padStart(2,"0")}.${i===3?"png":"jpg"}`),
   "images/digital-conversion/dc_05.jpg",
-  ...["palm_01.jpg","palm_02.jpg","palm_03.jpg","palm_04.jpg","palm_05.jpg","palm_06.jpg","palm_07.jpg","palm_08.jpg"].map(f => `images/digital-conversion/palm/${f}`),
+  ...["palm_01.jpg","palm_02.jpg","palm_03.jpg","palm_04.jpg","palm_05.jpg","palm_06.jpg","palm_07.jpg","palm_08.jpg","palm_09.png","palm_10.jpg"].map(f => `images/digital-conversion/palm/${f}`),
   "images/digital-conversion/dc_06.png",
   ...["photo_01.jpg","photo_02.png","photo_03.jpg"].map(f => `images/digital-conversion/photo/${f}`),
   "images/digital-conversion/dc_02.jpg",
@@ -290,7 +290,7 @@ export default function DigitalConversion() {
           flashcard="/images/digital-conversion/dc_05.jpg"
           onZoom={onZoom}
           basePath="/images/digital-conversion/palm"
-          images={["palm_01.jpg","palm_02.jpg","palm_03.jpg","palm_04.jpg","palm_05.jpg","palm_06.jpg","palm_07.jpg","palm_08.jpg"]}
+          images={["palm_01.jpg","palm_02.jpg","palm_03.jpg","palm_04.jpg","palm_05.jpg","palm_06.jpg","palm_07.jpg","palm_08.jpg","palm_09.png","palm_10.jpg"]}
           intro={[
             "Palm-leaf manuscripts (palm scripts) are among the most fragile artefacts a library can hold. We capture them with conservation-grade overhead equipment — no contact, no flex, no tape — preserving the physical object while delivering high-resolution digital records.",
             "Where the script is legible enough, we add an OCR pass tuned to the language and shape; where it isn't, we deliver the high-fidelity master image so a human scholar can transcribe later. Either way, the manuscript leaves the way it came in.",
