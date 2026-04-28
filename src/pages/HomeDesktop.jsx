@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import PipelineArticles from "../components/PipelineArticles";
 
 export default function HomeDesktop() {
+  const [sfVideoOpen, setSfVideoOpen] = useState(false);
   return (
     <div className="selection:bg-primary selection:text-on-primary bg-[#0a0a0a] min-h-screen text-white font-['Inter']">
       {/* Top Navigation Bar */}
@@ -203,27 +204,52 @@ export default function HomeDesktop() {
                     paid social creative.
                   </p>
                 </a>
-                <a
-                  href="https://stockflow.media/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block bg-gradient-to-br from-primary/10 via-surface-container to-surface-container p-8 group hover:from-primary/15 transition-all duration-300 border border-primary/20 hover:border-primary/50 relative overflow-hidden"
-                >
-                  <span className="absolute top-3 right-3 font-label text-[9px] tracking-[0.3em] uppercase text-primary/70 bg-primary/10 border border-primary/20 px-2 py-1">
-                    Module
-                  </span>
-                  <div className="w-10 h-10 bg-[#FF8000] rounded-xl flex items-center justify-center mb-6">
-                    <span className="text-white font-['Inter'] font-black text-xl tracking-tighter">SF</span>
+                <div className="bg-gradient-to-br from-primary/10 via-surface-container to-surface-container border border-primary/20 hover:border-primary/50 transition-all duration-300 overflow-hidden group">
+                  <button
+                    type="button"
+                    onClick={() => setSfVideoOpen(true)}
+                    className="block w-full relative bg-black cursor-pointer"
+                    style={{ aspectRatio: "16 / 9" }}
+                    aria-label="Play Stockflow.Media preview"
+                  >
+                    <img
+                      src="https://i.ytimg.com/vi/KfV_Y7hudvM/hqdefault.jpg"
+                      alt="Stockflow.Media preview"
+                      loading="lazy"
+                      className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity"
+                    />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="w-16 h-16 rounded-full bg-primary/90 group-hover:bg-primary flex items-center justify-center transition-all group-hover:scale-110 shadow-2xl shadow-primary/40">
+                        <span className="material-symbols-outlined text-on-primary" style={{ fontSize: "36px" }}>play_arrow</span>
+                      </div>
+                    </div>
+                  </button>
+                  <div className="p-8 relative">
+                    <span className="absolute top-3 right-3 font-label text-[9px] tracking-[0.3em] uppercase text-primary/70 bg-primary/10 border border-primary/20 px-2 py-1">
+                      Module
+                    </span>
+                    <div className="w-10 h-10 bg-[#FF8000] rounded-xl flex items-center justify-center mb-6">
+                      <span className="text-white font-['Inter'] font-black text-xl tracking-tighter">SF</span>
+                    </div>
+                    <h4 className="font-headline text-xl font-bold mb-2 text-white">
+                      Stockflow.Media
+                    </h4>
+                    <p className="font-body text-sm text-white/50 group-hover:text-white/80 transition-colors mb-4">
+                      A scalable content platform offering ready-to-use media
+                      assets and automated pipelines for creators, marketers,
+                      and production teams.
+                    </p>
+                    <a
+                      href="https://stockflow.media/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 font-label text-[10px] tracking-[0.3em] uppercase text-primary hover:gap-3 transition-all"
+                    >
+                      Visit Site
+                      <span className="material-symbols-outlined text-base">arrow_outward</span>
+                    </a>
                   </div>
-                  <h4 className="font-headline text-xl font-bold mb-2 text-white">
-                    Stockflow.Media
-                  </h4>
-                  <p className="font-body text-sm text-white/50 group-hover:text-white/80 transition-colors">
-                    A scalable content platform offering ready-to-use media
-                    assets and automated pipelines for creators, marketers,
-                    and production teams.
-                  </p>
-                </a>
+                </div>
               </div>
 
               {/* Studio capabilities */}
@@ -481,6 +507,14 @@ export default function HomeDesktop() {
         </div>
       </main>
 
+      {/* Stockflow.Media video modal */}
+      <VideoModal
+        open={sfVideoOpen}
+        onClose={() => setSfVideoOpen(false)}
+        src="https://www.youtube.com/embed/KfV_Y7hudvM?autoplay=1&rel=0&modestbranding=1"
+        title="Stockflow.Media · Preview"
+      />
+
       {/* Footer */}
       <footer className="bg-[#050505] w-full flex flex-col md:flex-row justify-between items-center border-t border-white/5 py-12 px-8">
         <div className="mb-8 md:mb-0">
@@ -510,6 +544,56 @@ export default function HomeDesktop() {
           </a>
         </div>
       </footer>
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────
+// VideoModal — fullscreen-ish lightbox for an embed iframe
+// ─────────────────────────────────────────────────────────────────
+function VideoModal({ open, onClose, src, title }) {
+  useEffect(() => {
+    if (!open) return;
+    document.body.style.overflow = "hidden";
+    const onKey = (e) => { if (e.key === "Escape") onClose(); };
+    window.addEventListener("keydown", onKey);
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", onKey);
+    };
+  }, [open, onClose]);
+  if (!open) return null;
+  return (
+    <div
+      className="fixed inset-0 z-[100] bg-[#0a0a0a]/95 backdrop-blur-sm flex flex-col"
+      onClick={onClose}
+    >
+      <div className="flex items-center justify-between px-8 py-5 border-b border-primary/10">
+        <span className="font-label text-[10px] tracking-[0.4em] text-primary uppercase">
+          [ NOW PLAYING · {title} ]
+        </span>
+        <button
+          type="button"
+          onClick={onClose}
+          aria-label="Close video"
+          className="font-label text-xs tracking-widest text-white/70 hover:text-primary transition-colors flex items-center gap-2 cursor-pointer"
+        >
+          CLOSE
+          <span className="material-symbols-outlined text-base">close</span>
+        </button>
+      </div>
+      <div className="flex-1 flex items-center justify-center p-8" onClick={(e) => e.stopPropagation()}>
+        <div className="w-full max-w-6xl aspect-video bg-black border border-white/10 overflow-hidden">
+          <iframe
+            className="w-full h-full"
+            src={src}
+            title={title}
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+          />
+        </div>
+      </div>
     </div>
   );
 }
