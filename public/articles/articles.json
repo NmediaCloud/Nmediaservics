@@ -88,14 +88,5 @@
     "thumbnail": "./images/Mira1.jpg",
     "url": "./MiroFish.html",
     "youtube_id": ""
-  },
-  {
-    "slug": "UGC_Pipeline",
-    "title": "I Built an Automated Video Factory",
-    "tag": "UGC Pipeline \u00b7 Automated Video Factory",
-    "stage": "Distribution",
-    "thumbnail": "./images/ugc_a.png",
-    "url": "./UGC_Pipeline.html",
-    "youtube_id": ""
   }
 ]
