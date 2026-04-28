@@ -47,7 +47,7 @@ export default function PipelineArticles() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("/articles/articles.json")
+    fetch(`/articles/articles.json?v=${Date.now()}`, { cache: "no-cache" })
       .then((r) => (r.ok ? r.json() : Promise.reject(r.statusText)))
       .then(setArticles)
       .catch((e) => setError(String(e)));
