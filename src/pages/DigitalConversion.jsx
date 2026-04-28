@@ -141,7 +141,6 @@ const ALL_PICS = [
   "images/digital-conversion/dc_05.jpg",
   ...["palm_01.jpg","palm_02.jpg","palm_03.jpg","palm_04.jpg","palm_05.jpg","palm_06.jpg","palm_07.jpg","palm_08.jpg"].map(f => `images/digital-conversion/palm/${f}`),
   "images/digital-conversion/dc_06.png",
-  ...["photo_01.jpg","photo_02.png","photo_03.jpg"].map(f => `images/digital-conversion/photo/${f}`),
   "images/digital-conversion/dc_02.jpg",
   "images/digital-conversion/dc_09.jpg",
 ];
@@ -328,7 +327,7 @@ export default function DigitalConversion() {
           flashcard="/images/digital-conversion/dc_06.png"
           onZoom={onZoom}
           basePath="/images/digital-conversion/photo"
-          images={["photo_01.jpg","photo_02.png","photo_03.jpg"]}
+          images={[]}
           intro={[
             "Photo prints, photographic negatives and positive films scanned at archive resolution. Each image is colour-corrected, dust-cleaned and optimised to international standards — a clean master plus a derivative ready for sharing or print.",
             "Image-processing support from experienced operators using current capture and restoration tooling — useful when the original carries decades of fade, scratch or staining.",
