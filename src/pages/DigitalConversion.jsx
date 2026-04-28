@@ -14,7 +14,7 @@ import PicsModal from "../components/PicsModal";
  */
 
 // ── Re-usable section block ──────────────────────────────────────
-function ServiceSection({ id, kicker, title, subtitle, intro, images, basePath, points, flashcard, alt = false, onZoom, noVideo = false, videoId, verticalImages = false }) {
+function ServiceSection({ id, kicker, title, subtitle, intro, images, basePath, points, flashcard, alt = false, onZoom, noVideo = false, videoId, verticalImages = false, fullWidthImages = false }) {
   return (
     <section
       id={id}
@@ -64,7 +64,26 @@ function ServiceSection({ id, kicker, title, subtitle, intro, images, basePath, 
 
         {/* Image strip — clickable to zoom */}
         {images && images.length > 0 && (
-          verticalImages ? (
+          fullWidthImages ? (
+            <div className="max-w-5xl mx-auto space-y-6 mb-10">
+              {images.map((img) => (
+                <button
+                  key={img}
+                  type="button"
+                  onClick={() => onZoom(`${basePath}/${img}`)}
+                  className="block w-full bg-surface-container border border-outline-variant/10 hover:border-primary/40 overflow-hidden cursor-zoom-in transition-all duration-500 group transform-gpu hover:scale-[1.005]"
+                  aria-label="Zoom image"
+                >
+                  <img
+                    src={`${basePath}/${img}`}
+                    alt=""
+                    loading="lazy"
+                    className="w-full h-auto object-contain opacity-95 group-hover:opacity-100 transition-opacity duration-500 bg-black"
+                  />
+                </button>
+              ))}
+            </div>
+          ) : verticalImages ? (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10 max-w-6xl mx-auto items-start">
               {[
                 // Column A: even-index slides except the last.
@@ -299,6 +318,7 @@ export default function DigitalConversion() {
           flashcard="/images/digital-conversion/dc_04.jpg"
           onZoom={onZoom}
           noVideo
+          fullWidthImages
           basePath="/images/digital-conversion/books"
           images={["books_01.jpg","books_02.jpg"]}
           intro={[
