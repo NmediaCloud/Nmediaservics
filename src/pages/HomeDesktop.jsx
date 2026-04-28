@@ -85,6 +85,77 @@ export default function HomeDesktop() {
         {/* Pipeline Field Notes — moved up to sit directly under the hero video */}
         <PipelineArticles />
 
+        {/* Original IP — Slate (lifted above Capabilities) */}
+        <section className="py-24 px-8 max-w-[1440px] mx-auto border-t border-white/5">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            <div className="lg:col-span-4">
+              <p className="font-label text-[10px] tracking-[0.4em] text-primary uppercase mb-3">
+                [ ORIGINAL_IP // ANIMATION_SERIES ]
+              </p>
+              <h2 className="font-headline text-5xl font-bold tracking-tighter mb-6 text-white">
+                IP Slate
+              </h2>
+              <p className="font-body text-white/60 mb-6 max-w-sm">
+                Original animated series — concept to screen. Toddler SEL,
+                pre-school comedy, bedtime worlds and short-form cultural
+                comedy.
+              </p>
+              <Link
+                to="/ip-series"
+                className="inline-flex items-center gap-2 text-primary font-label uppercase text-xs tracking-widest hover:gap-3 transition-all"
+              >
+                See full slate
+                <span className="material-symbols-outlined text-sm">arrow_forward</span>
+              </Link>
+            </div>
+            <div className="lg:col-span-8 grid grid-cols-2 md:grid-cols-3 gap-4">
+              {IP_SLATE_HOME.map((ip) => {
+                const Inner = (
+                  <>
+                    <div className="flex items-start justify-between mb-4">
+                      <span className="font-label text-[9px] tracking-[0.3em] text-primary uppercase">
+                        {ip.version}
+                      </span>
+                      <span className="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors text-base">
+                        {ip.icon}
+                      </span>
+                    </div>
+                    <h4 className="font-headline text-base font-bold uppercase tracking-tight leading-tight text-white mb-1">
+                      {ip.title}
+                    </h4>
+                    <p className="font-label text-[10px] tracking-[0.2em] uppercase text-on-surface-variant/70 mb-4">
+                      {ip.subtitle}
+                    </p>
+                    <p className="font-body text-xs text-white/50 group-hover:text-white/80 transition-colors leading-relaxed line-clamp-3 mb-5">
+                      {ip.body}
+                    </p>
+                    <span
+                      className={`inline-block px-2 py-0.5 border text-[9px] font-label tracking-widest uppercase ${
+                        ip.status_active
+                          ? "border-primary/40 text-primary"
+                          : "border-outline-variant/30 text-on-surface-variant/60"
+                      }`}
+                    >
+                      {ip.status}
+                    </span>
+                  </>
+                );
+                const className =
+                  "block bg-surface-container p-6 group hover:bg-surface-bright transition-all duration-300 border border-white/5 hover:border-primary/30";
+                return ip.detail_url ? (
+                  <Link key={ip.title} to={ip.detail_url} className={className}>
+                    {Inner}
+                  </Link>
+                ) : (
+                  <Link key={ip.title} to="/ip-series" className={className}>
+                    {Inner}
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
         {/* Capabilities */}
         <section className="py-32 px-8 max-w-[1440px] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
@@ -112,21 +183,6 @@ export default function HomeDesktop() {
                   High-impact visual storytelling crafted for brands cinematic
                   ads and trailers designed to engage, convert, and leave a
                   lasting impression.
-                </p>
-              </Link>
-              <Link
-                to="/ip-series"
-                className="block bg-surface-container p-8 group hover:bg-surface-bright transition-all duration-300 border border-white/5 hover:border-primary/30"
-              >
-                <span className="font-label tracking-widest text-primary mb-6 block text-sm uppercase font-bold">
-                  stories_short_long_form
-                </span>
-                <h4 className="font-headline text-xl font-bold mb-2 text-white">
-                  IP Content : Animation Series
-                </h4>
-                <p className="font-body text-sm text-white/50 group-hover:text-white/80 transition-colors">
-                  Original animated series development from concept to screen
-                  bringing unique stories, characters, and worlds to life.
                 </p>
               </Link>
               <Link
@@ -415,3 +471,56 @@ export default function HomeDesktop() {
     </div>
   );
 }
+
+// ─────────────────────────────────────────────────────────────────
+// Original IP slate — five-card grid lifted onto the homepage
+// ─────────────────────────────────────────────────────────────────
+const IP_SLATE_HOME = [
+  {
+    title: "Tiny Wings, Big Job",
+    subtitle: "Toddler SEL · Series",
+    icon: "flutter_dash",
+    version: "VOL. 01",
+    status: "Pilot Complete",
+    status_active: true,
+    body: "Buzz finds her purpose — daily-routine SEL series for toddlers 2-5 with sensory rhythm, rhyme, and big feelings made small.",
+    detail_url: "/ip/tiny-wings-buzz",
+  },
+  {
+    title: "The World Under My Bed",
+    subtitle: "Pre-school SEL",
+    icon: "bedtime",
+    version: "VOL. 04",
+    status: "Development",
+    status_active: true,
+    body: "Lumi, Patch and Whisp turn night-time worry into morning calm — bedtime SEL for toddlers 2-6.",
+    detail_url: "/ip/world-under-my-bed",
+  },
+  {
+    title: "Cici · School of Fish",
+    subtitle: "Pre-school Series",
+    icon: "set_meal",
+    version: "VOL. 02",
+    status: "Development",
+    body: "Underwater pre-school series — friendship, curiosity, and gentle science wrapped in a coral-reef classroom.",
+    detail_url: null,
+  },
+  {
+    title: "Chimpu · Chase Comedy",
+    subtitle: "Pre-K Slapstick",
+    icon: "sentiment_very_satisfied",
+    version: "VOL. 03",
+    status: "Development",
+    body: "Bouncy pre-K slapstick — exaggerated cause-and-effect comedy with character-led mischief and zero dialogue dependency.",
+    detail_url: null,
+  },
+  {
+    title: "Micro Series · Woh Shaadi",
+    subtitle: "Short-form · Cultural",
+    icon: "favorite",
+    version: "VOL. 05",
+    status: "Concept",
+    body: "Microformat short-form series — observational comedy threaded through the rituals of a modern wedding week.",
+    detail_url: null,
+  },
+];
