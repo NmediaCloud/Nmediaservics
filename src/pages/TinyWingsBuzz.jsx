@@ -61,6 +61,39 @@ export default function TinyWingsBuzz() {
           </div>
         </header>
 
+        {/* ── CAST STRIP (lifted to top) ─────────────── */}
+        <section className="px-8 mb-32 max-w-7xl mx-auto">
+          <div className="mb-10">
+            <p className="font-label text-[10px] tracking-[0.4em] text-primary uppercase mb-3">
+              [ CAST // VISUAL_SHEET ]
+            </p>
+            <h2 className="font-headline text-3xl md:text-5xl font-bold tracking-tighter leading-none uppercase">
+              The hive.
+            </h2>
+            <p className="mt-6 text-on-surface-variant font-light max-w-2xl">
+              Buzz at the centre — the daily-life ensemble that anchors every
+              routine moment, every recurring beat.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5">
+            {CAST.map((c) => (
+              <figure key={c.file} className="group">
+                <div className="bg-surface-container border border-outline-variant/10 group-hover:border-primary/40 overflow-hidden transition-colors" style={{ aspectRatio: "3 / 4" }}>
+                  <img
+                    src={`${IMG}/${c.file}`}
+                    alt={c.name}
+                    loading="lazy"
+                    className="w-full h-full object-cover opacity-95 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+                  />
+                </div>
+                <figcaption className="font-label text-xs tracking-[0.2em] uppercase text-on-surface-variant text-center mt-3 group-hover:text-primary transition-colors">
+                  {c.name}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </section>
+
         {/* ── PURPOSE POSTER ────────────────────────────── */}
         <section className="px-8 mb-32 max-w-6xl mx-auto">
           <div className="bg-[#0f0f0f] border border-outline-variant/10 p-6 md:p-10">
@@ -128,41 +161,6 @@ export default function TinyWingsBuzz() {
               <span className="text-primary"> big job</span> when you're
               two years old and the world is enormous.
             </p>
-          </div>
-        </section>
-
-        {/* ── CAST STRIP ─────────────────────────────── */}
-        <section className="bg-surface-container-lowest py-32 border-y border-outline-variant/10">
-          <div className="max-w-7xl mx-auto px-8">
-            <div className="mb-12">
-              <p className="font-label text-[10px] tracking-[0.4em] text-primary uppercase mb-3">
-                [ CAST // VISUAL_SHEET ]
-              </p>
-              <h2 className="font-headline text-3xl md:text-5xl font-bold tracking-tighter leading-none uppercase">
-                The hive.
-              </h2>
-              <p className="mt-6 text-on-surface-variant font-light max-w-2xl">
-                Buzz at the centre — the daily-life ensemble that anchors every
-                routine moment, every recurring beat.
-              </p>
-            </div>
-            <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3">
-              {CAST.map((c) => (
-                <figure key={c.file} className="group">
-                  <div className="bg-surface-container border border-outline-variant/10 group-hover:border-primary/40 overflow-hidden transition-colors" style={{ aspectRatio: "3 / 4" }}>
-                    <img
-                      src={`${IMG}/${c.file}`}
-                      alt={c.name}
-                      loading="lazy"
-                      className="w-full h-full object-cover opacity-95 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
-                    />
-                  </div>
-                  <figcaption className="font-label text-[10px] tracking-[0.2em] uppercase text-on-surface-variant text-center mt-2 group-hover:text-primary transition-colors">
-                    {c.name}
-                  </figcaption>
-                </figure>
-              ))}
-            </div>
           </div>
         </section>
 
