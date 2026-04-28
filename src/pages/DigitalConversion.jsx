@@ -163,24 +163,34 @@ export default function DigitalConversion() {
           </div>
         </header>
 
-        {/* ── SECTION INDEX ─────────────────────────── */}
+        {/* ── SECTION INDEX (visual flashcards) ──────── */}
         <section className="px-8 mb-20 max-w-7xl mx-auto">
           <p className="font-label text-[10px] tracking-[0.4em] text-primary uppercase mb-4">
             [ ON THIS PAGE ]
           </p>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-1">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
             {INDEX.map((i, idx) => (
               <a
                 key={i.id}
                 href={`#${i.id}`}
-                className="block bg-surface-container border border-outline-variant/10 hover:border-primary/40 hover:bg-surface-container-high p-4 transition-all group"
+                className="block bg-surface-container border border-outline-variant/10 hover:border-primary/40 hover:bg-surface-container-high transition-all group overflow-hidden"
               >
-                <p className="font-label text-[9px] tracking-[0.3em] text-primary/60 uppercase mb-1">
-                  0{idx + 1}
-                </p>
-                <p className="font-headline text-sm font-bold uppercase tracking-tight text-white group-hover:text-primary transition-colors leading-tight">
-                  {i.title}
-                </p>
+                <div className="bg-white/5 overflow-hidden" style={{ aspectRatio: "3 / 4" }}>
+                  <img
+                    src={i.flashcard}
+                    alt={i.title}
+                    loading="lazy"
+                    className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-[1.04] transition-all duration-500"
+                  />
+                </div>
+                <div className="p-3">
+                  <p className="font-label text-[9px] tracking-[0.3em] text-primary/60 uppercase mb-1">
+                    0{idx + 1}
+                  </p>
+                  <p className="font-headline text-xs font-bold uppercase tracking-tight text-white group-hover:text-primary transition-colors leading-tight">
+                    {i.title}
+                  </p>
+                </div>
               </a>
             ))}
           </div>
@@ -396,12 +406,12 @@ export default function DigitalConversion() {
 }
 
 const INDEX = [
-  { id: "omr",   title: "OMR" },
-  { id: "med",   title: "Medical Records" },
-  { id: "books", title: "Library Books" },
-  { id: "palm",  title: "Palm Scripts" },
-  { id: "photo", title: "Photos & Negatives" },
-  { id: "misc",  title: "Capability" },
+  { id: "omr",   title: "OMR",                 flashcard: "/images/digital-conversion/dc_07.jpg" },
+  { id: "med",   title: "Medical Records",     flashcard: "/images/digital-conversion/dc_03.jpg" },
+  { id: "books", title: "Library Books",       flashcard: "/images/digital-conversion/dc_04.jpg" },
+  { id: "palm",  title: "Palm Scripts",        flashcard: "/images/digital-conversion/dc_05.jpg" },
+  { id: "photo", title: "Photos & Negatives",  flashcard: "/images/digital-conversion/dc_06.png" },
+  { id: "misc",  title: "Capability",          flashcard: "/images/digital-conversion/dc_02.jpg" },
 ];
 
 const PROMISE = [
