@@ -130,53 +130,42 @@ export default function IPSeries() {
 // ─────────────────────────────────────────────────────────────────
 function IPCard({ ip }) {
   const Body = (
-    <article className={`group relative bg-surface-container overflow-hidden border border-outline-variant/10 hover:border-primary/30 transition-all duration-500 aspect-[4/5] flex flex-col ${ip.translateY ? "md:translate-y-12" : ""}`}>
-      <div className="p-6 border-b border-outline-variant/10 flex justify-between items-start z-10 relative bg-surface-container">
-        <div>
-          <p className="font-label text-[10px] text-primary mb-1 tracking-widest uppercase">{ip.id}</p>
-          <h3 className="font-headline font-bold text-xl uppercase tracking-tight leading-tight">{ip.title}</h3>
-          {ip.subtitle && (
-            <p className="text-xs text-on-surface-variant/70 mt-1 font-label tracking-wider">{ip.subtitle}</p>
-          )}
-        </div>
-        <span className="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors text-base">
-          {ip.icon}
+    <article className={`group relative bg-surface-container overflow-hidden border border-outline-variant/10 hover:border-primary/30 transition-all duration-500 flex flex-col ${ip.translateY ? "md:translate-y-12" : ""}`}>
+      {/* Poster — tall, the dominant visual */}
+      <div className="relative w-full overflow-hidden bg-gradient-to-br from-surface-container-low to-surface-container-lowest" style={{ aspectRatio: "3 / 4" }}>
+        {ip.poster ? (
+          <img
+            src={ip.poster}
+            alt={ip.title}
+            loading="lazy"
+            className="absolute inset-0 w-full h-full object-cover opacity-95 group-hover:opacity-100 group-hover:scale-[1.03] transition-all duration-500"
+          />
+        ) : (
+          <div className="absolute inset-0 flex items-center justify-center opacity-25 group-hover:opacity-40 transition-opacity">
+            <span className="material-symbols-outlined text-[140px] text-primary">{ip.icon}</span>
+          </div>
+        )}
+        <span className="absolute top-3 left-3 font-label text-[10px] tracking-[0.3em] text-white uppercase bg-black/50 backdrop-blur-sm px-2 py-1">
+          {ip.version}
+        </span>
+        <span className={`absolute top-3 right-3 font-label text-[9px] tracking-[0.25em] uppercase px-2 py-1 backdrop-blur-sm ${ip.status_active ? "bg-primary/30 text-primary border border-primary/40" : "bg-black/50 text-on-surface-variant border border-outline-variant/20"}`}>
+          {ip.status}
         </span>
       </div>
-      <div className="flex-grow overflow-hidden relative bg-gradient-to-br from-surface-container-low to-surface-container-lowest">
-        {ip.poster ? (
-          <>
-            <img
-              src={ip.poster}
-              alt={ip.title}
-              loading="lazy"
-              className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/80 via-transparent to-transparent"></div>
-          </>
-        ) : (
-          <>
-            <div className="absolute inset-0 flex items-center justify-center opacity-20 group-hover:opacity-40 transition-opacity">
-              <span className="material-symbols-outlined text-[140px] text-primary">{ip.icon}</span>
-            </div>
-            <div className="absolute inset-0 bg-gradient-to-t from-surface-container-lowest to-transparent opacity-60"></div>
-          </>
+      {/* Metadata */}
+      <div className="p-6 bg-surface-container">
+        <p className="font-label text-[10px] text-primary mb-1 tracking-widest uppercase">{ip.id}</p>
+        <h3 className="font-headline font-bold text-lg uppercase tracking-tight leading-tight mb-1">{ip.title}</h3>
+        {ip.subtitle && (
+          <p className="text-xs text-on-surface-variant/70 mb-4 font-label tracking-wider">{ip.subtitle}</p>
         )}
-      </div>
-      <div className="p-6 bg-surface-container-high z-10 relative">
-        <div className="flex items-center justify-between mb-4">
-          <span className={`px-2 py-0.5 border text-[9px] font-label tracking-widest uppercase ${ip.status_active ? "border-primary/40 text-primary" : "border-outline-variant/30 text-on-surface-variant/60"}`}>
-            Status: {ip.status}
-          </span>
-          <span className="text-on-surface-variant/40 text-[9px] font-label">{ip.version}</span>
-        </div>
-        <p className="text-sm text-on-surface-variant line-clamp-2 font-light leading-relaxed mb-6">{ip.body}</p>
+        <p className="text-sm text-on-surface-variant line-clamp-3 font-light leading-relaxed mb-5">{ip.body}</p>
         {ip.detail_url ? (
           <span className="block w-full py-3 bg-gradient-to-r from-primary to-[#FF8A3D] text-on-primary font-label font-bold text-xs tracking-widest uppercase text-center group-hover:opacity-90 transition-opacity">
             Open Series →
           </span>
         ) : (
-          <span className="block w-full py-3 bg-surface-container border border-outline-variant/20 text-on-surface-variant font-label font-bold text-xs tracking-widest uppercase text-center">
+          <span className="block w-full py-3 bg-surface-container-low border border-outline-variant/20 text-on-surface-variant font-label font-bold text-xs tracking-widest uppercase text-center">
             Pitch on Request
           </span>
         )}

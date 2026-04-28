@@ -108,7 +108,7 @@ export default function HomeDesktop() {
                 <span className="material-symbols-outlined text-sm">arrow_forward</span>
               </Link>
             </div>
-            <div className="lg:col-span-8 grid grid-cols-2 md:grid-cols-3 gap-4">
+            <div className="lg:col-span-8 grid grid-cols-2 md:grid-cols-4 gap-3">
               {IP_SLATE_HOME.map((ip) => {
                 const Inner = (
                   <>
@@ -132,15 +132,12 @@ export default function HomeDesktop() {
                         {ip.version}
                       </span>
                     </div>
-                    <div className="p-5">
-                      <h4 className="font-headline text-base font-bold uppercase tracking-tight leading-tight text-white mb-1">
+                    <div className="p-4">
+                      <h4 className="font-headline text-sm font-bold uppercase tracking-tight leading-tight text-white mb-1">
                         {ip.title}
                       </h4>
-                      <p className="font-label text-[10px] tracking-[0.2em] uppercase text-on-surface-variant/70 mb-3">
+                      <p className="font-label text-[9px] tracking-[0.2em] uppercase text-on-surface-variant/70 mb-3">
                         {ip.subtitle}
-                      </p>
-                      <p className="font-body text-xs text-white/50 group-hover:text-white/80 transition-colors leading-relaxed line-clamp-3 mb-4">
-                        {ip.body}
                       </p>
                       <span
                         className={`inline-block px-2 py-0.5 border text-[9px] font-label tracking-widest uppercase ${
