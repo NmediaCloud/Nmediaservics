@@ -1,14 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { SiteFooter } from "./IPSeries";
 import SiteHeader from "../components/SiteHeader";
+import PicsModal from "../components/PicsModal";
 
 /**
  * The World Under My Bed — IP detail page.
- * Pre-school SEL series (toddlers 2-6) about transforming bedtime
- * worry into morning calm. Characters: Lumi, Patch, Whisp.
+ *
+ * Pre-school SEL nature/fantasy series for ages 3-6 (toddler-friendly 2-6).
+ * Concept: the place children fear becomes the place that protects them.
+ * Cast: Lumi, Patch, Whisp, Pebble, Blink — the Under-Bed Helpers.
+ *
+ * Source: nmediaservices.wixsite.com/nmedia/the-world-under-my-bed
  */
+const IMG = "/images/ip/world-under-my-bed";
+
 export default function WorldUnderMyBed() {
+  const [castOpen, setCastOpen] = useState(false);
+  const [castInitial, setCastInitial] = useState(null);
+  const openCast = (file) => { setCastInitial(file); setCastOpen(true); };
+
   return (
     <div className="bg-surface text-on-surface font-body selection:bg-primary selection:text-on-primary min-h-screen">
 
@@ -28,87 +39,178 @@ export default function WorldUnderMyBed() {
         <header className="px-8 mb-16 max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-12 gap-12 items-end border-b border-outline-variant/20 pb-16">
             <div className="lg:col-span-7 space-y-4">
-              <div className="flex items-center gap-3 text-primary font-label text-xs tracking-[0.3em] uppercase">
+              <div className="flex items-center gap-3 text-primary font-label text-xs tracking-[0.3em] uppercase flex-wrap">
                 <span className="px-2 py-1 bg-primary/10 border border-primary/30">VOL. 04</span>
                 <span>Development</span>
+                <span className="text-on-surface-variant/60">·</span>
+                <span>Bedtime SEL</span>
               </div>
               <h1 className="font-headline text-6xl md:text-8xl font-black tracking-tighter leading-[0.95] uppercase">
                 The World <span className="text-primary">Under</span><br />
                 My Bed.
               </h1>
               <p className="font-label text-sm tracking-[0.2em] text-on-surface-variant uppercase pt-2">
-                Animation Series · Toddlers 2–6 · Bedtime SEL
+                Animation Series · Preschool 2–6 · Bedtime / Gentle Fantasy
+              </p>
+              <p className="text-on-surface-variant font-light leading-relaxed max-w-xl pt-4 text-lg">
+                The place children fear becomes the place that protects them.
+                Beneath the bed lives a secret world of gentle helpers — not
+                monsters, but creatures who fix fears and soften bad dreams,
+                so the morning can start fresh.
               </p>
             </div>
-            <div className="lg:col-span-5 text-on-surface-variant font-light leading-relaxed">
-              <p className="text-lg italic">
-                Think of a nightlight that doesn't just sit on a shelf —
-                but actively steps into the shadows to tidy up the worries
-                of the day so the morning can start fresh.
-              </p>
+            <div className="lg:col-span-5">
+              <div className="bg-surface-container-low border border-outline-variant/10 overflow-hidden" style={{ aspectRatio: "3 / 4" }}>
+                <img src={`${IMG}/wub_01.jpg`} alt="The World Under My Bed · Lumi" className="w-full h-full object-cover" />
+              </div>
             </div>
           </div>
         </header>
 
-        {/* ── HERO POSTER / PLACEHOLDER ─────────────────── */}
+        {/* ── CAST STRIP ─────────────────────────────────── */}
         <section className="px-8 mb-32 max-w-7xl mx-auto">
-          <div className="relative aspect-video bg-gradient-to-br from-[#1a0500] via-[#2a0f00] to-surface-container-low border border-outline-variant/10 overflow-hidden">
-            <div className="absolute inset-0 flex flex-col items-center justify-center gap-6">
-              <div className="flex gap-8 items-center opacity-40">
-                <span className="material-symbols-outlined text-primary text-[80px]">bedtime</span>
-                <span className="material-symbols-outlined text-primary text-[100px]">nightlight</span>
-                <span className="material-symbols-outlined text-primary text-[80px]">cloud</span>
-              </div>
-              <a href="mailto:nanda@nmediaservices.com" className="inline-flex items-center gap-3 bg-primary text-on-primary px-8 py-4 font-label font-bold text-sm tracking-widest uppercase hover:bg-[#ff8a3d] transition-colors">
-                <span className="material-symbols-outlined">description</span>
-                Request Pitch Deck
-              </a>
-            </div>
-            <div className="absolute top-4 left-4 font-label text-[10px] text-primary bg-surface/80 px-2 py-1 backdrop-blur-md">
-              [ DEVELOPMENT // SEL_PRESCHOOL ]
-            </div>
+          <div className="mb-10">
+            <p className="font-label text-[10px] tracking-[0.4em] text-primary uppercase mb-3">
+              [ CAST // UNDER_BED_HELPERS ]
+            </p>
+            <h2 className="font-headline text-3xl md:text-5xl font-bold tracking-tighter leading-none uppercase">
+              The helpers.
+            </h2>
+            <p className="mt-6 text-on-surface-variant font-light max-w-2xl">
+              Five gentle protectors plus their quiet world. Each holds a
+              different fear and a different way of softening it.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5">
+            {CAST.map((c) => (
+              <figure key={c.file} className="group">
+                <button
+                  type="button"
+                  onClick={() => openCast(c.file)}
+                  className="block w-full bg-surface-container border border-outline-variant/10 group-hover:border-primary/40 overflow-hidden transition-all duration-500 cursor-zoom-in transform-gpu group-hover:scale-[1.06] group-hover:shadow-2xl group-hover:shadow-primary/20 group-hover:z-10 relative"
+                  style={{ aspectRatio: "3 / 4" }}
+                  aria-label={`View ${c.name}`}
+                >
+                  <img
+                    src={`${IMG}/${c.file}`}
+                    alt={c.name}
+                    loading="lazy"
+                    className="w-full h-full object-cover opacity-95 group-hover:opacity-100 transition-opacity duration-500"
+                  />
+                </button>
+                <figcaption className="mt-3 text-center group-hover:text-primary transition-colors">
+                  <p className="font-label text-xs tracking-[0.2em] uppercase text-white">{c.name}</p>
+                  {c.role && <p className="font-body text-[11px] text-on-surface-variant/70 mt-1">{c.role}</p>}
+                </figcaption>
+              </figure>
+            ))}
           </div>
         </section>
 
-        {/* ── SYNOPSIS ──────────────────────────────────── */}
+        <PicsModal
+          open={castOpen}
+          onClose={() => setCastOpen(false)}
+          pics={CAST.map((c) => c.file)}
+          basePath={IMG}
+          title="Under-Bed Helpers · Cast"
+          initialZoom={castInitial}
+        />
+
+        {/* ── KEY ART ───────────────────────────────────── */}
+        <section className="px-8 mb-32 max-w-6xl mx-auto">
+          <div className="bg-[#0f0f0f] border border-outline-variant/10 p-6 md:p-10">
+            <p className="font-label text-[10px] tracking-[0.4em] text-primary uppercase mb-6 text-center">
+              [ KEY ART // YOUR CHILD'S NIGHTLY PROTECTORS ]
+            </p>
+            <img src={`${IMG}/wub_10.png`} alt="The World Under My Bed — Your Child's Nightly Protectors" className="w-full max-w-3xl mx-auto" />
+          </div>
+        </section>
+
+        {/* ── PITCH VIDEO ────────────────────────────── */}
         <section className="bg-surface-container-lowest py-32 border-y border-outline-variant/10">
           <div className="max-w-5xl mx-auto px-8">
+            <div className="mb-12">
+              <p className="font-label text-[10px] tracking-[0.4em] text-primary uppercase mb-3">
+                [ SCREENER // PITCH ]
+              </p>
+              <h2 className="font-headline text-3xl md:text-5xl font-bold tracking-tighter leading-none uppercase">
+                Watch the pitch.
+              </h2>
+            </div>
+            <div className="aspect-video bg-black border border-outline-variant/10 overflow-hidden">
+              <iframe
+                className="w-full h-full"
+                src="https://www.youtube.com/embed/f9ztBzwGzJw?rel=0&modestbranding=1"
+                title="The World Under My Bed · Pitch"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* ── TAGLINE ──────────────────────────────────── */}
+        <section className="py-32 px-8">
+          <div className="max-w-5xl mx-auto">
             <p className="font-label text-[10px] tracking-[0.4em] text-primary uppercase mb-6">
-              [ SYNOPSIS ]
+              [ TAGLINE ]
             </p>
-            <p className="font-headline text-2xl md:text-3xl font-bold leading-tight tracking-tight mb-8">
-              A Central Learner — the child — perceives a Large Threat: the darkness.
-            </p>
-            <p className="text-lg text-on-surface-variant font-light leading-relaxed mb-6">
-              A Unified Network of specialised helpers — <span className="text-primary font-medium">Lumi</span>,
-              <span className="text-primary font-medium"> Patch</span>,
-              <span className="text-primary font-medium"> Whisp</span> and the rest of the Under-Bed Crew —
-              use their unique skills to transform that threat into a positive outcome:
-              a calm morning.
-            </p>
-            <p className="text-lg text-on-surface-variant font-light leading-relaxed">
-              Each episode names one daily worry — a separation moment, a noise in
-              the dark, a too-big feeling — and walks through it from the safety
-              of a child's most personal frontier: the world right under the bed.
+            <p className="font-headline text-2xl md:text-4xl font-bold leading-tight tracking-tight">
+              The place children <span className="text-primary">fear</span> becomes the
+              place that <span className="text-primary">protects</span> them.
             </p>
           </div>
         </section>
 
-        {/* ── CHARACTERS ──────────────────────────────── */}
+        {/* ── CONCEPT ──────────────────────────────────── */}
+        <section className="bg-surface-container-lowest py-32 border-y border-outline-variant/10">
+          <div className="max-w-7xl mx-auto px-8 grid lg:grid-cols-12 gap-12">
+            <div className="lg:col-span-5">
+              <p className="font-label text-[10px] tracking-[0.4em] text-primary uppercase mb-3">
+                [ THE CONCEPT ]
+              </p>
+              <h2 className="font-headline text-3xl md:text-5xl font-bold tracking-tighter uppercase leading-none">
+                Turning fear<br />into wonder.
+              </h2>
+            </div>
+            <div className="lg:col-span-7 text-on-surface-variant font-light leading-relaxed space-y-5">
+              <p>
+                Instead of monsters, this world is home to creatures who fix
+                fears and soften bad dreams. A central learner — the child —
+                perceives a large threat: the darkness. A unified network of
+                specialised helpers uses their unique skills to transform
+                that threat into a positive outcome.
+              </p>
+              <p className="italic">
+                Think of a nightlight that doesn't just sit on a shelf — but
+                actively steps into the shadows to tidy up the worries of the
+                day so the morning can start fresh.
+              </p>
+              <p>
+                Designed for a global preschool audience — emotion-first
+                storytelling with minimal dialogue makes it universally
+                adaptable for bedtime routines.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* ── HELPERS DETAIL ──────────────────────────── */}
         <section className="py-32 px-8 max-w-7xl mx-auto">
           <div className="mb-12">
             <p className="font-label text-[10px] tracking-[0.4em] text-primary uppercase mb-3">
-              [ CAST // THE UNDER-BED CREW ]
+              [ MEET // THE_UNDER_BED_HELPERS ]
             </p>
-            <h2 className="font-headline text-4xl md:text-6xl font-bold tracking-tighter leading-none uppercase">
+            <h2 className="font-headline text-3xl md:text-5xl font-bold tracking-tighter leading-none uppercase">
               Specialised helpers.
             </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-1">
-            {CHARACTERS.map((c) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1">
+            {HELPERS.map((c) => (
               <article key={c.name} className="bg-surface-container border border-outline-variant/10 p-8 hover:bg-surface-container-high hover:border-primary/30 transition-all">
                 <span className="material-symbols-outlined text-primary text-5xl mb-4 block">{c.icon}</span>
-                <h3 className="font-headline font-bold text-2xl uppercase tracking-tight mb-2">{c.name}</h3>
+                <h3 className="font-headline font-bold text-2xl uppercase tracking-tight mb-1">{c.name}</h3>
                 <p className="font-label text-[10px] text-primary tracking-widest uppercase mb-4">{c.role}</p>
                 <p className="text-sm text-on-surface-variant font-light leading-relaxed">{c.body}</p>
               </article>
@@ -123,7 +225,7 @@ export default function WorldUnderMyBed() {
               <p className="font-label text-[10px] tracking-[0.4em] text-primary uppercase mb-3">
                 [ THEMES // SEL ]
               </p>
-              <h2 className="font-headline text-4xl md:text-5xl font-bold tracking-tighter uppercase leading-none">
+              <h2 className="font-headline text-3xl md:text-5xl font-bold tracking-tighter uppercase leading-none">
                 What every<br />night carries.
               </h2>
             </div>
@@ -166,15 +268,30 @@ export default function WorldUnderMyBed() {
   );
 }
 
-const CHARACTERS = [
-  { name: "Lumi",  icon: "lightbulb",      role: "The Light-Keeper",      body: "Holds the small, certain glow that makes the room navigable when the lamps go off. Quiet. Reliable. The first to arrive." },
-  { name: "Patch", icon: "auto_fix_normal", role: "The Repairer",         body: "Mends the day's small frays — a torn moment, an unkind word, a missed nap. Hands always full of soft solutions." },
-  { name: "Whisp", icon: "air",            role: "The Noise-Tamer",       body: "Catches the loud worries — the ones that buzz too close to a falling-asleep ear — and turns them into something gentler." },
+// 9 character / world frames from the legacy gallery (wub_01-09).
+const CAST = [
+  { file: "wub_01.jpg", name: "Lumi",   role: "The Light Keeper" },
+  { file: "wub_02.jpg", name: "Whisp",  role: "Gentle Dream Tamer" },
+  { file: "wub_03.jpg", name: "Patch",  role: "The Proud Fixer" },
+  { file: "wub_04.jpg", name: "Pebble", role: "Calm Watcher" },
+  { file: "wub_05.jpg", name: "Blink",  role: "Cheerful Quick Helper" },
+  { file: "wub_06.jpg", name: "The Crew",       role: "Together" },
+  { file: "wub_07.jpg", name: "Under-Bed",      role: "World" },
+  { file: "wub_08.jpg", name: "Soft Shadows",   role: "Atmosphere" },
+  { file: "wub_09.jpg", name: "Calm Morning",   role: "Closing beat" },
+];
+
+const HELPERS = [
+  { name: "Lumi",   icon: "lightbulb",        role: "The Nurturing Light Keeper", body: "As the leader, Lumi is a patient and reassuring creature made of a warm, golden glow — the first to arrive when the lamps go off." },
+  { name: "Patch",  icon: "auto_fix_normal",  role: "The Proud Fixer of Things",  body: "Stitched together with button eyes — helpful, focused, and certain. Patch can repair any broken toy and any small frayed feeling." },
+  { name: "Whisp",  icon: "air",              role: "The Gentle Dream Tamer",     body: "A sensitive, cloud-like being who calms bad dreams and untangles them until they are soft." },
+  { name: "Pebble", icon: "spa",              role: "The Calm Watcher & Listener", body: "Small, rounded, and steady — Pebble is a comforting and grounded presence in the quiet night." },
+  { name: "Blink",  icon: "bolt",             role: "The Cheerful Quick Helper",  body: "A tiny, fast-moving spark of light who is always curious, enthusiastic, and playful — first to a worry, last to leave." },
 ];
 
 const THEMES = [
-  { icon: "psychology",  title: "Naming Big Feelings",  body: "Worry, fear, frustration, missing-someone — each named at toddler scale, never minimised, always met." },
-  { icon: "shield",      title: "Brave is Small",        body: "Courage modelled at a size a 3-year-old can mirror: stepping toward, not away. Tiny choices repeated nightly." },
-  { icon: "auto_awesome", title: "Transform, Don't Fight", body: "The Under-Bed Crew never battles the darkness. They tidy it. Reframing the threat as something workable, not enemy." },
-  { icon: "wb_sunny",    title: "A Calm Morning",        body: "Every episode lands on the same beat: sunlight finds the room, and the worry is smaller now. Repeat-watch retention by design." },
+  { icon: "psychology",   title: "Naming Big Feelings",    body: "Worry, fear, frustration, missing-someone — each named at preschool scale, never minimised, always met." },
+  { icon: "shield",       title: "Brave is Small",          body: "Courage modelled at a size a 3-year-old can mirror: stepping toward, not away. Tiny choices repeated nightly." },
+  { icon: "auto_awesome", title: "Transform, Don't Fight",  body: "The Under-Bed Crew never battles the darkness. They tidy it. Reframing the threat as something workable, not an enemy." },
+  { icon: "wb_sunny",     title: "A Calm Morning",          body: "Every episode lands on the same beat: sunlight finds the room, and the worry is smaller now. Repeat-watch retention by design." },
 ];
