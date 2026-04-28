@@ -67,11 +67,11 @@ function ServiceSection({ id, kicker, title, subtitle, intro, images, basePath, 
           verticalImages ? (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10 max-w-6xl mx-auto items-start">
               {[
-                // Column A: even-index slides + last (to push the closing slide left).
-                images.filter((_, i) => i % 2 === 0 || i === images.length - 1)
+                // Column A: even-index slides except the last.
+                images.filter((_, i) => i % 2 === 0 && i !== images.length - 1),
+                // Column B: odd-index slides + last (closing slide pushed right to balance).
+                images.filter((_, i) => i % 2 === 1 || i === images.length - 1)
                        .filter((v, i, a) => a.indexOf(v) === i),
-                // Column B: odd-index slides except the last.
-                images.filter((_, i) => i % 2 === 1 && i !== images.length - 1),
               ].map((col, ci) => (
                 <div key={ci} className="space-y-6">
                   {col.map((img) => (
