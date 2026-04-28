@@ -539,7 +539,7 @@ const IP_SLATE_HOME = [
     version: "VOL. 05",
     status: "Concept",
     body: "Microformat short-form series — observational comedy threaded through the rituals of a modern wedding week.",
-    detail_url: null,
+    detail_url: "/ip/woh-shaadi",
     poster: "/images/ip/woh-shaadi.jpg",
   },
 ];

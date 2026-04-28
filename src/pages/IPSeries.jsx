@@ -252,7 +252,7 @@ const IP_SLATE = [
     version:   "VOL. 05",
     translateY: true,
     body:      "Microformat short-form series — observational comedy threaded through the rituals of a modern wedding week.",
-    detail_url: null,
+    detail_url: "/ip/woh-shaadi",
     poster:     "/images/ip/woh-shaadi.jpg",
   },
 ];
