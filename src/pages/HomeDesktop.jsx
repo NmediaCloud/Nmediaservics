@@ -210,22 +210,32 @@ export default function HomeDesktop() {
                   href="/articles/UGC_Pipeline.html"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block bg-gradient-to-br from-primary/10 via-surface-container to-surface-container p-8 group hover:from-primary/15 transition-all duration-300 border border-primary/20 hover:border-primary/50 relative overflow-hidden"
+                  className="block bg-gradient-to-br from-primary/10 via-surface-container to-surface-container hover:from-primary/15 transition-all duration-300 border border-primary/20 hover:border-primary/50 group overflow-hidden"
                 >
-                  <span className="absolute top-3 right-3 font-label text-[9px] tracking-[0.3em] uppercase text-primary/70 bg-primary/10 border border-primary/20 px-2 py-1">
-                    Module
-                  </span>
-                  <div className="w-10 h-10 bg-primary/15 border border-primary/30 rounded-xl flex items-center justify-center mb-6">
-                    <span className="material-symbols-outlined text-primary" style={{ fontSize: "22px" }}>autoplay</span>
+                  <div className="relative w-full bg-black overflow-hidden" style={{ aspectRatio: "16 / 9" }}>
+                    <img
+                      src="/images/ugc_pipeline.png"
+                      alt="UGC Pipeline · Automated Video Factory"
+                      loading="lazy"
+                      className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-[1.02] transition-all duration-500"
+                    />
                   </div>
-                  <h4 className="font-headline text-xl font-bold mb-2 text-white">
-                    UGC Pipeline
-                  </h4>
-                  <p className="font-body text-sm text-white/50 group-hover:text-white/80 transition-colors">
-                    One Google Sheet row in. One finished UGC, ad, or podcast
-                    video out. Vision-graded QA — the factory behind owned +
-                    paid social creative.
-                  </p>
+                  <div className="p-8 relative">
+                    <span className="absolute top-3 right-3 font-label text-[9px] tracking-[0.3em] uppercase text-primary/70 bg-primary/10 border border-primary/20 px-2 py-1">
+                      Module
+                    </span>
+                    <div className="w-10 h-10 bg-primary/15 border border-primary/30 rounded-xl flex items-center justify-center mb-6">
+                      <span className="material-symbols-outlined text-primary" style={{ fontSize: "22px" }}>autoplay</span>
+                    </div>
+                    <h4 className="font-headline text-xl font-bold mb-2 text-white">
+                      UGC Pipeline
+                    </h4>
+                    <p className="font-body text-sm text-white/50 group-hover:text-white/80 transition-colors">
+                      One Google Sheet row in. One finished UGC, ad, or podcast
+                      video out. Vision-graded QA — the factory behind owned +
+                      paid social creative.
+                    </p>
+                  </div>
                 </a>
                 <div className="bg-gradient-to-br from-primary/10 via-surface-container to-surface-container border border-primary/20 hover:border-primary/50 transition-all duration-300 overflow-hidden group">
                   <button
