@@ -73,9 +73,25 @@ export default function PipelineArticles() {
               field note — what the problem was, how the panel works, what it ships.
             </p>
           </div>
-          <span className="font-label text-[10px] tracking-[0.3em] text-on-surface-variant uppercase">
-            {articles.length} articles · video walkthroughs in progress
-          </span>
+          <a
+            href="/articles/Pipeline_Production_System.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block bg-gradient-to-br from-primary/10 via-surface-container to-surface-container border border-primary/20 hover:border-primary/50 hover:from-primary/15 transition-all duration-300 p-5 group max-w-sm"
+          >
+            <p className="font-label text-[9px] tracking-[0.3em] text-primary/70 uppercase mb-2">
+              [ READ THE FULL SYSTEM ]
+            </p>
+            <h3 className="font-headline font-bold text-base text-white leading-tight tracking-tight mb-2">
+              Pipeline Production System →
+            </h3>
+            <p className="text-xs text-on-surface-variant leading-relaxed mb-3">
+              Eleven panels walked end-to-end. One source of truth. Format-aware. Cast-locked. Model-agnostic.
+            </p>
+            <p className="font-label text-[9px] tracking-[0.3em] uppercase text-on-surface-variant/60">
+              {articles.length} articles · video walkthroughs in progress
+            </p>
+          </a>
         </div>
 
         {/* Card strip — horizontal scroll on overflow, snap-aligned */}

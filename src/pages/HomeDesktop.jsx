@@ -207,42 +207,6 @@ export default function HomeDesktop() {
               {/* Software modules — treated distinctly: subtle orange tint, "MODULE" tag */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <a
-                  href="/articles/Pipeline_Production_System.html"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block bg-gradient-to-br from-primary/10 via-surface-container to-surface-container hover:from-primary/15 transition-all duration-300 border border-primary/20 hover:border-primary/50 group overflow-hidden sm:col-span-2"
-                >
-                  <div className="relative w-full bg-black overflow-hidden" style={{ aspectRatio: "16 / 9" }}>
-                    <img
-                      src="https://i.ytimg.com/vi/cGGxVzvTbds/maxresdefault.jpg"
-                      alt="Pipeline Production System · 3-minute montage"
-                      loading="lazy"
-                      className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-[1.02] transition-all duration-500"
-                    />
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-16 h-16 rounded-full bg-primary/90 group-hover:bg-primary flex items-center justify-center shadow-2xl shadow-primary/40 transition-all group-hover:scale-110">
-                        <span className="material-symbols-outlined text-on-primary" style={{ fontSize: "36px" }}>play_arrow</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="p-8 relative">
-                    <span className="absolute top-3 right-3 font-label text-[9px] tracking-[0.3em] uppercase text-primary/70 bg-primary/10 border border-primary/20 px-2 py-1">
-                      System
-                    </span>
-                    <div className="w-10 h-10 bg-primary/15 border border-primary/30 rounded-xl flex items-center justify-center mb-6">
-                      <span className="material-symbols-outlined text-primary" style={{ fontSize: "22px" }}>schema</span>
-                    </div>
-                    <h4 className="font-headline text-xl font-bold mb-2 text-white">
-                      Pipeline Production System
-                    </h4>
-                    <p className="font-body text-sm text-white/50 group-hover:text-white/80 transition-colors">
-                      Eleven control panels. One source of truth. Format-aware
-                      from line one. Cast-locked through final delivery.
-                      Animation at the speed of generation.
-                    </p>
-                  </div>
-                </a>
-                <a
                   href="/articles/UGC_Pipeline.html"
                   target="_blank"
                   rel="noopener noreferrer"
