@@ -4,6 +4,8 @@ import PipelineArticles from "../components/PipelineArticles";
 
 export default function HomeDesktop() {
   const [sfVideoOpen, setSfVideoOpen] = useState(false);
+  const [pipelineOpen, setPipelineOpen] = useState(false);
+  const [podcastOpen, setPodcastOpen] = useState(false);
   return (
     <div className="selection:bg-primary selection:text-on-primary bg-[#0a0a0a] min-h-screen text-white font-['Inter']">
       {/* Top Navigation Bar */}
@@ -65,26 +67,33 @@ export default function HomeDesktop() {
                 Pipeline Production Tech
               </h2>
             </a>
-            <div className="grid lg:grid-cols-2 gap-4">
-              {/* Pipeline reel */}
-              <div>
+            <div className="grid lg:grid-cols-3 gap-4">
+              {/* Pipeline reel — large (2 cols) */}
+              <div className="lg:col-span-2">
                 <p className="font-label text-[10px] tracking-[0.4em] text-primary/70 uppercase mb-3">
                   // Pipeline Reel
                 </p>
-                <div className="relative w-full aspect-video bg-surface-container-highest border border-white/5 overflow-hidden shadow-2xl group">
-                  <iframe
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowFullScreen
-                    className="absolute inset-0 w-full h-full"
-                    frameBorder="0"
-                    referrerPolicy="strict-origin-when-cross-origin"
-                    src="https://www.youtube.com/embed/cGGxVzvTbds?rel=0&modestbranding=1"
-                    title="Animation, Accelerated · Inside an AI-Native Pipeline"
-                  ></iframe>
-                </div>
+                <button
+                  type="button"
+                  onClick={() => setPipelineOpen(true)}
+                  className="block w-full relative aspect-video bg-black border border-white/5 overflow-hidden shadow-2xl group cursor-pointer"
+                  aria-label="Play Pipeline Reel"
+                >
+                  <img
+                    src="https://i.ytimg.com/vi/cGGxVzvTbds/maxresdefault.jpg"
+                    alt="Animation, Accelerated · Inside an AI-Native Pipeline"
+                    loading="lazy"
+                    className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-[1.02] transition-all duration-500"
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-20 h-20 rounded-full bg-primary/90 group-hover:bg-primary flex items-center justify-center shadow-2xl shadow-primary/40 transition-all group-hover:scale-110">
+                      <span className="material-symbols-outlined text-on-primary" style={{ fontSize: "44px" }}>play_arrow</span>
+                    </div>
+                  </div>
+                </button>
               </div>
 
-              {/* Podcast — At the Speed of Generation, Part 01 */}
+              {/* Podcast — At the Speed of Generation, Part 01 (smaller, 1 col) */}
               <div>
                 <div className="flex items-center justify-between mb-3 gap-3">
                   <p className="font-label text-[10px] tracking-[0.4em] text-primary/70 uppercase">
@@ -100,17 +109,24 @@ export default function HomeDesktop() {
                     Read Article
                   </a>
                 </div>
-                <div className="relative w-full aspect-video bg-surface-container-highest border border-white/5 overflow-hidden shadow-2xl group">
-                  <iframe
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowFullScreen
-                    className="absolute inset-0 w-full h-full"
-                    frameBorder="0"
-                    referrerPolicy="strict-origin-when-cross-origin"
-                    src="https://www.youtube.com/embed/u_oYE4nzRT8?rel=0&modestbranding=1"
-                    title="At the Speed of Generation · Part 01: The Journey In"
-                  ></iframe>
-                </div>
+                <button
+                  type="button"
+                  onClick={() => setPodcastOpen(true)}
+                  className="block w-full relative aspect-video bg-black border border-white/5 overflow-hidden shadow-2xl group cursor-pointer"
+                  aria-label="Play podcast Part 01"
+                >
+                  <img
+                    src="https://i.ytimg.com/vi/u_oYE4nzRT8/maxresdefault.jpg"
+                    alt="At the Speed of Generation · Part 01: The Journey In"
+                    loading="lazy"
+                    className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-[1.02] transition-all duration-500"
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-14 h-14 rounded-full bg-primary/90 group-hover:bg-primary flex items-center justify-center shadow-2xl shadow-primary/40 transition-all group-hover:scale-110">
+                      <span className="material-symbols-outlined text-on-primary" style={{ fontSize: "32px" }}>play_arrow</span>
+                    </div>
+                  </div>
+                </button>
               </div>
             </div>
           </div>
@@ -572,6 +588,22 @@ export default function HomeDesktop() {
         onClose={() => setSfVideoOpen(false)}
         src="https://www.youtube.com/embed/KfV_Y7hudvM?autoplay=1&rel=0&modestbranding=1"
         title="Stockflow.Media · Preview"
+      />
+
+      {/* Pipeline Reel modal */}
+      <VideoModal
+        open={pipelineOpen}
+        onClose={() => setPipelineOpen(false)}
+        src="https://www.youtube.com/embed/cGGxVzvTbds?autoplay=1&rel=0&modestbranding=1"
+        title="Pipeline Reel · Frictionless Production"
+      />
+
+      {/* Podcast Part 01 modal */}
+      <VideoModal
+        open={podcastOpen}
+        onClose={() => setPodcastOpen(false)}
+        src="https://www.youtube.com/embed/u_oYE4nzRT8?autoplay=1&rel=0&modestbranding=1"
+        title="At the Speed of Generation · Part 01: The Journey In"
       />
 
       {/* Footer */}
