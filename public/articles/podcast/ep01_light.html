@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Twenty-Five Years In The Trenches — At the Speed of Generation, Part 01</title>
+<title>Twenty-Five Years — At the Speed of Generation, Part 01</title>
 <meta name="description" content="The opening conversation of 'At the Speed of Generation' — Nanda Mohan with Ravi on 25 years inside the animation industry, what it taught him, and the moment he started building his own pipeline.">
-<meta property="og:title" content="Twenty-Five Years In The Trenches — At the Speed of Generation, Part 01">
+<meta property="og:title" content="Twenty-Five Years — At the Speed of Generation, Part 01">
 <meta property="og:description" content="Animation veteran Nanda Mohan opens the three-part series with the apprenticeship years, the big-show grind, and the lessons most studios still get wrong.">
 <meta property="og:type" content="article">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -290,7 +290,7 @@
 <!-- ── Hero ─────────────────────────────────────────────────── -->
 <header class="hero">
   <span class="kicker">At the Speed of Generation · Part 01 of 03</span>
-  <h1>Twenty-Five Years <em>In The Trenches</em>.</h1>
+  <h1>Twenty-Five <em>Years</em>.</h1>
   <p class="sub">The opening conversation of a three-part series with Nmedia Services founder Nanda Mohan, hosted by Ravi. The lessons of a quarter-century inside the animation industry — apprenticeship, big-show grind, and the moment he stopped working inside someone else's pipeline.</p>
   <div class="author-bar">
     <div class="author-avatar">N</div>
@@ -395,6 +395,113 @@
     </div>
   </div>
 </section>
+
+<!-- ── Continue the series · embedded videos ──────────────── -->
+<section class="continuity">
+  <div class="continuity-head">
+    <p class="kicker-tiny">[ CONTINUE THE CONVERSATION ]</p>
+    <h2 class="continuity-title">The series, end to end.</h2>
+    <p class="continuity-sub">Three parts, one through-line. Part 01 sets up the journey. Part 02 picks up where the tools changed. Part 03 looks at what comes next.</p>
+  </div>
+  <div class="continuity-grid">
+    <div class="part-card current">
+      <div class="part-tag">Part 01 · Now Playing</div>
+      <div class="part-frame">
+        <iframe src="https://www.youtube.com/embed/u_oYE4nzRT8?rel=0&modestbranding=1"
+                title="Part 01 · The Journey In"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+      </div>
+      <h3 class="part-h">The Journey In</h3>
+      <p class="part-d">Twenty-five years of animation. Apprenticeship, big-show grind, and what the industry got right and wrong.</p>
+    </div>
+    <div class="part-card">
+      <div class="part-tag">Part 02 · Available Now</div>
+      <div class="part-frame">
+        <iframe src="https://www.youtube.com/embed/ynPxHRSeSo0?rel=0&modestbranding=1"
+                title="Part 02 · When The Tools Changed"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+      </div>
+      <h3 class="part-h">When The Tools Changed</h3>
+      <p class="part-d">The AI reckoning. Continuity drift, multi-model strategy, and the eleven-panel pipeline as the working answer.</p>
+    </div>
+    <div class="part-card upcoming">
+      <div class="part-tag">Part 03 · Coming Soon</div>
+      <div class="part-frame placeholder">
+        <span class="part-icon">▷</span>
+        <span class="part-soon">Final episode landing soon</span>
+      </div>
+      <h3 class="part-h">What Comes Next</h3>
+      <p class="part-d">The vision forward. The studio of 2030, factory-model content, and the closing thesis.</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .continuity {
+    max-width: 1200px; margin: 4rem auto; padding: 0 2rem;
+  }
+  .continuity-head { text-align: center; margin-bottom: 2.5rem; }
+  .continuity-head .kicker-tiny {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem; color: var(--orange);
+    letter-spacing: 3px; text-transform: uppercase;
+    margin-bottom: 0.75rem;
+  }
+  .continuity-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2.25rem; font-weight: 700; letter-spacing: -0.02em;
+    margin-bottom: 0.75rem;
+  }
+  .continuity-sub {
+    color: var(--muted); max-width: 640px; margin: 0 auto;
+    font-size: 1rem; line-height: 1.55;
+  }
+  .continuity-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+  }
+  .part-card {
+    background: var(--panel); border: 1px solid var(--line);
+    overflow: hidden; transition: border-color 0.2s, transform 0.2s;
+  }
+  .part-card:hover { border-color: rgba(232,93,0,0.4); transform: translateY(-2px); }
+  .part-card.current { border-color: rgba(232,93,0,0.5); box-shadow: 0 0 0 1px rgba(232,93,0,0.25); }
+  .part-card.upcoming { opacity: 0.85; }
+  .part-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem; letter-spacing: 2.5px; text-transform: uppercase;
+    color: var(--orange); padding: 1rem 1.25rem 0.75rem;
+  }
+  .part-frame {
+    position: relative; width: 100%; aspect-ratio: 16 / 9;
+    background: #000; overflow: hidden;
+  }
+  .part-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .part-frame.placeholder {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    background: linear-gradient(135deg, #fff5ea, #f7f5f3);
+    color: var(--orange); gap: 0.5rem;
+  }
+  .part-frame.placeholder .part-icon { font-size: 3rem; opacity: 0.6; }
+  .part-frame.placeholder .part-soon {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--muted);
+  }
+  .part-h {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.25rem; font-weight: 700;
+    padding: 1rem 1.25rem 0.5rem; line-height: 1.2;
+  }
+  .part-d {
+    color: var(--muted); font-size: 0.9rem; line-height: 1.5;
+    padding: 0 1.25rem 1.5rem;
+  }
+</style>
 
 <!-- ── CTA ─────────────────────────────────────────────────── -->
 <section class="cta">
