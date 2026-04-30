@@ -86,9 +86,20 @@ export default function HomeDesktop() {
 
               {/* Podcast — At the Speed of Generation, Part 01 */}
               <div>
-                <p className="font-label text-[10px] tracking-[0.4em] text-primary/70 uppercase mb-3">
-                  // Podcast · Part 01 of 03
-                </p>
+                <div className="flex items-center justify-between mb-3 gap-3">
+                  <p className="font-label text-[10px] tracking-[0.4em] text-primary/70 uppercase">
+                    // Podcast · Part 01 of 03
+                  </p>
+                  <a
+                    href="/articles/podcast/ep01.html"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 font-label text-[10px] tracking-[0.25em] uppercase text-primary/80 hover:text-primary border border-primary/30 hover:border-primary/60 px-2.5 py-1 transition-all"
+                  >
+                    <span className="material-symbols-outlined text-xs" style={{ fontSize: "12px" }}>article</span>
+                    Read Article
+                  </a>
+                </div>
                 <div className="relative w-full aspect-video bg-surface-container-highest border border-white/5 overflow-hidden shadow-2xl group">
                   <iframe
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
