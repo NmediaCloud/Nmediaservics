@@ -84,22 +84,21 @@ export default function HomeDesktop() {
                 </div>
               </div>
 
-              {/* Podcast placeholder */}
+              {/* Podcast — At the Speed of Generation, Part 01 */}
               <div>
                 <p className="font-label text-[10px] tracking-[0.4em] text-primary/70 uppercase mb-3">
-                  // Podcast · Coming Soon
+                  // Podcast · Part 01 of 03
                 </p>
-                <div className="relative w-full aspect-video bg-[#0a0a0a] border border-white/5 overflow-hidden shadow-2xl flex flex-col items-center justify-center text-center px-8">
-                  <div className="absolute inset-0 opacity-30 pointer-events-none">
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[200px] bg-primary/30 blur-[120px] rounded-full"></div>
-                  </div>
-                  <span className="material-symbols-outlined text-primary/60 relative" style={{ fontSize: "72px" }}>podcasts</span>
-                  <p className="font-label text-[11px] tracking-[0.4em] text-primary/80 uppercase mt-4 relative">
-                    [ PODCAST · COMING SOON ]
-                  </p>
-                  <p className="font-body text-xs text-white/40 mt-2 max-w-xs relative">
-                    Long-form conversations on building AI-native production pipelines. Episode 01 lands here.
-                  </p>
+                <div className="relative w-full aspect-video bg-surface-container-highest border border-white/5 overflow-hidden shadow-2xl group">
+                  <iframe
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                    className="absolute inset-0 w-full h-full"
+                    frameBorder="0"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    src="https://www.youtube.com/embed/u_oYE4nzRT8?rel=0&modestbranding=1"
+                    title="At the Speed of Generation · Part 01: The Journey In"
+                  ></iframe>
                 </div>
               </div>
             </div>
