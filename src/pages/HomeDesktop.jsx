@@ -93,8 +93,8 @@ export default function HomeDesktop() {
                 </button>
               </div>
 
-              {/* Podcast — At the Speed of Generation, Part 01 (smaller, 1 col) */}
-              <div>
+              {/* Podcast — At the Speed of Generation, Part 01 (smaller, 1 col, anchored to bottom) */}
+              <div className="flex flex-col justify-end">
                 <div className="flex items-center justify-between mb-3 gap-3">
                   <p className="font-label text-[10px] tracking-[0.4em] text-primary/70 uppercase">
                     // Podcast · Part 01 of 03
