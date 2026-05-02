@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Primary pages -->
+  <url><loc>https://www.nmediaservices.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://www.nmediaservices.com/about</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.nmediaservices.com/commercials</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.nmediaservices.com/animation-vfx</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.nmediaservices.com/motion-graphics</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.nmediaservices.com/digital-marketing</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.nmediaservices.com/digital-conversion</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- IP slate -->
+  <url><loc>https://www.nmediaservices.com/ip-series</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.nmediaservices.com/ip/tiny-wings-buzz</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.nmediaservices.com/ip/world-under-my-bed</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.nmediaservices.com/ip/cici</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.nmediaservices.com/ip/chimpu</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.nmediaservices.com/ip/woh-shaadi</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Pipeline articles -->
+  <url><loc>https://www.nmediaservices.com/articles/Pipeline_Production_System.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.nmediaservices.com/articles/00_Info_Input_Collection.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.nmediaservices.com/articles/01_Asset_Design.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.nmediaservices.com/articles/02_Story_Script_Development.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.nmediaservices.com/articles/03_Episodic_Asset_Development.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.nmediaservices.com/articles/04_Storyboard_Generator.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.nmediaservices.com/articles/05_Animatics_Workshop.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.nmediaservices.com/articles/06_Animation_Sandbox.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.nmediaservices.com/articles/06_Comic_Book_Generator.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.nmediaservices.com/articles/07_Reel_Polish.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.nmediaservices.com/articles/MiroFish.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.nmediaservices.com/articles/UGC_Pipeline.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Podcast -->
+  <url><loc>https://www.nmediaservices.com/articles/podcast/ep01.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+</urlset>
