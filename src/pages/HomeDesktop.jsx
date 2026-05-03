@@ -761,14 +761,4 @@ const IP_SLATE_HOME = [
     detail_url: "/ip/chimpu",
     poster: "/images/ip/chimpu.jpg",
   },
-  {
-    title: "Micro Series · Woh Shaadi",
-    subtitle: "Short-form · Cultural",
-    icon: "favorite",
-    version: "VOL. 05",
-    status: "Concept",
-    body: "Microformat short-form series — observational comedy threaded through the rituals of a modern wedding week.",
-    detail_url: "/ip/woh-shaadi",
-    poster: "/images/ip/woh-shaadi.jpg",
-  },
 ];
