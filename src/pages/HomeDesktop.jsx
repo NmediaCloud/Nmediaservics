@@ -313,11 +313,17 @@ export default function HomeDesktop() {
                 >
                   <div className="relative w-full bg-black overflow-hidden" style={{ aspectRatio: "16 / 9" }}>
                     <img
-                      src="/images/ugc_pipeline.png"
+                      src="https://i.ytimg.com/vi/aUEGIbUOMIc/maxresdefault.jpg"
                       alt="UGC Pipeline · Automated Video Factory"
                       loading="lazy"
-                      className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-[1.02] transition-all duration-500"
+                      onError={(e) => { e.currentTarget.src = "/images/ugc_pipeline.png"; }}
+                      className="absolute inset-0 w-full h-full object-cover scale-[1.04] opacity-90 group-hover:opacity-100 group-hover:scale-[1.06] transition-all duration-500"
                     />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="w-16 h-16 rounded-full bg-primary/90 group-hover:bg-primary flex items-center justify-center shadow-2xl shadow-primary/40 transition-all group-hover:scale-110">
+                        <span className="material-symbols-outlined text-on-primary" style={{ fontSize: "36px" }}>play_arrow</span>
+                      </div>
+                    </div>
                   </div>
                   <div className="p-8 relative">
                     <span className="absolute top-3 right-3 font-label text-[9px] tracking-[0.3em] uppercase text-primary/70 bg-primary/10 border border-primary/20 px-2 py-1">
