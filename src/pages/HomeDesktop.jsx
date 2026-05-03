@@ -269,7 +269,7 @@ export default function HomeDesktop() {
                     src="https://i.ytimg.com/vi/KfV_Y7hudvM/maxresdefault.jpg"
                     alt="Stockflow.Media preview"
                     loading="lazy"
-                    className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity"
+                    className="absolute inset-0 w-full h-full object-cover scale-[1.04] opacity-80 group-hover:opacity-100 group-hover:scale-[1.06] transition-all duration-500"
                   />
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="w-20 h-20 rounded-full bg-primary/90 group-hover:bg-primary flex items-center justify-center transition-all group-hover:scale-110 shadow-2xl shadow-primary/40">
