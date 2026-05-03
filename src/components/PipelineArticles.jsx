@@ -12,7 +12,7 @@
  *     plus a 2-line intro line built from the title (descriptive text
  *     stays light — heavy copy lives on the article itself).
  */
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 // One-line intro per article. Hand-written to be punchy at thumbnail size.
 // (Could be moved into articles.json as an `intro` field later, but for
@@ -45,6 +45,47 @@ const INTROS = {
 export default function PipelineArticles() {
   const [articles, setArticles] = useState([]);
   const [error, setError] = useState(null);
+  const stripRef = useRef(null);
+  const dragRef = useRef({ active: false, startX: 0, startScroll: 0, moved: 0 });
+
+  // Scroll the strip by ~one card width on chevron click.
+  const nudge = (dir) => {
+    const el = stripRef.current;
+    if (!el) return;
+    const card = el.querySelector("a");
+    const step = (card?.offsetWidth || 260) + 4; // card + gap
+    el.scrollBy({ left: dir * step * 2, behavior: "smooth" });
+  };
+
+  // Click-and-drag pan handlers.
+  const onPointerDown = (e) => {
+    const el = stripRef.current;
+    if (!el) return;
+    dragRef.current = { active: true, startX: e.clientX, startScroll: el.scrollLeft, moved: 0 };
+    el.setPointerCapture?.(e.pointerId);
+    el.classList.add("cursor-grabbing");
+  };
+  const onPointerMove = (e) => {
+    const d = dragRef.current;
+    if (!d.active) return;
+    const el = stripRef.current;
+    const dx = e.clientX - d.startX;
+    d.moved = Math.abs(dx);
+    el.scrollLeft = d.startScroll - dx;
+  };
+  // Swallow the click that fires after a real drag so cards don't open.
+  const onClickCapture = (e) => {
+    if (dragRef.current.moved > 6) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+  };
+  const onPointerUp = (e) => {
+    const el = stripRef.current;
+    dragRef.current.active = false;
+    el?.releasePointerCapture?.(e.pointerId);
+    el?.classList.remove("cursor-grabbing");
+  };
 
   useEffect(() => {
     fetch(`/articles/articles.json?v=${Date.now()}`, { cache: "no-cache" })
@@ -94,11 +135,46 @@ export default function PipelineArticles() {
           </a>
         </div>
 
-        {/* Card strip — horizontal scroll on overflow, snap-aligned */}
-        <div className="
-          flex gap-1 overflow-x-auto pb-4
-          snap-x snap-mandatory
-          scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent
+        {/* Carousel — chevron arrows + click-drag pan, native scrollbar hidden */}
+        <div className="relative group/carousel">
+
+          {/* Left chevron */}
+          <button
+            type="button"
+            onClick={() => nudge(-1)}
+            aria-label="Scroll left"
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 z-20 w-12 h-12 rounded-full bg-surface-container/80 hover:bg-primary border border-white/10 hover:border-primary backdrop-blur-md flex items-center justify-center opacity-0 group-hover/carousel:opacity-100 transition-all hover:scale-110 cursor-pointer shadow-2xl shadow-black/40"
+          >
+            <span className="material-symbols-outlined text-white" style={{ fontSize: "28px" }}>chevron_left</span>
+          </button>
+
+          {/* Right chevron */}
+          <button
+            type="button"
+            onClick={() => nudge(1)}
+            aria-label="Scroll right"
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 z-20 w-12 h-12 rounded-full bg-surface-container/80 hover:bg-primary border border-white/10 hover:border-primary backdrop-blur-md flex items-center justify-center opacity-0 group-hover/carousel:opacity-100 transition-all hover:scale-110 cursor-pointer shadow-2xl shadow-black/40"
+          >
+            <span className="material-symbols-outlined text-white" style={{ fontSize: "28px" }}>chevron_right</span>
+          </button>
+
+          {/* Edge fades */}
+          <div className="absolute left-0 top-0 bottom-0 w-12 z-10 bg-gradient-to-r from-surface-container-lowest to-transparent pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-12 z-10 bg-gradient-to-l from-surface-container-lowest to-transparent pointer-events-none" />
+
+        <div
+          ref={stripRef}
+          onPointerDown={onPointerDown}
+          onPointerMove={onPointerMove}
+          onPointerUp={onPointerUp}
+          onPointerCancel={onPointerUp}
+          onPointerLeave={onPointerUp}
+          onClickCapture={onClickCapture}
+          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+          className="
+          flex gap-1 overflow-x-auto pb-2
+          snap-x snap-mandatory cursor-grab
+          [&::-webkit-scrollbar]:hidden
         ">
           {articles.map((a) => (
             <a
@@ -180,9 +256,11 @@ export default function PipelineArticles() {
           ))}
         </div>
 
+        </div>
+
         {/* Scroll-hint footer */}
         <p className="mt-4 text-on-surface-variant/40 text-[10px] font-label tracking-widest uppercase text-right">
-          ← Scroll for all {articles.length} →
+          Drag · click chevrons · {articles.length} field notes
         </p>
       </div>
     </section>
