@@ -6,10 +6,12 @@ export default function HomeMobile() {
     <div className="bg-[#131313] text-[#e5e2e1] font-['Inter'] selection:bg-primary selection:text-on-primary">
       {/* TopAppBar */}
       <header className="fixed top-0 w-full z-50 bg-[#131313]/70 backdrop-blur-md flex justify-between items-center px-6 h-16">
-        <div className="flex items-center gap-2">
-          <span className="material-symbols-outlined text-[#FFB68D]">
-            terminal
-          </span>
+        <div className="flex items-center gap-3">
+          <img
+            src="https://stockflow.media/assets/Nmedia_logo.png"
+            alt="Nmedia Services Logo"
+            className="h-8 w-auto object-contain"
+          />
           <span className="font-['Space_Grotesk'] tracking-tighter uppercase text-xl font-bold text-[#E5E2E1]">
             NMEDIA
           </span>
@@ -28,7 +30,7 @@ export default function HomeMobile() {
             <div className="inline-flex items-center gap-2 mb-6">
               <div className="w-2 h-2 bg-primary"></div>
               <span className="font-label text-xs tracking-[0.3em] text-outline uppercase">
-                Established 2024
+                Established 2014
               </span>
             </div>
             <h1 className="font-headline text-5xl font-bold tracking-tighter leading-[0.9] mb-8">
@@ -115,7 +117,7 @@ export default function HomeMobile() {
               <span className="font-label text-[10px] text-outline block mb-1 uppercase tracking-widest">
                 Year
               </span>
-              <span className="font-body text-sm font-medium">2024</span>
+              <span className="font-body text-sm font-medium">2014</span>
             </div>
           </div>
         </section>

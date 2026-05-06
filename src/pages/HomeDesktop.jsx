@@ -58,7 +58,7 @@ export default function HomeDesktop() {
         <section className="max-w-[1440px] mx-auto px-8 mb-24">
           <div className="mb-12">
             <a 
-              href="https://stockflow.media" 
+              href="/articles/podcast/ep01.html" 
               target="_blank" 
               rel="noopener noreferrer"
               className="inline-block border border-primary px-8 py-4 mb-8 hover:bg-primary/10 transition-colors"
@@ -632,7 +632,7 @@ export default function HomeDesktop() {
                       Render Farm Load: <span className="text-primary">42%</span>
                     </span>
                     <span className="text-primary font-bold">•</span>
-                    <span>Established 2024</span>
+                    <span>Established 2014</span>
                     <span className="text-primary font-bold">•</span>
                 </div>
             ))}
