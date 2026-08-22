@@ -367,6 +367,39 @@ export default function HomeDesktop() {
                     </p>
                   </div>
                 </a>
+                {/* Third card spans both columns so the row resolves instead of
+                    leaving a half-width gap beside it. */}
+                <a
+                  href="/articles/CreativeFlow.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="sm:col-span-2 block bg-gradient-to-br from-primary/10 via-surface-container to-surface-container hover:from-primary/15 transition-all duration-300 border border-primary/20 hover:border-primary/50 group overflow-hidden"
+                >
+                  <div className="relative w-full bg-black overflow-hidden" style={{ aspectRatio: "16 / 9" }}>
+                    <img
+                      src="/images/creativeflow.png"
+                      alt="CreativeFlow · Creative Automation Pipeline"
+                      loading="lazy"
+                      className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-[1.02] transition-all duration-500"
+                    />
+                  </div>
+                  <div className="p-8 relative">
+                    <span className="absolute top-3 right-3 font-label text-[9px] tracking-[0.3em] uppercase text-primary/70 bg-primary/10 border border-primary/20 px-2 py-1">
+                      Module
+                    </span>
+                    <div className="w-10 h-10 bg-primary/15 border border-primary/30 rounded-xl flex items-center justify-center mb-6">
+                      <span className="material-symbols-outlined text-primary" style={{ fontSize: "22px" }}>auto_awesome_mosaic</span>
+                    </div>
+                    <h4 className="font-headline text-xl font-bold mb-2 text-white">
+                      CreativeFlow
+                    </h4>
+                    <p className="font-body text-sm text-white/50 group-hover:text-white/80 transition-colors max-w-2xl">
+                      One campaign brief in. On-brand, localized ad creatives in
+                      every aspect ratio out — reusing the assets you already own
+                      and generating only what is missing.
+                    </p>
+                  </div>
+                </a>
               </div>
 
               {/* Studio capabilities */}

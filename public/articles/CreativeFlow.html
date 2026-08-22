@@ -62,9 +62,9 @@
   </div>
 </section>
 
-<!-- ── YOUTUBE EMBED SLOT ──────────────────────────────────────
+<!-- ── YOUTUBE EMBED SLOT 1 · OVERVIEW ─────────────────────────
      Wire a video: change `data-yt-id` below to the YouTube video ID
-     (the part after v= in the URL, e.g. data-yt-id="dQw4w9WgXcQ").
+     (the part after v= in the URL, e.g. data-yt-id="aBcDeFgHiJk").
      The inline script at the bottom of this file swaps the iframe
      src on load. Leave as REPLACE_ME to keep the "coming soon" poster.
      ─────────────────────────────────────────────────────── -->
@@ -72,7 +72,7 @@
   <div class="video-frame">
     <iframe
       src="about:blank"
-      title="CreativeFlow · pipeline walkthrough"
+      title="CreativeFlow · pipeline overview"
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       allowfullscreen
@@ -81,8 +81,8 @@
       <div class="video-play" aria-hidden="true">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
       </div>
-      <span class="video-tag">Video walkthrough · coming soon</span>
-      <p class="video-hint">A short walkthrough lands here. Drop your YouTube ID into <code>data-yt-id</code> on this section to enable.</p>
+      <span class="video-tag">Pipeline overview · coming soon</span>
+      <p class="video-hint">A short overview lands here. Drop your YouTube ID into <code>data-yt-id</code> on this section to enable.</p>
     </div>
   </div>
 </section>
@@ -159,6 +159,29 @@
 
 </article>
 
+<!-- ── YOUTUBE EMBED SLOT 2 · SETUP GUIDE ──────────────────────
+     Second video. Same wiring as slot 1 — replace `data-yt-id`
+     with the YouTube video ID to enable it.
+     ─────────────────────────────────────────────────────── -->
+<section class="video-embed" data-yt-id="REPLACE_ME_2">
+  <div class="video-frame">
+    <iframe
+      src="about:blank"
+      title="CreativeFlow · setup and run guide"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+      loading="lazy"></iframe>
+    <div class="video-poster">
+      <div class="video-play" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+      </div>
+      <span class="video-tag">Setup &amp; run guide · coming soon</span>
+      <p class="video-hint">A walkthrough of cloning the repo and running a campaign locally. Drop your YouTube ID into <code>data-yt-id</code> on this section to enable.</p>
+    </div>
+  </div>
+</section>
+
 <!-- ── SOURCE / DOWNLOAD ───────────────────────────────────── -->
 <section class="cta" style="padding-top:2rem;">
   <h3>Read the code</h3>
@@ -181,18 +204,20 @@
 <footer class="footer">© Nmedia Services · Creative Automation Pipeline v1.0 · <a href="https://nmediaservices.com">nmediaservices.com</a></footer>
 
 <script>
-  // Hydrate YouTube embed if data-yt-id has been set to a real video ID.
+  // Hydrate every YouTube slot whose data-yt-id has been set to a real ID.
+  // Each slot is independent, so one video can go live before the other.
   (function () {
-    var s = document.querySelector('.video-embed');
-    if (!s) return;
-    var id = s.getAttribute('data-yt-id') || '';
-    if (!id || id === 'REPLACE_ME') return;
-    var iframe = s.querySelector('iframe');
-    var poster = s.querySelector('.video-poster');
-    if (!iframe) return;
-    iframe.src = 'https://www.youtube.com/embed/' + id +
-                 '?rel=0&modestbranding=1&playsinline=1';
-    if (poster) poster.style.display = 'none';
+    var slots = document.querySelectorAll('.video-embed');
+    Array.prototype.forEach.call(slots, function (s) {
+      var id = (s.getAttribute('data-yt-id') || '').trim();
+      if (!id || id.indexOf('REPLACE_ME') === 0) return;
+      var iframe = s.querySelector('iframe');
+      var poster = s.querySelector('.video-poster');
+      if (!iframe) return;
+      iframe.src = 'https://www.youtube.com/embed/' + id +
+                   '?rel=0&modestbranding=1&playsinline=1';
+      if (poster) poster.style.display = 'none';
+    });
   })();
 </script>
 </body>
