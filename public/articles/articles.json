@@ -2,7 +2,7 @@
   {
     "slug": "00_Info_Input_Collection",
     "title": "Turning Client Chaos Into a Production Brief",
-    "tag": "Module 00 \u00b7 Content Input System",
+    "tag": "Module 00 · Content Input System",
     "stage": "Pre-Production",
     "thumbnail": "./images/00a.jpg",
     "url": "./00_Info_Input_Collection.html",
@@ -11,7 +11,7 @@
   {
     "slug": "01_Asset_Design",
     "title": "Designing a Cast Before You Write a Word",
-    "tag": "Module 01 \u00b7 Asset Design",
+    "tag": "Module 01 · Asset Design",
     "stage": "Pre-Production",
     "thumbnail": "./images/01a.jpg",
     "url": "./01_Asset_Design.html",
@@ -20,7 +20,7 @@
   {
     "slug": "02_Story_Script_Development",
     "title": "One Pipeline, Five Story Formats",
-    "tag": "Module 02 \u00b7 Story / Script Development",
+    "tag": "Module 02 · Story / Script Development",
     "stage": "Pre-Production",
     "thumbnail": "./images/02a.jpg",
     "url": "./02_Story_Script_Development.html",
@@ -29,7 +29,7 @@
   {
     "slug": "03_Episodic_Asset_Development",
     "title": "Episodic Variants Without Breaking Continuity",
-    "tag": "Module 03 \u00b7 Episodic Asset Development",
+    "tag": "Module 03 · Episodic Asset Development",
     "stage": "Pre-Production",
     "thumbnail": "./images/03_a.jpg",
     "url": "./03_Episodic_Asset_Development.html",
@@ -38,7 +38,7 @@
   {
     "slug": "04_Storyboard_Generator",
     "title": "From Scene List to Shot Panels in Minutes",
-    "tag": "Module 04 \u00b7 Storyboard Generator",
+    "tag": "Module 04 · Storyboard Generator",
     "stage": "Production",
     "thumbnail": "./images/04_a.jpg",
     "url": "./04_Storyboard_Generator.html",
@@ -47,7 +47,7 @@
   {
     "slug": "05_Animatics_Workshop",
     "title": "Animatics That Actually Time the Show",
-    "tag": "Module 05 \u00b7 Animatics Workshop",
+    "tag": "Module 05 · Animatics Workshop",
     "stage": "Production",
     "thumbnail": "./images/05b.jpg",
     "url": "./05_Animatics_Workshop.html",
@@ -56,7 +56,7 @@
   {
     "slug": "06_Animation_Sandbox",
     "title": "An Animation Sandbox That Doesn't Lock You to One Model",
-    "tag": "Module 06 \u00b7 Animation Sandbox",
+    "tag": "Module 06 · Animation Sandbox",
     "stage": "Production",
     "thumbnail": "./images/06a.jpg",
     "url": "./06_Animation_Sandbox.html",
@@ -65,7 +65,7 @@
   {
     "slug": "06_Comic_Book_Generator",
     "title": "The Same Pipeline, Now It Prints a Comic",
-    "tag": "Module 06 \u00b7 Comic Book Generator",
+    "tag": "Module 06 · Comic Book Generator",
     "stage": "Production",
     "thumbnail": "./images/comic_a.jpg",
     "url": "./06_Comic_Book_Generator.html",
@@ -74,10 +74,19 @@
   {
     "slug": "07_Reel_Polish",
     "title": "Polishing AI Animation Reels at Production Speed",
-    "tag": "Module 07 \u00b7 Reel Polish",
+    "tag": "Module 07 · Reel Polish",
     "stage": "Post-Production",
     "thumbnail": "./images/07a.jpg",
     "url": "./07_Reel_Polish.html",
     "youtube_id": "phVQs_pFviQ"
+  },
+  {
+    "slug": "CreativeFlow",
+    "title": "One Brief In, Every Format Out",
+    "tag": "CreativeFlow · Creative Automation Pipeline",
+    "stage": "Production",
+    "thumbnail": "./images/creativeflow_a.png",
+    "url": "./CreativeFlow.html",
+    "youtube_id": ""
   }
 ]

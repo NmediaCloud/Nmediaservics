@@ -40,6 +40,8 @@ const INTROS = {
     "A million synthetic viewers test-screen your pitch in twelve minutes.",
   "UGC_Pipeline":
     "One Google Sheet row in. One finished UGC, ad, or podcast video out. Vision-graded QA.",
+  "CreativeFlow":
+    "One campaign brief in. On-brand, localized ad creatives in every aspect ratio out.",
 };
 
 export default function PipelineArticles() {
